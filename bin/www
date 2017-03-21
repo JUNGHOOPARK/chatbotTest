@@ -11,10 +11,10 @@ var http = require('http'),
     fs    = require('fs')
     express = require('express');
 
-var options = {
+/*var options = {
   key:fs.readFileSync('key.pem'),
     cert:fs.readFileSync('cert.pem')
-};
+};*/
 
 /*var port1 = 80;
 var port2 = 443;*/
