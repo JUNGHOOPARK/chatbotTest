@@ -16,8 +16,8 @@ var options = {
     cert:fs.readFileSync('cert.pem')
 };
 
-var port1 = 80;
-var port2 = 443;
+/*var port1 = 80;
+var port2 = 443;*/
 
 /*
 var app = express();
@@ -37,24 +37,24 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
-http.createServer(app).listen(port1, function(){
+/*http.createServer(app).listen(port1, function(){
     console.log("Http server listening on port " + port1);
 });
 
 
 https.createServer(options, app).listen(port2, function(){
     console.log("Https server listening on port " + port2);
-});
+});*/
 
-// var server = http.createServer(app);
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-// server.listen(port);
-/*server.on('error', onError);
-server.on('listening', onListening);*/
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
