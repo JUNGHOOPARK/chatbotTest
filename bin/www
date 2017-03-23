@@ -68,7 +68,7 @@ app.get('/hook', function (reqeust, response) {
 
 
 app.post('/hook', function (request, response) {
-    var sess = req.session;
+    var sess = request.session;
     if (sess.views) {
         sess.views++
         console.log(sess.views);
