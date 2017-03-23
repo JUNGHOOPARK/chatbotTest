@@ -53,6 +53,8 @@ app.post('/hook', function (request, response) {
     var eventObj = request.body.events[0];
     var source = eventObj.source;
     var message = eventObj.message;
+    var formData = {};
+
 
     // request log
     console.log('======================', new Date() ,'======================');
@@ -64,9 +66,13 @@ app.post('/hook', function (request, response) {
         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
     }
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
-        console.log(message.text);
         if(message.text.indexOf("컨시어지") != -1){
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress());
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start"));
+        }else if(message.text.indexOf("spaces.category") != -1){
+            var val = message.text.split("=")[1];
+            formData.spaces.category = val;
+            console.log(formData.spaces.category);
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces"));
         }else{
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
         }
