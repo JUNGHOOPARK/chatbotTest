@@ -15,22 +15,22 @@ module.exports.getConciergeExpress = function () {
                             {
                                 "type": "message",
                                 "label": "상업 공간",
-                                "data": "1"
+                                "text": "1"
                             },
                             {
                                 "type": "message",
                                 "label": "업무 공간",
-                                "data": "2"
+                                "text": "2"
                             },
                             {
                                 "type": "message",
                                 "label": "주거 공간",
-                                "data": "3"
+                                "text": "3"
                             },
                             {
                                 "type": "message",
                                 "label": "문화/종교 공간",
-                                "data": "4"
+                                "text": "4"
                             }
 
 
