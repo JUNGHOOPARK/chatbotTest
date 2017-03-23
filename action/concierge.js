@@ -53,22 +53,22 @@ module.exports.getConciergeExpress = function (type) {
                         {
                             "type": "message",
                             "label": "요식 식당",
-                            "text": "spaces.category=1"
+                            "text": "@category=1"
                         },
                         {
                             "type": "message",
                             "label": "상업 공간",
-                            "text": "spaces.category=2"
+                            "text": "@category=2"
                         },
                         {
                             "type": "message",
                             "label": "교육 공간",
-                            "text": "spaces.category=3"
+                            "text": "@category=3"
                         },
                         {
                             "type": "message",
                             "label": "의료 공간",
-                            "text": "spaces.category=4"
+                            "text": "@category=4"
                         }
 
 

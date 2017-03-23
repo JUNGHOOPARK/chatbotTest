@@ -69,10 +69,10 @@ app.post('/hook', function (request, response) {
         if(message.text.indexOf("컨시어지") != -1){
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start"));
         }else if(message.text.indexOf("@category") != -1){
-            var val = message.text.split("=")[1];
+            /*var val = message.text.split("=")[1];
             formData.spaces.category = val;
-            console.log(formData.spaces.category);
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces"));
+            console.log(formData.spaces.category);*/
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1"));
         }else{
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
         }
