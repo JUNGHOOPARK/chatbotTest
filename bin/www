@@ -87,7 +87,7 @@ app.post('/hook', function (request, response) {
         sess.spaces3[i] = false;
 
         sess.spacesCategory = [];
-
+        sess.spacesSubCategory = [];
     }else{
 
     }
@@ -136,7 +136,7 @@ app.post('/hook', function (request, response) {
             }
             sess.concierge[i] = true;
             sess.spaces1[i] = true;
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start",'컨시어지'));
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",''));
         }else{
 
             if(sess.concierge[i] === true){
@@ -162,28 +162,36 @@ app.post('/hook', function (request, response) {
                     } else if(message.text.indexOf("업무공간") != -1){
                         sess.spacesCategory[i]='2';
 
-                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'2'));
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'2'));
 
                     }else if(message.text.indexOf("주거공간") != -1){
                         sess.spacesCategory[i]='3';
 
-                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'3'));
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'3'));
 
                     }else if(message.text.indexOf("문화/종교공간") != -1){
                         sess.spacesCategory[i]='4';
 
-                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'4'));
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'4'));
 
                     }else if(message.text.indexOf("기타공간") != -1){
                         sess.spacesCategory[i]='5';
 
-                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'5'));
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'5'));
 
                     }
                     sess.spaces1[i] = false;
+                    sess.spaces2[i] = true;
                 }
 
-
+                if(sess.spaces2[i] === true) {
+                    var result = actionConcierge.getSpaces2(sess.spacesCategory[i],message.text);
+                    sess.spacesSubCategory[i] = result;
+                    var params = [];
+                    params[0] = sess.spacesCategory[i];
+                    params[1] = result;
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces3",params));
+                }
             }else{
                 reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
             }

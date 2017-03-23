@@ -1,8 +1,9 @@
 const emotion = require('./emotion');
 const util = require('./util');
+
 module.exports.getConciergeExpress = function (type,opt) {
 
-    if(type === 'start'){
+    if(type === 'spaces1'){
         var result = [
                 {
                     "type": "text",
@@ -14,14 +15,13 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "5.기타공간"
                 }
             ];
-    }else if(type === 'spaces1'){
+    }else if(type === 'spaces2'){
         var temp, prop,
-            cnt = 0, arr = [];
+            cnt = 0;
         temp = util.portfolioDivision[opt];
         var html = "";
         for (prop in temp) {
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
-                arr.push({index: ++cnt, value: temp[prop].name});
                 console.log(temp[prop].name);
                 html += cnt+"."+temp[prop].name+"\n";
             }
@@ -34,7 +34,40 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "text": "어떠한 공간을 인테리어 하시나요?\n\n" +html
                 }
             ];
+    }else if(type === 'spaces3'){
+        var temp, prop,
+            cnt = 0;
+        temp = util.portfolioDivision[opt[0]][opt[1]];
+        var html = "";
+        for (prop in temp) {
+            if (temp.hasOwnProperty(prop) && prop !== 'name') {
+                html += cnt+"."+temp[prop].name+"\n";
+            }
+        }
+
+
+        var result = [
+            {
+                "type": "text",
+                "text": "어떠한 공간을 인테리어 하시나요?\n\n" +html
+            }
+        ];
     }
 
     return result;
 };
+
+module.exports.getSpaces2 = function (spaces1,msg) {
+    var temp, prop,
+        cnt = 0;
+    temp = util.portfolioDivision[spaces1];
+
+    for (prop in temp) {
+        if (temp.hasOwnProperty(prop) && prop !== 'name') {
+            ++cnt;
+            if(msg.indexOf(temp[prop].name)){
+                return cnt;
+            }
+        }
+    }
+}
