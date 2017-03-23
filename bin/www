@@ -75,7 +75,7 @@ app.post('/hook', function (request, response) {
     console.log('[request message]', eventObj.message);
 
     if(message.type == "text" && message.text.indexOf("인집사") != -1){
-        if(sess.username === null){
+        if(sess.username === null || sess.username === '' || sess.username === undefined){
             sess.username = eventObj.source.userId;
             console.log("새로만든세션"+sess.username);
         }else{
