@@ -59,9 +59,16 @@ app.get('/hook', function (reqeust, response) {
     response.end('<h1>chatbot - skwjdgn@naver.com<h1>');
 });
 
+var sess;
 app.post('/hook', function (request, response) {
 
-    var sess = request.session;
+
+    if(sess === null || sess === '' || sess === undefined){
+        sess = request.session;
+    }else{
+
+    }
+
 
     var eventObj = request.body.events[0];
     var source = eventObj.source;
