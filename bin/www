@@ -15,6 +15,17 @@ const actionScheduler = require('../action/scheduler');
 
 var app = express();
 
+var session = require('express-session');
+
+
+app.use(session({
+    secret:'@#@$MYSIGN#@$#$',
+    resave:false,
+    saveUninitialized: true
+}));
+
+var sess;
+
 
 var port = normalizePort(process.env.PORT || '3000');
 
@@ -50,6 +61,8 @@ app.get('/hook', function (reqeust, response) {
 
 app.post('/hook', function (request, response) {
 
+    sess = request.session;
+
     var eventObj = request.body.events[0];
     var source = eventObj.source;
     var message = eventObj.message;
@@ -62,9 +75,11 @@ app.post('/hook', function (request, response) {
     console.log('[request message]', eventObj.message);
 
     if(message.type == "text" && message.text.indexOf("인집사") != -1){
+        sess.username = eventObj.source.userId;
         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
     }
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
+        console.log(sess.username);
         if(message.text.indexOf("컨시어지") != -1){
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start",'컨시어지'));
         }else if(message.text.indexOf("상업공간") != -1){
