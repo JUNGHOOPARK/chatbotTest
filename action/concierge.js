@@ -31,12 +31,8 @@ module.exports.getConciergeExpress = function () {
                                 "type": "message",
                                 "label": "문화/종교 공간",
                                 "data": "4"
-                            },
-                            {
-                                "type": "message",
-                                "label": "기타 공간",
-                                "data": "5"
                             }
+
 
                         ]
                     }
