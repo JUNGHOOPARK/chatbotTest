@@ -61,7 +61,7 @@ app.get('/hook', function (reqeust, response) {
 
 app.post('/hook', function (request, response) {
 
-    console.log(request.session);
+    console.log("request.session?>>>>>>>"+request.session);
     sess = request.session;
 
     var eventObj = request.body.events[0];
