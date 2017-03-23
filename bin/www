@@ -71,7 +71,7 @@ var i = 0;
 app.post('/hook', function (request, response) {
     if(sess === null || sess === '' || sess === undefined){
         sess = request.session;
-
+        sess.username[i] = null;
     }else{
 
     }
