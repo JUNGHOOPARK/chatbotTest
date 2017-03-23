@@ -1,5 +1,5 @@
 const emotion = require('./emotion');
-
+const util = require('./util');
 module.exports.getConciergeExpress = function (type,opt) {
 
     if(type === 'start'){
@@ -15,10 +15,22 @@ module.exports.getConciergeExpress = function (type,opt) {
                 }
             ];
     }else if(type === 'spaces1'){
+        var temp, prop,
+            cnt = 0, arr = [];
+        temp = util.portfolioDivision[opt];
+
+        for (prop in temp) {
+            if (temp.hasOwnProperty(prop) && prop !== 'name') {
+                arr.push({index: ++cnt, value: temp[prop].name});
+                console.log(arr.value);
+            }
+        }
+
+
         var result = [
                 {
                     "type": "text",
-                    "text": "어떠한 "+opt+"을 인테리어 하시나요?\n\n" +
+                    "text": "어떠한 공간을 인테리어 하시나요?\n\n" +
                     "1.요식/식당\n" +
                     "2.상업공간\n" +
                     "3.교육공간\n" +
