@@ -10,34 +10,9 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/login', function (req, res){
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<h3>Login</h3>');
-    res.write('<form method="POST" action="/login">');
-    res.write('<label name="userId">UserId : </label>')
-    res.write('<input type="text" name="userId"><br/>');
-    res.write('<label name="password">Password : </label>')
-    res.write('<input type="password" name="password"><br/>');
-    res.write('<input type="submit" name="login" value="Login">');
-    res.write('</form>');
-    res.end();
-});
-
-router.post('/login', function (req, res){
-    var userId = req.param("userId");
-    var password = req.param("password")
-
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('Thank you, '+userId+', you are now logged in.');
-    res.write('<p><a href="/"> back home</a>');
-    res.end();
-});
-
-
-
 router.get('/hook', function (req, res) {
     res.writeHead(200, {'Content-Type' : 'text/html'});
-    res.end('<h1>Momo - phg2491@naver.com<h1>');
+    res.end('<h1>chatbot - skwjdgn@naver.com<h1>');
 });
 
 router.post('/hook', function (req, res) {
