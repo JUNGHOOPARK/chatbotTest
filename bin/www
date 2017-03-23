@@ -67,16 +67,16 @@ app.post('/hook', function (request, response) {
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
         if(message.text.indexOf("컨시어지") != -1){
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start",'컨시어지'));
-        }else if(message.text.indexOf("상업 공간") != -1){
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'상업 공간'));
-        } else if(message.text.indexOf("업무 공간") != -1){
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'업무 공간'));
-        }else if(message.text.indexOf("주거 공간") != -1){
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'주거 공간'));
-        }else if(message.text.indexOf("문화/종교 공간") != -1){
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'문화/종교 공간'));
-        }else if(message.text.indexOf("기타 공간") != -1){
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'기타 공간'));
+        }else if(message.text.indexOf("상업공간") != -1){
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'상업공간'));
+        } else if(message.text.indexOf("업무공간") != -1){
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'업무공간'));
+        }else if(message.text.indexOf("주거공간") != -1){
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'주거공간'));
+        }else if(message.text.indexOf("문화/종교공간") != -1){
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'문화/종교공간'));
+        }else if(message.text.indexOf("기타공간") != -1){
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'기타공간'));
         }else{
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
         }
