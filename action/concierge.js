@@ -1,6 +1,6 @@
 const emotion = require('./emotion');
 
-module.exports.getSureExpress = function () {
+module.exports.getConciergeExpress = function () {
 
     return [{
         "type": "template",

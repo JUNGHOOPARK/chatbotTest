@@ -65,7 +65,7 @@ app.post('/hook', function (request, response) {
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
 
         if(message.text.indexOf("컨시어지")){
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getConciergeExpress());
         }else{
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
         }
