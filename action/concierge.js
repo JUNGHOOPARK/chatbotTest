@@ -6,11 +6,11 @@ module.exports.getConciergeExpress = function (type) {
         var result = [
                 {
                     "type": "text",
-                    "text": "어떠한 공간을 인테리어 하시나요?" +
-                    "상업공간" +
-                    "업무공간" +
-                    "주거공간" +
-                    "문화/종교 공간" +
+                    "text": "어떠한 공간을 인테리어 하시나요?\n\n" +
+                    "상업공간\n" +
+                    "업무공간\n" +
+                    "주거공간\n" +
+                    "문화/종교 공간\n" +
                     "기타공간"
                 }
             ];
