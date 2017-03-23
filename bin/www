@@ -47,11 +47,18 @@ server.on('listening', onListening);
 app.use(bodyParser.json());
 
 app.get('/', function(req, res, next) {
-    console.log(config.CHANNEL_ACCESS_TOKEN);
-    res.writeHead(200, {'Content-Type' : 'text/html'});
-    res.write('<h3>Welcome</h3>');
-    res.write('<span>hello world </span>');
-    res.end();
+    var sess = req.session;
+    if (sess.views) {
+        sess.views++
+        res.setHeader('Content-Type', 'text/html')
+        res.write('<p>views: ' + sess.views + '</p>')
+        res.write('<p>id: ' + sess.id + '</p>')
+        res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
+        res.end()
+    } else {
+        sess.views = 1
+        res.end('welcome to the session demo. refresh!')
+    }
 });
 
 app.get('/hook', function (reqeust, response) {
@@ -61,7 +68,14 @@ app.get('/hook', function (reqeust, response) {
 
 
 app.post('/hook', function (request, response) {
-
+    var sess = req.session;
+    if (sess.views) {
+        sess.views++
+        console.log(sess.views);
+    } else {
+        console.log("nosess");
+        sess.views = 1
+    }
     var eventObj = request.body.events[0];
     var source = eventObj.source;
     var message = eventObj.message;
@@ -75,12 +89,10 @@ app.post('/hook', function (request, response) {
 
     if(message.type == "text" && message.text.indexOf("인집사") != -1){
 
-        request.session.user_id =  eventObj.source.userId;
-
         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
     }
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
-        console.log("여기도올까요"+request.session.user_id);
+
         if(message.text.indexOf("컨시어지") != -1){
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start",'컨시어지'));
         }else if(message.text.indexOf("상업공간") != -1){
