@@ -40,6 +40,7 @@ module.exports.getConciergeExpress = function (type,opt) {
         var temp, prop,
             cnt = 0;
         temp = util.portfolioDivision[opt[0]][opt[1]];
+        console.log(temp);
         var html = "";
         for (prop in temp) {
 
@@ -71,7 +72,6 @@ module.exports.getSpaces2 = function (spaces1,msg) {
         if (temp.hasOwnProperty(prop) && prop !== 'name') {
             ++cnt;
             if(msg.indexOf(temp[prop].name) != -1){
-                console.log(msg+"VS"+temp[prop].name);
                 return cnt;
             }
         }

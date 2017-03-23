@@ -186,8 +186,7 @@ app.post('/hook', function (request, response) {
                 }else if(sess.spaces2[i] === true) {
 
                     var result = actionConcierge.getSpaces2(sess.spacesCategory[i],message.text);
-                    console.log(sess.spacesCategory[i]);
-                    console.log(message.text+":::"+result);
+
                     sess.spacesSubCategory[i] = result;
                     var params = [];
                     params[0] = sess.spacesCategory[i];
