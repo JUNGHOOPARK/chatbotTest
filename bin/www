@@ -61,7 +61,7 @@ app.get('/hook', function (reqeust, response) {
 
 var sess;
 app.post('/hook', function (request, response) {
-
+   console.log(request.session.id);
 
     if(sess === null || sess === '' || sess === undefined){
         sess = request.session;
