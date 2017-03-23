@@ -21,8 +21,9 @@ module.exports.getConciergeExpress = function (type,opt) {
         temp = util.portfolioDivision[opt];
         var html = "";
         for (prop in temp) {
-            ++cnt;
+
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
+                ++cnt;
                 console.log(temp[prop].name);
                 html += cnt+"."+temp[prop].name+"\n";
             }
@@ -41,8 +42,9 @@ module.exports.getConciergeExpress = function (type,opt) {
         temp = util.portfolioDivision[opt[0]][opt[1]];
         var html = "";
         for (prop in temp) {
-            ++cnt;
+
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
+                ++cnt;
                 console.log(temp[prop].name);
                 html += cnt+"."+temp[prop].name+"\n";
             }
