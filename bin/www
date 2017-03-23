@@ -75,12 +75,18 @@ app.post('/hook', function (request, response) {
     console.log('[request message]', eventObj.message);
 
     if(message.type == "text" && message.text.indexOf("인집사") != -1){
-        sess.username = eventObj.source.userId;
-        console.log(sess.username);
+        if(sess.username === null){
+            sess.username = eventObj.source.userId;
+            console.log("새로만든세션"+sess.username);
+        }else{
+            console.log("기존세션"+sess.username);
+        }
+
+
         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
     }
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
-        console.log(sess.username);
+
         if(message.text.indexOf("컨시어지") != -1){
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start",'컨시어지'));
         }else if(message.text.indexOf("상업공간") != -1){
