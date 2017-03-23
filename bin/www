@@ -88,6 +88,7 @@ app.post('/hook', function (request, response) {
 
         sess.spacesCategory = [];
         sess.spacesSubCategory = [];
+        sess.spacesSpace = [];
     }else{
 
     }
@@ -192,6 +193,16 @@ app.post('/hook', function (request, response) {
                     params[0] = sess.spacesCategory[i];
                     params[1] = result;
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces3",params));
+
+                    sess.spaces2[i] = false;
+                    sess.spaces3[i] = true;
+
+                }else if(sess.spaces3[i] === true){
+                    var result = actionConcierge.getSpaces3(sess.spacesCategory[i],sess.spacesSubCategory[i],message.text);
+
+                    sess.spacesSpace[i] = result;
+
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("specialtyRange",''));
 
                 }
 
