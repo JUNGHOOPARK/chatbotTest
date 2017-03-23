@@ -68,7 +68,7 @@ app.post('/hook', function (request, response) {
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
         if(message.text.indexOf("컨시어지") != -1){
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start"));
-        }else if(message.text.indexOf("spaces.category") != -1){
+        }else if(message.text.indexOf("@category") != -1){
             var val = message.text.split("=")[1];
             formData.spaces.category = val;
             console.log(formData.spaces.category);
