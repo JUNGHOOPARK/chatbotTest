@@ -59,7 +59,7 @@ app.post('/hook', function (request, response) {
     console.log('[request source] ', eventObj.source);
     console.log('[request message]', eventObj.message);
 
-    if(message.type == "text" && message.text.indexOf("@momo") != -1){
+    if(message.type == "text" && message.text.indexOf("인집사") != -1){
         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
     }
     else if(message.type == "text" && /^@.+/g.test(message.text)){
