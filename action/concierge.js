@@ -22,7 +22,7 @@ module.exports.getConciergeExpress = function (type,opt) {
         for (prop in temp) {
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
                 arr.push({index: ++cnt, value: temp[prop].name});
-                console.log(arr.value);
+                console.log(temp[prop].name);
             }
         }
 
