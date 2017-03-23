@@ -75,12 +75,12 @@ app.post('/hook', function (request, response) {
 
     if(message.type == "text" && message.text.indexOf("인집사") != -1){
 
-        req.session.user_id =  eventObj.source.userId;
+        request.session.user_id =  eventObj.source.userId;
 
         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
     }
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
-        console.log("여기도올까요"+req.session.user_id);
+        console.log("여기도올까요"+request.session.user_id);
         if(message.text.indexOf("컨시어지") != -1){
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start",'컨시어지'));
         }else if(message.text.indexOf("상업공간") != -1){
