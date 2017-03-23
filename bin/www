@@ -8,6 +8,7 @@ const config = require('../config');
 const reply = require('../reply');
 
 const actionBasic = require('../action/basic');
+const actionConcierge = require('../action/concierge');
 const actionHelp = require('../action/help');
 const actionEnjoy = require('../action/enjoy');
 const actionScheduler = require('../action/scheduler');
@@ -65,7 +66,7 @@ app.post('/hook', function (request, response) {
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
         console.log(message.text);
         if(message.text.indexOf("컨시어지") != -1){
-            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getConciergeExpress());
+            reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress());
         }else{
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
         }
