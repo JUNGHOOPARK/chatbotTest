@@ -49,10 +49,10 @@ app.use(bodyParser.json());
 app.get('/', function(req, res, next) {
     var sess = req.session;
     if (sess.views) {
+
         sess.views++
         res.setHeader('Content-Type', 'text/html')
         res.write('<p>views: ' + sess.views + '</p>')
-        res.write('<p>id: ' + sess.id + '</p>')
         res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
         res.end()
     } else {
@@ -71,6 +71,7 @@ var i = 0;
 app.post('/hook', function (request, response) {
     if(sess === null || sess === '' || sess === undefined){
         sess = request.session;
+        sess.username = [];
         sess.username[i] = null;
     }else{
 
