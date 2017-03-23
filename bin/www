@@ -157,7 +157,7 @@ app.post('/hook', function (request, response) {
                     if(message.text.indexOf("상업공간") != -1){
                         sess.spacesCategory[i]='1';
 
-                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'1'));
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'1'));
 
                     } else if(message.text.indexOf("업무공간") != -1){
                         sess.spacesCategory[i]='2';
@@ -185,7 +185,11 @@ app.post('/hook', function (request, response) {
                 }
 
                 if(sess.spaces2[i] === true) {
+
+
                     var result = actionConcierge.getSpaces2(sess.spacesCategory[i],message.text);
+                    console.log(sess.spacesCategory[i]);
+                    console.log(result);
                     sess.spacesSubCategory[i] = result;
                     var params = [];
                     params[0] = sess.spacesCategory[i];
