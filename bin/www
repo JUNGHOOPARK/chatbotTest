@@ -148,6 +148,7 @@ app.post('/hook', function (request, response) {
 
                 if(message.text.indexOf("상업공간") != -1){
                     sess.spacesCategory[i]='1';
+                    console.log( sess.username[i]);
                     console.log( sess.spacesCategory[i]);
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'상업공간'));
                 } else if(message.text.indexOf("업무공간") != -1){
