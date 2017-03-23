@@ -70,7 +70,8 @@ module.exports.getSpaces2 = function (spaces1,msg) {
     for (prop in temp) {
         if (temp.hasOwnProperty(prop) && prop !== 'name') {
             ++cnt;
-            if(msg.indexOf(temp[prop].name)){
+            if(msg.indexOf(temp[prop].name != -1)){
+                console.log(msg+"VS"+temp[prop].name);
                 return cnt;
             }
         }
