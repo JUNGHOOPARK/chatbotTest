@@ -66,16 +66,15 @@ app.get('/hook', function (reqeust, response) {
     response.end('<h1>chatbot - skwjdgn@naver.com<h1>');
 });
 
-
+var sess;
+var i = 0;
 app.post('/hook', function (request, response) {
-    var sess = request.session;
-    if (sess.views) {
-        sess.views++
-        console.log(sess.views);
-    } else {
-        console.log("nosess");
-        sess.views = 1
+    if(request.session === null || request.session === '' || request.session === undefined){
+        sess = request.session;
+    }else{
+
     }
+
     var eventObj = request.body.events[0];
     var source = eventObj.source;
     var message = eventObj.message;
@@ -94,6 +93,30 @@ app.post('/hook', function (request, response) {
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
 
         if(message.text.indexOf("컨시어지") != -1){
+
+            if(sess.username === null || sess.username === '' || sess.username === undefined){
+                sess.username[i] = eventObj.source.userId;
+                console.log("새로만든세션"+sess.username[i]);
+            }else{
+
+                if(eventObj.source.userId !== sess.username[i]){
+                    for(var j = 0; j<sess.username.length; j++){
+                        if(sess.username[j] ===  eventObj.source.userId) {
+                            i = j;
+                            console.log("돌아온세션"+sess.username[i]);
+                        }else{
+                            sess.username[i+1] =  eventObj.source.userId;
+                            i++;
+                            console.log("바뀐세션"+sess.username[i]);
+                        }
+
+                    }
+                }else{
+                    console.log("기존세션"+sess.username[i]);
+                }
+               
+            }
+
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("start",'컨시어지'));
         }else if(message.text.indexOf("상업공간") != -1){
             reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces1",'상업공간'));
