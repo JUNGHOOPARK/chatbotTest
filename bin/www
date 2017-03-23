@@ -95,7 +95,7 @@ app.post('/hook', function (request, response) {
 
         if(message.text.indexOf("컨시어지") != -1){
 
-            if(sess.username[i] === null || sess.username[i] === '' || sess.username[i] === undefined){
+            if(request.session === null || request.session === '' || request.session === undefined){
                 sess.username[i] = eventObj.source.userId;
                 console.log("새로만든세션"+sess.username[i]);
             }else{
