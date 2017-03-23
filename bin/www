@@ -188,7 +188,7 @@ app.post('/hook', function (request, response) {
 
 
                     var result = actionConcierge.getSpaces2(sess.spacesCategory[i],message.text);
-                    console.log(sess.spacesCategory[i]);
+                    console.log("요기?"+sess.spacesCategory[i]);
                     console.log(result);
                     sess.spacesSubCategory[i] = result;
                     var params = [];
