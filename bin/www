@@ -60,7 +60,7 @@ app.get('/hook', function (reqeust, response) {
 });
 
 app.post('/hook', function (request, response) {
-    console.log(sess.username);
+
     sess = request.session;
 
     var eventObj = request.body.events[0];
@@ -76,7 +76,7 @@ app.post('/hook', function (request, response) {
 
     if(message.type == "text" && message.text.indexOf("인집사") != -1){
         sess.username = eventObj.source.userId;
-        console.log(eventObj.source.userId);
+        console.log(sess.username);
         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
     }
     else if(message.type == "text" && message.text.indexOf("인집사") === -1){
