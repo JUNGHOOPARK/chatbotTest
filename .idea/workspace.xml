@@ -23,8 +23,8 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="184" column="17" lean-forward="true" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
+            <state relative-caret-position="299">
+              <caret line="189" column="51" lean-forward="false" selection-start-line="189" selection-start-column="51" selection-end-line="189" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -33,8 +33,8 @@
       <file leaf-file-name="concierge.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/concierge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="370">
+              <caret line="72" column="45" lean-forward="true" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -102,6 +102,7 @@
       <find>username</find>
       <find>sess.data[i].formData.spaces</find>
       <find>Util.</find>
+      <find>getSpaces2</find>
     </findStrings>
     <replaceStrings>
       <replace>res</replace>
@@ -341,12 +342,12 @@
       <option name="presentableId" value="Default" />
       <updated>1490064665457</updated>
       <workItem from="1490064678633" duration="12181000" />
-      <workItem from="1490235426457" duration="25451000" />
+      <workItem from="1490235426457" duration="25673000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37632000" />
+    <option name="totallyTimeSpent" value="37854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -580,16 +581,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/concierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="370">
+          <caret line="72" column="45" lean-forward="true" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="184" column="17" lean-forward="true" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
+        <state relative-caret-position="299">
+          <caret line="189" column="51" lean-forward="false" selection-start-line="189" selection-start-column="51" selection-end-line="189" selection-end-column="51" />
           <folding />
         </state>
       </provider>

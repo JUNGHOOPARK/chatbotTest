@@ -182,20 +182,20 @@ app.post('/hook', function (request, response) {
                     }
                     sess.spaces1[i] = false;
                     sess.spaces2[i] = true;
-                }
 
-                if(sess.spaces2[i] === true) {
-
+                }else if(sess.spaces2[i] === true) {
 
                     var result = actionConcierge.getSpaces2(sess.spacesCategory[i],message.text);
-                    console.log("요기?"+sess.spacesCategory[i]);
-                    console.log(result);
+                    console.log(sess.spacesCategory[i]);
+                    console.log(message.text+":::"+result);
                     sess.spacesSubCategory[i] = result;
                     var params = [];
                     params[0] = sess.spacesCategory[i];
                     params[1] = result;
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces3",params));
+
                 }
+
             }else{
                 reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
             }
