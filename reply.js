@@ -47,7 +47,7 @@ module.exports.concierge = function (data) {
 
     })*/
 
-    requestSender.post({url:'https://interiorbrothers.com/api/doConcierge', formData: data}, function (error, response, body) {
+    requestSender.post({url:'https://interiorbrothers.com/api/doConcierge', body: data}, function (error, response, body) {
         if (error) {
             return console.error('upload failed:', error);
         }
