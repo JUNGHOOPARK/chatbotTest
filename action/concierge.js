@@ -118,7 +118,7 @@ module.exports.getConciergeExpress = function (type,opt) {
         ];
     }else if(type === 'experts'){
 
-        var result = [
+        var result =
             {
                 "type": "template",
                 "altText": "this is a carousel template",
@@ -238,8 +238,7 @@ module.exports.getConciergeExpress = function (type,opt) {
 
                     ]
                 }
-            }
-        ];
+            };
     }
 
 
