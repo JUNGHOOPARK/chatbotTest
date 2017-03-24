@@ -184,6 +184,10 @@ module.exports.getSpecialtyRange = function (msg) {
                        result.push(arr[i]);
                    }
                }
+
+            for(var i = 0 ; i < arr.length ; i++){
+               console.log("arr===>>"+arr[i]);
+            }
         }else{
             result.push(arr[0]);
         }
