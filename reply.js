@@ -49,10 +49,6 @@ module.exports.concierge = function (data,eventObj) {
         };
 
 
-        console.log("◎◎◎"+config.CHANNEL_ACCESS_TOKEN);
-        console.log("◎◎◎"+eventObj.replyToken);
-        console.log("◎◎◎"+actionConcierge.getConciergeExpress("expertsTest",''));
-
         var options2 = {
             url: 'https://api.line.me/v2/bot/message/reply',
             method: 'POST',
@@ -63,7 +59,6 @@ module.exports.concierge = function (data,eventObj) {
             }
         };
 
-        console.log(actionConcierge.getConciergeExpress("expertsTest",body.experts));
 
         requestSender(options2, function (error, response, body) {
             console.log('response', response.statusCode);

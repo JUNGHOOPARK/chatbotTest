@@ -308,11 +308,6 @@ app.post('/hook', function (request, response) {
 
                     sess.stylesYN[i] = false;
 
-                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("expertsTest",''));
-
-                    console.log("☆☆☆"+config.CHANNEL_ACCESS_TOKEN);
-                    console.log("☆☆☆"+eventObj.replyToken);
-                    console.log("☆☆☆"+actionConcierge.getConciergeExpress("expertsTest",''));
 
                     reply.concierge(formData,eventObj);
 
