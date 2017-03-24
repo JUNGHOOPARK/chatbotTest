@@ -126,7 +126,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "type": "carousel",
                     "columns": [
                         {
-                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[0].src,
+                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
                             "title": "this is menu",
                             "text": "description",
                             "actions": [
@@ -148,7 +148,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             ]
                         },
                         {
-                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[1].src,
+                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
                             "title": "this is menu",
                             "text": "description",
                             "actions": [
@@ -170,7 +170,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             ]
                         },
                         {
-                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[2].src,
+                            "thumbnailImageUrl":"https://interiorbrothers.com/img/menu/logo_beta.png",
                             "title": "this is menu",
                             "text": "description",
                             "actions": [
@@ -192,7 +192,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             ]
                         },
                         {
-                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[3].src,
+                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
                             "title": "this is menu",
                             "text": "description",
                             "actions": [
@@ -214,7 +214,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             ]
                         },
                         {
-                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[4].src,
+                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
                             "title": "this is menu",
                             "text": "description",
                             "actions": [
