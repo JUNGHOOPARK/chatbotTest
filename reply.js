@@ -55,11 +55,11 @@ module.exports.concierge = function (data,eventObj) {
             headers: headers,
             json: {
                 replyToken : eventObj.replyToken,
-                messages : actionConcierge.getConciergeExpress("experts",body.experts)
+                messages : actionConcierge.getConciergeExpress("expertsTest",body.experts)
             }
         };
 
-        console.log(actionConcierge.getConciergeExpress("experts",body.experts));
+        console.log(actionConcierge.getConciergeExpress("expertsTest",body.experts));
 
         requestSender(options2, function (error, response, body) {
             console.log('response', response.statusCode);
