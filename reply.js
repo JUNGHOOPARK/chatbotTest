@@ -30,7 +30,7 @@ module.exports.send = function (channelAccessToken, replyToken, messages) {
 
 module.exports.concierge = function (data) {
 
-    var options = {
+/*    var options = {
         url: 'https://interiorbrothers.com/api/doConcierge',
         method: 'POST',
         multipart: {
@@ -45,8 +45,14 @@ module.exports.concierge = function (data) {
         }
         console.log('Upload successful!  Server responded with:', body);
 
-    })
+    })*/
 
+    requestSender.post({url:'https://interiorbrothers.com/api/doConcierge', formData: data}, function (error, response, body) {
+        if (error) {
+            return console.error('upload failed:', error);
+        }
+        console.log('Upload successful!  Server responded with:', body);
 
+    });
 
 };
