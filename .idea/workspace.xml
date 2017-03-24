@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/concierge.js" afterPath="$PROJECT_DIR$/action/concierge.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,8 +23,8 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="302" column="45" lean-forward="true" selection-start-line="302" selection-start-column="45" selection-end-line="302" selection-end-column="45" />
+            <state relative-caret-position="-1010">
+              <caret line="240" column="44" lean-forward="false" selection-start-line="240" selection-start-column="44" selection-end-line="240" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -115,6 +114,7 @@
       <find>getSpaces2</find>
       <find>budgetMax</find>
       <find>.indexOf(</find>
+      <find>spaceBranding</find>
     </findStrings>
     <replaceStrings>
       <replace>res</replace>
@@ -137,8 +137,8 @@
         <option value="$PROJECT_DIR$/action/emotion.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/action/util.js" />
-        <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/action/concierge.js" />
+        <option value="$PROJECT_DIR$/bin/www" />
       </list>
     </option>
   </component>
@@ -355,12 +355,12 @@
       <option name="presentableId" value="Default" />
       <updated>1490064665457</updated>
       <workItem from="1490064678633" duration="12181000" />
-      <workItem from="1490235426457" duration="32260000" />
+      <workItem from="1490235426457" duration="32491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44441000" />
+    <option name="totallyTimeSpent" value="44672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -603,8 +603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="302" column="45" lean-forward="true" selection-start-line="302" selection-start-column="45" selection-end-line="302" selection-end-column="45" />
+        <state relative-caret-position="-1010">
+          <caret line="240" column="44" lean-forward="false" selection-start-line="240" selection-start-column="44" selection-end-line="240" selection-end-column="44" />
           <folding />
         </state>
       </provider>

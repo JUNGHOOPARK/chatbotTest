@@ -235,16 +235,16 @@ app.post('/hook', function (request, response) {
                     sess.specialtyRangeYN[i] = false;
 
                     if(sess.specialtyRange[i][0] === 'interiorFull' ||  sess.specialtyRange[i][0] === 'interiorDesign'){
-                        sess.spaceBrandingYN = true;
+                        sess.spaceBrandingYN[i] = true;
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaceBranding",''));
                     }else{
-                        sess.spaceMeasure = true;
+                        sess.spaceMeasure[i] = true;
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaceMeasure",''));
 
                     }
 
                 }else if(sess.spaceBrandingYN[i] === true){
-                    var result = actionConcierge.getSpaces3(sess.spacesCategory[i],sess.spacesSubCategory[i],message.text);
+
                     if(message.text.indexOf("네")){
                         sess.spaceBranding[i] = true;
                     }else{
