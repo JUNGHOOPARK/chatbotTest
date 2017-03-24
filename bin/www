@@ -299,6 +299,26 @@ app.post('/hook', function (request, response) {
                     console.log( sess.budgetMin[i]);
                     console.log( sess.budgetMax[i]);
                     console.log( sess.styles[i]);
+                    console.log("------------------------------------------------------------");
+
+                    var formData = {};
+                        formData.specialty = {};
+                        formData.specialty.main = "interior";
+                        formData.specialty.sub = sess.specialtyRange[i];
+                        formData.spaces = {};
+                        formData.spaces.category = sess.spacesCategory[i];
+                        formData.spaces.subcategory = sess.spacesSubCategory[i];
+                        formData.spaces.space = sess.spacesSpace[i];
+                        formData.spaceBranding = sess.spaceBranding[i];
+                        formData.measure = {};
+                        formData.measure.meter = sess.meter[i];
+                        formData.measure.py = sess.py[i];
+                        formData.budget = {};
+                        formData.budget.min = sess.budgetMin[i];
+                        formData.budget.max = sess.budgetMax[i];
+                        formData.style = sess.styles[i];
+
+                        console.log(formData);
 
                     sess.stylesYN[i] = false;
 

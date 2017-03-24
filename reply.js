@@ -27,3 +27,18 @@ module.exports.send = function (channelAccessToken, replyToken, messages) {
     })
 
 };
+
+module.exports.concierge = function (data) {
+
+
+    requestSender.post("https://interiorbrothers.com/api/doConcierge",data ,function (error, response, body) {
+        console.log('response', response.statusCode);
+        if (!error && response.statusCode == 200) {
+            console.log(body)
+        }
+        else{
+            console.log('requestSender', error);
+        }
+    })
+
+};
