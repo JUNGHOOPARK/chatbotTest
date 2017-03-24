@@ -40,13 +40,11 @@ module.exports.concierge = function (data) {
     };
 
     requestSender(options, function (error, response, body) {
-        console.log('response', response.statusCode);
-        if (!error && response.statusCode == 200) {
-            console.log(body)
+        if (error) {
+            return console.error('upload failed:', error);
         }
-        else{
-            console.log('requestSender', error);
-        }
+        console.log('Upload successful!  Server responded with:', body);
+
     })
 
 
