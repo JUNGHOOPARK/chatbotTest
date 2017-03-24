@@ -282,6 +282,8 @@ module.exports.getSpecialtyRange = function (msg) {
             result.push('interiorContractor');
         }else if(msg === '3' || msg === '스타일링'){
             result.push('interiorStyling');
+        }else{
+            result.push('interiorFull');
         }
 
     }
@@ -301,6 +303,9 @@ module.exports.getMeasure = function (msg) {
         num = msg.split("m2");
         result[0] = ( num[0] / 3.3).toFixed(2);
         result[1] =  num[0];
+    }else{
+        result[0] = 0;
+        result[1] = 0;
     }
 
     return result;
@@ -332,6 +337,8 @@ module.exports.getStyles = function (msg) {
         result = "10";
     }else if(msg.indexOf("11") != -1 || msg === "내추럴"){
         result = "11";
+    }else{
+        result = "1";
     }
 
     return result;

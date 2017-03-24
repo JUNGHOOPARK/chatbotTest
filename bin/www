@@ -275,6 +275,9 @@ app.post('/hook', function (request, response) {
                         result = message.text.split("~");
                         sess.budgetMin[i] = result[0];
                         sess.budgetMax[i] = result[1];
+                    }else{
+                        sess.budgetMin[i] = 0;
+                        sess.budgetMax[i] = 100000;
                     }
 
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
