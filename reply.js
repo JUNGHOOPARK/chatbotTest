@@ -58,7 +58,7 @@ module.exports.concierge = function (data,eventObj) {
                 messages : actionConcierge.getConciergeExpress("experts",body.experts)
             }
         };
-        console.log(body.experts);
+
 
         requestSender(options2, function (error, response, body) {
             console.log('response', response.statusCode);
