@@ -242,12 +242,11 @@ module.exports.getConciergeExpress = function (type,opt) {
     }else if(type === 'expertsTest'){
 
         for(var i = 0 ; i < 5 ; i++){
-            opt[i].src = '/file/download/small-' + opt[i].src.match(/\/file\/download\/(\w+\.\w{2,5})/);
+            var match =  opt[i].src.match(/\/file\/download\/(\w+\.\w{2,5})/);
+            opt[i].src = '/file/download/small-' + match;
         }
         console.log(opt[0].src);
-        console.log(opt[0].businessName);
-        console.log(opt[0].title);
-        console.log(opt[0].userId);
+
         var result =
             [{
                 "type": "template",
@@ -257,8 +256,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "columns": [
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[0].src,
-                            "title": dehtmlSpecialChars(opt[0].businessName),
-                            "text":  dehtmlSpecialChars(opt[0].userId),
+                            "title": opt[0].businessName,
+                            "text":  opt[0].userId,
                             "actions": [
                                 {
                                     "type": "uri",
@@ -454,15 +453,3 @@ module.exports.getStyles = function (msg) {
     return result;
 
 };
-
-function dehtmlSpecialChars(text) {
-    'use strict';
-
-
-    if (!text) {
-        return '';
-    }
-
-
-    return text.trim().replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '<').replace(/&quot;/g, '"').replace(/&#039;/g, '\'');
-}
