@@ -269,6 +269,28 @@ module.exports.getConciergeExpress = function (type,opt) {
                                     "uri": "https://www.interiorbrothers.com/"
                                 }
                             ]
+                        },
+                        {
+                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
+                            "title": "this is menu",
+                            "text": "description",
+                            "actions": [
+                                {
+                                    "type": "uri",
+                                    "label": "11",
+                                    "uri": "https://www.interiorbrothers.com/"
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "22",
+                                    "uri": "https://www.interiorbrothers.com/"
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "상세보러가기",
+                                    "uri": "https://www.interiorbrothers.com/"
+                                }
+                            ]
                         }
 
                     ]
