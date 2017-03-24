@@ -286,9 +286,7 @@ app.post('/hook', function (request, response) {
                     var result = actionConcierge.getStyles(message.text);
 
                     sess.styles[i] = result;
-
-                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
-
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("expertsTest",''));
                     var formData = {};
                         formData.specialty = {};
                         formData.specialty.main = "interior";
