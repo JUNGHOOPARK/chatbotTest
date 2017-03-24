@@ -42,12 +42,16 @@ module.exports.concierge = function (data,eventObj) {
         if (error) {
             return console.error('upload failed:', error);
         }
-        // console.log('result:', body.experts);
 
         var headers = {
             'Content-type' : 'application/json',
             'Authorization' : 'Bearer ' + config.CHANNEL_ACCESS_TOKEN
         };
+
+
+        console.log("◎◎◎"+config.CHANNEL_ACCESS_TOKEN);
+        console.log("◎◎◎"+eventObj.replyToken);
+        console.log("◎◎◎"+actionConcierge.getConciergeExpress("expertsTest",''));
 
         var options2 = {
             url: 'https://api.line.me/v2/bot/message/reply',

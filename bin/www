@@ -286,7 +286,7 @@ app.post('/hook', function (request, response) {
                     var result = actionConcierge.getStyles(message.text);
 
                     sess.styles[i] = result;
-                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("expertsTest",''));
+
                     var formData = {};
                         formData.specialty = {};
                         formData.specialty.main = "interior";
@@ -307,6 +307,12 @@ app.post('/hook', function (request, response) {
 
 
                     sess.stylesYN[i] = false;
+
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("expertsTest",''));
+
+                    console.log("☆☆☆"+config.CHANNEL_ACCESS_TOKEN);
+                    console.log("☆☆☆"+eventObj.replyToken);
+                    console.log("☆☆☆"+actionConcierge.getConciergeExpress("expertsTest",''));
 
                     reply.concierge(formData,eventObj);
 
