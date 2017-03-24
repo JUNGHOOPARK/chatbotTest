@@ -1,7 +1,6 @@
 const requestSender = require('request');
-const config = require('config');
-const actionBasic = require('action/basic');
-const actionConcierge = require('action/concierge');
+const config = require('./config');
+const actionConcierge = require('./action/concierge');
 
 module.exports.send = function (channelAccessToken, replyToken, messages) {
     var headers = {

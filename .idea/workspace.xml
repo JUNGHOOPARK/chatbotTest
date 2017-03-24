@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reply.js" afterPath="$PROJECT_DIR$/reply.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,10 +20,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="www" pinned="false" current-in-tab="false">
+      <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
+            <state relative-caret-position="7176">
               <caret line="312" column="53" lean-forward="false" selection-start-line="312" selection-start-column="45" selection-end-line="312" selection-end-column="53" />
               <folding />
             </state>
@@ -41,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reply.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reply.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reply.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="39" column="6" lean-forward="true" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
+            <state relative-caret-position="299">
+              <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -328,12 +327,12 @@
       <option name="presentableId" value="Default" />
       <updated>1490064665457</updated>
       <workItem from="1490064678633" duration="12181000" />
-      <workItem from="1490235426457" duration="43809000" />
+      <workItem from="1490235426457" duration="43909000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55990000" />
+    <option name="totallyTimeSpent" value="56090000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -566,18 +565,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
+    <entry file="file://$PROJECT_DIR$/reply.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="312" column="53" lean-forward="false" selection-start-line="312" selection-start-column="45" selection-end-line="312" selection-end-column="53" />
+        <state relative-caret-position="299">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reply.js">
+    <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="39" column="6" lean-forward="true" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
+        <state relative-caret-position="7176">
+          <caret line="312" column="53" lean-forward="false" selection-start-line="312" selection-start-column="45" selection-end-line="312" selection-end-column="53" />
           <folding />
         </state>
       </provider>
