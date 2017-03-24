@@ -242,7 +242,7 @@ module.exports.getConciergeExpress = function (type,opt) {
     }else if(type === 'expertsTest'){
 
         for(var i = 0 ; i < 5 ; i++){
-            opt[i] = '/file/download/small-' + opt[i].match(/\/file\/download\/(\w+\.\w{2,5})/);
+             opt[i].src = '/file/download/small-' + opt[i].src.match(/\/file\/download\/(\w+\.\w{2,5})/);
         }
 
         var result =
