@@ -55,7 +55,7 @@ module.exports.concierge = function (data,eventObj) {
             headers: headers,
             json: {
                 replyToken : eventObj.replyToken,
-                messages : actionConcierge.getConciergeExpress("experts",body.experts)
+                messages : actionConcierge.getConciergeExpress("expertsTest",body.experts)
             }
         };
 

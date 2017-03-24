@@ -241,42 +241,39 @@ module.exports.getConciergeExpress = function (type,opt) {
             }];
     }else if(type === 'expertsTest'){
 
-        var result = [
-            {
+        var result =
+            [{
                 "type": "template",
-                "altText": "this is a buttons template",
+                "altText": "this is a carousel template",
                 "template": {
-                    "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
-                    "title": "Menu",
-                    "text": "어떠한 상업 공간을 인테리어 하시나요?",
-                    "actions": [
+                    "type": "carousel",
+                    "columns": [
                         {
-                            "type": "message",
-                            "label": "요식 식당",
-                            "text": "@category=1"
-                        },
-                        {
-                            "type": "message",
-                            "label": "상업 공간",
-                            "text": "@category=2"
-                        },
-                        {
-                            "type": "message",
-                            "label": "교육 공간",
-                            "text": "@category=3"
-                        },
-                        {
-                            "type": "message",
-                            "label": "의료 공간",
-                            "text": "@category=4"
+                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
+                            "title": "this is menu",
+                            "text": "description",
+                            "actions": [
+                                {
+                                    "type": "uri",
+                                    "label": "11",
+                                    "uri": "https://www.interiorbrothers.com/"
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "22",
+                                    "uri": "https://www.interiorbrothers.com/"
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "상세보러가기",
+                                    "uri": "https://www.interiorbrothers.com/"
+                                }
+                            ]
                         }
-
 
                     ]
                 }
-            }
-        ];
+            }];
     }
 
 
