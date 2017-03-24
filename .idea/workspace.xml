@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reply.js" afterPath="$PROJECT_DIR$/reply.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/concierge.js" afterPath="$PROJECT_DIR$/action/concierge.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="concierge.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="concierge.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/action/concierge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="118" column="30" lean-forward="false" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="30" />
+            <state relative-caret-position="1265">
+              <caret line="183" column="56" lean-forward="false" selection-start-line="183" selection-start-column="56" selection-end-line="183" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -50,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reply.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reply.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reply.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="429">
@@ -130,8 +130,8 @@
         <option value="$PROJECT_DIR$/action/util.js" />
         <option value="$PROJECT_DIR$/action/emotion.js" />
         <option value="$PROJECT_DIR$/bin/www" />
-        <option value="$PROJECT_DIR$/action/concierge.js" />
         <option value="$PROJECT_DIR$/reply.js" />
+        <option value="$PROJECT_DIR$/action/concierge.js" />
       </list>
     </option>
   </component>
@@ -348,12 +348,12 @@
       <option name="presentableId" value="Default" />
       <updated>1490064665457</updated>
       <workItem from="1490064678633" duration="12181000" />
-      <workItem from="1490235426457" duration="50405000" />
+      <workItem from="1490235426457" duration="50443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62586000" />
+    <option name="totallyTimeSpent" value="62624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -578,6 +578,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/reply.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/action/util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -588,16 +596,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/concierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="118" column="30" lean-forward="false" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reply.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+        <state relative-caret-position="1265">
+          <caret line="183" column="56" lean-forward="false" selection-start-line="183" selection-start-column="56" selection-end-line="183" selection-end-column="56" />
           <folding />
         </state>
       </provider>

@@ -133,7 +133,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "columns": [
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[0].src,
-                            "title": opt[0].businessName+"("+opt[0].title+")",
+                            "title": opt[0].businessName,
                             "text": "구분 "+opt[0].spaceName+"\n면적 "+(opt[0].size).toFixed(2)+"m²("+(opt[0].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[0].budget],
                             "actions": [
                                 {
@@ -145,7 +145,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[1].src,
-                            "title": opt[1].businessName+"("+opt[1].title+")",
+                            "title": opt[1].businessName,
                             "text":  "구분 "+opt[1].spaceName+"\n면적 "+(opt[1].size).toFixed(2)+"m²("+(opt[1].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[1].budget],
                             "actions": [
                                 {
@@ -157,7 +157,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[2].src,
-                            "title": opt[2].businessName+"("+opt[2].title+")",
+                            "title": opt[2].businessName,
                             "text":  "구분 "+opt[2].spaceName+"\n면적 "+(opt[2].size).toFixed(2)+"m²("+(opt[2].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[2].budget],
                             "actions": [
                                 {
@@ -169,7 +169,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[3].src,
-                            "title": opt[3].businessName+"("+opt[3].title+")",
+                            "title": opt[3].businessName,
                             "text":  "구분 "+opt[3].spaceName+"\n면적 "+(opt[3].size).toFixed(2)+"m²("+(opt[3].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[3].budget],
                             "actions": [
                                 {
@@ -181,7 +181,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[4].src,
-                            "title": opt[4].businessName+"("+opt[4].title+")",
+                            "title": opt[4].businessName,
                             "text":  "구분 "+opt[4].spaceName+"\n면적 "+(opt[4].size).toFixed(2)+"m²("+(opt[4].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[4].budget],
                             "actions": [
                                 {
