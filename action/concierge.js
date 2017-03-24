@@ -256,8 +256,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "columns": [
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[0].src,
-                            "title": opt[0].businessName,
-                            "text":  opt[0].userId+"\n구분 "+opt[0].spaceName+" , 면적 "+(opt[0].size).toFixed(2)+"m²("+(opt[0].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[0].budget],
+                            "title": opt[0].businessName+"("+opt[0].userId+")",
+                            "text": "구분 "+opt[0].spaceName+"\n면적 "+(opt[0].size).toFixed(2)+"m²("+(opt[0].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[0].budget],
                             "actions": [
                                 {
                                     "type": "uri",
@@ -268,8 +268,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[1].src,
-                            "title": opt[1].businessName,
-                            "text":  opt[1].userId+"\n구분 "+opt[1].spaceName+", 면적 "+(opt[1].size).toFixed(2)+"m²("+(opt[1].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[1].budget],
+                            "title": opt[1].businessName+"("+opt[1].userId+")",
+                            "text":  "구분 "+opt[1].spaceName+"\n면적 "+(opt[1].size).toFixed(2)+"m²("+(opt[1].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[1].budget],
                             "actions": [
                                 {
                                     "type": "uri",
@@ -280,8 +280,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[2].src,
-                            "title": opt[2].businessName,
-                            "text":  opt[2].userId+"\n구분 "+opt[2].spaceName+", 면적 "+(opt[2].size).toFixed(2)+"m²("+(opt[2].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[2].budget],
+                            "title": opt[2].businessName+"("+opt[2].userId+")",
+                            "text":  "구분 "+opt[2].spaceName+"\n면적 "+(opt[2].size).toFixed(2)+"m²("+(opt[2].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[2].budget],
                             "actions": [
                                 {
                                     "type": "uri",
@@ -292,8 +292,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[3].src,
-                            "title": opt[3].businessName,
-                            "text":  opt[3].userId+"\n구분 "+opt[3].spaceName+", 면적 "+(opt[3].size).toFixed(2)+"m²("+(opt[3].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[3].budget],
+                            "title": opt[3].businessName+"("+opt[3].userId+")",
+                            "text":  "구분 "+opt[3].spaceName+"\n면적 "+(opt[3].size).toFixed(2)+"m²("+(opt[3].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[3].budget],
                             "actions": [
                                 {
                                     "type": "uri",
@@ -304,8 +304,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[4].src,
-                            "title": opt[4].businessName,
-                            "text":  opt[4].userId+"\n구분 "+opt[4].spaceName+", 면적 "+(opt[4].size).toFixed(2)+"m²("+(opt[4].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[4].budget],
+                            "title": opt[4].businessName+"("+opt[4].userId+")",
+                            "text":  "구분 "+opt[4].spaceName+"\n면적 "+(opt[4].size).toFixed(2)+"m²("+(opt[4].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[4].budget],
                             "actions": [
                                 {
                                     "type": "uri",
