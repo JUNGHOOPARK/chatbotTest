@@ -257,7 +257,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[0].src,
                             "title": opt[0].businessName,
-                            "text":  opt[0].userId+"\n\n 구분 "+opt[0].spaceName+"\n 면적 "+(opt[0].size).toFixed(2)+"m²("+(opt[0].size / 3.3).toFixed(2) +" 평) \n 예산 "+util.budget[opt[0].budget],
+                            "text":  opt[0].userId+"\n 구분 "+opt[0].spaceName+"/ 면적 "+(opt[0].size).toFixed(2)+"m²("+(opt[0].size / 3.3).toFixed(2) +" 평) / 예산 "+util.budget[opt[0].budget],
                             "actions": [
                                 {
                                     "type": "uri",
@@ -268,49 +268,49 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[1].src,
-                            "title": "this is menu",
-                            "text": "description",
+                            "title": opt[1].businessName,
+                            "text":  opt[1].userId+"\n 구분 "+opt[1].spaceName+"/ 면적 "+(opt[1].size).toFixed(2)+"m²("+(opt[1].size / 3.3).toFixed(2) +" 평) / 예산 "+util.budget[opt[1].budget],
                             "actions": [
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
                                 }
                             ]
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[2].src,
-                            "title": "this is menu",
-                            "text": "description",
+                            "title": opt[2].businessName,
+                            "text":  opt[2].userId+"\n 구분 "+opt[2].spaceName+"/ 면적 "+(opt[2].size).toFixed(2)+"m²("+(opt[2].size / 3.3).toFixed(2) +" 평) / 예산 "+util.budget[opt[2].budget],
                             "actions": [
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
                                 }
                             ]
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[3].src,
-                            "title": "this is menu",
-                            "text": "description",
+                            "title": opt[3].businessName,
+                            "text":  opt[3].userId+"\n 구분 "+opt[3].spaceName+"/ 면적 "+(opt[3].size).toFixed(2)+"m²("+(opt[3].size / 3.3).toFixed(2) +" 평) / 예산 "+util.budget[opt[3].budget],
                             "actions": [
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
                                 }
                             ]
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[4].src,
-                            "title": "this is menu",
-                            "text": "description",
+                            "title": opt[4].businessName,
+                            "text":  opt[4].userId+"\n 구분 "+opt[4].spaceName+"/ 면적 "+(opt[4].size).toFixed(2)+"m²("+(opt[4].size / 3.3).toFixed(2) +" 평) / 예산 "+util.budget[opt[4].budget],
                             "actions": [
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
                                 }
                             ]
                         }
