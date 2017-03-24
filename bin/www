@@ -175,27 +175,27 @@ app.post('/hook', function (request, response) {
                 }
 
                 if(sess.spaces1[i] === true){
-                    if(message.text.indexOf("상업공간") != -1){
+                    if(message.text.indexOf("상업공간") != -1 || message.text.indexOf("1") != -1){
                         sess.spacesCategory[i]='1';
 
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'1'));
 
-                    } else if(message.text.indexOf("업무공간") != -1){
+                    } else if(message.text.indexOf("업무공간") != -1 || message.text.indexOf("2") != -1){
                         sess.spacesCategory[i]='2';
 
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'2'));
 
-                    }else if(message.text.indexOf("주거공간") != -1){
+                    }else if(message.text.indexOf("주거공간") != -1 || message.text.indexOf("3") != -1){
                         sess.spacesCategory[i]='3';
 
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'3'));
 
-                    }else if(message.text.indexOf("문화/종교공간") != -1){
+                    }else if(message.text.indexOf("문화/종교공간") != -1 || message.text.indexOf("4") != -1){
                         sess.spacesCategory[i]='4';
 
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'4'));
 
-                    }else if(message.text.indexOf("기타공간") != -1){
+                    }else if(message.text.indexOf("기타공간") != -1 || message.text.indexOf("5") != -1){
                         sess.spacesCategory[i]='5';
 
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'5'));

@@ -118,129 +118,6 @@ module.exports.getConciergeExpress = function (type,opt) {
         ];
     }else if(type === 'experts'){
 
-        var result =
-           [{
-                "type": "template",
-                "altText": "this is a carousel template",
-                "template": {
-                    "type": "carousel",
-                    "columns": [
-                        {
-                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
-                            "title": "this is menu",
-                            "text": "description",
-                            "actions": [
-                                {
-                                    "type": "uri",
-                                    "label": opt[0].businessName,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": opt[0].title,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
-                                }
-                            ]
-                        },
-                        {
-                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
-                            "title": "this is menu",
-                            "text": "description",
-                            "actions": [
-                                {
-                                    "type": "uri",
-                                    "label": opt[1].businessName,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": opt[1].title,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
-                                }
-                            ]
-                        },
-                        {
-                            "thumbnailImageUrl":"https://interiorbrothers.com/img/menu/logo_beta.png",
-                            "title": "this is menu",
-                            "text": "description",
-                            "actions": [
-                                {
-                                    "type": "uri",
-                                    "label": opt[2].businessName,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": opt[2].title,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
-                                }
-                            ]
-                        },
-                        {
-                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
-                            "title": "this is menu",
-                            "text": "description",
-                            "actions": [
-                                {
-                                    "type": "uri",
-                                    "label": opt[3].businessName,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": opt[3].title,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
-                                }
-                            ]
-                        },
-                        {
-                            "thumbnailImageUrl": "https://interiorbrothers.com/img/menu/logo_beta.png",
-                            "title": "this is menu",
-                            "text": "description",
-                            "actions": [
-                                {
-                                    "type": "uri",
-                                    "label": opt[4].businessName,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": opt[4].title,
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
-                                },
-                                {
-                                    "type": "uri",
-                                    "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
-                                }
-                            ]
-                        }
-
-                    ]
-                }
-            }];
-    }else if(type === 'expertsTest'){
-
         for(var i = 0 ; i < 5 ; i++){
             var match =  opt[i].src.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
@@ -256,7 +133,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "columns": [
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[0].src,
-                            "title": opt[0].businessName+"("+opt[0].userId+")",
+                            "title": opt[0].businessName+"("+opt[0].title+")",
                             "text": "구분 "+opt[0].spaceName+"\n면적 "+(opt[0].size).toFixed(2)+"m²("+(opt[0].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[0].budget],
                             "actions": [
                                 {
@@ -268,7 +145,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[1].src,
-                            "title": opt[1].businessName+"("+opt[1].userId+")",
+                            "title": opt[1].businessName+"("+opt[1].title+")",
                             "text":  "구분 "+opt[1].spaceName+"\n면적 "+(opt[1].size).toFixed(2)+"m²("+(opt[1].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[1].budget],
                             "actions": [
                                 {
@@ -280,7 +157,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[2].src,
-                            "title": opt[2].businessName+"("+opt[2].userId+")",
+                            "title": opt[2].businessName+"("+opt[2].title+")",
                             "text":  "구분 "+opt[2].spaceName+"\n면적 "+(opt[2].size).toFixed(2)+"m²("+(opt[2].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[2].budget],
                             "actions": [
                                 {
@@ -292,7 +169,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[3].src,
-                            "title": opt[3].businessName+"("+opt[3].userId+")",
+                            "title": opt[3].businessName+"("+opt[3].title+")",
                             "text":  "구분 "+opt[3].spaceName+"\n면적 "+(opt[3].size).toFixed(2)+"m²("+(opt[3].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[3].budget],
                             "actions": [
                                 {
@@ -304,7 +181,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         },
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[4].src,
-                            "title": opt[4].businessName+"("+opt[4].userId+")",
+                            "title": opt[4].businessName+"("+opt[4].title+")",
                             "text":  "구분 "+opt[4].spaceName+"\n면적 "+(opt[4].size).toFixed(2)+"m²("+(opt[4].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[4].budget],
                             "actions": [
                                 {
@@ -333,7 +210,7 @@ module.exports.getSpaces2 = function (spaces1,msg) {
     for (prop in temp) {
         if (temp.hasOwnProperty(prop) && prop !== 'name') {
             ++cnt;
-            if(msg.indexOf(temp[prop].name) != -1){
+            if(msg.indexOf(temp[prop].name) != -1 || msg.indexOf(cnt+"") != -1){
                 return cnt;
             }
         }
@@ -349,7 +226,7 @@ module.exports.getSpaces3 = function (spaces1,spaces2,msg) {
 
         if (temp.hasOwnProperty(prop) && prop !== 'name') {
             ++cnt;
-            if(msg.indexOf(temp[prop]) != -1){
+            if(msg.indexOf(temp[prop]) != -1 || msg.indexOf(cnt+"") != -1){
                 return cnt;
             }
 
