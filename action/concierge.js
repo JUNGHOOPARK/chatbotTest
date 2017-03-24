@@ -175,8 +175,8 @@ module.exports.getSpecialtyRange = function (msg) {
         if(arr.length > 1){
                if(arr[0] === 'interiorDesign' && arr[1] === 'interiorContractor'){
                     result.push('interiorFull');
-                    if(arr[2] === 'interiorDesign'){
-                        result.push('interiorDesign');
+                    if(arr[2] === 'interiorStyling'){
+                        result.push('interiorStyling');
                     }
 
                }else{
@@ -185,9 +185,6 @@ module.exports.getSpecialtyRange = function (msg) {
                    }
                }
 
-            for(var i = 0 ; i < arr.length ; i++){
-               console.log("arr===>>"+arr[i]);
-            }
         }else{
             result.push(arr[0]);
         }
