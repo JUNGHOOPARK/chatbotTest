@@ -33,10 +33,7 @@ module.exports.concierge = function (data) {
     var options = {
         url: 'https://interiorbrothers.com/api/doConcierge',
         method: 'POST',
-        json: {
-            body : data
-
-        }
+        formData: data
     };
 
     requestSender(options, function (error, response, body) {
