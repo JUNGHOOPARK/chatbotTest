@@ -175,6 +175,10 @@ module.exports.getSpecialtyRange = function (msg) {
         if(arr.length > 1){
                if(arr[0] === 'interiorDesign' && arr[1] === 'interiorContractor'){
                     result.push('interiorFull');
+                    if(arr[2] === 'interiorDesign'){
+                        result.push('interiorDesign');
+                    }
+
                }else{
                    for(var i = 0 ; i < arr.length ; i++){
                        result.push(arr[i]);

@@ -245,7 +245,7 @@ app.post('/hook', function (request, response) {
 
                 }else if(sess.spaceBrandingYN[i] === true){
 
-                    if(message.text.indexOf("네")){
+                    if(message.text.indexOf("네") != -1){
                         sess.spaceBranding[i] = true;
                     }else{
                         sess.spaceBranding[i] = false;
