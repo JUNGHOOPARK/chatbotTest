@@ -196,6 +196,13 @@ module.exports.getConciergeExpress = function (type,opt) {
                     ]
                 }
             }];
+    }else if(type === 'erroe'){
+        var result = [
+            {
+                "type": "text",
+                "text": "땡!! 데이터 입력 오류 발견! 처음부터 다시시작하세요 :))"
+            }
+        ];
     }
 
 

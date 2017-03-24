@@ -304,14 +304,40 @@ app.post('/hook', function (request, response) {
                         formData.budget.max = sess.budgetMax[i];
                         formData.style = sess.styles[i];
 
-
-
                     sess.stylesYN[i] = false;
+                    sess.concierge[i] === false;
 
 
+                    if ( !formData.specialty.main
+                        || ( !(formData.specialty.main === 'interior') && !(formData.specialty.main === 'construction')) ) {
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("error",''));
+                        return false;
+                    }
+                    if ( !formData.spaces.category || !formData.spaces.space || !formData.spaces.subcategory) {
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("error",''));
+                        return false;
+                    }
+                    if ( !formData.specialty.sub.length) {
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("error",''));
+                        return false;
+                    }
+                    if ( (!formData.measure.meter) || (!formData.measure.py)
+                        || !(formData.measure.meter > -1) ) {
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("error",''));
+                        return false;
+                    }
+                    if ( (!formData.budget.min) || (!formData.budget.max)
+                        || !(formData.budget.min > -1) || !(formData.budget.max > -1)
+                        || (parseInt(formData.budget.min) > parseInt(formData.budget.max)) ) {
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("error",''));
+                        return false;
+                    }
+                    if ( !formData.style) {
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("error",''));
+                        return false;
+                    }
+                    
                     reply.concierge(formData,eventObj);
-
-
 
                 }
                  else{
