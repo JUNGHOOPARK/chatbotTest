@@ -30,8 +30,16 @@ module.exports.send = function (channelAccessToken, replyToken, messages) {
 
 module.exports.concierge = function (data) {
 
+    var options = {
+        url: 'https://interiorbrothers.com/api/doConcierge',
+        method: 'POST',
+        json: {
+            body : data
 
-    requestSender.post("https://interiorbrothers.com/api/doConcierge",data ,function (error, response, body) {
+        }
+    };
+
+    requestSender(options, function (error, response, body) {
         console.log('response', response.statusCode);
         if (!error && response.statusCode == 200) {
             console.log(body)
@@ -40,5 +48,7 @@ module.exports.concierge = function (data) {
             console.log('requestSender', error);
         }
     })
+
+
 
 };
