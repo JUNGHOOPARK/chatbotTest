@@ -12,7 +12,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "2.업무공간\n" +
                     "3.주거공간\n" +
                     "4.문화/종교 공간\n" +
-                    "5.기타공간"
+                    "5.기타공간\n\n" +
+                    "ex) 1 OR 상업공간"
                 }
             ];
     }else if(type === 'spaces2'){
@@ -32,7 +33,8 @@ module.exports.getConciergeExpress = function (type,opt) {
         var result = [
                 {
                     "type": "text",
-                    "text": "어떠한 공간을 인테리어 하시나요?\n\n" +html
+                    "text": "어떠한 공간을 인테리어 하시나요?\n\n" +html +
+                    "\n\n ex) 1 OR 공간"
                 }
             ];
     }else if(type === 'spaces3'){
@@ -53,7 +55,8 @@ module.exports.getConciergeExpress = function (type,opt) {
         var result = [
             {
                 "type": "text",
-                "text": "어떠한 공간을 인테리어 하시나요?\n\n" +html
+                "text": "어떠한 공간을 인테리어 하시나요?\n\n" +html +
+                "\n\n ex) 1 OR 공간"
             }
         ];
     }else if(type === 'specialtyRange'){
@@ -64,7 +67,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "1.인테리어 디자인\n" +
                 "2.인테리어 시공\n" +
                 "3.스타일링\n\n" +
-                "ex) 1,2,3 || 인테리어 디자인,인테리어 시공,스타일링\n"
+                "ex) 1,2,3 OR 인테리어 디자인,인테리어 시공,스타일링\n"
 
             }
         ];
@@ -82,7 +85,7 @@ module.exports.getConciergeExpress = function (type,opt) {
             {
                 "type": "text",
                 "text": "인테리어 하는 공간의 면적이 어떻게 되나요?\n\n" +
-                "ex) 100m2 || 100평 \n"
+                "ex) 100m2 OR 100평 \n"
 
             }
         ];
@@ -112,7 +115,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "9.기타\n" +
                 "10.앤틱\n" +
                 "11.내추럴\n\n" +
-                "ex) 1 || 모던 \n"
+                "ex) 1 OR 모던 \n"
 
             }
         ];
