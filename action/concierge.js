@@ -127,7 +127,7 @@ module.exports.getConciergeExpress = function (type,opt) {
         var result =
             [{
                 "type": "template",
-                "altText": "this is a carousel template",
+                "altText": "브라더스 컨시어지 결과가 도착했습니다 :]",
                 "template": {
                     "type": "carousel",
                     "columns": [
