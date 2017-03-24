@@ -1,4 +1,7 @@
 const requestSender = require('request');
+const config = require('config');
+const actionBasic = require('action/basic');
+const actionConcierge = require('action/concierge');
 
 module.exports.send = function (channelAccessToken, replyToken, messages) {
     var headers = {
@@ -28,7 +31,7 @@ module.exports.send = function (channelAccessToken, replyToken, messages) {
 
 };
 
-module.exports.concierge = function (data) {
+module.exports.concierge = function (data,eventObj) {
 
     var options = {
         url: 'https://interiorbrothers.com/api/doConcierge',
@@ -41,7 +44,10 @@ module.exports.concierge = function (data) {
             return console.error('upload failed:', error);
         }
         console.log('result:', body.experts);
-        return body.experts;
+        setTimeout(function() {
+            this.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("experts",body.experts));
+        }, 500);
+
 
     })
 
