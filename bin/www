@@ -80,15 +80,35 @@ app.post('/hook', function (request, response) {
         sess.concierge = [];
         sess.concierge[i] = false;
         sess.spaces1 = [];
-        sess.spaces2 = [];
-        sess.spaces3 = [];
         sess.spaces1[i] = false;
+        sess.spaces2 = [];
         sess.spaces2[i] = false;
+        sess.spaces3 = [];
         sess.spaces3[i] = false;
+        sess.specialtyRangeYN = [];
+        sess.specialtyRangeYN[i] = false;
+        sess.spaceBrandingYN = [];
+        sess.spaceBrandingYN[i] = false;
+        sess.spaceMeasure = [];
+        sess.spaceMeasure[i] = false;
+        sess.budget = [];
+        sess.budget[i] = false;
+        sess.stylesYN = [];
+        sess.stylesYN[i] = false;
 
+        sess.estimate_Type = "interior";
         sess.spacesCategory = [];
         sess.spacesSubCategory = [];
         sess.spacesSpace = [];
+        sess.specialtyRange = [];
+        sess.spaceBranding = [];
+        sess.py = [];
+        sess.meter = [];
+        sess.budgetMin = [];
+        sess.budgetMax = [];
+        sess.styles = [];
+
+
     }else{
 
     }
@@ -181,6 +201,7 @@ app.post('/hook', function (request, response) {
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaces2",'5'));
 
                     }
+
                     sess.spaces1[i] = false;
                     sess.spaces2[i] = true;
 
@@ -203,7 +224,87 @@ app.post('/hook', function (request, response) {
                     sess.spacesSpace[i] = result;
 
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("specialtyRange",''));
+                    sess.spaces3[i] = false;
+                    sess.specialtyRangeYN[i] = true;
+                }else if(sess.specialtyRangeYN[i] === true){
 
+                    var result = actionConcierge.getSpecialtyRange(message.text);
+
+                    sess.specialtyRange[i] = result;
+
+                    sess.specialtyRangeYN[i] = false;
+
+                    if(sess.specialtyRange[i][0] === 'interiorFull' ||  sess.specialtyRange[i][0] === 'interiorDesign'){
+                        sess.spaceBrandingYN = true;
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaceBranding",''));
+                    }else{
+                        sess.spaceMeasure = true;
+                        reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaceMeasure",''));
+
+                    }
+
+                }else if(sess.spaceBrandingYN[i] === true){
+                    var result = actionConcierge.getSpaces3(sess.spacesCategory[i],sess.spacesSubCategory[i],message.text);
+                    if(message.text.indexOf("네")){
+                        sess.spaceBranding[i] = true;
+                    }else{
+                        sess.spaceBranding[i] = false;
+                    }
+
+
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("spaceMeasure",''));
+                    sess.spaceBrandingYN[i] = false;
+                    sess.spaceMeasure[i] = true;
+
+                }else if(sess.spaceMeasure[i] === true){
+
+                    var result = actionConcierge.getMeasure(message.text);
+
+                    sess.py[i] = result[0];
+                    sess.meter[i] = result[1];
+
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("budget",''));
+                    sess.spaceMeasure[i] = false;
+                    sess.budget[i] = true;
+
+                }else if(sess.budget[i] === true){
+
+                    var result = [];
+
+                    if(message.text.indexOf("~") != -1){
+                        result = message.text.split("~");
+                        sess.budgetMin[i] = result[0];
+                        sess.budgetMax[i] = result[1];
+                    }
+
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
+                    sess.budget[i] = false;
+                    sess.stylesYN[i] = true;
+
+                }else if(sess.stylesYN[i] === true){
+
+                    var result = actionConcierge.getStyles(message.text);
+
+                    sess.styles[i] = result;
+
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
+
+                    console.log( sess.spacesCategory[i]);
+                    console.log( sess.spacesSpace[i]);
+                    console.log( sess.spacesSubCategory[i]);
+                    console.log( sess.specialtyRange[i]);
+                    console.log( sess.spaceBranding[i]);
+                    console.log( sess.py[i]);
+                    console.log( sess.meter[i]);
+                    console.log( sess.budgetMin[i]);
+                    console.log( sess.budgetMax[i]);
+                    console.log( sess.styles[i]);
+
+                    sess.stylesYN[i] = false;
+
+                }
+                 else{
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
                 }
 
             }else{
