@@ -116,6 +116,73 @@ module.exports.getConciergeExpress = function (type,opt) {
 
             }
         ];
+    }else if(type === 'experts'){
+       /* opt.userId
+        opt.src
+        businessName
+        title*/
+
+       for(var i = 0; i < 5 ; i++){
+           console.log(opt[i].businessName);
+           console.log(opt[i].title);
+           console.log(opt[i].src);
+
+        }
+        var result = [
+            {
+                "type": "template",
+                "altText": "this is a carousel template",
+                "template": {
+                    "type": "carousel",
+                    "columns": [
+                        {
+                            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+                            "title": "this is menu",
+                            "text": "description",
+                            "actions": [
+                                {
+                                    "type": "uri",
+                                    "label": "",
+                                    "uri": "https://www.interiorbrothers.com/experts/94"
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "",
+                                    "uri": "https://www.interiorbrothers.com/experts/94"
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "상세보러가기",
+                                    "uri": "https://www.interiorbrothers.com/experts/94"
+                                }
+                            ]
+                        },
+                        {
+                            "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+                            "title": "this is menu",
+                            "text": "description",
+                            "actions": [
+                                {
+                                    "type": "postback",
+                                    "label": "Buy",
+                                    "data": "action=buy&itemid=222"
+                                },
+                                {
+                                    "type": "postback",
+                                    "label": "Add to cart",
+                                    "data": "action=add&itemid=222"
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "View detail",
+                                    "uri": "http://example.com/page/222"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ];
     }
 
 

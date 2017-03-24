@@ -289,18 +289,6 @@ app.post('/hook', function (request, response) {
 
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
 
-                    console.log( sess.spacesCategory[i]);
-                    console.log( sess.spacesSubCategory[i]);
-                    console.log( sess.spacesSpace[i]);
-                    console.log( sess.specialtyRange[i]);
-                    console.log( sess.spaceBranding[i]);
-                    console.log( sess.py[i]);
-                    console.log( sess.meter[i]);
-                    console.log( sess.budgetMin[i]);
-                    console.log( sess.budgetMax[i]);
-                    console.log( sess.styles[i]);
-                    console.log("------------------------------------------------------------");
-
                     var formData = {};
                         formData.specialty = {};
                         formData.specialty.main = "interior";
@@ -318,10 +306,11 @@ app.post('/hook', function (request, response) {
                         formData.budget.max = sess.budgetMax[i];
                         formData.style = sess.styles[i];
 
-                        console.log(formData);
+
 
                     sess.stylesYN[i] = false;
-                    reply.concierge(formData);
+                    var result = reply.concierge(formData);
+                    reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("experts",result));
                 }
                  else{
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
