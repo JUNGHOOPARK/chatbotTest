@@ -321,7 +321,7 @@ app.post('/hook', function (request, response) {
                         console.log(formData);
 
                     sess.stylesYN[i] = false;
-
+                    reply.concierge(formData);
                 }
                  else{
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
