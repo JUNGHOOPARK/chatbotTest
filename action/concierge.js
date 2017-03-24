@@ -24,7 +24,6 @@ module.exports.getConciergeExpress = function (type,opt) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
                 ++cnt;
-                console.log(temp[prop].name);
                 html += cnt+"."+temp[prop].name+"\n";
             }
         }
@@ -46,7 +45,6 @@ module.exports.getConciergeExpress = function (type,opt) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
                 ++cnt;
-                console.log(temp[prop]);
                 html += cnt+"."+temp[prop]+"\n";
             }
         }
@@ -202,13 +200,15 @@ module.exports.getSpecialtyRange = function (msg) {
 
 module.exports.getMeasure = function (msg) {
     var result = [];
-
+    var num = [];
     if(msg.indexOf("평") != -1){
-        result[0] = msg;
-        result[1] = (msg * 3.3).toFixed(2);
+        num = msg.split("평");
+        result[0] = num[0];
+        result[1] = (num[0] * 3.3).toFixed(2);
     }else if(msg.indexOf("m2") != -1){
-        result[0] = (msg / 3.3).toFixed(2);
-        result[1] = msg;
+        num = msg.split("m2");
+        result[0] = ( num[0] / 3.3).toFixed(2);
+        result[1] =  num[0];
     }
 
     return result;

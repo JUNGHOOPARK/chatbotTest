@@ -290,8 +290,8 @@ app.post('/hook', function (request, response) {
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
 
                     console.log( sess.spacesCategory[i]);
-                    console.log( sess.spacesSpace[i]);
                     console.log( sess.spacesSubCategory[i]);
+                    console.log( sess.spacesSpace[i]);
                     console.log( sess.specialtyRange[i]);
                     console.log( sess.spaceBranding[i]);
                     console.log( sess.py[i]);
