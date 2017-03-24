@@ -42,7 +42,7 @@ module.exports.concierge = function (data,eventObj) {
         if (error) {
             return console.error('upload failed:', error);
         }
-        console.log('result:', body.experts);
+        // console.log('result:', body.experts);
 
         var headers = {
             'Content-type' : 'application/json',
@@ -58,6 +58,8 @@ module.exports.concierge = function (data,eventObj) {
                 messages : actionConcierge.getConciergeExpress("experts",body.experts)
             }
         };
+
+        console.log(actionConcierge.getConciergeExpress("experts",body.experts));
 
         requestSender(options2, function (error, response, body) {
             console.log('response', response.statusCode);
