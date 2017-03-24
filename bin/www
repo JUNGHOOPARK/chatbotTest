@@ -309,10 +309,13 @@ app.post('/hook', function (request, response) {
 
 
                     sess.stylesYN[i] = false;
+
                     var result = reply.concierge(formData);
-                    setTimeout(function(){
+                    console.log("!!!!!!!!!!!!!!!!!!!!!!!"+result);
+                    setTimeout(function() {
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("experts",result));
-                    },100);
+                    }, 500);
+
 
                 }
                  else{
