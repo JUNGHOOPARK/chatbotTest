@@ -117,17 +117,7 @@ module.exports.getConciergeExpress = function (type,opt) {
             }
         ];
     }else if(type === 'experts'){
-       /* opt.userId
-        opt.src
-        businessName
-        title*/
 
-       for(var i = 0; i < 5 ; i++){
-           console.log(opt[i].businessName);
-           console.log(opt[i].title);
-           console.log(opt[i].src);
-
-        }
         var result = [
             {
                 "type": "template",
@@ -136,49 +126,116 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "type": "carousel",
                     "columns": [
                         {
-                            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[0].src,
                             "title": "this is menu",
                             "text": "description",
                             "actions": [
                                 {
                                     "type": "uri",
-                                    "label": "",
-                                    "uri": "https://www.interiorbrothers.com/experts/94"
+                                    "label": opt[0].businessName,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
                                 },
                                 {
                                     "type": "uri",
-                                    "label": "",
-                                    "uri": "https://www.interiorbrothers.com/experts/94"
+                                    "label": opt[0].title,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
                                 },
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/94"
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
                                 }
                             ]
                         },
                         {
-                            "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[1].src,
                             "title": "this is menu",
                             "text": "description",
                             "actions": [
                                 {
-                                    "type": "postback",
-                                    "label": "Buy",
-                                    "data": "action=buy&itemid=222"
-                                },
-                                {
-                                    "type": "postback",
-                                    "label": "Add to cart",
-                                    "data": "action=add&itemid=222"
+                                    "type": "uri",
+                                    "label": opt[1].businessName,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
                                 },
                                 {
                                     "type": "uri",
-                                    "label": "View detail",
-                                    "uri": "http://example.com/page/222"
+                                    "label": opt[1].title,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "상세보러가기",
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
+                                }
+                            ]
+                        },
+                        {
+                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[2].src,
+                            "title": "this is menu",
+                            "text": "description",
+                            "actions": [
+                                {
+                                    "type": "uri",
+                                    "label": opt[2].businessName,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": opt[2].title,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "상세보러가기",
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
+                                }
+                            ]
+                        },
+                        {
+                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[3].src,
+                            "title": "this is menu",
+                            "text": "description",
+                            "actions": [
+                                {
+                                    "type": "uri",
+                                    "label": opt[3].businessName,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": opt[3].title,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "상세보러가기",
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
+                                }
+                            ]
+                        },
+                        {
+                            "thumbnailImageUrl": "https://interiorbrothers.com"+opt[4].src,
+                            "title": "this is menu",
+                            "text": "description",
+                            "actions": [
+                                {
+                                    "type": "uri",
+                                    "label": opt[4].businessName,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": opt[4].title,
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
+                                },
+                                {
+                                    "type": "uri",
+                                    "label": "상세보러가기",
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
                                 }
                             ]
                         }
+
                     ]
                 }
             }

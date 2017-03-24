@@ -43,9 +43,31 @@ module.exports.concierge = function (data,eventObj) {
             return console.error('upload failed:', error);
         }
         console.log('result:', body.experts);
-        setTimeout(function() {
-            this.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("experts",body.experts));
-        }, 500);
+
+        var headers = {
+            'Content-type' : 'application/json',
+            'Authorization' : 'Bearer ' + config.CHANNEL_ACCESS_TOKEN
+        };
+
+        var options2 = {
+            url: 'https://api.line.me/v2/bot/message/reply',
+            method: 'POST',
+            headers: headers,
+            json: {
+                replyToken : eventObj.replyToken,
+                messages : actionConcierge.getConciergeExpress("experts",body.experts)
+            }
+        };
+
+        requestSender(options2, function (error, response, body) {
+            console.log('response', response.statusCode);
+            if (!error && response.statusCode == 200) {
+                console.log(body)
+            }
+            else{
+                console.log('requestSender', error);
+            }
+        })
 
 
     })
