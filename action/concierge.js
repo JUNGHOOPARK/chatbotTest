@@ -242,11 +242,10 @@ module.exports.getConciergeExpress = function (type,opt) {
     }else if(type === 'expertsTest'){
 
         for(var i = 0 ; i < 5 ; i++){
-            var match =  opt[i].src.match(/\/file\/download\/(\w+\.\w{2,5})/);
-            console.log(match);
-            opt[i].src = '/file/download/small-' + match;
+            var match =  opt[i].src.split('/file/download/');
+            opt[i].src = '/file/download/small-' + match[1];
         }
-        console.log(opt[0].src);
+
 
         var result =
             [{
@@ -258,7 +257,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                         {
                             "thumbnailImageUrl": "https://interiorbrothers.com/"+opt[0].src,
                             "title": opt[0].businessName,
-                            "text":  opt[0].userId+"\n\n 구분 "+opt[0].spaceName+"\n 면적 "+(opt[0].size).toFixed(2)+"m²("+(expert.size / 3.3).toFixed(2) +" 평) \n 예산 "+util.budget[opt[0].budget],
+                            "text":  opt[0].userId+"\n\n 구분 "+opt[0].spaceName+"\n 면적 "+(opt[0].size).toFixed(2)+"m²("+(opt[0].size / 3.3).toFixed(2) +" 평) \n 예산 "+util.budget[opt[0].budget],
                             "actions": [
                                 {
                                     "type": "uri",
