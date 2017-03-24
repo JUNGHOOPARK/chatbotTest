@@ -241,6 +241,10 @@ module.exports.getConciergeExpress = function (type,opt) {
             }];
     }else if(type === 'expertsTest'){
 
+        for(var i = 0 ; i < 5 ; i++){
+            opt[i] = '/file/download/small-' + opt[i].match(/\/file\/download\/(\w+\.\w{2,5})/);
+        }
+
         var result =
             [{
                 "type": "template",
@@ -255,7 +259,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             "actions": [
                                 {
                                     "type": "uri",
-                                    "label": "11",
+                                    "label": dehtmlSpecialChars(opt[0].businessName),
                                     "uri": "https://www.interiorbrothers.com/"
                                 },
                                 {
@@ -277,7 +281,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             "actions": [
                                 {
                                     "type": "uri",
-                                    "label": "11",
+                                    "label": dehtmlSpecialChars(opt[1].businessName),
                                     "uri": "https://www.interiorbrothers.com/"
                                 },
                                 {
@@ -299,7 +303,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             "actions": [
                                 {
                                     "type": "uri",
-                                    "label": "11",
+                                    "label": dehtmlSpecialChars(opt[2].businessName),
                                     "uri": "https://www.interiorbrothers.com/"
                                 },
                                 {
@@ -321,7 +325,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             "actions": [
                                 {
                                     "type": "uri",
-                                    "label": "11",
+                                    "label": dehtmlSpecialChars(opt[3].businessName),
                                     "uri": "https://www.interiorbrothers.com/"
                                 },
                                 {
@@ -343,7 +347,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                             "actions": [
                                 {
                                     "type": "uri",
-                                    "label": "11",
+                                    "label": dehtmlSpecialChars(opt[4].businessName),
                                     "uri": "https://www.interiorbrothers.com/"
                                 },
                                 {
@@ -497,3 +501,15 @@ module.exports.getStyles = function (msg) {
     return result;
 
 };
+
+function dehtmlSpecialChars(text) {
+    'use strict';
+
+
+    if (!text) {
+        return '';
+    }
+
+
+    return text.trim().replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '<').replace(/&quot;/g, '"').replace(/&#039;/g, '\'');
+}
