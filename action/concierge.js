@@ -122,11 +122,11 @@ module.exports.getConciergeExpress = function (type,opt) {
         var result = [
             {
                 "type": "template",
-                "altText": "전문가의 도움이 필요한 범위를 선택해 주세요!",
+                "altText": "범위를 선택해주세요!!",
                 "template": {
                     "type": "buttons",
                     "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
-                    "title": "어떠한 공간을 인테리어 하시나요?",
+                    "title": "범위 선택",
                     "text": "전문가의 도움이 필요한 범위를 선택해 주세요!",
                     "actions": [
                         {
@@ -161,12 +161,12 @@ module.exports.getConciergeExpress = function (type,opt) {
         var result = [
             {
                 "type": "template",
-                "altText": "공간브랜딩 여부",
+                "altText": "공간브랜딩 여부!!",
                 "template": {
                     "type": "buttons",
                     "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
-                    "title": "인테리어 하는 공간의 공간 브랜딩을 해줄 수 있는 전문가가 필요하신가요?",
-                    "text": "전문가의 도움이 필요한 범위를 선택해 주세요!",
+                    "title": "공간브랜딩이 필요하신가요??",
+                    "text": "공간브랜딩:공간에 대한 차별화된 가치를 높여주는것.",
                     "actions": [
                         {
                             "type": "message",
@@ -185,24 +185,81 @@ module.exports.getConciergeExpress = function (type,opt) {
 
 
     }else if(type === 'spaceMeasure'){
+
+
         var result = [
             {
-                "type": "text",
-                "text": "인테리어 하는 공간의 면적이 어떻게 되나요?\n\n" +
-                "ex) 100m2 OR 100평 \n"
-
+                "type": "template",
+                "altText": "면적을 선택해주세요~!",
+                "template": {
+                    "type": "buttons",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "title": "면적 선택",
+                    "text": "인테리어 하는 공간의 면적이 어떻게 되나요?",
+                    "actions": [
+                        {
+                            "type": "message",
+                            "label": "10~50 평",
+                            "text": "85m2"
+                        },
+                        {
+                            "type": "message",
+                            "label": "50~100 평",
+                            "text": "250m2"
+                        },
+                        {
+                            "type": "message",
+                            "label": "100~200 평",
+                            "text": "500m2"
+                        },
+                        {
+                            "type": "message",
+                            "label": "200~500 평",
+                            "text": "1200m2"
+                        }
+                    ]
+                }
             }
         ];
+
     }else if(type === 'budget'){
+
         var result = [
             {
-                "type": "text",
-                "text": "인테리어 하는 공간의 예산은 얼마인가요? \n\n" +
-                "만원 단위로 입력해주세요! \n"+
-                "ex) 100~500 \n"
-
+                "type": "template",
+                "altText": "예산을 선택해주세요~!",
+                "template": {
+                    "type": "buttons",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "title": "예산 선택",
+                    "text": "인테리어 하는 공간의 예산은 얼마인가요?",
+                    "actions": [
+                        {
+                            "type": "message",
+                            "label": "1000만원 이하",
+                            "text": "100~1000"
+                        },
+                        {
+                            "type": "message",
+                            "label": "1000~5000 만원 사이",
+                            "text": "1000~5000"
+                        },
+                        {
+                            "type": "message",
+                            "label": "5000~1억 사이",
+                            "text": "5000~10000"
+                        },
+                        {
+                            "type": "message",
+                            "label": "1억 이상",
+                            "text": "10000~100000"
+                        }
+                    ]
+                }
             }
         ];
+
+
     }else if(type === 'styles'){
         var result = [
             {
