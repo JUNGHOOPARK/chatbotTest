@@ -207,12 +207,12 @@ module.exports.getConciergeExpress = function (type,opt) {
         var result = [
             {
                 "type": "template",
-                "altText": "인테리어 하는 공간의 스타일을 선택해주세요! ",
+                "altText": "스타일을 선택해주세요! ",
                 "template": {
                     "type": "buttons",
                     "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
-                    "title": "인테리어 하는 공간의 스타일을 선택해주세요! ",
-                    "text": "",
+                    "title": "스타일 선택",
+                    "text": "인테리어 하는 공간의 스타일을 선택해주세요!",
                     "actions": [
                         {
                             "type": "message",
