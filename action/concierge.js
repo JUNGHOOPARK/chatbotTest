@@ -54,7 +54,10 @@ module.exports.getConciergeExpress = function (type,opt) {
                     obj.label = temp[prop].name;
                     obj.text = temp[prop].name;
                     console.log(obj);
+                    console.log("==================");
                     actions.push(obj);
+                    console.log(actions);
+                    console.log("==================");
                     ++cnt;
                 }else{
                     break;
@@ -62,9 +65,7 @@ module.exports.getConciergeExpress = function (type,opt) {
 
             }
         }
-        console.log("==================");
-        console.log(actions);
-        console.log("==================");
+
         var result = [
             {
                 "type": "template",
