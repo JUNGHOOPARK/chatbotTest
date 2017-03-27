@@ -42,17 +42,17 @@ module.exports.getConciergeExpress = function (type,opt) {
         var temp, prop,
             cnt = 0;
         temp = util.portfolioDivision[opt];
-        var actions =[{}];
-
+        var actions = new Array();
+        var obj = new Object();
 
         for (prop in temp) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
 
-                actions[cnt].type = "message";
-                actions[cnt].label = temp[prop].name;
-                actions[cnt].text = temp[prop].name;
-
+                obj.type = "message";
+                obj.label = temp[prop].name;
+                obj.text = temp[prop].name;
+                actions .push(obj);
                 ++cnt;
             }
         }
