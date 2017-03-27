@@ -53,6 +53,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     obj.type = "message";
                     obj.label = temp[prop].name;
                     obj.text = temp[prop].name;
+                    console.log(obj);
                     actions.push(obj);
                     ++cnt;
                 }else{
