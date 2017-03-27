@@ -5,16 +5,38 @@ module.exports.getConciergeExpress = function (type,opt) {
 
     if(type === 'spaces1'){
         var result = [
-                {
-                    "type": "text",
-                    "text": "어떠한 공간을 인테리어 하시나요?\n\n" +
-                    "1.상업공간\n" +
-                    "2.업무공간\n" +
-                    "3.주거공간\n" +
-                    "4.문화/종교 공간\n" +
-                    "5.기타공간\n\n" +
-                    "ex) 1 OR 상업공간"
+            {
+                "type": "template",
+                "altText": "어떠한 공간을 인테리어 하시나요?",
+                "template": {
+                    "type": "buttons",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "title": "어떠한 공간을 인테리어 하시나요?",
+                    "text": "인테리어 하실 공간을 선택해주세요!",
+                    "actions": [
+                        {
+                            "type": "message",
+                            "label": "상업공간",
+                            "text": "상업공간"
+                        },
+                        {
+                            "type": "message",
+                            "label": "업무공간",
+                            "text": "업무공간"
+                        },
+                        {
+                            "type": "message",
+                            "label": "주거공간",
+                            "text": "주거공간"
+                        },
+                        {
+                            "type": "message",
+                            "label": "문화/종교공간",
+                            "text": "문화/종교공간"
+                        }
+                    ]
                 }
+            }
             ];
     }else if(type === 'spaces2'){
         var temp, prop,
