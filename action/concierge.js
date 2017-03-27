@@ -48,17 +48,21 @@ module.exports.getConciergeExpress = function (type,opt) {
         for (prop in temp) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
+                if(cnt < 4){
+                    obj.type = "message";
+                    obj.label = temp[prop].name;
+                    obj.text = temp[prop].name;
+                    actions.push(obj);
+                    ++cnt;
+                }else{
+                    break;
+                }
 
-                obj.type = "message";
-                obj.label = temp[prop].name;
-                obj.text = temp[prop].name;
-                actions .push(obj);
-                ++cnt;
             }
         }
-
+        console.log("==================");
         console.log(actions);
-
+        console.log("==================");
         var result = [
             {
                 "type": "template",
