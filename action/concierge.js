@@ -53,11 +53,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     obj.type = "message";
                     obj.label = temp[prop].name;
                     obj.text = temp[prop].name;
-                    console.log(obj);
-                    console.log("==================");
                     actions.push(obj);
-                    console.log(actions);
-                    console.log("==================");
                     ++cnt;
                     obj = new Object();
                 }else{
@@ -84,45 +80,110 @@ module.exports.getConciergeExpress = function (type,opt) {
         var temp, prop,
             cnt = 0;
         temp = util.portfolioDivision[opt[0]][opt[1]];
+        var actions = new Array();
+        var obj = new Object();
 
         var html = "";
         for (prop in temp) {
-
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
-                ++cnt;
-                html += cnt+"."+temp[prop]+"\n";
+                if(cnt < 4){
+                    console.log(temp[prop]);
+                    obj.type = "message";
+                    obj.label = temp[prop];
+                    obj.text = temp[prop];
+                    actions.push(obj);
+                    ++cnt;
+                    obj = new Object();
+                }else{
+                    break;
+                }
+
             }
         }
 
 
         var result = [
             {
-                "type": "text",
-                "text": "어떠한 공간을 인테리어 하시나요?\n\n" +html +
-                "\n\n ex) 1 OR 공간"
+                "type": "template",
+                "altText": "어떠한 공간을 인테리어 하시나요?",
+                "template": {
+                    "type": "buttons",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "title": "어떠한 공간을 인테리어 하시나요?",
+                    "text": "인테리어 하실 공간을 선택해주세요!",
+                    "actions": actions
+                }
             }
         ];
+
     }else if(type === 'specialtyRange'){
+
+
         var result = [
             {
-                "type": "text",
-                "text": "전문가의 도움이 필요한 범위를 모두 선택해 주세요!\n\n" +
-                "1.인테리어 디자인\n" +
-                "2.인테리어 시공\n" +
-                "3.스타일링\n\n" +
-                "ex) 1,2,3 OR 인테리어 디자인,인테리어 시공,스타일링\n"
-
+                "type": "template",
+                "altText": "전문가의 도움이 필요한 범위를 선택해 주세요!",
+                "template": {
+                    "type": "buttons",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "title": "어떠한 공간을 인테리어 하시나요?",
+                    "text": "전문가의 도움이 필요한 범위를 선택해 주세요!",
+                    "actions": [
+                        {
+                            "type": "message",
+                            "label": "인테리어 디자인+시공",
+                            "text": "인테리어 디자인,인테리어 시공"
+                        },
+                        {
+                            "type": "message",
+                            "label": "인테리어 디자인",
+                            "text": "인테리어 디자인"
+                        },
+                        {
+                            "type": "message",
+                            "label": "인테리어 시공",
+                            "text": "인테리어 시공"
+                        },
+                        {
+                            "type": "message",
+                            "label": "스타일링",
+                            "text": "스타일링"
+                        }
+                    ]
+                }
             }
         ];
+
+
     }else if(type === 'spaceBranding'){
+
+
         var result = [
             {
-                "type": "text",
-                "text": "인테리어 하는 공간의 공간 브랜딩을 해줄 수 있는 전문가가 필요하신가요??!\n\n" +
-                "ex) 네,아니오 로 답해주세요. \n"
-
+                "type": "template",
+                "altText": "공간브랜딩 여부",
+                "template": {
+                    "type": "buttons",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "title": "인테리어 하는 공간의 공간 브랜딩을 해줄 수 있는 전문가가 필요하신가요?",
+                    "text": "전문가의 도움이 필요한 범위를 선택해 주세요!",
+                    "actions": [
+                        {
+                            "type": "message",
+                            "label": "네, 필요합니다",
+                            "text": "네"
+                        },
+                        {
+                            "type": "message",
+                            "label": "아니오, 필요없습니다",
+                            "text": "아니오"
+                        }
+                    ]
+                }
             }
         ];
+
+
     }else if(type === 'spaceMeasure'){
         var result = [
             {
@@ -145,23 +206,39 @@ module.exports.getConciergeExpress = function (type,opt) {
     }else if(type === 'styles'){
         var result = [
             {
-                "type": "text",
-                "text": "인테리어 하는 공간의 예산은 얼마인가요? \n\n" +
-                "1.모던\n" +
-                "2.북유럽\n" +
-                "3.클래식\n" +
-                "4.프로방스&로맨틱\n" +
-                "5.빈티지\n" +
-                "6.한국&아시아\n" +
-                "7.미니멀리즘\n" +
-                "8.인더스트리얼\n" +
-                "9.기타\n" +
-                "10.앤틱\n" +
-                "11.내추럴\n\n" +
-                "ex) 1 OR 모던 \n"
-
+                "type": "template",
+                "altText": "인테리어 하는 공간의 스타일을 선택해주세요! ",
+                "template": {
+                    "type": "buttons",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "title": "인테리어 하는 공간의 스타일을 선택해주세요! ",
+                    "text": "",
+                    "actions": [
+                        {
+                            "type": "message",
+                            "label": "모던",
+                            "text": "모던"
+                        },
+                        {
+                            "type": "message",
+                            "label": "북유럽",
+                            "text": "북유럽"
+                        },
+                        {
+                            "type": "message",
+                            "label": "클래식",
+                            "text": "클래식"
+                        },
+                        {
+                            "type": "message",
+                            "label": "빈티지",
+                            "text": "빈티지"
+                        }
+                    ]
+                }
             }
         ];
+
     }else if(type === 'experts'){
 
         for(var i = 0 ; i < 5 ; i++){
@@ -242,7 +319,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     ]
                 }
             }];
-    }else if(type === 'erroe'){
+    }else if(type === 'error'){
         var result = [
             {
                 "type": "text",
