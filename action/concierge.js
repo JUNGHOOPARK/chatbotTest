@@ -59,6 +59,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     console.log(actions);
                     console.log("==================");
                     ++cnt;
+                    obj = new Object();
                 }else{
                     break;
                 }
