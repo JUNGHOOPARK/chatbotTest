@@ -207,32 +207,32 @@ module.exports.getConciergeExpress = function (type,opt) {
         var result = [
             {
                 "type": "template",
-                "altText": "스타일을 선택해주세요! ",
+                "altText": "전문가의 도움이 필요한 범위를 선택해 주세요!",
                 "template": {
                     "type": "buttons",
                     "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
-                    "title": "스타일 선택",
-                    "text": "인테리어 하는 공간의 스타일을 선택해주세요!",
+                    "title": "어떠한 공간을 인테리어 하시나요?",
+                    "text": "전문가의 도움이 필요한 범위를 선택해 주세요!",
                     "actions": [
                         {
                             "type": "message",
-                            "label": "모던",
-                            "text": "모던"
+                            "label": "인테리어 디자인+시공",
+                            "text": "인테리어 디자인,인테리어 시공"
                         },
                         {
                             "type": "message",
-                            "label": "북유럽",
-                            "text": "북유럽"
+                            "label": "인테리어 디자인",
+                            "text": "인테리어 디자인"
                         },
                         {
                             "type": "message",
-                            "label": "클래식",
-                            "text": "클래식"
+                            "label": "인테리어 시공",
+                            "text": "인테리어 시공"
                         },
                         {
                             "type": "message",
-                            "label": "빈티지",
-                            "text": "빈티지"
+                            "label": "스타일링",
+                            "text": "스타일링"
                         }
                     ]
                 }
