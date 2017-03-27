@@ -42,19 +42,22 @@ module.exports.getConciergeExpress = function (type,opt) {
         var temp, prop,
             cnt = 0;
         temp = util.portfolioDivision[opt];
-        var actions = [];
-        var html = {"type":"message"};
+        var html =[];
 
         for (prop in temp) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
-                html.label = temp[prop].name;
-                html.text = temp[prop].name;
-                actions[cnt] = html;
+
+                html[cnt] = temp[prop].name;
                 ++cnt;
             }
         }
 
+        var test = "[{" +
+            "type : message ,"+
+            "label : test,"+
+            "text : test"
+            "}]";
 
         var result = [
             {
@@ -65,7 +68,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
                     "title": "어떠한 공간을 인테리어 하시나요?",
                     "text": "인테리어 하실 공간을 선택해주세요!",
-                    "actions": actions
+                    "actions": test
                 }
             }
         ];
