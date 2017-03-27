@@ -59,6 +59,8 @@ module.exports.getConciergeExpress = function (type,opt) {
             "text : test"
             "}]";
 
+        test = JSON.parse(test);
+
         var result = [
             {
                 "type": "template",
