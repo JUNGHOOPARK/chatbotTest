@@ -49,6 +49,7 @@ module.exports.getConciergeExpress = function (type,opt) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
                 if(cnt < 4){
+                    console.log(temp[prop].name);
                     obj.type = "message";
                     obj.label = temp[prop].name;
                     obj.text = temp[prop].name;
