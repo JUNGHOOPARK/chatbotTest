@@ -191,7 +191,7 @@ module.exports.getConciergeExpress = function (type,opt) {
             {
                 "type": "text",
                 "text": "인테리어 하는 공간의 면적이 어떻게 되나요?\n\n" +
-                "ex)숫자만 입력하면 평으로 이해합니다:) \n 제곱미터로 입력하길 원하시면\n  숫자 뒤에 m 을 입력해주세요.  \n"
+                "ex) 숫자만 입력하면 평으로 이해합니다:) \n 제곱미터로 입력하길 원하시면\n  숫자 뒤에 m 을 입력해주세요.  \n"
 
             }
         ];
@@ -268,7 +268,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId+"/portfolio?portfolioId="+opt[0].portfolioId
                                 }
                             ]
                         },
@@ -280,7 +280,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId+"/portfolio?portfolioId="+opt[1].portfolioId
                                 }
                             ]
                         },
@@ -292,7 +292,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId+"/portfolio?portfolioId="+opt[2].portfolioId
                                 }
                             ]
                         },
@@ -304,7 +304,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId+"/portfolio?portfolioId="+opt[3].portfolioId
                                 }
                             ]
                         },
@@ -316,7 +316,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId+"/portfolio?portfolioId="+opt[4].portfolioId
                                 }
                             ]
                         }
