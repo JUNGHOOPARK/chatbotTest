@@ -284,11 +284,16 @@ app.post('/hook', function (request, response) {
                         result = msg.split(" ");
                         sess.budgetMin[i] = result[0];
                         sess.budgetMax[i] = result[1];
+                    }else if(msg.match(/[0-9]/)){
+                        sess.budgetMin[i] = msg;
+                        sess.budgetMax[i] = msg;
                     }else{
                         sess.budgetMin[i] = 0;
                         sess.budgetMax[i] = 100000;
                     }
+
                     console.log(result);
+
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
                     sess.budget[i] = false;
                     sess.stylesYN[i] = true;

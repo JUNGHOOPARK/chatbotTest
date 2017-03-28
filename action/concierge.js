@@ -425,11 +425,11 @@ module.exports.getMeasure = function (msg) {
     var result = [];
     var num = [];
     if(msg.indexOf("평") != -1){
-        num = msg.split("평");
+        num = msg.replace(/[^0-9]/g,'');
         result[0] = num[0];
         result[1] = (num[0] * 3.3).toFixed(2);
-    }else if(msg.indexOf("m2") != -1){
-        num = msg.split("m2");
+    }else if(msg.indexOf("m2") != -1 || msg.indexOf("M2") != -1 || msg.indexOf("M") != -1 || msg.indexOf("m") != -1){
+        num = msg.replace(/[^0-9]/g,'');
         result[0] = ( num[0] / 3.3).toFixed(2);
         result[1] =  num[0];
     }else if(msg.match(/[0-9]/)){
