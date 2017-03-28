@@ -272,16 +272,23 @@ app.post('/hook', function (request, response) {
                 }else if(sess.budget[i] === true){
 
                     var result = [];
+                    var msg = message.text;
+                    msg = msg.trim();
+                    var pattern = /\s/g; // 공백여부
 
-                    if(message.text.indexOf("~") != -1){
-                        result = message.text.split("~");
+                    if(msg.indexOf("~") != -1){
+                        result = msg.split("~");
+                        sess.budgetMin[i] = result[0];
+                        sess.budgetMax[i] = result[1];
+                    }else if(msg.match(pattern)){
+                        result = msg.split(" ");
                         sess.budgetMin[i] = result[0];
                         sess.budgetMax[i] = result[1];
                     }else{
                         sess.budgetMin[i] = 0;
                         sess.budgetMax[i] = 100000;
                     }
-
+                    console.log(result);
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
                     sess.budget[i] = false;
                     sess.stylesYN[i] = true;

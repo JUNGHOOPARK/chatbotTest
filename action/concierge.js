@@ -189,36 +189,10 @@ module.exports.getConciergeExpress = function (type,opt) {
 
         var result = [
             {
-                "type": "template",
-                "altText": "면적을 선택해주세요~!",
-                "template": {
-                    "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
-                    "title": "면적 선택",
-                    "text": "인테리어 하는 공간의 면적이 어떻게 되나요?",
-                    "actions": [
-                        {
-                            "type": "message",
-                            "label": "10~50 평",
-                            "text": "85m2"
-                        },
-                        {
-                            "type": "message",
-                            "label": "50~100 평",
-                            "text": "250m2"
-                        },
-                        {
-                            "type": "message",
-                            "label": "100~200 평",
-                            "text": "500m2"
-                        },
-                        {
-                            "type": "message",
-                            "label": "200~500 평",
-                            "text": "1200m2"
-                        }
-                    ]
-                }
+                "type": "text",
+                "text": "인테리어 하는 공간의 면적이 어떻게 되나요?\n\n" +
+                "ex)기본적으로 평으로 입력이 됩니다. 제곱미터로 입력시 숫자 뒤에 m 을 입력해주세요.  \n"
+
             }
         ];
 
@@ -226,36 +200,11 @@ module.exports.getConciergeExpress = function (type,opt) {
 
         var result = [
             {
-                "type": "template",
-                "altText": "예산을 선택해주세요~!",
-                "template": {
-                    "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
-                    "title": "예산 선택",
-                    "text": "인테리어 하는 공간의 예산은 얼마인가요?",
-                    "actions": [
-                        {
-                            "type": "message",
-                            "label": "1000만원 이하",
-                            "text": "100~1000"
-                        },
-                        {
-                            "type": "message",
-                            "label": "1000~5000 만원 사이",
-                            "text": "1000~5000"
-                        },
-                        {
-                            "type": "message",
-                            "label": "5000~1억 사이",
-                            "text": "5000~10000"
-                        },
-                        {
-                            "type": "message",
-                            "label": "1억 이상",
-                            "text": "10000~100000"
-                        }
-                    ]
-                }
+                "type": "text",
+                "text": "인테리어 하는 공간의 예산은 얼마인가요? \n\n" +
+                "만원 단위로 입력해주세요! \n"+
+                "ex) 1000 5000 또는 1000~5000 으로 입력해주세요! \n"
+
             }
         ];
 
@@ -483,11 +432,15 @@ module.exports.getMeasure = function (msg) {
         num = msg.split("m2");
         result[0] = ( num[0] / 3.3).toFixed(2);
         result[1] =  num[0];
+    }else if(msg.match(/[0-9]/)){
+        result[0] =  msg;
+        result[1] =  (msg * 3.3).toFixed(2);
     }else{
         result[0] = 0;
         result[1] = 0;
     }
 
+    console.log(result);
     return result;
 
 };
