@@ -292,8 +292,6 @@ app.post('/hook', function (request, response) {
                         sess.budgetMax[i] = 100000;
                     }
 
-                    console.log(result);
-
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("styles",''));
                     sess.budget[i] = false;
                     sess.stylesYN[i] = true;

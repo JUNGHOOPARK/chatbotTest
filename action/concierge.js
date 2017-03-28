@@ -191,7 +191,7 @@ module.exports.getConciergeExpress = function (type,opt) {
             {
                 "type": "text",
                 "text": "인테리어 하는 공간의 면적이 어떻게 되나요?\n\n" +
-                "ex)기본적으로 평으로 입력이 됩니다. 제곱미터로 입력시 숫자 뒤에 m 을 입력해주세요.  \n"
+                "ex)숫자만 입력하면 평으로 이해합니다:) \n 제곱미터로 입력하길 원하시면\n  숫자 뒤에 m 을 입력해주세요.  \n"
 
             }
         ];
@@ -440,7 +440,6 @@ module.exports.getMeasure = function (msg) {
         result[1] = 0;
     }
 
-    console.log(result);
     return result;
 
 };
