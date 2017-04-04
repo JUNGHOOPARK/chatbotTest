@@ -125,7 +125,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         break;
                     }else{
                         //바뀌는 세션
-                        sess.username[ii+1] = req.body.user;
+                        ntSession.username[ii+1] = req.body.user;
                         ii++;
                         break;
                     }
@@ -137,7 +137,7 @@ app.post('/naverTalkTalk', function (req, res) {
         }
     }
 
-    console.log(ntSession.user);
+    console.log(ntSession.username[ii]);
     console.log(req.body);
     var response = {
         success: true,
