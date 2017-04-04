@@ -76,7 +76,7 @@ var ii = 0;
 app.post('/naverTalkTalk', function (req, res) {
 
     if(ntSession === null || ntSession === '' || ntSession === undefined){
-        ntSession = request.session;
+        ntSession = req.session;
         ntSession.username = [];
         ntSession.username[ii] = null;
         ntSession.concierge = [];
@@ -125,7 +125,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         break;
                     }else{
                         //바뀌는 세션
-                        sess.username[ii+1] =  eventObj.source.userId;
+                        sess.username[ii+1] = req.body.user;
                         ii++;
                         break;
                     }
