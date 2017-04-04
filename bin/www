@@ -65,6 +65,70 @@ app.get('/', function(req, res, next) {
     }
 });
 
+
+var defaultResponse = {
+    success: true,
+    resultCode: "00",
+    resultMessage: "success"
+};
+
+app.post('/naverTalkTalk', function (req, res) {
+
+    console.log(req.body);
+    var response = {
+        success: true,
+        resultCode: "00",
+        resultMessage: "success",
+        request: {
+            event: "send",
+            sender: "partner",
+            user : req.body.user,
+            partner: req.body.partner,
+            textContent: {
+                text: ''
+            }
+        }
+    };
+    switch(req.body.event) {
+        case 'send' :
+            if(req.body.sender == 'user' && req.body.textContent) {
+                response.request.textContent.text = 'echo: ' + req.body.textContent.text;
+                res.json(response);
+            } else {
+                res.json(defaultResponse);
+            }
+            break;
+        case 'open' :
+            switch(req.body.options.inflow) {
+                case 'list' :
+                    response.request.textContent.text = '리스트에서 눌러서 방문하셨네요.';
+                    res.json(response);
+                    break;
+                case 'none' :
+                    response.request.textContent.text = '화면을 갱신하셨네요.';
+                    res.json(response);
+                    break;
+                default:
+                    res.json(defaultResponse);
+            }
+            break;
+        case 'friend' :
+            if(req.body.options.set == 'on') {
+                response.request.textContent.text = 'BOT: 친구가되어주셔서 감사합니다.';
+                res.json(response);
+            } else if(req.body.options.set == 'off') {
+                response.request.textContent.text = 'BOT: 다음번에 꼭 친구추가 부탁드려요.';
+                res.json(response);
+            } else {
+                res.json(defaultResponse);
+            }
+            break;
+        default:
+            res.json(defaultResponse);
+    }
+});
+
+
 app.get('/hook', function (reqeust, response) {
     response.writeHead(200, {'Content-Type' : 'text/html'});
     response.end('<h1>chatbot - skwjdgn@naver.com<h1>');
