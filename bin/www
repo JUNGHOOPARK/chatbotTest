@@ -71,15 +71,73 @@ var defaultResponse = {
     resultCode: "00",
     resultMessage: "success"
 };
-
+var ntSession;
+var ii = 0;
 app.post('/naverTalkTalk', function (req, res) {
-    var sess = req.session;
-    if (sess.views) {
-        sess.views++
+
+    if(ntSession === null || ntSession === '' || ntSession === undefined){
+        ntSession = request.session;
+        ntSession.username = [];
+        ntSession.username[ii] = null;
+        ntSession.concierge = [];
+        ntSession.concierge[ii] = false;
+        ntSession.spaces1 = [];
+        ntSession.spaces1[ii] = false;
+        ntSession.spaces2 = [];
+        ntSession.spaces2[ii] = false;
+        ntSession.spaces3 = [];
+        ntSession.spaces3[ii] = false;
+        ntSession.specialtyRangeYN = [];
+        ntSession.specialtyRangeYN[ii] = false;
+        ntSession.spaceBrandingYN = [];
+        ntSession.spaceBrandingYN[ii] = false;
+        ntSession.spaceMeasure = [];
+        ntSession.spaceMeasure[ii] = false;
+        ntSession.budget = [];
+        ntSession.budget[ii] = false;
+        ntSession.stylesYN = [];
+        ntSession.stylesYN[ii] = false;
+        ntSession.estimate_Type = "interior";
+        ntSession.spacesCategory = [];
+        ntSession.spacesSubCategory = [];
+        ntSession.spacesSpace = [];
+        ntSession.specialtyRange = [];
+        ntSession.spaceBranding = [];
+        ntSession.py = [];
+        ntSession.meter = [];
+        ntSession.budgetMin = [];
+        ntSession.budgetMax = [];
+        ntSession.styles = [];
+
+
     }else{
-        sess.views = 1
+        //세션새로 생성
+        if(ntSession.username[ii] === null || ntSession.username[ii] === '' || ntSession.username[ii] === undefined){
+            ntSession.username[ii] = req.body.user;
+        }else{
+
+            if(req.body.user !== ntSession.username[ii]){
+                for(var j = 0; j<ntSession.username.length; j++){
+                    //세션 변경
+                    if(ntSession.username[j] ===  req.body.user) {
+                        //기존 세션
+                        ii = j;
+                        break;
+                    }else{
+                        //바뀌는 세션
+                        sess.username[ii+1] =  eventObj.source.userId;
+                        ii++;
+                        break;
+                    }
+                }
+            }else{
+
+            }
+
+        }
     }
-    console.log(sess.views);
+
+    console.log(ntSession.user);
     console.log(req.body);
     var response = {
         success: true,
