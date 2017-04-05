@@ -23,8 +23,18 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="189" column="44" lean-forward="false" selection-start-line="186" selection-start-column="19" selection-end-line="189" selection-end-column="44" />
+            <state relative-caret-position="609">
+              <caret line="180" column="17" lean-forward="true" selection-start-line="180" selection-start-column="17" selection-end-line="180" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1196">
+              <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -61,8 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sess.data[i].formData.spaces</find>
-      <find>Util.</find>
       <find>sess.spaces3[i]</find>
       <find>sess.spaces3[</find>
       <find>spaces3[i]</find>
@@ -91,6 +99,8 @@
       <find>[i]</find>
       <find>requ</find>
       <find>reply</find>
+      <find>response</find>
+      <find>actionNtConcierge</find>
     </findStrings>
     <replaceStrings>
       <replace>res</replace>
@@ -124,6 +134,7 @@
         <option value="$PROJECT_DIR$/action/emotion.js" />
         <option value="$PROJECT_DIR$/action/concierge.js" />
         <option value="$PROJECT_DIR$/ntReply.js" />
+        <option value="$PROJECT_DIR$/action/ntConcierge.js" />
         <option value="$PROJECT_DIR$/bin/www" />
       </list>
     </option>
@@ -252,8 +263,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\dev\chatbotTest" />
       <recent name="C:\dev\chatbotTest\action" />
+      <recent name="C:\dev\chatbotTest" />
       <recent name="C:\dev\chatbotTest\bin" />
     </key>
   </component>
@@ -346,12 +357,12 @@
       <workItem from="1490668597697" duration="6733000" />
       <workItem from="1490838774529" duration="887000" />
       <workItem from="1491292149024" duration="6383000" />
-      <workItem from="1491362219737" duration="4936000" />
+      <workItem from="1491362219737" duration="7145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93784000" />
+    <option name="totallyTimeSpent" value="95993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -613,6 +624,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -684,10 +696,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1196">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="189" column="44" lean-forward="false" selection-start-line="186" selection-start-column="19" selection-end-line="189" selection-end-column="44" />
+        <state relative-caret-position="609">
+          <caret line="180" column="17" lean-forward="true" selection-start-line="180" selection-start-column="17" selection-end-line="180" selection-end-column="17" />
           <folding />
         </state>
       </provider>

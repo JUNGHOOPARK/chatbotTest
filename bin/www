@@ -9,6 +9,7 @@ const reply = require('../reply');
 const ntReply = require('../ntReply');
 const actionBasic = require('../action/basic');
 const actionConcierge = require('../action/concierge');
+const actionNtConcierge = require('../action/ntConcierge');
 const actionHelp = require('../action/help');
 const actionEnjoy = require('../action/enjoy');
 const actionScheduler = require('../action/scheduler');
@@ -166,8 +167,26 @@ app.post('/naverTalkTalk', function (req, res) {
     switch(req.body.event) {
         case 'send' :
             if(req.body.sender == 'user' && req.body.textContent) {
-                textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
+            var text = req.body.textContent.text;
+
+                // textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
                 res.json(textResponse);
+
+                if(text.indexOf("컨시어지") != -1){
+
+                    ntSession.concierge[ii] = true;
+                    ntSession.spaces1[ii] = true;
+                    res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body));
+
+                }
+
+
+
+
+
+
+
+
             } else {
                 res.json(defaultResponse);
             }
@@ -180,14 +199,14 @@ app.post('/naverTalkTalk', function (req, res) {
                     break;
                 case 'none' :
 
-                    textResponse.request.textContent.text = '화면을 갱신하셨네요.';
+                  /*  textResponse.request.textContent.text = '화면을 갱신하셨네요.';
 
-                    res.json(textResponse);
+                    res.json(textResponse);*/
 
-                   /* imgResponse.request.imageContent.imageUrl = "https://interiorbrothers.com/img/main/qualityPortfolios.png";
+                    imgResponse.request.imageContent.imageUrl = "https://interiorbrothers.com/img/main/qualityPortfolios.png";
                     imgResponse.request.imageContent.height = 300;
                     imgResponse.request.imageContent.width = 300;
-                    res.json(imgResponse);*/
+                    res.json(imgResponse);
 
                     // ntReply.send(req.body.user,'화면을 갱신하셨네요.');
                     break;
