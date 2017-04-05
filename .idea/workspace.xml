@@ -35,8 +35,8 @@
           <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="531">
-                  <caret line="403" column="46" lean-forward="true" selection-start-line="403" selection-start-column="46" selection-end-line="403" selection-end-column="46" />
+                <state relative-caret-position="508">
+                  <caret line="403" column="32" lean-forward="true" selection-start-line="403" selection-start-column="32" selection-end-line="403" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -398,12 +398,12 @@
       <workItem from="1490668597697" duration="6733000" />
       <workItem from="1490838774529" duration="887000" />
       <workItem from="1491292149024" duration="6383000" />
-      <workItem from="1491362219737" duration="13628000" />
+      <workItem from="1491362219737" duration="13726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102476000" />
+    <option name="totallyTimeSpent" value="102574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -747,8 +747,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="403" column="46" lean-forward="true" selection-start-line="403" selection-start-column="46" selection-end-line="403" selection-end-column="46" />
+        <state relative-caret-position="508">
+          <caret line="403" column="32" lean-forward="true" selection-start-line="403" selection-start-column="32" selection-end-line="403" selection-end-column="32" />
           <folding />
         </state>
       </provider>
