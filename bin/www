@@ -165,7 +165,7 @@ app.post('/naverTalkTalk', function (req, res) {
         }
     };
 
-    var result = [
+    var result =
         {
             success: true,
             resultCode: "00",
@@ -220,8 +220,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ]
                 }
             }
-        }
-    ];
+        };
 
     switch(req.body.event) {
         case 'send' :
