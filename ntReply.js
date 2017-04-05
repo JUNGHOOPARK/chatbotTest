@@ -16,7 +16,7 @@ module.exports.concierge = function (data) {
         if (error) {
             return console.error('upload failed:', error);
         }
-        console.log(body.experts);
+
         return body.experts;
 
 
