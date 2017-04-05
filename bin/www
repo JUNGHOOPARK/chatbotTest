@@ -173,9 +173,9 @@ app.post('/naverTalkTalk', function (req, res) {
                     res.json(response);
                     delete response.request.textContent;
                     response.request.imageContent = {};
-                    response.request.textContent.imageUrl = "https://interiorbrothers.com/img/main/qualityPortfolios.png";
-                    response.request.textContent.height = 300;
-                    response.request.textContent.width = 300;
+                    response.request.imageContent.imageUrl = "https://interiorbrothers.com/img/main/qualityPortfolios.png";
+                    response.request.imageContent.height = 300;
+                    response.request.imageContent.width = 300;
                     res.json(response);
                     delete response.request.imageContent;
                 /*
