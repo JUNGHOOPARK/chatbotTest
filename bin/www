@@ -336,8 +336,11 @@ app.post('/naverTalkTalk', function (req, res) {
                                 return false;
                             }
 
-                            // var experts = ntReply.concierge(formData);
-                            res.json(actionNtConcierge.getConciergeExpress("experts",req.body,ntReply.concierge(formData)));
+                            var experts = ntReply.concierge(formData);
+                            setTimeout(function () {
+                                res.json(actionNtConcierge.getConciergeExpress("experts",req.body,experts));
+                            },1000);
+
 
 
                         }else{

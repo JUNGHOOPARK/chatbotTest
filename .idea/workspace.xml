@@ -25,8 +25,8 @@
           <file leaf-file-name="www" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/bin/www">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="404">
-                  <caret line="339" column="26" lean-forward="false" selection-start-line="339" selection-start-column="26" selection-end-line="339" selection-end-column="26" />
+                <state relative-caret-position="141">
+                  <caret line="325" column="45" lean-forward="true" selection-start-line="325" selection-start-column="45" selection-end-line="325" selection-end-column="45" />
                   <folding />
                 </state>
               </provider>
@@ -80,7 +80,7 @@
             <entry file="file://$PROJECT_DIR$/bin/www">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="690">
-                  <caret line="541" column="37" lean-forward="false" selection-start-line="541" selection-start-column="37" selection-end-line="541" selection-end-column="37" />
+                  <caret line="544" column="37" lean-forward="false" selection-start-line="544" selection-start-column="37" selection-end-line="544" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
@@ -126,9 +126,9 @@
       <find>getSpaces2</find>
       <find>getSpecialtyRange</find>
       <find>getStyles</find>
-      <find>[i]</find>
       <find>response</find>
       <find>[0]</find>
+      <find>[i]</find>
     </findStrings>
     <replaceStrings>
       <replace>res</replace>
@@ -154,8 +154,8 @@
       <replace>[8]</replace>
       <replace>[9]</replace>
       <replace>[10]</replace>
-      <replace>[ii]</replace>
       <replace>[11]</replace>
+      <replace>[ii]</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -398,12 +398,12 @@
       <workItem from="1490668597697" duration="6733000" />
       <workItem from="1490838774529" duration="887000" />
       <workItem from="1491292149024" duration="6383000" />
-      <workItem from="1491362219737" duration="14047000" />
+      <workItem from="1491362219737" duration="14204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102895000" />
+    <option name="totallyTimeSpent" value="103052000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -747,8 +747,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="339" column="26" lean-forward="false" selection-start-line="339" selection-start-column="26" selection-end-line="339" selection-end-column="26" />
+        <state relative-caret-position="141">
+          <caret line="325" column="45" lean-forward="true" selection-start-line="325" selection-start-column="45" selection-end-line="325" selection-end-column="45" />
           <folding />
         </state>
       </provider>
