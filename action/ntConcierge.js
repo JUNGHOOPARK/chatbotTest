@@ -438,7 +438,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             obj = new Object();
 
         }
-
+        console.log(compositeList);
         var result =
             {
                 "success": true,
@@ -453,7 +453,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList": compositeList
                     }
                 }
-            }
+            };
 
 
 /*
