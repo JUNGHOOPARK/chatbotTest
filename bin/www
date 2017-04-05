@@ -152,9 +152,9 @@ app.post('/naverTalkTalk', function (req, res) {
                 text: ''
             },
             imageContent: {
-                "imageUrl": "http://blogfiles5.naver.net/20130918_119/city0080_137946683395507ioT_JPEG/6.jpg", /* 전송하고자하는 이미지 URL */
-                "height": 594, /* 이미지의 높이 (픽셀단위) */
-                "width": 420 /* 이미지의 폭 (픽셀단위) */
+                "imageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png", /* 전송하고자하는 이미지 URL */
+                "height": 300, /* 이미지의 높이 (픽셀단위) */
+                "width": 300 /* 이미지의 폭 (픽셀단위) */
             }
         }
     };
