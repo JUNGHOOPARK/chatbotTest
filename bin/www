@@ -169,8 +169,7 @@ app.post('/naverTalkTalk', function (req, res) {
             if(req.body.sender == 'user' && req.body.textContent) {
             var text = req.body.textContent.text;
 
-                // textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
-                res.json(textResponse);
+
 
                 if(text.indexOf("컨시어지") != -1){
 
@@ -178,6 +177,9 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.spaces1[ii] = true;
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body));
 
+                }else{
+                    textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
+                    res.json(textResponse);
                 }
 
 
