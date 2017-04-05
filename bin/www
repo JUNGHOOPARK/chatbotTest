@@ -78,7 +78,7 @@ app.post('/naverTalkTalk', function (req, res) {
     if(ntSession === null || ntSession === '' || ntSession === undefined){
         ntSession = req.session;
         ntSession.username = [];
-        ntSession.username[ii] = null;
+        ntSession.username[ii] = req.body.user;
         ntSession.concierge = [];
         ntSession.concierge[ii] = false;
         ntSession.spaces1 = [];
@@ -137,8 +137,8 @@ app.post('/naverTalkTalk', function (req, res) {
         }
     }
 
-    console.log(ntSession.username[ii]);
     console.log(req.body);
+
     var response = {
         success: true,
         resultCode: "00",
@@ -150,6 +150,11 @@ app.post('/naverTalkTalk', function (req, res) {
             partner: req.body.partner,
             textContent: {
                 text: ''
+            },
+            imageContent: {
+                "imageUrl": "http://blogfiles5.naver.net/20130918_119/city0080_137946683395507ioT_JPEG/6.jpg", /* 전송하고자하는 이미지 URL */
+                "height": 594, /* 이미지의 높이 (픽셀단위) */
+                "width": 420 /* 이미지의 폭 (픽셀단위) */
             }
         }
     };
@@ -178,10 +183,10 @@ app.post('/naverTalkTalk', function (req, res) {
             break;
         case 'friend' :
             if(req.body.options.set == 'on') {
-                response.request.textContent.text = 'BOT: 친구가되어주셔서 감사합니다.';
+                response.request.textContent.text = '인집사: 친구가되어주셔서 감사합니다.';
                 res.json(response);
             } else if(req.body.options.set == 'off') {
-                response.request.textContent.text = 'BOT: 다음번에 꼭 친구추가 부탁드려요.';
+                response.request.textContent.text = '인집사: 다음번에 꼭 친구추가 부탁드려요.';
                 res.json(response);
             } else {
                 res.json(defaultResponse);
