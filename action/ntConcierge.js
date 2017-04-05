@@ -4,7 +4,7 @@ const util = require('./util');
 module.exports.getConciergeExpress = function (type,opt) {
 
     if(type === 'spaces1'){
-        var result = [
+        var result =
             {
                 "success": true,
                 "resultCode": "00",
@@ -59,10 +59,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                         ]
                     }
                 }
-            }
-        ];
+            };
 
-        console.log(result);
     }else if(type === 'spaces2'){
         var temp, prop,
             cnt = 0;

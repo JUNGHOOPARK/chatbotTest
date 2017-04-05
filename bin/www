@@ -233,8 +233,8 @@ app.post('/naverTalkTalk', function (req, res) {
 
                     ntSession.concierge[ii] = true;
                     ntSession.spaces1[ii] = true;
-                    // res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body));
-                    res.json(result);
+                    res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body));
+                    // res.json(result);
 
                 }else{
                     textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
