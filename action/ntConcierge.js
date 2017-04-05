@@ -430,13 +430,13 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "pcPopupSpecs": "titlebar=0,menubar=0,toolbar=0,scrollbars=0,resizable=0,width=412,height=640"
             };
 
-            // buttonList.push(obj2);
+             buttonList.push(obj2);
             obj.buttonList = obj2;
             compositeList.push(obj);
 
             obj2 = new Object();
             obj = new Object();
-
+            buttonList = new Array();
         }
         console.log(compositeList);
         var result =
