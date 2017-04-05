@@ -1,7 +1,7 @@
 const emotion = require('./emotion');
 const util = require('./util');
 
-module.exports.getConciergeExpress = function (type,opt) {
+module.exports.getConciergeExpress = function (type,body,opt) {
 
     if(type === 'spaces1'){
         var result =
@@ -12,8 +12,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "request": {
                     "event": "send",
                     "sender": "partner",
-                    "user": opt.user,
-                    "partner": opt.partner,
+                    "user": body.user,
+                    "partner": body.partner,
                     "compositeContent":{
                         "compositeList":[
                             {
@@ -71,13 +71,12 @@ module.exports.getConciergeExpress = function (type,opt) {
         for (prop in temp) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
-                if(cnt < 4){
-                    console.log(temp[prop].name);
-                    obj.type = "message";
-                    obj.label = temp[prop].name;
-                    obj.text = temp[prop].name;
-                    actions.push(obj);
+                if(cnt < 10){
                     ++cnt;
+                    obj.type = "TEXT";
+                    obj.text = temp[prop].name;
+                    obj.code = cnt;
+                    actions.push(obj);
                     obj = new Object();
                 }else{
                     break;
@@ -86,19 +85,35 @@ module.exports.getConciergeExpress = function (type,opt) {
             }
         }
 
-        var result = [
+        var result =
             {
-                "type": "template",
-                "altText": "어떠한 공간을 인테리어 하시나요?",
-                "template": {
-                    "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
-                    "title": "어떠한 공간을 인테리어 하시나요?",
-                    "text": "인테리어 하실 공간을 선택해주세요!",
-                    "actions": actions
+                "success": true,
+                "resultCode": "00",
+                "resultMessage": "success",
+                "request": {
+                    "event": "send",
+                    "sender": "partner",
+                    "user": body.user,
+                    "partner": body.partner,
+                    "compositeContent":{
+                        "compositeList":[
+                            {
+                                "title": "어떠한 공간을 인테리어 하시나요?", /* bold스타일의 텍스트 (최대 200자) */
+                                "description": "인테리어 하실 공간을 선택해주세요!", /* gray스타일의 title아래 텍스트 (최대 1,000자) */
+                                /* imageContent와 상동 */
+                                "image": {
+                                    "imageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png", /* 전송하고자하는 이미지 URL */
+                                    "width": 530, /* 이미지의 높이 (픽셀단위) */
+                                    "height": 290 /* 이미지의 폭 (픽셀단위) */
+                                },
+                                /* composite 메시지 하단 버튼 정의 (최대 10개가능) */
+                                "buttonList": actions
+                            }
+                        ]
+                    }
                 }
-            }
-        ];
+            };
+
     }else if(type === 'spaces3'){
         var temp, prop,
             cnt = 0;

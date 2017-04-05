@@ -165,63 +165,6 @@ app.post('/naverTalkTalk', function (req, res) {
         }
     };
 
-    var result =
-        {
-            success: true,
-            resultCode: "00",
-            resultMessage: "success",
-            request: {
-                event: "send",
-                sender: "partner",
-                user: req.body.user,
-                partner: req.body.partner,
-                compositeContent:{
-                    compositeList:[
-                        {
-                            title: "어떠한 공간을 인테리어 하시나요?", /* bold스타일의 텍스트 (최대 200자) */
-                            description: "인테리어 하실 공간을 선택해주세요!", /* gray스타일의 title아래 텍스트 (최대 1,000자) */
-                            /* imageContent와 상동 */
-                            image: {
-                                imageUrl: "https://interiorbrothers.com/img/main/qualityPortfolios.png", /* 전송하고자하는 이미지 URL */
-                                width: 530, /* 이미지의 높이 (픽셀단위) */
-                                height: 290 /* 이미지의 폭 (픽셀단위) */
-                            },
-                            /* composite 메시지 하단 버튼 정의 (최대 10개가능) */
-                            buttonList: [
-                                /* TEXT 버튼은 유저가 textContent 를 보내는 것처럼 동작 */
-                                {
-                                    type: "TEXT",
-                                    text: "상업공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                    code: "1" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
-                                },
-                                {
-                                    type: "TEXT",
-                                    text: "업무공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                    code: "2" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
-                                },
-                                {
-                                    type: "TEXT",
-                                    text: "주거공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                    code: "3" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
-                                },
-                                {
-                                    type: "TEXT",
-                                    text: "문화/종교공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                    code: "4" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
-                                },
-                                {
-                                    type: "TEXT",
-                                    text: "기타공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                    code: "5" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
-                                }
-
-                            ]
-                        }
-                    ]
-                }
-            }
-        };
-
     switch(req.body.event) {
         case 'send' :
             if(req.body.sender == 'user' && req.body.textContent) {
@@ -233,19 +176,25 @@ app.post('/naverTalkTalk', function (req, res) {
 
                     ntSession.concierge[ii] = true;
                     ntSession.spaces1[ii] = true;
-                    res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body));
-                    // res.json(result);
+                    res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
                 }else{
-                    textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
-                    res.json(textResponse);
+                    if(ntSession.concierge[ii] === true){
+                        if(ntSession.spaces1[ii] === true){
+                            var code = req.body.textContent.code;
+                            sess.spacesCategory[i] = code;
+                            res.json(actionNtConcierge.getConciergeExpress("spaces2",req.body,code));
+
+                        }
+
+                    }else{
+                        textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
+                        res.json(textResponse);
+                    }
+
+
+
                 }
-
-
-
-
-
-
 
 
             } else {
