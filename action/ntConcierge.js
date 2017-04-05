@@ -400,12 +400,63 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             };
 
     }else if(type === 'experts'){
-        console.log(opt);
-        for(var i = 0 ; i < opt.length ; i++){
+
+        var compositeList = new Array();
+        var buttonList = new Array();
+        var obj = new Object();
+        var obj2 = new Object();
+
+
+        for(var i = 0 ; i < opt.length; i++){
             var match =  opt[i].src.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
+
+            obj.title =opt[i].businessName+"-"+opt[i].title;
+            obj.description = "구분 "+opt[i].spaceName+"\n면적 "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[i].budget];
+            obj.title = opt[i].businessName+"-"+opt[i].title;
+            obj.image = {
+                "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
+                "width": 530,
+                "height": 290
+            };
+
+            obj2.type =  "LINK";
+            obj2.link =  {
+                "title": "상세보러가기",
+                "url": "https://www.interiorbrothers.com/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId,
+                "mobileUrl": "https://www.interiorbrothers.com/mobile/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId,
+                "targetSelf": true,
+                "pcTargetSelf": false,
+                "pcPopupSpecs": "titlebar=0,menubar=0,toolbar=0,scrollbars=0,resizable=0,width=412,height=640"
+            };
+
+            buttonList.push(obj2);
+            obj.buttonList = buttonList;
+            compositeList.push(obj);
+
+            obj2 = new Object();
+            obj = new Object();
+
         }
 
+        var result =
+            {
+                "success": true,
+                "resultCode": "00",
+                "resultMessage": "success",
+                "request": {
+                    "event": "send",
+                    "sender": "partner",
+                    "user": body.user,
+                    "partner": body.partner,
+                    "compositeContent": {
+                        "compositeList": compositeList
+                    }
+                }
+            }
+
+
+/*
 
         var result =
             {
@@ -724,6 +775,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 }
             };
 
+*/
 
     }else if(type === 'error'){
         var result = [
