@@ -337,6 +337,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             }
 
                             var experts = ntReply.concierge(formData);
+                            console.log(experts);
                             setTimeout(function () {
                                 res.json(actionNtConcierge.getConciergeExpress("experts",req.body,experts));
                             },1000);
