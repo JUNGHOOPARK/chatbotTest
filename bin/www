@@ -336,8 +336,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                 return false;
                             }
 
-                            var experts = ntReply.concierge(formData);
-                            res.json(actionNtConcierge.getConciergeExpress("experts",req.body,experts));
+                            // var experts = ntReply.concierge(formData);
+                            res.json(actionNtConcierge.getConciergeExpress("experts",req.body,ntReply.concierge(formData)));
 
 
                         }else{
