@@ -18,7 +18,12 @@ module.exports.send = function (user, messages) {
             sender : 'user',
             user : '',
             partner:'wc8bqd',
-            textContent:messages
+            textContent:messages,
+            imageContent: {
+                imageUrl: "https://interiorbrothers.com/img/main/qualityPortfolios.png", /* 전송하고자하는 이미지 URL */
+                height: 300, /* 이미지의 높이 (픽셀단위) */
+                width: 300 /* 이미지의 폭 (픽셀단위) */
+            }
 
         }
     };
