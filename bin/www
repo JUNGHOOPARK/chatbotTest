@@ -13,6 +13,7 @@ const actionNtConcierge = require('../action/ntConcierge');
 const actionHelp = require('../action/help');
 const actionEnjoy = require('../action/enjoy');
 const actionScheduler = require('../action/scheduler');
+const requestSender = require('request');
 
 var app = express();
 
@@ -336,8 +337,21 @@ app.post('/naverTalkTalk', function (req, res) {
                                 return false;
                             }
 
-                            var experts = ntReply.concierge(formData);
-                            console.log(experts);
+                            var experts = null;
+                            var options = {
+                                url: 'https://interiorbrothers.com/api/doConcierge',
+                                method: 'POST',
+                                json: data
+                            };
+
+                            requestSender(options, function (error, response, body) {
+                                if (error) {
+                                    return console.error('upload failed:', error);
+                                }
+                                experts = body.experts;
+                            })
+
+
                             setTimeout(function () {
                                 res.json(actionNtConcierge.getConciergeExpress("experts",req.body,experts));
                             },1000);
