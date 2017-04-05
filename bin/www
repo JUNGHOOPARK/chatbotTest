@@ -184,7 +184,165 @@ app.post('/naverTalkTalk', function (req, res) {
                             var code = req.body.textContent.code;
                             ntSession.spacesCategory[ii] = code;
                             res.json(actionNtConcierge.getConciergeExpress("spaces2",req.body,code));
+                            ntSession.spaces1[ii] = false;
+                            ntSession.spaces2[ii] = true;
+                        }else if(ntSession.spaces2[ii] === true) {
 
+                            var result = actionNtConcierge.getSpaces2(ntSession.spacesCategory[ii],text);
+
+                            ntSession.spacesSubCategory[ii] = result;
+                            var params = [];
+                            params[0] = ntSession.spacesCategory[ii];
+                            params[1] = result;
+
+                            res.json(actionNtConcierge.getConciergeExpress("spaces3",req.body,params));
+
+                            ntSession.spaces2[ii] = false;
+                            ntSession.spaces3[ii] = true;
+
+                        }else if(ntSession.spaces3[ii] === true){
+                            var result = actionNtConcierge.getSpaces3(ntSession.spacesCategory[ii],ntSession.spacesSubCategory[ii],text);
+
+                            ntSession.spacesSpace[ii] = result;
+
+                            res.json(actionNtConcierge.getConciergeExpress("specialtyRange",req.body,''));
+                            ntSession.spaces3[ii] = false;
+                            ntSession.specialtyRangeYN[ii] = true;
+
+                        }else if(ntSession.specialtyRangeYN[ii] === true){
+                            var code = req.body.textContent.code;
+                            var result = actionNtConcierge.getSpecialtyRange(code);
+
+                            ntSession.specialtyRange[ii] = result;
+
+                            ntSession.specialtyRangeYN[ii] = false;
+
+                            if(ntSession.specialtyRange[ii][0] === 'interiorFull' ||  ntSession.specialtyRange[ii][0] === 'interiorDesign'){
+                                ntSession.spaceBrandingYN[ii] = true;
+                                res.json(actionNtConcierge.getConciergeExpress("spaceBranding",req.body,''));
+
+                            }else{
+                                ntSession.spaceMeasure[ii] = true;
+                                res.json(actionNtConcierge.getConciergeExpress("spaceMeasure",req.body,''));
+
+                            }
+
+                        }else if(ntSession.spaceBrandingYN[ii] === true){
+
+                            if(text.indexOf("네") != -1){
+                                ntSession.spaceBranding[ii] = true;
+                            }else{
+                                ntSession.spaceBranding[ii] = false;
+                            }
+
+                            res.json(actionNtConcierge.getConciergeExpress("spaceMeasure",req.body,''));
+
+                            ntSession.spaceBrandingYN[ii] = false;
+                            ntSession.spaceMeasure[ii] = true;
+
+                        }else if(ntSession.spaceMeasure[ii] === true){
+
+                            var result = actionNtConcierge.getMeasure(text);
+
+                            ntSession.py[ii] = result[0];
+                            ntSession.meter[ii] = result[1];
+
+                            res.json(actionNtConcierge.getConciergeExpress("budget",req.body,''));
+
+                            ntSession.spaceMeasure[ii] = false;
+                            ntSession.budget[ii] = true;
+
+                        }else if(ntSession.budget[ii] === true){
+
+                            var result = [];
+                            var msg = text;
+                            msg = msg.trim();
+                            var pattern = /\s/g; // 공백여부
+
+                            if(msg.indexOf("~") != -1){
+                                result = msg.split("~");
+                                ntSession.budgetMin[ii] = result[0];
+                                ntSession.budgetMax[ii] = result[1];
+                            }else if(msg.match(pattern)){
+                                result = msg.split(" ");
+                                ntSession.budgetMin[ii] = result[0];
+                                ntSession.budgetMax[ii] = result[1];
+                            }else if(msg.match(/[0-9]/)){
+                                ntSession.budgetMin[ii] = msg;
+                                ntSession.budgetMax[ii] = msg;
+                            }else{
+                                ntSession.budgetMin[ii] = 0;
+                                ntSession.budgetMax[ii] = 100000;
+                            }
+
+                            res.json(actionNtConcierge.getConciergeExpress("styles",req.body,''));
+
+                            ntSession.budget[ii] = false;
+                            ntSession.stylesYN[ii] = true;
+
+                        }else if(ntSession.stylesYN[ii] === true){
+
+                            var result = actionNtConcierge.getStyles(text);
+
+                            ntSession.styles[ii] = result;
+
+                            var formData = {};
+                            formData.specialty = {};
+                            formData.specialty.main = "interior";
+                            formData.specialty.sub = ntSession.specialtyRange[ii];
+                            formData.spaces = {};
+                            formData.spaces.category = ntSession.spacesCategory[ii];
+                            formData.spaces.subcategory = ntSession.spacesSubCategory[ii];
+                            formData.spaces.space = ntSession.spacesSpace[ii];
+                            formData.spaceBranding = ntSession.spaceBranding[ii];
+                            formData.measure = {};
+                            formData.measure.meter = ntSession.meter[ii];
+                            formData.measure.py = ntSession.py[ii];
+                            formData.budget = {};
+                            formData.budget.min = ntSession.budgetMin[ii];
+                            formData.budget.max = ntSession.budgetMax[ii];
+                            formData.style = ntSession.styles[ii];
+
+                            ntSession.stylesYN[ii] = false;
+                            ntSession.concierge[ii] === false;
+
+
+                            if ( !formData.specialty.main
+                                || ( !(formData.specialty.main === 'interior') && !(formData.specialty.main === 'construction')) ) {
+                                res.json(actionNtConcierge.getConciergeExpress("error",req.body,''));
+                                return false;
+                            }
+                            if ( !formData.spaces.category || !formData.spaces.space || !formData.spaces.subcategory) {
+                                res.json(actionNtConcierge.getConciergeExpress("error",req.body,''));
+                                return false;
+                            }
+                            if ( !formData.specialty.sub.length) {
+                                res.json(actionNtConcierge.getConciergeExpress("error",req.body,''));
+                                return false;
+                            }
+                            if ( (!formData.measure.meter) || (!formData.measure.py)
+                                || !(formData.measure.meter > -1) ) {
+                                res.json(actionNtConcierge.getConciergeExpress("error",req.body,''));
+                                return false;
+                            }
+                            if ( (!formData.budget.min) || (!formData.budget.max)
+                                || !(formData.budget.min > -1) || !(formData.budget.max > -1)
+                                || (parseInt(formData.budget.min) > parseInt(formData.budget.max)) ) {
+                                res.json(actionNtConcierge.getConciergeExpress("error",req.body,''));
+                                return false;
+                            }
+                            if ( !formData.style) {
+                                res.json(actionNtConcierge.getConciergeExpress("error",req.body,''));
+                                return false;
+                            }
+
+                            var experts = ntReply.concierge(formData);
+                            res.json(actionNtConcierge.getConciergeExpress("experts",req.body,experts));
+
+
+                        }else{
+                            textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
+                            res.json(textResponse);
                         }
 
                     }else{
@@ -530,8 +688,7 @@ app.post('/hook', function (request, response) {
                     
                     reply.concierge(formData,eventObj);
 
-                }
-                 else{
+                }else{
                     reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionBasic.getBasicExpress());
                 }
 
