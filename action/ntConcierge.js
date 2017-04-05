@@ -61,6 +61,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                 }
             }
         ];
+
+        console.log(result);
     }else if(type === 'spaces2'){
         var temp, prop,
             cnt = 0;
