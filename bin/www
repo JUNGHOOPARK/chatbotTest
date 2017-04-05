@@ -6,7 +6,6 @@ const fs = require('fs');
 var debug = require('debug')('chatbottest:server');
 const config = require('../config');
 const reply = require('../reply');
-const ntReply = require('../ntReply');
 const actionBasic = require('../action/basic');
 const actionConcierge = require('../action/concierge');
 const actionNtConcierge = require('../action/ntConcierge');
@@ -394,7 +393,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     imgResponse.request.imageContent.width = 300;
                     res.json(imgResponse);
 
-                    // ntReply.send(req.body.user,'화면을 갱신하셨네요.');
+
                     break;
                 default:
                     res.json(defaultResponse);
