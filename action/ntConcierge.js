@@ -426,8 +426,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "url": "https://www.interiorbrothers.com/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId,
                 "mobileUrl": "https://www.interiorbrothers.com/mobile/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId,
                 "targetSelf": true,
-                "pcTargetSelf": false,
-                "pcPopupSpecs": "titlebar=0,menubar=0,toolbar=0,scrollbars=0,resizable=0,width=412,height=640"
+                "pcTargetSelf": false
+                // "pcPopupSpecs": "titlebar=0,menubar=0,toolbar=0,scrollbars=0,resizable=0,width=412,height=640"
             };
 
              buttonList.push(obj2);
