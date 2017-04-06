@@ -390,7 +390,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     imgResponse.request.imageContent.width = 300;
                     res.json(imgResponse);
                    */
-
+                    res.json(defaultResponse);
                     break;
                 default:
                     res.json(defaultResponse);
