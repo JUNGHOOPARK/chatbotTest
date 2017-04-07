@@ -301,6 +301,10 @@ app.post('/naverTalkTalk', function (req, res) {
                                     result = msg.split("~");
                                     ntSession.budgetMin[ii] = result[0];
                                     ntSession.budgetMax[ii] = result[1];
+                                }else if (msg.indexOf(",") != -1) {
+                                    result = msg.split(",");
+                                    ntSession.budgetMin[ii] = result[0];
+                                    ntSession.budgetMax[ii] = result[1];
                                 } else if (msg.match(pattern)) {
                                     result = msg.split(" ");
                                     ntSession.budgetMin[ii] = result[0];
