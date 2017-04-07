@@ -205,6 +205,9 @@ app.post('/naverTalkTalk', function (req, res) {
                                 params[0] = ntSession.spacesCategory[ii];
                                 params[1] = result;
                                 history = params;
+                                console.log("========================================");
+                                console.log(history);
+                                console.log("========================================");
                                 res.json(actionNtConcierge.getConciergeExpress("spaces3",req.body,params));
 
                                 ntSession.spaces2[ii] = false;
