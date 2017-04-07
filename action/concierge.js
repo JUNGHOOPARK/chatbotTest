@@ -10,7 +10,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "altText": "어떠한 공간을 인테리어 하시나요?",
                 "template": {
                     "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
                     "title": "어떠한 공간을 인테리어 하시나요?",
                     "text": "인테리어 하실 공간을 선택해주세요!",
                     "actions": [
@@ -69,7 +69,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "altText": "어떠한 공간을 인테리어 하시나요?",
                 "template": {
                     "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
                     "title": "어떠한 공간을 인테리어 하시나요?",
                     "text": "인테리어 하실 공간을 선택해주세요!",
                     "actions": actions
@@ -108,7 +108,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "altText": "어떠한 공간을 인테리어 하시나요?",
                 "template": {
                     "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
                     "title": "어떠한 공간을 인테리어 하시나요?",
                     "text": "인테리어 하실 공간을 선택해주세요!",
                     "actions": actions
@@ -125,7 +125,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "altText": "범위를 선택해주세요!!",
                 "template": {
                     "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
                     "title": "범위 선택",
                     "text": "전문가의 도움이 필요한 범위를 선택해 주세요!",
                     "actions": [
@@ -164,7 +164,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "altText": "공간브랜딩 여부!!",
                 "template": {
                     "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
                     "title": "공간브랜딩이 필요하신가요??",
                     "text": "공간브랜딩:공간에 대한 차별화된 가치를 높여주는것.",
                     "actions": [
@@ -216,7 +216,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 "altText": "스타일을 선택해주세요! ",
                 "template": {
                     "type": "buttons",
-                    "thumbnailImageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                    "thumbnailImageUrl": "https://interiorbrothers.com/images/chatbot/a6.png",
                     "title": "스타일 선택",
                     "text": "인테리어 하는 공간의 스타일을 선택해주세요!",
                     "actions": [
