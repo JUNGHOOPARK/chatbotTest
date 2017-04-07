@@ -455,7 +455,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             // console.log(obj.title.length + " length");
 
             if(obj.title.length > 20){
-                obj.title = obj.title.length.subString(0,20);
+                obj.title = obj.title.subString(0,20);
                 obj.title += "&middot;&middot;&middot;";
             }
 
