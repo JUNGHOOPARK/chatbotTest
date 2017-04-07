@@ -48,11 +48,10 @@ server.on('listening', onListening);
 app.use(bodyParser.json());
 
 app.get('/', function(req, res, next) {
+
     var sess = req.session;
+
     if (sess.views) {
-
-
-
 
         sess.views++
         res.setHeader('Content-Type', 'text/html')

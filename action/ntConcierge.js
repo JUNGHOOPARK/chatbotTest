@@ -21,7 +21,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "인테리어 하실 공간을 선택해주세요!", /* gray스타일의 title아래 텍스트 (최대 1,000자) */
                                 /* imageContent와 상동 */
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png", /* 전송하고자하는 이미지 URL */
+                                    "imageUrl": "https://ibrothers.kr/imges/a3.png", /* 전송하고자하는 이미지 URL */
                                     "width": 530, /* 이미지의 높이 (픽셀단위) */
                                     "height": 290 /* 이미지의 폭 (픽셀단위) */
                                 },
@@ -102,7 +102,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "인테리어 하실 공간을 선택해주세요!",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                                    "imageUrl": "https://ibrothers.kr/imges/a3.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -157,7 +157,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "인테리어 하실 공간을 선택해주세요!",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                                    "imageUrl": "https://ibrothers.kr/imges/a3.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -191,7 +191,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "전문가의 도움이 필요한 범위를 선택해 주세요!",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                                    "imageUrl": "https://ibrothers.kr/imges/a4.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -204,33 +204,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "인테리어 디자인",
-                                        "code": "2"
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "인테리어 시공",
-                                        "code": "3"
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "스타일링",
-                                        "code": "4"
-                                    },
-                                    {
-                                        "type": "TEXT",
                                         "text": "인테리어 디자인+시공+스타일링",
                                         "code": "5"
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "인테리어 디자인+스타일링",
-                                        "code": "6"
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "인테리어 시공+스타일링",
-                                        "code": "7"
                                     }
 
                                 ]
@@ -262,7 +237,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "공간브랜딩이란? 공간에 대한 차별화된 가치를 높여주는것.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                                    "imageUrl": "https://ibrothers.kr/imges/a4.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -289,6 +264,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
     }else if(type === 'spaceMeasure'){
 
+
+
         var result =
             {
                 "success": true,
@@ -299,14 +276,32 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "sender": "partner",
                     "user": body.user,
                     "partner": body.partner,
-                    "textContent" :{
-                       "text" : "인테리어 하는 공간의 면적이 어떻게 되나요?\n\n ex) 숫자만 입력하면 평으로 이해합니다:) \n 제곱미터로 입력하길 원하시면\n  숫자 뒤에 m 을 입력해주세요.  \n"
+                    "compositeContent":{
+                        "compositeList":[
+                            {
+                                "title": "인테리어 하는 공간의 면적이 어떻게 되나요?",
+                                "description": "ex) 숫자만 입력하면 평으로 이해합니다:) \n 제곱미터로 입력하길 원하시면\n  숫자 뒤에 m 을 입력해주세요.  \n",
+
+                                "image": {
+                                    "imageUrl": "https://ibrothers.kr/imges/a5.png",
+                                    "width": 530,
+                                    "height": 290
+                                },
+
+                                "buttonList":[
+
+                                ]
+                            }
+                        ]
                     }
                 }
             };
 
 
+
+
     }else if(type === 'budget'){
+
         var result =
             {
                 "success": true,
@@ -317,10 +312,23 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "sender": "partner",
                     "user": body.user,
                     "partner": body.partner,
-                    "textContent" :{
-                        "text": "인테리어 하는 공간의 예산은 얼마인가요? \n\n" +
-                        "만원 단위로 입력해주세요! \n"+
-                        "ex) 1000 5000 또는 1000~5000 으로 입력해주세요! \n"
+                    "compositeContent":{
+                        "compositeList":[
+                            {
+                                "title": "인테리어 하는 공간의 예산은 얼마인가요?(만원 단위로 입력해주세요)",
+                                "description": "ex) 1000 5000 또는 1000~5000 으로 입력해주세요!  \n",
+
+                                "image": {
+                                    "imageUrl": "https://ibrothers.kr/imges/a5.png",
+                                    "width": 530,
+                                    "height": 290
+                                },
+
+                                "buttonList":[
+
+                                ]
+                            }
+                        ]
                     }
                 }
             };
@@ -345,7 +353,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "인테리어 하는 공간의 스타일을 선택해주세요",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/img/main/qualityPortfolios.png",
+                                    "imageUrl": "https://ibrothers.kr/imges/a6.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -389,6 +397,10 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
+                                        "text": "내추럴",
+                                    },
+                                    {
+                                        "type": "TEXT",
                                         "text": "기타",
                                     }
 
@@ -406,13 +418,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         var obj = new Object();
         var obj2 = new Object();
 
-
         for(var i = 0 ; i < opt.length; i++){
             var match =  opt[i].src.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
 
             obj.title =opt[i].businessName+"-"+opt[i].title;
-            obj.description = "구분 "+opt[i].spaceName+"\n면적 "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[i].budget];
+            obj.description = "구분 "+ opt[i].spaceName +"\n시기 "+ opt[i].deadLine +"\n면적 "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[i].budget];
             obj.title = opt[i].businessName+"-"+opt[i].title;
             obj.image = {
                 "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
@@ -438,7 +449,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             obj = new Object();
             buttonList = new Array();
         }
-        console.log(compositeList);
+
         var result =
             {
                 "success": true,
