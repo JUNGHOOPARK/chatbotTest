@@ -85,6 +85,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
             }
         }
+        obj.type = "TEXT";
+        obj.text = "이전으로 돌아가기";
+        obj.code = "-1";
+        actions.push(obj);
+        obj = new Object();
 
         var result =
             {
@@ -140,6 +145,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             }
         }
 
+        obj.type = "TEXT";
+        obj.text = "이전으로 돌아가기";
+        obj.code = "-1";
+        actions.push(obj);
+        obj = new Object();
 
         var result =
             {
@@ -207,6 +217,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                         "type": "TEXT",
                                         "text": "인테리어 디자인+시공+스타일링",
                                         "code": "5"
+                                    },
+                                    {
+                                        "type": "TEXT",
+                                        "text": "이전으로 돌아가기",
+                                        "code": "-1"
                                     }
 
                                 ]
@@ -253,6 +268,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                         "type": "TEXT",
                                         "text": "아니오"
 
+                                    },
+                                    {
+                                        "type": "TEXT",
+                                        "text": "이전으로 돌아가기",
+                                        "code": "-1"
                                     }
                                 ]
                             }
@@ -290,7 +310,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 },
 
                                 "buttonList":[
-
+                                    {
+                                        "type": "TEXT",
+                                        "text": "이전으로 돌아가기",
+                                        "code": "-1"
+                                    }
                                 ]
                             }
                         ]
@@ -326,7 +350,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 },
 
                                 "buttonList":[
-
+                                    {
+                                        "type": "TEXT",
+                                        "text": "이전으로 돌아가기",
+                                        "code": "-1"
+                                    }
                                 ]
                             }
                         ]
@@ -403,6 +431,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     {
                                         "type": "TEXT",
                                         "text": "기타",
+                                    },
+                                    {
+                                        "type": "TEXT",
+                                        "text": "이전으로 돌아가기",
+                                        "code": "-1"
                                     }
 
                                 ]
