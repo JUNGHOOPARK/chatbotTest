@@ -108,7 +108,7 @@ app.post('/naverTalkTalk', function (req, res) {
         ntSession.budgetMin = [];
         ntSession.budgetMax = [];
         ntSession.styles = [];
-
+        ntSession.history = [];
 
     }else{
         //세션새로 생성
@@ -168,8 +168,6 @@ app.post('/naverTalkTalk', function (req, res) {
         case 'send' :
             if(req.body.sender == 'user' && req.body.textContent) {
             var text = req.body.textContent.text;
-            var history = new Object();
-
 
                 if(text.indexOf("컨시어지") != -1){
 
@@ -204,10 +202,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                 var params = [];
                                 params[0] = ntSession.spacesCategory[ii];
                                 params[1] = result;
-                                history = params;
-                                console.log("========================================");
-                                console.log(history);
-                                console.log("========================================");
+                                ntSession.history[ii] = params;
+
                                 res.json(actionNtConcierge.getConciergeExpress("spaces3",req.body,params));
 
                                 ntSession.spaces2[ii] = false;
@@ -231,9 +227,9 @@ app.post('/naverTalkTalk', function (req, res) {
                                 ntSession.specialtyRangeYN[ii] = true;
                             }
                         }else if(ntSession.specialtyRangeYN[ii] === true){
-                            console.log(history);
+
                             if(text.indexOf("이전") != -1){
-                                res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, history));
+                                res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body,  ntSession.history[ii]));
                                 ntSession.spaces3[ii] = true;
                                 ntSession.specialtyRangeYN[ii] = false;
                             }else {
