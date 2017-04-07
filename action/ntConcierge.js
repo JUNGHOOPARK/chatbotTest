@@ -426,14 +426,6 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "내추럴",
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "기타",
-                                    },
-                                    {
-                                        "type": "TEXT",
                                         "text": "이전으로 돌아가기",
                                         "code": "-1"
                                     }
