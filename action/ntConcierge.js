@@ -457,7 +457,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 opt[i].title = opt[i].title.substring(0,20);
                 opt[i].title += "&middot;&middot;&middot;";
             }
-            obj.title =opt[i].businessName+"\n"+opt[i].title;
+            obj.title =opt[i].businessName+"\n\n"+opt[i].title;
 
             // var stringByteLength = obj.title.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g,"$&$1$2").length;
             // console.log(stringByteLength + " Bytes");
