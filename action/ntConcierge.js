@@ -21,7 +21,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "인테리어 하실 공간을 선택해주세요!", /* gray스타일의 title아래 텍스트 (최대 1,000자) */
                                 /* imageContent와 상동 */
                                 "image": {
-                                    "imageUrl": "https://ibrothers.kr/imges/a3.png", /* 전송하고자하는 이미지 URL */
+                                    "imageUrl": "https://ibrothers.kr/images/a3.png", /* 전송하고자하는 이미지 URL */
                                     "width": 530, /* 이미지의 높이 (픽셀단위) */
                                     "height": 290 /* 이미지의 폭 (픽셀단위) */
                                 },
@@ -102,7 +102,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "인테리어 하실 공간을 선택해주세요!",
 
                                 "image": {
-                                    "imageUrl": "https://ibrothers.kr/imges/a3.png",
+                                    "imageUrl": "https://ibrothers.kr/images/a3.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -157,7 +157,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "인테리어 하실 공간을 선택해주세요!",
 
                                 "image": {
-                                    "imageUrl": "https://ibrothers.kr/imges/a3.png",
+                                    "imageUrl": "https://ibrothers.kr/images/a3.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -191,7 +191,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "전문가의 도움이 필요한 범위를 선택해 주세요!",
 
                                 "image": {
-                                    "imageUrl": "https://ibrothers.kr/imges/a4.png",
+                                    "imageUrl": "https://ibrothers.kr/images/a4.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -237,7 +237,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "공간브랜딩이란? 공간에 대한 차별화된 가치를 높여주는것.",
 
                                 "image": {
-                                    "imageUrl": "https://ibrothers.kr/imges/a4.png",
+                                    "imageUrl": "https://ibrothers.kr/images/a4.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -283,7 +283,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "ex) 숫자만 입력하면 평으로 이해합니다:) \n 제곱미터로 입력하길 원하시면\n  숫자 뒤에 m 을 입력해주세요.  \n",
 
                                 "image": {
-                                    "imageUrl": "https://ibrothers.kr/imges/a5.png",
+                                    "imageUrl": "https://ibrothers.kr/images/a5.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -319,7 +319,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "ex) 1000 5000 또는 1000~5000 으로 입력해주세요!  \n",
 
                                 "image": {
-                                    "imageUrl": "https://ibrothers.kr/imges/a5.png",
+                                    "imageUrl": "https://ibrothers.kr/images/a5.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -353,7 +353,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "description": "인테리어 하는 공간의 스타일을 선택해주세요",
 
                                 "image": {
-                                    "imageUrl": "https://ibrothers.kr/imges/a6.png",
+                                    "imageUrl": "https://ibrothers.kr/images/a6.png",
                                     "width": 530,
                                     "height": 290
                                 },
