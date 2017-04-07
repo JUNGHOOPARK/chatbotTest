@@ -449,11 +449,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             opt[i].src = '/file/download/small-' + match[1];
             opt[i].deadLine = opt[i].deadLine.substring(0,10);
 
-            if(opt[i].businessName > 20){
-                opt[i].businessName = opt[i].businessName.substring(0,20);
+            if(opt[i].businessName.length > 27){
+                opt[i].businessName = opt[i].businessName.substring(0,27);
                 opt[i].businessName += "&middot;&middot;&middot;";
             }
-            if(opt[i].title > 20){
+            if(opt[i].title.length > 20){
                 opt[i].title = opt[i].title.substring(0,20);
                 opt[i].title += "&middot;&middot;&middot;";
             }
