@@ -325,6 +325,8 @@ module.exports.getConciergeExpress = function (type,opt) {
                     ]
                 }
             }];
+
+        console.log(result);
     }else if(type === 'error'){
         var result = [
             {
