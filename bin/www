@@ -228,7 +228,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 ntSession.specialtyRangeYN[ii] = true;
                             }
                         }else if(ntSession.specialtyRangeYN[ii] === true){
-
+                            console.log(history);
                             if(text.indexOf("이전") != -1){
                                 res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, history));
                                 ntSession.spaces3[ii] = true;
