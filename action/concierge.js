@@ -251,7 +251,7 @@ module.exports.getConciergeExpress = function (type,opt) {
             var match =  opt[i].src.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
         }
-
+        console.log(opt);
 
         var result =
             [{
@@ -326,7 +326,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                 }
             }];
 
-        console.log(result);
+
     }else if(type === 'error'){
         var result = [
             {
