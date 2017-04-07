@@ -455,12 +455,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             // console.log(obj.title.length + " length");
 
             if(obj.title.length > 20){
-                obj.title = obj.title.subString(0,20);
+                obj.title = obj.title.substring(0,20);
                 obj.title += "&middot;&middot;&middot;";
             }
 
             obj.description = "구분 "+ opt[i].spaceName +"\n시기 "+ opt[i].deadLine +"\n면적 "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)\n예산 "+util.budget[opt[i].budget];
-            obj.title = opt[i].businessName+"-"+opt[i].title;
+            // obj.title = opt[i].businessName+"-"+opt[i].title;
             obj.image = {
                 "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
                 "width": 530,
