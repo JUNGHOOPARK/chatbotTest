@@ -246,7 +246,6 @@ module.exports.getConciergeExpress = function (type,opt) {
         ];
 
     }else if(type === 'experts'){
-/*
 
         for(var i = 0 ; i < 5 ; i++){
             var match =  opt[i].src.split('/file/download/');
@@ -268,7 +267,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId+"/portfolio?portfolioId="+opt[0].portfolioId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[0].userId
                                 }
                             ]
                         },
@@ -280,7 +279,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId+"/portfolio?portfolioId="+opt[1].portfolioId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[1].userId
                                 }
                             ]
                         },
@@ -292,7 +291,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId+"/portfolio?portfolioId="+opt[2].portfolioId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[2].userId
                                 }
                             ]
                         },
@@ -304,7 +303,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId+"/portfolio?portfolioId="+opt[3].portfolioId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[3].userId
                                 }
                             ]
                         },
@@ -316,7 +315,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                                 {
                                     "type": "uri",
                                     "label": "상세보러가기",
-                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId+"/portfolio?portfolioId="+opt[4].portfolioId
+                                    "uri": "https://www.interiorbrothers.com/experts/"+opt[4].userId
                                 }
                             ]
                         }
@@ -325,17 +324,7 @@ module.exports.getConciergeExpress = function (type,opt) {
                     ]
                 }
             }];
-*/
 
-        var result = [
-            {
-                "type": "text",
-                "text": "인테리어 하는 공간의 예산은 얼마인가요? \n\n" +
-                "만원 단위로 입력해주세요! \n"+
-                "ex) 1000 5000 또는 1000~5000 으로 입력해주세요! \n"
-
-            }
-        ];
 
     }else if(type === 'error'){
         var result = [
