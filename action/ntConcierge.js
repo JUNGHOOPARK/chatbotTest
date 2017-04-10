@@ -475,8 +475,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             // obj.title = opt[i].businessName+"-"+opt[i].title;
             obj.image = {
                 "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
-                "width": 700,
-                "height": 400
+                "width": 100,
+                "height": 100
             };
 
             obj2.type =  "LINK";
