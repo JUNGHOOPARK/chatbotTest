@@ -447,7 +447,13 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         for(var i = 0 ; i < opt.length; i++){
             var match =  opt[i].src.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
-            opt[i].deadLine = opt[i].deadLine.substring(0,10);
+
+            if(opt[i].deadLine.substring(0,4) > 1000){
+                opt[i].deadLine = opt[i].deadLine.substring(0,10);
+            }else{
+                opt[i].deadLine = "";
+            }
+
 
             if(opt[i].businessName.length > 27){
                 opt[i].businessName = opt[i].businessName.substring(0,27);
@@ -469,8 +475,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             // obj.title = opt[i].businessName+"-"+opt[i].title;
             obj.image = {
                 "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
-                "width": 530,
-                "height": 290
+                "width": 700,
+                "height": 400
             };
 
             obj2.type =  "LINK";
