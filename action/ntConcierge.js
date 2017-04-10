@@ -476,7 +476,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             obj.image = {
                 "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
                 "width": 100,
-                "height": 100
+                "height": 150
             };
 
             obj2.type =  "LINK";
