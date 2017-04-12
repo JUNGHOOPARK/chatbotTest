@@ -455,8 +455,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             }
 
 
-            if(opt[i].businessName.length > 27){
-                opt[i].businessName = opt[i].businessName.substring(0,27);
+            if(opt[i].businessName.length > 23){
+                opt[i].businessName = opt[i].businessName.substring(0,23);
                 opt[i].businessName += "&middot;&middot;&middot;";
             }
             if(opt[i].title.length > 20){
