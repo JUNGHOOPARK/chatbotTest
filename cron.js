@@ -6,8 +6,8 @@ process.env.NODE_ENV = 'production';
 //process.env.NODE_ENV = 'development';
 
 
-var async			= require('async'),
-	app	 			= require('app'),
+
+	var app	 			= require('app'),
 
 	CronJob			= require('cron');
 
