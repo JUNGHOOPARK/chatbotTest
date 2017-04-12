@@ -13,7 +13,7 @@ const actionHelp = require('../action/help');
 const actionEnjoy = require('../action/enjoy');
 const actionScheduler = require('../action/scheduler');
 const requestSender = require('request');
-const CronJob			= require('cron');
+var cron			= require('cron');
 var app = express();
 
 
