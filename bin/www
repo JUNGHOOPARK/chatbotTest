@@ -13,13 +13,8 @@ const actionHelp = require('../action/help');
 const actionEnjoy = require('../action/enjoy');
 const actionScheduler = require('../action/scheduler');
 const requestSender = require('request');
-var CronJob			= require('cron').CronJob;
-var app = express();
 
-var job = new CronJob('* * * * * *', function(){
-    console.log('cron running at', new Date().toISOString());
-}, true, 'Asia/Seoul');	//시간, 할거, 바로 실행?, 타임존
-job.start(); // job 1 started
+var app = express();
 
 
 
