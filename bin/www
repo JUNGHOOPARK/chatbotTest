@@ -384,7 +384,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     res.json(actionNtConcierge.getConciergeExpress("error", req.body, ''));
                                     return false;
                                 }
-
+                                formData.status = "NAVER_TALK";
                                 var experts = null;
                                 var options = {
                                     url: 'https://interiorbrothers.com/api/doConcierge',

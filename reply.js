@@ -31,7 +31,7 @@ module.exports.send = function (channelAccessToken, replyToken, messages) {
 };
 
 module.exports.concierge = function (data,eventObj) {
-
+    data.status = "Line_bot"
     var options = {
         url: 'https://interiorbrothers.com/api/doConcierge',
         method: 'POST',
