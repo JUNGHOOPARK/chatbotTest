@@ -202,7 +202,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                         //에러
                                         if (result === '-1') {
-
+                                            console.log("여기");
                                             res.json(actionNtConcierge.getConciergeExpress("error", req.body, ''));
                                             res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
                                             ntSession.spaces1[ii] = true;
