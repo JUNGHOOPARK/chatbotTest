@@ -187,7 +187,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     if (ntSession.errorStatus[ii] === true) {
                         var code = req.body.textContent.code;
                         ntSession.errorStatus[ii] = false;
-                        res.json(actionNtConcierge.getConciergeExpress("error", req.body, code));
+                        res.json(actionNtConcierge.getConciergeExpress(code, req.body, ''));
                     } else {
                     //컨시어지 시작
                     if (ntSession.concierge[ii] === true) {
