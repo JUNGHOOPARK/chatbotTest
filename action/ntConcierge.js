@@ -528,6 +528,34 @@ module.exports.getConciergeExpress = function (type,body,opt) {
     return result;
 };
 
+module.exports.getSpaces1 = function (msg) {
+    var result = [];
+
+    switch(msg) {
+        case '상업공간' :
+            result.push('1');
+            break;
+        case '업무공간' :
+            result.push('2');
+            break;
+        case '주거공간' :
+            result.push('3');
+            break;
+        case '문화/종교공간' :
+            result.push('4');
+            break;
+        case '기타공간' :
+            result.push('5');
+            break;
+        default:
+            result.push('-1');
+
+
+    }
+
+    return result;
+};
+
 module.exports.getSpaces2 = function (spaces1,msg) {
     var temp, prop,
         cnt = 0;
