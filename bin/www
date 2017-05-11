@@ -198,6 +198,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             code = text;
                                         }
                                     } else {
+                                        console.log("11");
                                         var result = actionNtConcierge.getSpaces1(text);
 
                                         //에러
