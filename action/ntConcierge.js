@@ -519,7 +519,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         var result = [
             {
                 "type": "text",
-                "text": "땡!! 데이터 입력 오류 발견! 처음부터 다시시작하세요 :))"
+                "text": "데이터 입력 오류! 다시 시도하세요 :))"
             }
         ];
     }
