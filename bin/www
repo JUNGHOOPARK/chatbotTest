@@ -214,7 +214,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         //에러
                                         if (result == '-1') {
 
-                                            res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'spaces1'));
+                                            res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces1'));
                                             ntSession.errorStatus[ii] = true;
                                             ntSession.spaces1[ii] = true;
                                             ntSession.spaces2[ii] = false;
