@@ -242,7 +242,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 ntSession.spaces2[ii] = false;
                             } else {
                                 var result = actionNtConcierge.getSpaces2(ntSession.spacesCategory[ii], text);
-
+                                console.log(result);
                                 if (result !== undefined) {
                                     ntSession.spacesSubCategory[ii] = result;
                                     var params = [];
