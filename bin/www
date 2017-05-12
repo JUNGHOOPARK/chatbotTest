@@ -287,7 +287,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 var result = actionNtConcierge.getSpaces3(ntSession.spacesCategory[ii], ntSession.spacesSubCategory[ii], text);
 
                                 if (result === undefined) {
-                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces2'));
+                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces3'));
                                     ntSession.errorStatus[ii] = true;
                                     ntSession.spaces2[ii] = false;
                                     ntSession.spaces3[ii] = true;
