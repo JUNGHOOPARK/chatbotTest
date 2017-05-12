@@ -86,7 +86,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             }
         }
         obj.type = "TEXT";
-        obj.text = "이전으로 돌아가기";
+        obj.text = "<-이전으로 돌아가기";
         obj.code = "-1";
         actions.push(obj);
         obj = new Object();
@@ -146,7 +146,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         }
 
         obj.type = "TEXT";
-        obj.text = "이전으로 돌아가기";
+        obj.text = "<-이전으로 돌아가기";
         obj.code = "-1";
         actions.push(obj);
         obj = new Object();
@@ -220,7 +220,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "이전으로 돌아가기",
+                                        "text": "<-이전으로 돌아가기",
                                         "code": "-1"
                                     }
 
@@ -271,7 +271,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "이전으로 돌아가기",
+                                        "text": "<-이전으로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -312,7 +312,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "이전으로 돌아가기",
+                                        "text": "<-이전으로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -352,7 +352,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "이전으로 돌아가기",
+                                        "text": "<-이전으로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -426,7 +426,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "이전으로 돌아가기",
+                                        "text": "<-이전으로 돌아가기",
                                         "code": "-1"
                                     }
 
@@ -537,10 +537,10 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList":[
                             {
                                 "title": "이해할수없습니다",
-                                "description": "아닙니다. 이해할수없습니다. 이전으로 돌아갈사람 누굽니꽈와아아아아아",
+                                "description": "아닙니다. 이해할수없습니다. <-이전으로 돌아갈사람 누굽니꽈와아아아아아",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a6.png",
+                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/cs_w.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -548,7 +548,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "이전으로 돌아가기",
+                                        "text": "<-이전으로 돌아가기",
                                         "code": opt
                                     }
 

@@ -191,7 +191,10 @@ app.post('/naverTalkTalk', function (req, res) {
 
                         if(code === 'spaces2'){
                             opt = ntSession.spacesCategory[ii];
+                        }else if(code === 'spaces3'){
+                            opt = ntSession.history[ii];
                         }
+
                         res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
                     } else {
                     //컨시어지 시작
@@ -249,7 +252,6 @@ app.post('/naverTalkTalk', function (req, res) {
                                 var result = actionNtConcierge.getSpaces2(ntSession.spacesCategory[ii], text);
 
 
-                                console.log(result);
                                 //에러
                                 if (result === undefined) {
 
@@ -281,13 +283,25 @@ app.post('/naverTalkTalk', function (req, res) {
                                 ntSession.spaces2[ii] = true;
                                 ntSession.spaces3[ii] = false;
                             } else {
+
                                 var result = actionNtConcierge.getSpaces3(ntSession.spacesCategory[ii], ntSession.spacesSubCategory[ii], text);
 
-                                ntSession.spacesSpace[ii] = result;
+                                if (result === undefined) {
+                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces2'));
+                                    ntSession.errorStatus[ii] = true;
+                                    ntSession.spaces2[ii] = false;
+                                    ntSession.spaces3[ii] = true;
 
-                                res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
-                                ntSession.spaces3[ii] = false;
-                                ntSession.specialtyRangeYN[ii] = true;
+
+                                } else {
+                                    ntSession.spacesSpace[ii] = result;
+
+                                    res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
+                                    ntSession.spaces3[ii] = false;
+                                    ntSession.specialtyRangeYN[ii] = true;
+                                }
+
+
                             }
 
                             //범위선택
@@ -300,6 +314,25 @@ app.post('/naverTalkTalk', function (req, res) {
                             } else {
 
                                 var code = req.body.textContent.code;
+
+                                //텍스트로 입력시 처리
+                                if (code === undefined) {
+                                    if (!isNaN(text)) {
+                                        if (text === 1 || text === 5) {
+                                            code = text;
+                                        }
+                                    } else {
+
+                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'specialtyRange'));
+                                        ntSession.errorStatus[ii] = true;
+                                        ntSession.spaces3[ii] = false;
+                                        ntSession.specialtyRangeYN[ii] = true;
+
+                                        return false;
+
+                                    }
+                                }
+
                                 var result = actionNtConcierge.getSpecialtyRange(code);
 
                                 ntSession.specialtyRange[ii] = result;
@@ -313,8 +346,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                 } else {
                                     ntSession.spaceMeasure[ii] = true;
                                     res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
-
                                 }
+
                             }
 
                             //공간브랜딩 선택
@@ -326,8 +359,17 @@ app.post('/naverTalkTalk', function (req, res) {
                             } else {
                                 if (text.indexOf("네") != -1) {
                                     ntSession.spaceBranding[ii] = true;
-                                } else {
+                                } else if(text.indexOf("아니오") != -1){
                                     ntSession.spaceBranding[ii] = false;
+                                }else{
+                                    //네/아니오 가 아닌 텍스트 입력시
+                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceBranding'));
+                                    ntSession.errorStatus[ii] = true;
+                                    ntSession.specialtyRangeYN[ii] = false;
+                                    ntSession.spaceBrandingYN[ii] = true;
+
+                                    return false;
+
                                 }
 
                                 res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
@@ -344,7 +386,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 ntSession.spaceMeasure[ii] = false;
                             } else {
                                 var result = actionNtConcierge.getMeasure(text);
-
+                                console.log(result);
                                 ntSession.py[ii] = result[0];
                                 ntSession.meter[ii] = result[1];
 
