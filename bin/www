@@ -90,7 +90,7 @@ var ntSession;
 var ii = 0;
 app.post('/naverTalkTalk', function (req, res) {
     var d = new Date();
-    console.log("요청---"+d.getMinutes()+":"+d.getSeconds());
+    console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
     if(ntSession === null || ntSession === '' || ntSession === undefined){
         ntSession = req.session;
        
@@ -202,7 +202,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.errorStatus[ii] = false;
 
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
-                    console.log("응답---"+d.getMinutes()+":"+d.getSeconds());
+                    console.log("응답---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                 }else if(text.indexOf("시작") != -1 || code === "welcome"){
 
                     ntSession.concierge[ii] = false;
