@@ -650,10 +650,13 @@ app.post('/naverTalkTalk', function (req, res) {
                     res.json(imgResponse);
                    */
                    // res.json(defaultResponse);
+                    res.json(defaultResponse);
                     break;
                 default:
                     //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                    res.json(defaultResponse);
+                    res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                    break;
+                    //res.json(defaultResponse);
             }
             break;
         case 'friend' :

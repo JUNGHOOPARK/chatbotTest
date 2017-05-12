@@ -23,8 +23,8 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="611" column="55" lean-forward="false" selection-start-line="611" selection-start-column="55" selection-end-line="611" selection-end-column="55" />
+            <state relative-caret-position="609">
+              <caret line="658" column="22" lean-forward="false" selection-start-line="658" selection-start-column="22" selection-end-line="658" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -387,12 +387,12 @@
       <workItem from="1493093272794" duration="11000" />
       <workItem from="1494229118892" duration="2026000" />
       <workItem from="1494473015441" duration="12799000" />
-      <workItem from="1494552687557" duration="11803000" />
+      <workItem from="1494552687557" duration="13878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179788000" />
+    <option name="totallyTimeSpent" value="181863000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -751,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="611" column="55" lean-forward="false" selection-start-line="611" selection-start-column="55" selection-end-line="611" selection-end-column="55" />
+        <state relative-caret-position="609">
+          <caret line="658" column="22" lean-forward="false" selection-start-line="658" selection-start-column="22" selection-end-line="658" selection-end-column="22" />
           <folding />
         </state>
       </provider>
