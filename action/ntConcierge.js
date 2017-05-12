@@ -537,7 +537,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList":[
                             {
                                 "title": "이해할수없습니다",
-                                "description": "아닙니다. 이해할수없습니다. <-이전으로 돌아갈사람 누굽니꽈와아아아아아",
+                                "description": "아닙니다. 이해할수없습니다. 이전으로 돌아갈사람 누굽니꽈와아아아아아",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/cs_w.png",
@@ -550,6 +550,81 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                         "type": "TEXT",
                                         "text": "<-이전으로 돌아가기",
                                         "code": opt
+                                    },
+                                    {
+                                        "type": "TEXT",
+                                        "text": "<-처음으로 돌아가기",
+                                        "code": '컨시어지'
+                                    }
+
+                                ]
+                            }
+                        ]
+                    }
+                }
+            };
+    }else if(type === 'welcome'){
+        var result =
+            {
+                "success": true,
+                "resultCode": "00",
+                "resultMessage": "success",
+                "request": {
+                    "event": "send",
+                    "sender": "partner",
+                    "user": body.user,
+                    "partner": body.partner,
+                    "compositeContent":{
+                        "compositeList":[
+                            {
+                                "title": "인테리어브라더스의 챗봇서비스 입니다.\n원하는 서비스를 선택 해주세요.",
+                                "description": "1. 『브라더스 컨시어지』 : 나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
+                                "\n2. 인테리어 사진보기 : 국내 최정상급 인테리어 사진을 보여드립니다." +
+                                "\n3. 전문가 리스트 :" +
+                                "\n4. 컨텐츠 : 컨텐츠를 볼 수 있습니다. " +
+                                "\n\n* 언제든지 “시작”을 입력하면 이 화면으로 돌아옵니다.",
+
+                                "image": {
+                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/welcome_w.png",
+                                    "width": 530,
+                                    "height": 290
+                                },
+
+                                "buttonList":[
+                                    {
+                                        "type": "TEXT",
+                                        "text": "전문가 찾기[브라더스 컨시어지]",
+                                        "code": '컨시어지'
+                                    },
+                                    {
+                                        "type": "LINK",
+                                        "link": {
+                                            "title": "사진보기(웹사이트로 이동)",
+                                            "url": "https://www.interiorbrothers.com/photoview",
+                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/photoview",
+                                            "targetSelf": true,
+                                            "pcTargetSelf": false
+                                        }
+                                    },
+                                    {
+                                        "type": "LINK",
+                                        "link": {
+                                            "title": "전문가 리스트(웹사이트로 이동)",
+                                            "url": "https://www.interiorbrothers.com/findexpert",
+                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
+                                            "targetSelf": true,
+                                            "pcTargetSelf": false
+                                        }
+                                    },
+                                    {
+                                        "type": "LINK",
+                                        "link": {
+                                            "title": "컨텐츠(웹사이트로 이동)",
+                                            "url": "https://www.interiorbrothers.com/webros",
+                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
+                                            "targetSelf": true,
+                                            "pcTargetSelf": false
+                                        }
                                     }
 
                                 ]
@@ -713,7 +788,7 @@ module.exports.getStyles = function (msg) {
     }else if(msg.indexOf("11") != -1 || msg === "내추럴"){
         result = "11";
     }else{
-        result = "1";
+        result = "-1";
     }
 
     return result;
