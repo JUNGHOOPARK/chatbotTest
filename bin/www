@@ -442,8 +442,6 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                 if (msg.indexOf("~") != -1) {
                                     result = msg.split("~");
-                                    console.log(result[0]);
-                                    console.log(result[1]);
                                     //숫자가 아니면 에러
                                     if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
                                         ntSession.budgetMin[ii] = result[0];
@@ -464,6 +462,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         ntSession.budgetMax[ii] = result[1];
                                     }else{
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                        ntSession.errorStatus[ii] = true;
                                         ntSession.spaceMeasure[ii] = false;
                                         ntSession.budget[ii] = true;
                                         return false;
@@ -478,6 +477,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         ntSession.budgetMax[ii] = result[1];
                                     }else{
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                        ntSession.errorStatus[ii] = true;
                                         ntSession.spaceMeasure[ii] = false;
                                         ntSession.budget[ii] = true;
                                         return false;
@@ -488,6 +488,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     ntSession.budgetMax[ii] = msg;
                                 } else {
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                    ntSession.errorStatus[ii] = true;
                                     ntSession.spaceMeasure[ii] = false;
                                     ntSession.budget[ii] = true;
                                     return false;
@@ -511,6 +512,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 //스타일이 아닌걸 입력시
                                 if (result === -1) {
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'styles'));
+                                    ntSession.errorStatus[ii] = true;
                                     ntSession.budget[ii] = false;
                                     ntSession.stylesYN[ii] = true;
                                     return false;
