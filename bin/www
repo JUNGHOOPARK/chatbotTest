@@ -186,7 +186,7 @@ app.post('/naverTalkTalk', function (req, res) {
             if(req.body.sender == 'user' && req.body.textContent) {
             var text = req.body.textContent.text,
                 code = req.body.textContent.code;
-                if(text.indexOf("컨시어지") != -1 || code.indexOf("컨시어지") != -1){
+                if(text.indexOf("컨시어지") != -1 || code === "컨시어지"){
 
                     ntSession.concierge[ii] = true;
                     ntSession.spaces1[ii] = true;
