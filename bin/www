@@ -442,7 +442,8 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                 if (msg.indexOf("~") != -1) {
                                     result = msg.split("~");
-
+                                    console.log(result[0]);
+                                    console.log(result[1]);
                                     //숫자가 아니면 에러
                                     if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
                                         ntSession.budgetMin[ii] = result[0];
