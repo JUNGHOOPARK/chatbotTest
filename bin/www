@@ -198,7 +198,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.spaceMeasure[ii] = false;
                     ntSession.budget[ii] = false;
                     ntSession.stylesYN[ii] = false;
-                    ntSession.errorStatus[ii] === false;
+                    ntSession.errorStatus[ii] = false;
 
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
@@ -219,7 +219,6 @@ app.post('/naverTalkTalk', function (req, res) {
                     } else {
                     //컨시어지 시작
                     if (ntSession.concierge[ii] === true) {
-
                         //공간선택
                         if (ntSession.spaces1[ii] === true) {
                             if (text.indexOf("이전") != -1) {
