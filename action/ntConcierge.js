@@ -18,8 +18,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "어떠한 공간을 인테리어 하시나요?", /* bold스타일의 텍스트 (최대 200자) */
-                                "description": "인테리어 하실 공간을 선택해주세요!", /* gray스타일의 title아래 텍스트 (최대 1,000자) */
+                                "title": "어떤 공간을 인테리어 하시나요?", /* bold스타일의 텍스트 (최대 200자) */
+                                "description": "인테리어 하려는 공간에 해당하는 카테고리를 선택해 주세요." +
+                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)", /* gray스타일의 title아래 텍스트 (최대 1,000자) */
                                 /* imageContent와 상동 */
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
@@ -36,23 +37,23 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "업무공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                        "code": "2" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
+                                        "text": "업무공간", 
+                                        "code": "2"
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "주거공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                        "code": "3" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
+                                        "text": "주거공간",
+                                        "code": "3"
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "문화/종교공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                        "code": "4" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
+                                        "text": "문화/종교공간",
+                                        "code": "4" 
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "기타공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                        "code": "5" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
+                                        "text": "기타공간", 
+                                        "code": "5" 
                                     }
 
                                 ]
@@ -86,7 +87,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             }
         }
         obj.type = "TEXT";
-        obj.text = "<-이전으로 돌아가기";
+        obj.text = "<-이전 단계로 돌아가기";
         obj.code = "-1";
         actions.push(obj);
         obj = new Object();
@@ -104,8 +105,10 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "어떠한 공간을 인테리어 하시나요?",
-                                "description": "인테리어 하실 공간을 선택해주세요!",
+                                "title": "어떤 공간을 인테리어 하시나요?",
+                                "description": "인테리어 하려는 공간의 상세 분류를 선택해 주세요." +
+                                "\n\n원하는 공간 분류가 없는 경우 '<-이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요." +
+                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/a3.png",
@@ -146,7 +149,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         }
 
         obj.type = "TEXT";
-        obj.text = "<-이전으로 돌아가기";
+        obj.text = "<-이전 단계로 돌아가기";
         obj.code = "-1";
         actions.push(obj);
         obj = new Object();
@@ -164,8 +167,10 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "어떠한 공간을 인테리어 하시나요?",
-                                "description": "인테리어 하실 공간을 선택해주세요!",
+                                "title": "어떤 공간을 인테리어 하시나요?",
+                                "description": "인테리어 하려는 공간의 상세 분류를 선택해 주세요." +
+                                "\n\n원하는 공간이 없는 경우 '<-이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요." +
+                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/a3.png",
@@ -198,8 +203,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "범위 선택",
-                                "description": "전문가의 도움이 필요한 범위를 선택해 주세요!",
+                                "title": "전문가의 도움이 필요한 범위 선택해 주세요",
+                                "description": "일반적으로는" +
+                                "\n'인테리어 디자인' + '시공'" +
+                                "\n을 선택하시면 됩니다." +
+                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/a4.png",
@@ -220,7 +228,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전으로 돌아가기",
+                                        "text": "<-이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
 
@@ -250,7 +258,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList":[
                             {
                                 "title": "공간브랜딩이 필요하신가요?",
-                                "description": "공간브랜딩이란? 공간에 대한 차별화된 가치를 높여주는것.",
+                                "description": "공간브랜딩은 주로 상업공간에서, " +
+                                "\n공간과 해당 브랜드의 아이덴티티를 일치시켜 해당 공간에 " +
+                                "\n대한 차별화된 가치를 높여주는 것을 말합니다." +
+                                "\n\n많은 경우에 브랜드 로고 디자인 작업, 패키지, " +
+                                "\n내부/외부 간판, 메뉴 판넬 등의 작업이 같이 진행됩니다." +
+                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/a4.png",
@@ -271,7 +284,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전으로 돌아가기",
+                                        "text": "<-이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -300,8 +313,15 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "인테리어 하는 공간의 면적이 어떻게 되나요?",
-                                "description": "ex) 숫자만 입력하면 평으로 이해합니다:) \n 제곱미터로 입력하길 원하시면\n  숫자 뒤에 m 을 입력해주세요.  \n",
+                                "title": "인테리어 하는 공간의 면적을 알려주세요",
+                                "description": "숫자만 입력하시면 ‘평’ 단위로 인식합니다." +
+                                "\n제곱미터(㎡)단위로 입력하시려면 숫자 뒤에 " +
+                                "\n영문자 m을 붙여주세요." +
+                                "\n\n공간의 면적이 확실하지 않더라도 " +
+                                "\n대략적인 면적을 입력해 주세요." +
+                                "\n저희가 해당 조건에 맞는 사례를 보여드립니다." +
+                                "\n\n예) 30 -> 30평, 119m -> 119㎡ (약 39평)" +
+                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/a5.png",
@@ -312,7 +332,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전으로 돌아가기",
+                                        "text": "<-이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -340,8 +360,16 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "인테리어 하는 공간의 예산은 얼마인가요?(만원 단위로 입력해주세요)",
-                                "description": "ex) 1000 5000 또는 1000~5000 으로 입력해주세요!  \n",
+                                "title": "인테리어 예산을 알려주세요",
+                                "description": "만원단위로 범위를 입력해 주세요." +
+                                "\n숫자 사이에 공백이나 ~기호를 넣어주세요." +
+                                "\n\n예산이 확정 되어있지 않더라도, " +
+                                "\n대략적인 금액범위를 입력해 주세요." +
+                                "\n저희가 해당 조건에 맞는 사례를 보여드립니다." +
+                                "\n\n예) 800 950 -> 800만원~950만원 범위" +
+                                "\n1000~1500 -> 1,000만원~1,500만원 범위" +
+                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
+
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/a5.png",
@@ -352,7 +380,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전으로 돌아가기",
+                                        "text": "<-이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -378,8 +406,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "스타일 선택",
-                                "description": "인테리어 하는 공간의 스타일을 선택해주세요",
+                                "title": "원하는 인테리어 스타일을 선택해 주세요",
+                                "description": "원하는 스타일을 선택해 주세요." +
+                                "\n저희가 가장 유사한 사례를 보여드립니다." +
+                                "\n(이제 다 왔습니다. ^^)" +
+                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/a6.png",
@@ -426,7 +457,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전으로 돌아가기",
+                                        "text": "<-이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
 
@@ -536,8 +567,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "이해할수없습니다",
-                                "description": "아닙니다. 이해할수없습니다. 이전으로 돌아갈사람 누굽니꽈와아아아아아",
+                                "title": "무슨 뜻인지 잘 모르겠습니다.",
+                                "description": "선택지 중에서 선택해 주세요." +
+                                "\n진행하고 있던 컨시어지를 계속하시려면 " +
+                                "\n'이전 단계로 돌아가기' 를 하시거나" +
+                                "\n'컨시어지'를 입력해 처음부터 다시 시작하거나" +
+                                "\n'시작'을 입력해 첫 화면으로 갈 수 있습니다.",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/cs_w.png",
@@ -548,13 +583,18 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전으로 돌아가기",
-                                        "code": opt
+                                        "text": "전문가 찾기 다시 시작[브라더스 컨시어지]",
+                                        "code": '컨시어지'
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-처음으로 돌아가기",
-                                        "code": '컨시어지'
+                                        "text": "처음부터 다시 시작하기",
+                                        "code": 'welcome'
+                                    },
+                                    {
+                                        "type": "TEXT",
+                                        "text": "<-이전 단계로 돌아가기",
+                                        "code": opt
                                     }
 
                                 ]
@@ -580,8 +620,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "title": "인테리어브라더스의 챗봇서비스 입니다.\n원하는 서비스를 선택 해주세요.",
                                 "description": "1. 『브라더스 컨시어지』 : 나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
                                 "\n2. 인테리어 사진보기 : 국내 최정상급 인테리어 사진을 보여드립니다." +
-                                "\n3. 전문가 리스트 :" +
-                                "\n4. 컨텐츠 : 컨텐츠를 볼 수 있습니다. " +
+                                "\n3. 전문가 리스트 : 믿을 수 있는 전문가들이 모여 있습니다." +
+                                "\n4. 컨텐츠 : 인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
                                 "\n\n* 언제든지 “시작”을 입력하면 이 화면으로 돌아옵니다.",
 
                                 "image": {

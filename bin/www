@@ -202,7 +202,21 @@ app.post('/naverTalkTalk', function (req, res) {
 
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
-                }else {
+                }else if(text.indexOf("시작") != -1 || code === "welcome"){
+
+                    ntSession.concierge[ii] = false;
+                    ntSession.spaces1[ii] = false;
+                    ntSession.spaces2[ii] = false;
+                    ntSession.spaces3[ii] = false;
+                    ntSession.specialtyRangeYN[ii] = false;
+                    ntSession.spaceBrandingYN[ii] = false;
+                    ntSession.spaceMeasure[ii] = false;
+                    ntSession.budget[ii] = false;
+                    ntSession.stylesYN[ii] = false;
+                    ntSession.errorStatus[ii] = false;
+
+                    res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
+                } else{
                     //에러발생시
                     if (ntSession.errorStatus[ii] === true) {
                         var code = req.body.textContent.code;
@@ -510,7 +524,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 var result = actionNtConcierge.getStyles(text);
 
                                 //스타일이 아닌걸 입력시
-                                if (result === -1) {
+                                if (result === "-1") {
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'styles'));
                                     ntSession.errorStatus[ii] = true;
                                     ntSession.budget[ii] = false;
