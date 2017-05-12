@@ -69,6 +69,18 @@ app.get('/', function(req, res, next) {
 });
 
 
+
+
+
+
+
+
+
+/*
+ ////////////////////////////////////////////////////
+ START 네이버 톡톡
+ ///////////////////////////////////////////////////
+ */
 var defaultResponse = {
     success: true,
     resultCode: "00",
@@ -141,7 +153,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
         }
     }
-
+    console.log(req.body.user+"is session arr = "+ ii);
     console.log(req.body);
 
     var textResponse = {
@@ -172,9 +184,9 @@ app.post('/naverTalkTalk', function (req, res) {
     switch(req.body.event) {
         case 'send' :
             if(req.body.sender == 'user' && req.body.textContent) {
-            var text = req.body.textContent.text;
-
-                if(text.indexOf("컨시어지") != -1){
+            var text = req.body.textContent.text,
+                code = req.body.textContent.code;
+                if(text.indexOf("컨시어지") != -1 || code.indexOf("컨시어지") != -1){
 
                     ntSession.concierge[ii] = true;
                     ntSession.spaces1[ii] = true;
@@ -186,6 +198,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.spaceMeasure[ii] = false;
                     ntSession.budget[ii] = false;
                     ntSession.stylesYN[ii] = false;
+                    ntSession.errorStatus[ii] === false;
 
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
@@ -601,7 +614,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                     break;
                 case 'none' :
-
+                   // res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                   /*  textResponse.request.textContent.text = '화면을 갱신하셨네요.';
 
                     res.json(textResponse);
@@ -611,10 +624,11 @@ app.post('/naverTalkTalk', function (req, res) {
                     imgResponse.request.imageContent.width = 300;
                     res.json(imgResponse);
                    */
-                    res.json(defaultResponse);
+                   // res.json(defaultResponse);
                     break;
                 default:
-                    res.json(defaultResponse);
+                    res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                    //res.json(defaultResponse);
             }
             break;
         case 'friend' :
@@ -633,6 +647,25 @@ app.post('/naverTalkTalk', function (req, res) {
     }
 
 });
+
+
+/*
+ ////////////////////////////////////////////////////
+ END 네이버 톡톡
+ ///////////////////////////////////////////////////
+ */
+
+
+
+
+
+
+
+/*
+////////////////////////////////////////////////////
+ 라인 챗봇 부분
+ ///////////////////////////////////////////////////
+ */
 
 
 app.get('/hook', function (reqeust, response) {
