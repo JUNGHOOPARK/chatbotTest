@@ -583,7 +583,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기 다시 시작[브라더스 컨시어지]",
+                                        "text": "전문가 찾기[브라더스 컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
