@@ -673,6 +673,76 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     }
                 }
             };
+    }else if(type === 'none_expert'){
+        var result =
+            {
+                "success": true,
+                "resultCode": "00",
+                "resultMessage": "success",
+                "request": {
+                    "event": "send",
+                    "sender": "partner",
+                    "user": body.user,
+                    "partner": body.partner,
+                    "compositeContent":{
+                        "compositeList":[
+                            {
+                                "title": "조건에 맞는 전문가를 찾지 못하였습니다.\n 다른 조건으로 시도해보세요!",
+                                "description": "1. 『브라더스 컨시어지』 : 나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
+                                "\n2. 인테리어 사진보기 : 국내 최정상급 인테리어 사진을 보여드립니다." +
+                                "\n3. 전문가 리스트 : 믿을 수 있는 전문가들이 모여 있습니다." +
+                                "\n4. 컨텐츠 : 인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
+                                "\n\n* 언제든지 “시작”을 입력하면 이 화면으로 돌아옵니다.",
+
+                                "image": {
+                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/cs_w.png",
+                                    "width": 530,
+                                    "height": 290
+                                },
+
+                                "buttonList":[
+                                    {
+                                        "type": "TEXT",
+                                        "text": "전문가 찾기[브라더스 컨시어지]",
+                                        "code": '컨시어지'
+                                    },
+                                    {
+                                        "type": "LINK",
+                                        "link": {
+                                            "title": "사진보기(웹사이트로 이동)",
+                                            "url": "https://www.interiorbrothers.com/photoview",
+                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/photoview",
+                                            "targetSelf": true,
+                                            "pcTargetSelf": false
+                                        }
+                                    },
+                                    {
+                                        "type": "LINK",
+                                        "link": {
+                                            "title": "전문가 리스트(웹사이트로 이동)",
+                                            "url": "https://www.interiorbrothers.com/findexpert",
+                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
+                                            "targetSelf": true,
+                                            "pcTargetSelf": false
+                                        }
+                                    },
+                                    {
+                                        "type": "LINK",
+                                        "link": {
+                                            "title": "컨텐츠(웹사이트로 이동)",
+                                            "url": "https://www.interiorbrothers.com/webros",
+                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
+                                            "targetSelf": true,
+                                            "pcTargetSelf": false
+                                        }
+                                    }
+
+                                ]
+                            }
+                        ]
+                    }
+                }
+            };
     }
 
 
