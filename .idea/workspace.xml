@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,8 +24,8 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="528" column="56" lean-forward="false" selection-start-line="528" selection-start-column="56" selection-end-line="528" selection-end-column="56" />
+            <state relative-caret-position="679">
+              <caret line="217" column="31" lean-forward="false" selection-start-line="213" selection-start-column="18" selection-end-line="217" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -33,8 +34,8 @@
       <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-280">
-              <caret line="638" column="0" lean-forward="true" selection-start-line="638" selection-start-column="0" selection-end-line="638" selection-end-column="0" />
+            <state relative-caret-position="409">
+              <caret line="676" column="53" lean-forward="false" selection-start-line="676" selection-start-column="49" selection-end-line="676" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -51,7 +52,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>imgResponse</find>
       <find>imges</find>
       <find>ibrothers.kr/images</find>
       <find>시기</find>
@@ -81,6 +81,7 @@
       <find>console.log(&quot;</find>
       <find>res.json(actionNtConcierge.getConciergeExpress(&quot;error&quot;, req.</find>
       <find>console.log(c</find>
+      <find>사</find>
     </findStrings>
     <replaceStrings>
       <replace>sess.spacesCategory[i]</replace>
@@ -388,12 +389,12 @@
       <workItem from="1494229118892" duration="2026000" />
       <workItem from="1494473015441" duration="12799000" />
       <workItem from="1494552687557" duration="15248000" />
-      <workItem from="1494811148464" duration="7276000" />
+      <workItem from="1494811148464" duration="9110000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190509000" />
+    <option name="totallyTimeSpent" value="192343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -743,16 +744,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="638" column="0" lean-forward="true" selection-start-line="638" selection-start-column="0" selection-end-line="638" selection-end-column="0" />
+        <state relative-caret-position="409">
+          <caret line="676" column="53" lean-forward="false" selection-start-line="676" selection-start-column="49" selection-end-line="676" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="528" column="56" lean-forward="false" selection-start-line="528" selection-start-column="56" selection-end-line="528" selection-end-column="56" />
+        <state relative-caret-position="679">
+          <caret line="217" column="31" lean-forward="false" selection-start-line="213" selection-start-column="18" selection-end-line="217" selection-end-column="31" />
           <folding />
         </state>
       </provider>
