@@ -609,6 +609,9 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                         experts = body.experts;
                                         message = body.experts.message || -1;
+                                        console.log(error);
+                                        console.log(response);
+                                        console.log(body);
                                     })
 
 
