@@ -615,7 +615,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     setTimeout(function () {
 
                                         if(message !== -1){
-                                            res.json(actionNtConcierge.getConciergeExpress("none_experts", req.body,''));
+                                            res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
                                         }else{
                                             res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
                                         }
