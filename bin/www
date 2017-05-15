@@ -592,7 +592,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         return false;
                                     }
 
-                                    console.log(formData);
+
                                     formData.status = "NAVER_TALK";
                                     var experts = null;
                                     var options = {
@@ -605,16 +605,19 @@ app.post('/naverTalkTalk', function (req, res) {
                                         if (error) {
                                             return console.error('experts failed:', error);
                                         }
-                                        console.log("==================");
-                                        console.log(response);
-                                        console.log("==================");
-                                        console.log(body);
+
                                         experts = body.experts;
                                     })
 
 
                                     setTimeout(function () {
-                                        res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
+
+                                        if(experts.message.indexOf("조건") != -1){
+                                            console.log("조건에 맞는 전문가 없음");
+                                        }else{
+                                            res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
+                                        }
+
                                        // console.log("결과 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                     }, 2000);
                                 }
