@@ -524,10 +524,9 @@ app.post('/naverTalkTalk', function (req, res) {
 
                             //스타일선택
                         } else if (ntSession.stylesYN[ii] === true) {
-                            var code = req.body.textContent.code;
-                            console.log(text);
-                            console.log(code);
-                            if (text.indexOf("이전") != -1 || code == -1 || code == "-1") {
+
+
+                            if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
                                 ntSession.budget[ii] = true;
                                 ntSession.stylesYN[ii] = false;
@@ -562,9 +561,6 @@ app.post('/naverTalkTalk', function (req, res) {
                                     formData.budget.min = ntSession.budgetMin[ii];
                                     formData.budget.max = ntSession.budgetMax[ii];
                                     formData.style = ntSession.styles[ii];
-
-                                    ntSession.stylesYN[ii] = false;
-                                    ntSession.concierge[ii] = false;
 
 
                                     if (!formData.specialty.main
@@ -615,6 +611,9 @@ app.post('/naverTalkTalk', function (req, res) {
                                         return false;
                                     }
 
+
+                                    ntSession.stylesYN[ii] = false;
+                                    ntSession.concierge[ii] = false;
 
                                     formData.status = "NAVER_TALK";
                                     var experts = null;
