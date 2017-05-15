@@ -650,7 +650,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     res.json(imgResponse);
                    */
                    // res.json(defaultResponse);
-                    res.json(defaultResponse);
+                    res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                     break;
                 default:
                     //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
