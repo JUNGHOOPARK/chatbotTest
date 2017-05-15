@@ -547,12 +547,52 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
 
     }else if(type === 'error'){
-        var result = [
+        var result =
             {
-                "type": "text",
-                "text": "데이터 입력 오류! 다시 시도하세요 :))"
-            }
-        ];
+                "success": true,
+                "resultCode": "00",
+                "resultMessage": "success",
+                "request": {
+                    "event": "send",
+                    "sender": "partner",
+                    "user": body.user,
+                    "partner": body.partner,
+                    "compositeContent":{
+                        "compositeList":[
+                            {
+                                "title": "오류가 발생한 것 같습니다.",
+                                "description": "아래 버튼을 누르거나 “시작”, “컨시어지”를 입력해 처음부터 다시 시작해주세요.",
+
+
+                                "image": {
+                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/status_oops.png",
+                                    "width": 530,
+                                    "height": 290
+                                },
+
+                                "buttonList":[
+                                    {
+                                        "type": "TEXT",
+                                        "text": "전문가 찾기[브라더스 컨시어지]",
+                                        "code": '컨시어지'
+                                    },
+                                    {
+                                        "type": "TEXT",
+                                        "text": "처음부터 다시 시작하기",
+                                        "code": 'welcome'
+                                    },
+                                    {
+                                        "type": "TEXT",
+                                        "text": "<-이전 단계로 돌아가기",
+                                        "code": opt
+                                    }
+
+                                ]
+                            }
+                        ]
+                    }
+                }
+            };
     }else if(type === 'back'){
         var result =
             {
@@ -575,7 +615,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n'시작'을 입력해 첫 화면으로 갈 수 있습니다.",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/cs_w.png",
+                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/status_oops_w.png",
                                     "width": 530,
                                     "height": 290
                                 },
