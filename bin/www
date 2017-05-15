@@ -595,6 +595,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                     formData.status = "NAVER_TALK";
                                     var experts = null;
+                                    var message = -1;
                                     var options = {
                                         url: 'https://interiorbrothers.com/api/doConcierge',
                                         method: 'POST',
@@ -607,12 +608,13 @@ app.post('/naverTalkTalk', function (req, res) {
                                         }
 
                                         experts = body.experts;
+                                        message = body.experts.message || -1;
                                     })
 
 
                                     setTimeout(function () {
 
-                                        if(experts.message.indexOf("조건") != -1){
+                                        if(message !== -1){
                                             console.log("조건에 맞는 전문가 없음");
                                         }else{
                                             res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
