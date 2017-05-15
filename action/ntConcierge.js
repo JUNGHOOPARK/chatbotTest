@@ -203,7 +203,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "전문가의 도움이 필요한 범위 선택해 주세요",
+                                "title": "전문가의 도움이 필요한 범위를 선택해 주세요",
                                 "description": "일반적으로는" +
                                 "\n'인테리어 디자인' + '시공'" +
                                 "\n을 선택하시면 됩니다." +

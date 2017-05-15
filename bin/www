@@ -90,7 +90,7 @@ var ntSession;
 var ii = 0;
 app.post('/naverTalkTalk', function (req, res) {
     var d = new Date();
-    console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+    // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
     if(ntSession === null || ntSession === '' || ntSession === undefined){
         ntSession = req.session;
        
@@ -202,7 +202,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.errorStatus[ii] = false;
 
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
-                    console.log("컨시어지 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                    //console.log("컨시어지 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                 }else if(text.indexOf("시작") != -1 || code === "welcome"){
 
                     ntSession.concierge[ii] = false;
@@ -217,7 +217,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.errorStatus[ii] = false;
 
                     res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
-                    console.log("시작화면 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                    //console.log("시작화면 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                 } else{
                     //에러발생시
                     if (ntSession.errorStatus[ii] === true) {
@@ -232,7 +232,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         }
 
                         res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
-                        console.log("에러 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                        //console.log("에러 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                     } else {
                     //컨시어지 시작
                     if (ntSession.concierge[ii] === true) {
@@ -240,7 +240,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         if (ntSession.spaces1[ii] === true) {
                             if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
-                                console.log("spaces1 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                                //console.log("spaces1 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                 ntSession.spaces1[ii] = true;
                                 ntSession.spaces2[ii] = false;
                             } else {
@@ -274,7 +274,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                 ntSession.spacesCategory[ii] = code;
                                 res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, code));
-                                console.log("spaces2 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                               // console.log("spaces2 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                 ntSession.spaces1[ii] = false;
                                 ntSession.spaces2[ii] = true;
                             }
@@ -307,7 +307,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     ntSession.history[ii] = params;
 
                                     res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, params));
-                                    console.log("spaces3 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                                   // console.log("spaces3 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                     ntSession.spaces2[ii] = false;
                                     ntSession.spaces3[ii] = true;
                                 }
@@ -335,7 +335,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     ntSession.spacesSpace[ii] = result;
 
                                     res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
-                                    console.log("specialtyRange 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                                    //console.log("specialtyRange 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                     ntSession.spaces3[ii] = false;
                                     ntSession.specialtyRangeYN[ii] = true;
                                 }
@@ -381,12 +381,12 @@ app.post('/naverTalkTalk', function (req, res) {
                                 if (ntSession.specialtyRange[ii][0] === 'interiorFull' || ntSession.specialtyRange[ii][0] === 'interiorDesign') {
                                     ntSession.spaceBrandingYN[ii] = true;
                                     res.json(actionNtConcierge.getConciergeExpress("spaceBranding", req.body, ''));
-                                    console.log("spaceBranding 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                                   // console.log("spaceBranding 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
 
                                 } else {
                                     ntSession.spaceMeasure[ii] = true;
                                     res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
-                                    console.log("spaceMeasure 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                                   // console.log("spaceMeasure 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                 }
 
                             }
@@ -414,7 +414,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 }
 
                                 res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
-                                console.log("spaceMeasure 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                                //console.log("spaceMeasure 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                 ntSession.spaceBrandingYN[ii] = false;
                                 ntSession.spaceMeasure[ii] = true;
                             }
@@ -443,7 +443,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 }
 
                                 res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
-                                console.log("budget 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                               // console.log("budget 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                 ntSession.spaceMeasure[ii] = false;
                                 ntSession.budget[ii] = true;
 
@@ -517,7 +517,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 }
 
                                 res.json(actionNtConcierge.getConciergeExpress("styles", req.body, ''));
-                                console.log("styles 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                                //console.log("styles 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
                                 ntSession.budget[ii] = false;
                                 ntSession.stylesYN[ii] = true;
                             }
@@ -591,6 +591,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                         res.json(actionNtConcierge.getConciergeExpress("error", req.body, ''));
                                         return false;
                                     }
+
+                                    console.log(formData);
                                     formData.status = "NAVER_TALK";
                                     var experts = null;
                                     var options = {
@@ -603,14 +605,18 @@ app.post('/naverTalkTalk', function (req, res) {
                                         if (error) {
                                             return console.error('experts failed:', error);
                                         }
+                                        console.log("==================");
+                                        console.log(response);
+                                        console.log("==================");
+                                        console.log(body);
                                         experts = body.experts;
                                     })
 
 
                                     setTimeout(function () {
                                         res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
-                                        console.log("결과 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
-                                    }, 1000);
+                                       // console.log("결과 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                                    }, 2000);
                                 }
                             }
 
