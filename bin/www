@@ -524,8 +524,10 @@ app.post('/naverTalkTalk', function (req, res) {
 
                             //스타일선택
                         } else if (ntSession.stylesYN[ii] === true) {
-                            if (text.indexOf("이전") != -1) {
-                                console.log("1");
+                            var code = req.body.textContent.code;
+                            console.log(text);
+                            console.log(code);
+                            if (text.indexOf("이전") != -1 || code == -1 || code == "-1") {
                                 res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
                                 ntSession.budget[ii] = true;
                                 ntSession.stylesYN[ii] = false;
