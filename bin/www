@@ -604,6 +604,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                     requestSender(options, function (error, response, body) {
                                         if (error) {
+                                            console.log(error);
                                             return console.error('experts failed:', error);
                                         }
 
