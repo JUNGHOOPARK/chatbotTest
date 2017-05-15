@@ -191,8 +191,8 @@ app.post('/naverTalkTalk', function (req, res) {
                 if(text.indexOf("사진보기") != -1 || code === "사진보기"){
 
                     var options = {
-                        url: 'https://interiorbrothers.com/photoview?kind=1',
-                        method: 'POST',
+                        url: 'https://interiorbrothers.com/api/search',
+                        method: 'GET',
                         params: {
                             type: 'photoView',
                             page: 1,
