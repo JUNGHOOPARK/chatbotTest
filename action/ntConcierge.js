@@ -677,6 +677,11 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                         "code": '컨시어지'
                                     },
                                     {
+                                        "type": "TEXT",
+                                        "text": "사진보기",
+                                        "code": '사진보기'
+                                    },
+                                    {
                                         "type": "LINK",
                                         "link": {
                                             "title": "사진보기(웹사이트로 이동)",
