@@ -529,6 +529,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 ntSession.budget[ii] = true;
                                 ntSession.stylesYN[ii] = false;
                             } else {
+                                console.log("1");
                                 var result = actionNtConcierge.getStyles(text);
 
                                 //스타일이 아닌걸 입력시
@@ -539,7 +540,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     ntSession.stylesYN[ii] = true;
                                     return false;
                                 } else {
-
+                                    console.log("2");
                                     ntSession.styles[ii] = result;
 
                                     var formData = {};
@@ -558,7 +559,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     formData.budget.min = ntSession.budgetMin[ii];
                                     formData.budget.max = ntSession.budgetMax[ii];
                                     formData.style = ntSession.styles[ii];
-
+                                    console.log("3");
                                     ntSession.stylesYN[ii] = false;
                                     ntSession.concierge[ii] = false;
 
@@ -604,15 +605,14 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                     requestSender(options, function (error, response, body) {
                                         if (error) {
-                                            console.log(error);
+
                                             return console.error('experts failed:', error);
                                         }
 
                                         experts = body.experts;
                                         message = body.experts.message || -1;
-                                        console.log(error);
-                                        console.log(response);
-                                        console.log(body);
+
+
                                     })
 
 
