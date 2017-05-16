@@ -189,8 +189,6 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
     }else if(type === 'specialtyRange'){
 
-
-
         var result =
             {
                 "success": true,
