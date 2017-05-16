@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,8 +24,8 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="228" column="40" lean-forward="false" selection-start-line="228" selection-start-column="40" selection-end-line="228" selection-end-column="40" />
+            <state relative-caret-position="517">
+              <caret line="231" column="43" lean-forward="false" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -51,7 +52,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isNa</find>
       <find>sw</find>
       <find>error</find>
       <find>이전으로</find>
@@ -81,6 +81,7 @@
       <find>처음부터</find>
       <find>원하는 공간</find>
       <find>var options = {</find>
+      <find>requestSender(options, func</find>
     </findStrings>
     <replaceStrings>
       <replace>.businessName</replace>
@@ -389,12 +390,12 @@
       <workItem from="1494473015441" duration="12799000" />
       <workItem from="1494552687557" duration="15248000" />
       <workItem from="1494811148464" duration="10431000" />
-      <workItem from="1494904470212" duration="13282000" />
+      <workItem from="1494904470212" duration="13401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206946000" />
+    <option name="totallyTimeSpent" value="207065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -752,8 +753,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="228" column="40" lean-forward="false" selection-start-line="228" selection-start-column="40" selection-end-line="228" selection-end-column="40" />
+        <state relative-caret-position="517">
+          <caret line="231" column="43" lean-forward="false" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
           <folding />
         </state>
       </provider>
