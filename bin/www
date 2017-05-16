@@ -203,18 +203,20 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.errorStatus[ii] = false;
 
                     res.json(actionNtConcierge.getConciergeExpress("ready",req.body,''));*/
+                    var params = querystring.stringify({
+                        kind: 1,
+                        page: '1',
+                        type: 'photoView',
+                        sort: 'default'
+                    });
 
+                    console.log(params);
                     var options = {
                         // url: 'https://interiorbrothers.com/api/search',
                         url: ' http://easternsky.synology.me/api/search',
                         method: 'GET',
                         headers: { 'Content-Type': 'application/json' },
-                        query: querystring.stringify({
-                            kind: 1,
-                            page: '1',
-                            type: 'photoView',
-                            sort: 'default'
-                        })
+                        params: params
                     };
 
                     requestSender(options, function (error, response, body) {
