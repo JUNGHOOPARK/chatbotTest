@@ -228,7 +228,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         }
                         console.log(body);
                         console.log(body.result);
-                        console.log(body.result[0]);
+
                         console.log(typeof body);
 
                     })
