@@ -962,6 +962,69 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
 
             };
 
+    }else if(type === 'photoview'){
+
+        var compositeList = new Array();
+        var buttonList = new Array();
+        var obj = new Object();
+        var obj2 = new Object();
+
+        for(var i = 0 ; i < opt.length; i++){
+            var match =  opt[i].photo.split('/file/download/');
+            opt[i].src = '/file/download/small-' + match[1];
+
+
+            if(opt[i].title.length > 20){
+                opt[i].title = opt[i].title.substring(0,20);
+                opt[i].title += "&middot;&middot;&middot;";
+            }
+            obj.title = opt[i].title;
+
+            obj.description = "design by "+ opt[i].companyName;
+
+            obj.image = {
+                "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
+                "width": 289,
+                "height": 150
+            };
+
+            obj2.type =  "LINK";
+            obj2.link =  {
+                "title": "상세보러가기",
+                "url": "https://www.interiorbrothers.com/experts/"+opt[i].creator+"/portfolio?portfolioId="+opt[i]._id,
+                "mobileUrl": "https://www.interiorbrothers.com/mobile/experts/"+opt[i].creator+"/portfolio?portfolioId="+opt[i]._id,
+                "targetSelf": true,
+                "pcTargetSelf": false
+
+            };
+
+            buttonList.push(obj2);
+            obj.buttonList = buttonList;
+            compositeList.push(obj);
+
+            obj2 = new Object();
+            obj = new Object();
+            buttonList = new Array();
+        }
+
+        var result =
+            {
+                "success": true,
+                "resultCode": "00",
+                "resultMessage": "success",
+                "request": {
+                    "event": "send",
+                    "sender": "partner",
+                    "user": body.user,
+                    "partner": body.partner,
+                    "compositeContent": {
+                        "compositeList": compositeList
+                    }
+                }
+
+            };
+
+
     }
 
     return result;

@@ -218,7 +218,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         method: 'GET',
                         headers: { 'Content-Type': 'application/json' }
                     };
-
+                    var photoview;
                     requestSender(options, function (error, response, body) {
                         //to do list
 
@@ -228,19 +228,16 @@ app.post('/naverTalkTalk', function (req, res) {
                         }
 
                         body = JSON.parse(body);
-                        for(var i = 0; i < body.result.length; i++){
-                            console.log(body.result[i]);
-                        }
+                        photoview = body.result;
+
+                    });
 
 
-                    })
+                    setTimeout(function () {
 
+                        res.json(actionNtConcierge.getOutBoundExpress("photoview", req.body, photoview));
 
-                  /*  setTimeout(function () {
-
-                        res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
-
-                    }, 2000);*/
+                    }, 2000);
 
 
 
@@ -699,13 +696,14 @@ app.post('/naverTalkTalk', function (req, res) {
                                         if(message !== -1){
                                             res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
                                         }else{
+                                            //컨시어지 결과
                                             res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
-
                                         }
 
 
                                     }, 2000);
 
+                                    // 아웃바운드 결과 안내
                                     var headers = {
                                         'Content-type' : 'application/json',
                                         'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
