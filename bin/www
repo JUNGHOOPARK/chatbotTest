@@ -193,7 +193,7 @@ app.post('/naverTalkTalk', function (req, res) {
                 code = req.body.textContent.code;
 
                 if(text.indexOf("사진") != -1 || code === "사진보기"){
-
+                    console.log(ntSession.photo_page[ii]);
 
                     var params = querystring.stringify({
 
