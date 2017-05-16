@@ -23,7 +23,7 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="478">
               <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
               <folding />
             </state>
@@ -51,7 +51,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>back</find>
       <find>console.log(&quot;</find>
       <find>res.json(actionNtConcierge.getConciergeExpress(&quot;error&quot;, req.</find>
       <find>console.log(c</find>
@@ -81,6 +80,7 @@
       <find>사진</find>
       <find>requestSender</find>
       <find>photoHow</find>
+      <find>ntSession.concierge[ii] = false;</find>
     </findStrings>
     <replaceStrings>
       <replace>1</replace>
@@ -389,12 +389,12 @@
       <workItem from="1494473015441" duration="12799000" />
       <workItem from="1494552687557" duration="15248000" />
       <workItem from="1494811148464" duration="10431000" />
-      <workItem from="1494904470212" duration="19330000" />
+      <workItem from="1494904470212" duration="19485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212994000" />
+    <option name="totallyTimeSpent" value="213149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -753,7 +753,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="478">
           <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
           <folding />
         </state>

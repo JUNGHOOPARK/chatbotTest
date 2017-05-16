@@ -255,7 +255,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                             })
 
-                    }, 2500);
+                    }, 3000);
 
 
 
@@ -272,7 +272,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.budget[ii] = false;
                     ntSession.stylesYN[ii] = false;
                     ntSession.errorStatus[ii] = false;
-
+                    ntSession.photo_page[ii] = 1;
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
                 }else if(text.indexOf("시작") != -1 || code === "welcome"){
