@@ -207,9 +207,10 @@ app.post('/naverTalkTalk', function (req, res) {
                         url: 'https://interiorbrothers.com/api/search',
                         method: 'GET',
                         params: {
-                            type: 'photoView',
+                            kind: 1,
                             page: '1',
-                            kind: '1'
+                            type: 'photoView',
+                            sort: 'default'
                         }
                     };
 
