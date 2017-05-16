@@ -226,7 +226,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             console.log("err");
                             return console.error('photoview failed:', error);
                         }
-                        console.log(body.result);
+                        console.log(body);
 
 
                     })
