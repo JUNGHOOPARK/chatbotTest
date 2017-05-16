@@ -235,7 +235,8 @@ app.post('/naverTalkTalk', function (req, res) {
 
                     setTimeout(function () {
 
-                        res.json(actionNtConcierge.getOutBoundExpress("photoview", req.body, photoview));
+                        res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
+                        // res.json(actionNtConcierge.getOutBoundExpress("photoview", req.body, photoview));
 
                     }, 2000);
 
