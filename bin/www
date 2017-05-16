@@ -687,12 +687,12 @@ app.post('/naverTalkTalk', function (req, res) {
 
                         } else {
                             res.json(actionNtConcierge.getConciergeExpress("what", req.body, ''));
-                            res.json(textResponse);
+
                         }
 
                     } else {
                         res.json(actionNtConcierge.getConciergeExpress("what", req.body, ''));
-                        res.json(textResponse);
+
                     }
                 }//not err
 
