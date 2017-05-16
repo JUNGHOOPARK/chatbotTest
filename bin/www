@@ -126,6 +126,9 @@ app.post('/naverTalkTalk', function (req, res) {
         ntSession.styles = [];
         ntSession.history = [];
 
+        //사진보기 페이지
+        ntSession.photo_page = [];
+
        
 
 
@@ -189,24 +192,13 @@ app.post('/naverTalkTalk', function (req, res) {
             var text = req.body.textContent.text,
                 code = req.body.textContent.code;
 
-                if(text.indexOf("사진보기") != -1 || code === "사진보기"){
+                if(text.indexOf("사진") != -1 || code === "사진보기"){
 
-                   /* ntSession.concierge[ii] = false;
-                    ntSession.spaces1[ii] = false;
-                    ntSession.spaces2[ii] = false;
-                    ntSession.spaces3[ii] = false;
-                    ntSession.specialtyRangeYN[ii] = false;
-                    ntSession.spaceBrandingYN[ii] = false;
-                    ntSession.spaceMeasure[ii] = false;
-                    ntSession.budget[ii] = false;
-                    ntSession.stylesYN[ii] = false;
-                    ntSession.errorStatus[ii] = false;
 
-                    res.json(actionNtConcierge.getConciergeExpress("ready",req.body,''));*/
                     var params = querystring.stringify({
 
                         kind: 1,
-                        page: '1',
+                        page: ntSession.photo_page[ii]++,
                         type: 'photoView',
                         sort: 'default'
                     });
@@ -236,9 +228,34 @@ app.post('/naverTalkTalk', function (req, res) {
                     setTimeout(function () {
 
                         res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
-                        // res.json(actionNtConcierge.getOutBoundExpress("photoview", req.body, photoview));
+
 
                     }, 2000);
+
+                    // 아웃바운드 API 결과 안내
+                    var headers = {
+                        'Content-type' : 'application/json',
+                        'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
+                        'X-Naver-Client-Secret': 'OD6sEB94LH',
+                    };
+
+                    var options2 = {
+                        url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
+                        method: 'POST',
+                        headers: headers,
+                        json: actionNtConcierge.getOutBoundExpress("photoHow", req.body, '')
+                    };
+
+                    setTimeout(function () {
+                        if(message == -1) {
+                            requestSender(options2, function (error, response, body) {
+                                if (error) {
+                                    return console.error('resultMsg failed:', error);
+                                }
+
+                            })
+                        }
+                    }, 2500);
 
 
 
@@ -270,6 +287,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.budget[ii] = false;
                     ntSession.stylesYN[ii] = false;
                     ntSession.errorStatus[ii] = false;
+                    ntSession.photo_page[ii] = 1;
 
                     res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
                     //console.log("시작화면 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
