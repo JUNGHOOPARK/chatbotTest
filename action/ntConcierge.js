@@ -678,7 +678,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기 (준비중)",
+                                        "text": "사진보기 ",
                                         "code": '사진보기'
                                     },
                                     {
@@ -722,12 +722,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "인테리어브라더스의 챗봇서비스 입니다.\n원하는 서비스를 선택 해주세요.",
-                                "description": "1. 『브라더스 컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
-                                "\n2. 인테리어 사진보기 : \n국내 최정상급 인테리어 사진을 보여드립니다." +
-                                "\n3. 전문가 리스트 : \n믿을 수 있는 전문가들이 모여 있습니다." +
-                                "\n4. 컨텐츠 : \n인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
-                                "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
+                                "title": "조건에 맞는 사례를 발견하지 못했습니다.",
+                                "description": "최선을 다했지만, 조건에 맞는 최적의 추천 사례를 발견하지 못했습니다." +
+                                "\n조건을 변경해서 다시 시도해 보시거나" +
+                                "\n" +
+                                "\n“컨시어지”를 입력해 처음부터 다시 시작하거나" +
+                                "\n“시작”을 입력해 첫 화면으로 갈 수 있습니다.",
 
                                 "image": {
                                     "imageUrl": "http://easternsky.synology.me/images/chatbot/cs_w.png",
@@ -743,7 +743,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기 (준비중)",
+                                        "text": "사진보기",
                                         "code": '사진보기'
                                     },
                                     {
@@ -808,7 +808,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기 (준비중)",
+                                        "text": "사진보기 ",
                                         "code": '사진보기'
                                     },
                                     {
@@ -873,7 +873,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기 (준비중)",
+                                        "text": "사진보기 ",
                                         "code": '사진보기'
                                     },
                                     {
@@ -984,8 +984,9 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "추천 결과가 맘에 드시나요?",
-                                "description": "“상세 정보 보기”를 누르면" +
+                                "title": "조건에 적합한 전문가를 추천해 드렸습니다.",
+                                "description": "" +
+                                "“상세 정보 보기”를 누르면" +
                                 "\n해당 포트폴리오의 더 많은 사진과" +
                                 "\n자세한 정보를 볼 수 있습니다." +
                                 "\n" +
