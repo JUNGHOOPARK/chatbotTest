@@ -190,7 +190,20 @@ app.post('/naverTalkTalk', function (req, res) {
 
                 if(text.indexOf("사진보기") != -1 || code === "사진보기"){
 
-                    var options = {
+                    ntSession.concierge[ii] = false;
+                    ntSession.spaces1[ii] = false;
+                    ntSession.spaces2[ii] = false;
+                    ntSession.spaces3[ii] = false;
+                    ntSession.specialtyRangeYN[ii] = false;
+                    ntSession.spaceBrandingYN[ii] = false;
+                    ntSession.spaceMeasure[ii] = false;
+                    ntSession.budget[ii] = false;
+                    ntSession.stylesYN[ii] = false;
+                    ntSession.errorStatus[ii] = false;
+
+                    res.json(actionNtConcierge.getConciergeExpress("ready",req.body,''));
+
+                   /* var options = {
                         url: 'https://interiorbrothers.com/api/search',
                         method: 'GET',
                         params: {
@@ -210,7 +223,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         console.log(body);
 
 
-                    })
+                    })*/
 
 
                   /*  setTimeout(function () {
