@@ -13,6 +13,7 @@ const actionHelp = require('../action/help');
 const actionEnjoy = require('../action/enjoy');
 const actionScheduler = require('../action/scheduler');
 const requestSender = require('request');
+const querystring = require('querystring');
 
 var app = express();
 
@@ -208,12 +209,12 @@ app.post('/naverTalkTalk', function (req, res) {
                         url: ' http://easternsky.synology.me/api/search',
                         method: 'GET',
                         headers: { 'Content-Type': 'application/json' },
-                        params: {
+                        params: querystring.stringify({
                             kind: 1,
                             page: '1',
                             type: 'photoView',
                             sort: 'default'
-                        }
+                        })
                     };
 
                     requestSender(options, function (error, response, body) {
