@@ -273,6 +273,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     ntSession.stylesYN[ii] = false;
                     ntSession.errorStatus[ii] = false;
                     ntSession.photo_page[ii] = 1;
+                    console.log(ntSession.photo_page[ii]);
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
                 }else if(text.indexOf("시작") != -1 || code === "welcome"){
