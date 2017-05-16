@@ -204,7 +204,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                     res.json(actionNtConcierge.getConciergeExpress("ready",req.body,''));*/
                     var params = querystring.stringify({
-                        noCache:1494925019636,
+
                         kind: 1,
                         page: '1',
                         type: 'photoView',
@@ -214,7 +214,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     console.log(params);
                     var options = {
                         // url: 'https://interiorbrothers.com/api/search',
-                        url: ' http://easternsky.synology.me/api/search',
+                        url: ' http://easternsky.synology.me/api/search?'+params,
                         method: 'GET',
                         headers: { 'Content-Type': 'application/json' },
                         params: params
