@@ -725,7 +725,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                             })
                                         }
-                                    }, 2000);
+                                    }, 2500);
 
                                 }
                             }
