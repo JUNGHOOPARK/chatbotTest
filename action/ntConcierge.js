@@ -107,7 +107,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             {
                                 "title": "어떤 공간을 인테리어 하시나요?",
                                 "description": "인테리어 하려는 공간의 상세 분류를 선택해 주세요." +
-                                "\n\n원하는 공간 분류가 없는 경우 '<-이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요." +
+                                "\n\n원하는 공간 분류가 없는 경우 '←이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요." +
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
 
                                 "image": {
@@ -149,7 +149,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         }
 
         obj.type = "TEXT";
-        obj.text = "<-이전 단계로 돌아가기";
+        obj.text = "←이전 단계로 돌아가기";
         obj.code = "-1";
         actions.push(obj);
         obj = new Object();
@@ -169,7 +169,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             {
                                 "title": "어떤 공간을 인테리어 하시나요?",
                                 "description": "인테리어 하려는 공간의 상세 분류를 선택해 주세요." +
-                                "\n\n원하는 공간이 없는 경우 '<-이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요." +
+                                "\n\n원하는 공간이 없는 경우 '←이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요." +
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. 조금만 기다려 주세요)",
 
                                 "image": {
@@ -228,7 +228,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전 단계로 돌아가기",
+                                        "text": "←이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
 
@@ -284,7 +284,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전 단계로 돌아가기",
+                                        "text": "←이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -332,7 +332,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전 단계로 돌아가기",
+                                        "text": "←이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -380,7 +380,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전 단계로 돌아가기",
+                                        "text": "←이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
                                 ]
@@ -457,7 +457,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전 단계로 돌아가기",
+                                        "text": "←이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
 
@@ -573,7 +573,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기[브라더스 컨시어지]",
+                                        "text": "전문가 찾기 [브라더스 컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
@@ -583,7 +583,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전 단계로 돌아가기",
+                                        "text": "←이전 단계로 돌아가기",
                                         "code": opt
                                     }
 
@@ -623,7 +623,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기[브라더스 컨시어지]",
+                                        "text": "전문가 찾기 [브라더스 컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
@@ -633,7 +633,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "<-이전 단계로 돌아가기",
+                                        "text": "←이전 단계로 돌아가기",
                                         "code": opt
                                     }
 
@@ -673,18 +673,18 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기[브라더스 컨시어지]",
+                                        "text": "전문가 찾기 [브라더스 컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기",
+                                        "text": "사진보기 (준비중)",
                                         "code": '사진보기'
                                     },
                                     {
                                         "type": "LINK",
                                         "link": {
-                                            "title": "사진보기(웹사이트로 이동)",
+                                            "title": "사진보기 (웹사이트로 이동)",
                                             "url": "https://www.interiorbrothers.com/photoview",
                                             "mobileUrl": "https://www.interiorbrothers.com/mobile/photoview",
                                             "targetSelf": true,
@@ -694,7 +694,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     {
                                         "type": "LINK",
                                         "link": {
-                                            "title": "전문가 리스트(웹사이트로 이동)",
+                                            "title": "전문가 리스트 (웹사이트로 이동)",
                                             "url": "https://www.interiorbrothers.com/findexpert",
                                             "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
                                             "targetSelf": true,
@@ -704,7 +704,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     {
                                         "type": "LINK",
                                         "link": {
-                                            "title": "컨텐츠(웹사이트로 이동)",
+                                            "title": "컨텐츠 (웹사이트로 이동)",
                                             "url": "https://www.interiorbrothers.com/webros",
                                             "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
                                             "targetSelf": true,
