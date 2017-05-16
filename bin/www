@@ -717,7 +717,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     };
 
                                     setTimeout(function () {
-                                        if(message === -1) {
+                                        if(message == -1) {
                                             requestSender(options2, function (error, response, body) {
                                                 if (error) {
                                                     return console.error('resultMsg failed:', error);
