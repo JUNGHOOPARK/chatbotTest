@@ -912,7 +912,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
         for(var i = 0 ; i < opt.length; i++){
             var match =  opt[i].photo.split('/file/download/');
-            opt[i].src = '/file/download/medium-' + match[1];
+            opt[i].src = '/file/download/small-' + match[1];
 
 
             if(opt[i].title.length > 20){
