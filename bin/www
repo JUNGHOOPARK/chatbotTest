@@ -211,13 +211,12 @@ app.post('/naverTalkTalk', function (req, res) {
                         sort: 'default'
                     });
 
-                    console.log(params);
+
                     var options = {
                         // url: 'https://interiorbrothers.com/api/search',
                         url: ' http://easternsky.synology.me/api/search?'+params,
                         method: 'GET',
-                        headers: { 'Content-Type': 'application/json' },
-                        params: params
+                        headers: { 'Content-Type': 'application/json' }
                     };
 
                     requestSender(options, function (error, response, body) {
@@ -227,7 +226,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             console.log("err");
                             return console.error('photoview failed:', error);
                         }
-                        console.log(body);
+                        console.log(body.result);
 
 
                     })
