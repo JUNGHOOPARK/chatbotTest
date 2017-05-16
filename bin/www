@@ -691,7 +691,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                     })
 
-
+                                    var flag = false;
                                     setTimeout(function () {
 
                                         if(message !== -1){
@@ -699,6 +699,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         }else{
                                             //컨시어지 결과
                                             res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
+                                            flag = true;
                                         }
 
 
@@ -717,6 +718,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         headers: headers,
                                         json: actionNtConcierge.getOutBoundExpress("how", req.body, '')
                                     };
+                                    if(flag){
                                     setTimeout(function () {
 
                                         requestSender(options2, function (error, response, body) {
@@ -728,7 +730,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                         })
 
 
-                                    }, 3000);
+                                    }, 2000);
+                                    }
 
                                 }
                             }
