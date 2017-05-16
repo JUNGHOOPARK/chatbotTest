@@ -207,7 +207,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         // url: 'https://interiorbrothers.com/api/search',
                         url: ' http://easternsky.synology.me/api/search',
                         method: 'GET',
-                        params: {
+                        query: {
                             kind: 1,
                             page: '1',
                             type: 'photoView',
