@@ -208,8 +208,8 @@ app.post('/naverTalkTalk', function (req, res) {
                         method: 'GET',
                         params: {
                             type: 'photoView',
-                            page: 1,
-                            kind:'1'
+                            page: '1',
+                            kind: '1'
                         }
                     };
 
