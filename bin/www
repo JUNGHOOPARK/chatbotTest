@@ -700,36 +700,35 @@ app.post('/naverTalkTalk', function (req, res) {
                                             //컨시어지 결과
                                             res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
 
+                                            // 아웃바운드 API 결과 안내
+                                            var headers = {
+                                                'Content-type' : 'application/json',
+                                                'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
+                                                'X-Naver-Client-Secret': 'OD6sEB94LH',
+                                            };
+
+                                            var options2 = {
+                                                url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
+                                                method: 'POST',
+                                                headers: headers,
+                                                json: actionNtConcierge.getOutBoundExpress("how", req.body, '')
+                                            };
+
+                                            setTimeout(function () {
+
+                                                requestSender(options2, function (error, response, body) {
+                                                    if (error) {
+                                                        return console.error('experts failed:', error);
+                                                    }
+
+                                                })
+
+                                            }, 2000);
+
                                         }
 
 
                                     }, 2000);
-
-                                    // 아웃바운드 결과 안내
-                                    var headers = {
-                                        'Content-type' : 'application/json',
-                                        'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
-                                        'X-Naver-Client-Secret': 'OD6sEB94LH',
-                                    };
-
-                                    var options2 = {
-                                        url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
-                                        method: 'POST',
-                                        headers: headers,
-                                        json: actionNtConcierge.getOutBoundExpress("how", req.body, '')
-                                    };
-                                    if(message === -1){
-                                        setTimeout(function () {
-
-                                            requestSender(options2, function (error, response, body) {
-                                                if (error) {
-                                                    return console.error('experts failed:', error);
-                                                }
-
-                                            })
-
-                                        }, 2000);
-                                    }
 
                                 }
                             }
