@@ -128,7 +128,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
         //사진보기 페이지
         ntSession.photo_page = [];
-
+        ntSession.photo_page[ii] = 1;
        
 
 
