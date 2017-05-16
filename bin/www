@@ -221,8 +221,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
 
 
-                }
-                else if(text.indexOf("컨시어지") != -1 || code === "컨시어지"){
+                }else if(text.indexOf("컨시어지") != -1 || code === "컨시어지"){
 
                     ntSession.concierge[ii] = true;
                     ntSession.spaces1[ii] = true;
@@ -687,12 +686,12 @@ app.post('/naverTalkTalk', function (req, res) {
                             }
 
                         } else {
-                            textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
+                            res.json(actionNtConcierge.getConciergeExpress("what", req.body, ''));
                             res.json(textResponse);
                         }
 
                     } else {
-                        textResponse.request.textContent.text = 'echo: ' + req.body.textContent.text;
+                        res.json(actionNtConcierge.getConciergeExpress("what", req.body, ''));
                         res.json(textResponse);
                     }
                 }//not err
