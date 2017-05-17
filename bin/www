@@ -357,7 +357,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             var opt = "";
                             if(code === 'spaces2' || data.errCode === 'spaces2'){
                                 opt = data.spacesCategory;
-                            }else if(code === 'spaces3' || data.errCode === 'spaces2'){
+                            }else if(code === 'spaces3' || data.errCode === 'spaces3'){
                                 opt = data.history;
                             }
                             req.cache.set(req.body.user,JSON.stringify(data));
