@@ -107,7 +107,7 @@ var ntSession;
 var ii = 0;
 app.post('/naverTalkTalk', function (req, res) {
 
-    req.session.user = req.body.user;
+   /* req.session.user = req.body.user;*/
     ntSession = req.session;
 
     console.log(req.session);
