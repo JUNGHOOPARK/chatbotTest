@@ -186,7 +186,7 @@ app.post('/naverTalkTalk', function (req, res) {
     var data = {};
 
     req.cache.get(req.body.user,function(err,result){
-        console.log(result);
+
         if(result){
             if(result.lastIndexOf("}") != -1 ){
                 data = JSON.parse(result);
@@ -317,6 +317,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
 
                 } else{
+                    console.log("??");
                     //에러발생시
                     if (data.errorStatus === true) {
                         var code = req.body.textContent.code;
