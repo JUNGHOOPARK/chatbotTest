@@ -23,7 +23,7 @@ var app = express();
 
 var session =require('express-session');
 var RedisStore = require('connect-redis')(session);
-var redis = require('redis');
+var redis = require('ioredis');
 var redisClient = redis.createClient();
 
 //redis 를 이용한 세션 사용
