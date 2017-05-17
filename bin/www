@@ -30,7 +30,7 @@ var redisClient = redis.createClient();
 app.use(session({
     store: new RedisStore({
         client:redisClient, //client redis
-        host:'chatbot.bjbqbx.0001.usw2.cache.amazonaws.com',
+        host:'chatbotredis.bjbqbx.ng.0001.usw2.cache.amazonaws.com',
         port:6379 //redis port 번호
     }),
     secret:'interiorbrothersChatBot',
