@@ -186,8 +186,7 @@ app.post('/naverTalkTalk', function (req, res) {
     var data = {};
 
     req.cache.get(req.body.user,function(err,result){
-        console.log(result);
-        console.log(typeof result);
+
         if(result.lastIndexOf("}") != -1){
             data = JSON.parse(result);
             console.log(data);
@@ -195,10 +194,9 @@ app.post('/naverTalkTalk', function (req, res) {
             console.log("처음유입");
             //유저네임
             data.username = req.body.user;
-            console.log(data);
-            console.log(typeof data);
+
             //레디스에 데이터 유저생성
-            req.cache.set(req.body.user,data);
+            req.cache.set(req.body.user,JSON.stringify(data));
         }
        
     });
