@@ -23,8 +23,8 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+            <state relative-caret-position="477">
+              <caret line="166" column="0" lean-forward="true" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,8 +61,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;-</find>
-      <find>to do</find>
       <find>전문가 찾기</find>
       <find>←이</find>
       <find>이전</find>
@@ -91,9 +89,10 @@
       <find>session</find>
       <find>console.log</find>
       <find>redisStore</find>
+      <find>ntSession.</find>
+      <find>= [];</find>
     </findStrings>
     <replaceStrings>
-      <replace>1</replace>
       <replace>2</replace>
       <replace>3</replace>
       <replace>4</replace>
@@ -123,6 +122,7 @@
       <replace>←</replace>
       <replace>← 이</replace>
       <replace>\n조금만 기다려 주세요</replace>
+      <replace>: '',</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -400,12 +400,12 @@
       <workItem from="1494552687557" duration="15248000" />
       <workItem from="1494811148464" duration="10431000" />
       <workItem from="1494904470212" duration="20268000" />
-      <workItem from="1494993839768" duration="11777000" />
+      <workItem from="1494993839768" duration="12284000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225709000" />
+    <option name="totallyTimeSpent" value="226216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -763,8 +763,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        <state relative-caret-position="477">
+          <caret line="166" column="0" lean-forward="true" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
           <folding />
         </state>
       </provider>

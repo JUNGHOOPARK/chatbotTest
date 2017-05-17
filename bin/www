@@ -122,19 +122,53 @@ var defaultResponse = {
 };
 
 
-var ntSession;
-var ii = 0;
+var info =   {
+    //기본정보
+    username : '',
+    //컨시어지 단계 구간
+    concierge : '',
+    spaces1 : '',
+    spaces2 : '',
+    spaces3 : '',
+    specialtyRangeYN : '',
+    spaceBrandingYN : '',
+    spaceMeasure : '',
+    budget : '',
+    stylesYN : '',
+    errorStatus : '',
+
+    //컨시어지 파라미터
+    estimate_Type : "interior",
+    spacesCategory : '',
+    spacesSubCategory : '',
+    spacesSpace : '',
+    specialtyRange : '',
+    spaceBranding : '',
+    py : '',
+    meter : '',
+    budgetMin : '',
+    budgetMax : '',
+    styles : '',
+    history : '',
+    //사진보기 페이지
+    photo_page : '1'
+
+
+}
+
 app.post('/naverTalkTalk', function (req, res) {
+    'use strict';
+    var data;
 
-
-    ntSession = req.session;
+    req.cache.get(req.body.user,function(err,result){
+        data = JSON.parse(result);
+        console.log(data);
+    });
 
     req.cache.set(req.body.user,req.body.user);
 
 
-    req.cache.get(req.body.user,function(err,data){
-        console.log(data);
-    });
+
 
 
 
@@ -143,81 +177,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
     var d = new Date();
     // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
-    if(ntSession === null || ntSession === '' || ntSession === undefined){
 
-
-        //기본정보
-        ntSession.username = [];
-        ntSession.username[ii] = req.body.user;
-        console.log("세션리스트--->  "+ntSession.username);
-        console.log("세션이 없을경우 처음으로 세션정보생성--->  "+req.body.user);
-        
-        //단계 구간
-        ntSession.concierge = [];
-        ntSession.spaces1 = [];
-        ntSession.spaces2 = [];
-        ntSession.spaces3 = [];
-        ntSession.specialtyRangeYN = [];
-        ntSession.spaceBrandingYN = [];
-        ntSession.spaceMeasure = [];
-        ntSession.budget = [];
-        ntSession.stylesYN = [];
-        ntSession.errorStatus = [];
-
-        //컨시어지 파라미터
-        ntSession.estimate_Type = "interior";
-        ntSession.spacesCategory = [];
-        ntSession.spacesSubCategory = [];
-        ntSession.spacesSpace = [];
-        ntSession.specialtyRange = [];
-        ntSession.spaceBranding = [];
-        ntSession.py = [];
-        ntSession.meter = [];
-        ntSession.budgetMin = [];
-        ntSession.budgetMax = [];
-        ntSession.styles = [];
-        ntSession.history = [];
-
-        //사진보기 페이지
-        ntSession.photo_page = [];
-        ntSession.photo_page[ii] = 1;
-       
-
-
-    }else{
-        //세션새로 생성
-        if(ntSession.username[ii] === null || ntSession.username[ii] === '' || ntSession.username[ii] === undefined){
-            console.log("세션리스트--->  "+ntSession.username);
-            console.log(ii+"번째 세션 유저 추가 생성--->  "+req.body.user);
-            ntSession.username[ii] = req.body.user;
-        }else{
-
-            if(req.body.user !== ntSession.username[ii]){
-                for(var j = 0; j<ntSession.username.length; j++){
-                    //세션 변경
-                    if(ntSession.username[j] ===  req.body.user) {
-                        console.log("세션리스트--->  "+ntSession.username);
-                        console.log(j+"번째 세션 유저 유지--->  "+req.body.user);
-                        //기존 세션
-                        ii = j;
-                        break;
-                    }else{
-                        //바뀌는 세션
-                        console.log("세션리스트--->  "+ntSession.username);
-                        console.log((ii+1)+"번째 세션으로 바뀌는 유저 --->  "+req.body.user);
-                        ntSession.username[ii+1] = req.body.user;
-                        ii++;
-                        break;
-                    }
-                }
-            }else{
-
-            }
-
-        }
-    }
-   /* console.log(req.body.user+"is session arr = "+ ii);
-    console.log(req.body);*/
 
     var textResponse = {
         success: true,
