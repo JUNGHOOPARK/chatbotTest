@@ -187,10 +187,20 @@ app.post('/naverTalkTalk', function (req, res) {
 
     req.cache.get(req.body.user,function(err,result){
         console.log(result);
-        if(result.lastIndexOf("}") != -1 && result){
-            console.log("here");
-            data = JSON.parse(result);
-            console.log(data);
+        if(result){
+            if(result.lastIndexOf("}") != -1 ){
+                console.log("here");
+                data = JSON.parse(result);
+                console.log(data);
+            }else{
+                console.log("처음유입");
+                //유저네임
+                data.username = req.body.user;
+                data.photo_page = 1;
+                data.estimate_Type = "interior";
+                //레디스에 데이터 유저생성
+                req.cache.set(req.body.user,JSON.stringify(data));
+            }
         }else{
             console.log("처음유입");
             //유저네임
@@ -200,6 +210,7 @@ app.post('/naverTalkTalk', function (req, res) {
             //레디스에 데이터 유저생성
             req.cache.set(req.body.user,JSON.stringify(data));
         }
+
        
     });
 
