@@ -186,7 +186,7 @@ app.post('/naverTalkTalk', function (req, res) {
     var data = {};
 
     req.cache.get(req.body.user,function(err,result){
-        console.log("1");
+
         if(result){
             if(result.lastIndexOf("}") != -1 ){
                 data = JSON.parse(result);
@@ -212,664 +212,661 @@ app.post('/naverTalkTalk', function (req, res) {
             req.cache.set(req.body.user,JSON.stringify(data));
         }
 
-       
-    });
+        var d = new Date();
+        // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+
+        switch(req.body.event) {
+            case 'send' :
+                if(req.body.sender == 'user' && req.body.textContent) {
+                var text = req.body.textContent.text,
+                    code = req.body.textContent.code;
+
+                    if(text.indexOf("사진") != -1 || code === "사진보기"){
+
+                        var params = querystring.stringify({
+
+                            kind: 1,
+                            page:  data.photo_page,
+                            type: 'photoView',
+                            sort: 'default'
+                        });
 
 
-    var d = new Date();
-    // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+                        var options = {
 
-    switch(req.body.event) {
-        case 'send' :
-            if(req.body.sender == 'user' && req.body.textContent) {
-            var text = req.body.textContent.text,
-                code = req.body.textContent.code;
+                            url: ' https://interiorbrothers.com/api/search?'+params,
+                            method: 'GET',
+                            headers: { 'Content-Type': 'application/json' }
+                        };
+                        var photoview;
+                        requestSender(options, function (error, response, body) {
+                            //to do list
 
-                if(text.indexOf("사진") != -1 || code === "사진보기"){
-                    console.log("2");
-                    var params = querystring.stringify({
-
-                        kind: 1,
-                        page:  data.photo_page,
-                        type: 'photoView',
-                        sort: 'default'
-                    });
-
-
-                    var options = {
-
-                        url: ' https://interiorbrothers.com/api/search?'+params,
-                        method: 'GET',
-                        headers: { 'Content-Type': 'application/json' }
-                    };
-                    var photoview;
-                    requestSender(options, function (error, response, body) {
-                        //to do list
-
-                        if (error) {
-                            console.log("err");
-                            return console.error('photoview failed:', error);
-                        }
-
-                        body = JSON.parse(body);
-                        photoview = body.result;
-
-                    });
-
-
-                    setTimeout(function () {
-
-                        data.photo_page = data.photo_page+1;
-                        req.cache.set(req.body.user,JSON.stringify(data));
-                        res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
-
-                    }, 2000);
-
-                    // 아웃바운드 API 결과 안내
-                    var headers = {
-                        'Content-type' : 'application/json',
-                        'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
-                        'X-Naver-Client-Secret': 'OD6sEB94LH',
-                    };
-
-                    var options2 = {
-                        url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
-                        method: 'POST',
-                        headers: headers,
-                        json: actionNtConcierge.getOutBoundExpress("photoHow", req.body, '')
-                    };
-
-                    setTimeout(function () {
-
-                            requestSender(options2, function (error, response, body) {
-                                if (error) {
-                                    return console.error('resultMsg failed:', error);
-                                }
-
-                            })
-
-                    }, 3500);
-
-
-
-                }else if(text.indexOf("컨시어지") != -1 || code === "컨시어지"){
-
-
-                    data.concierge = true;
-                    data.spaces1 = true;
-                    data.spaces2 = false;
-                    data.spaces3 = false;
-                    data.specialtyRangeYN = false;
-                    data.spaceBrandingYN = false;
-                    data.spaceMeasure = false;
-                    data.budget = false;
-                    data.stylesYN = false;
-                    data.errorStatus = false;
-
-                    req.cache.set(req.body.user,JSON.stringify(data));
-
-                    res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
-
-                }else if(text.indexOf("시작") != -1 || code === "welcome"){
-
-                    req.cache.del(req.body.user);
-
-                    res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
-
-                } else{
-                    console.log("??");
-                    //에러발생시
-                    if (data.errorStatus === true) {
-                        var code = req.body.textContent.code;
-                        data.errorStatus = false;
-
-                        var opt = "";
-                        if(code === 'spaces2'){
-                            opt = data.spacesCategory;
-                        }else if(code === 'spaces3'){
-                            opt = data.history;
-                        }
-                        req.cache.set(req.body.user,JSON.stringify(data));
-                        res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
-
-                    } else {
-                    //컨시어지 시작
-                    if (data.concierge === true) {
-                        //공간선택
-                        if (data.spaces1 === true) {
-                            console.log("here");
-                            if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
-
-                                data.spaces1 = true;
-                                data.spaces2 = false;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            } else {
-                                var code = req.body.textContent.code;
-
-                                //텍스트로 입력시 처리
-                                if (code === undefined) {
-                                    if (!isNaN(text)) {
-                                        if (text > 0 && text <= 5) {
-                                            code = text;
-                                        }
-                                    } else {
-
-                                        var result = actionNtConcierge.getSpaces1(text);
-                                        console.log(result);
-                                        //에러
-                                        if (result == '-1') {
-
-                                            res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces1'));
-                                            data.errorStatus = true;
-                                            data.spaces1 = true;
-                                            data.spaces2 = false;
-
-                                            req.cache.set(req.body.user,JSON.stringify(data));
-                                            return false;
-                                        } else {
-                                            code = result;
-                                        }
-
-                                    }
-                                }
-
-                                data.spacesCategory = code;
-                                data.spaces1 = false;
-                                data.spaces2 = true;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-
-                                res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, code));
-
-
+                            if (error) {
+                                console.log("err");
+                                return console.error('photoview failed:', error);
                             }
 
+                            body = JSON.parse(body);
+                            photoview = body.result;
 
-                            //업종선택
-                        } else if (data.spaces2 === true) {
-                            if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
-                                data.spaces1 = true;
-                                data.spaces2 = false;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            } else {
-                                var result = actionNtConcierge.getSpaces2(data.spacesCategory, text);
+                        });
 
 
-                                //에러
-                                if (result === undefined) {
+                        setTimeout(function () {
 
-                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces2'));
-                                    data.errorStatus = true;
+                            data.photo_page = data.photo_page+1;
+                            req.cache.set(req.body.user,JSON.stringify(data));
+                            res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
+
+                        }, 2000);
+
+                        // 아웃바운드 API 결과 안내
+                        var headers = {
+                            'Content-type' : 'application/json',
+                            'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
+                            'X-Naver-Client-Secret': 'OD6sEB94LH',
+                        };
+
+                        var options2 = {
+                            url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
+                            method: 'POST',
+                            headers: headers,
+                            json: actionNtConcierge.getOutBoundExpress("photoHow", req.body, '')
+                        };
+
+                        setTimeout(function () {
+
+                                requestSender(options2, function (error, response, body) {
+                                    if (error) {
+                                        return console.error('resultMsg failed:', error);
+                                    }
+
+                                })
+
+                        }, 3500);
+
+
+
+                    }else if(text.indexOf("컨시어지") != -1 || code === "컨시어지"){
+
+
+                        data.concierge = true;
+                        data.spaces1 = true;
+                        data.spaces2 = false;
+                        data.spaces3 = false;
+                        data.specialtyRangeYN = false;
+                        data.spaceBrandingYN = false;
+                        data.spaceMeasure = false;
+                        data.budget = false;
+                        data.stylesYN = false;
+                        data.errorStatus = false;
+
+                        req.cache.set(req.body.user,JSON.stringify(data));
+
+                        res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
+
+                    }else if(text.indexOf("시작") != -1 || code === "welcome"){
+
+                        req.cache.del(req.body.user);
+
+                        res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
+
+                    } else{
+                        console.log("??");
+                        //에러발생시
+                        if (data.errorStatus === true) {
+                            var code = req.body.textContent.code;
+                            data.errorStatus = false;
+
+                            var opt = "";
+                            if(code === 'spaces2'){
+                                opt = data.spacesCategory;
+                            }else if(code === 'spaces3'){
+                                opt = data.history;
+                            }
+                            req.cache.set(req.body.user,JSON.stringify(data));
+                            res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
+
+                        } else {
+                        //컨시어지 시작
+                        if (data.concierge === true) {
+                            //공간선택
+                            if (data.spaces1 === true) {
+                                console.log("here");
+                                if (text.indexOf("이전") != -1) {
+                                    res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
+
+                                    data.spaces1 = true;
+                                    data.spaces2 = false;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
+                                } else {
+                                    var code = req.body.textContent.code;
+
+                                    //텍스트로 입력시 처리
+                                    if (code === undefined) {
+                                        if (!isNaN(text)) {
+                                            if (text > 0 && text <= 5) {
+                                                code = text;
+                                            }
+                                        } else {
+
+                                            var result = actionNtConcierge.getSpaces1(text);
+                                            console.log(result);
+                                            //에러
+                                            if (result == '-1') {
+
+                                                res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces1'));
+                                                data.errorStatus = true;
+                                                data.spaces1 = true;
+                                                data.spaces2 = false;
+
+                                                req.cache.set(req.body.user,JSON.stringify(data));
+                                                return false;
+                                            } else {
+                                                code = result;
+                                            }
+
+                                        }
+                                    }
+
+                                    data.spacesCategory = code;
                                     data.spaces1 = false;
                                     data.spaces2 = true;
                                     req.cache.set(req.body.user,JSON.stringify(data));
 
-                                } else {
-                                    data.spacesSubCategory = result;
-                                    var params = [];
-                                    params[0] = data.spacesCategory;
-                                    params[1] = result;
-                                    data.history = params;
-
-                                    res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, params));
-
-                                    data.spaces2 = false;
-                                    data.spaces3 = true;
-                                    req.cache.set(req.body.user,JSON.stringify(data));
-                                }
-
-                            }
-
-                            //상세 업종선택
-                        } else if (data.spaces3 === true) {
-                            if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, data.spacesCategory));
-                                data.paces2 = true;
-                                data.spaces3 = false;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            } else {
-
-                                var result = actionNtConcierge.getSpaces3(data.spacesCategory, data.spacesSubCategory, text);
-
-                                if (result === undefined) {
-                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces3'));
-                                    data.errorStatus = true;
-                                    data.spaces2 = false;
-                                    data.spaces3 = true;
-                                    req.cache.set(req.body.user,JSON.stringify(data));
+                                    res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, code));
 
 
-                                } else {
-                                    data.spacesSpace = result;
-
-                                    res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
-
-                                    data.spaces3 = false;
-                                    data.specialtyRangeYN = true;
-                                    req.cache.set(req.body.user,JSON.stringify(data));
                                 }
 
 
-                            }
+                                //업종선택
+                            } else if (data.spaces2 === true) {
+                                if (text.indexOf("이전") != -1) {
+                                    res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
+                                    data.spaces1 = true;
+                                    data.spaces2 = false;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
+                                } else {
+                                    var result = actionNtConcierge.getSpaces2(data.spacesCategory, text);
 
-                            //범위선택
-                        } else if (data.specialtyRangeYN === true) {
 
-                            if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, data.history));
-                                data.spaces3 = true;
-                                data.specialtyRangeYN = false;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            } else {
+                                    //에러
+                                    if (result === undefined) {
 
-                                var code = req.body.textContent.code;
-
-                                //텍스트로 입력시 처리
-                                if (code === undefined) {
-                                    if (!isNaN(text)) {
-                                        if (text === 1 || text === 5) {
-                                            code = text;
-                                        }
-                                    } else {
-
-                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'specialtyRange'));
+                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces2'));
                                         data.errorStatus = true;
+                                        data.spaces1 = false;
+                                        data.spaces2 = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
+
+                                    } else {
+                                        data.spacesSubCategory = result;
+                                        var params = [];
+                                        params[0] = data.spacesCategory;
+                                        params[1] = result;
+                                        data.history = params;
+
+                                        res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, params));
+
+                                        data.spaces2 = false;
+                                        data.spaces3 = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
+                                    }
+
+                                }
+
+                                //상세 업종선택
+                            } else if (data.spaces3 === true) {
+                                if (text.indexOf("이전") != -1) {
+                                    res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, data.spacesCategory));
+                                    data.paces2 = true;
+                                    data.spaces3 = false;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
+                                } else {
+
+                                    var result = actionNtConcierge.getSpaces3(data.spacesCategory, data.spacesSubCategory, text);
+
+                                    if (result === undefined) {
+                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces3'));
+                                        data.errorStatus = true;
+                                        data.spaces2 = false;
+                                        data.spaces3 = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
+
+
+                                    } else {
+                                        data.spacesSpace = result;
+
+                                        res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
+
                                         data.spaces3 = false;
                                         data.specialtyRangeYN = true;
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                    }
+
+
+                                }
+
+                                //범위선택
+                            } else if (data.specialtyRangeYN === true) {
+
+                                if (text.indexOf("이전") != -1) {
+                                    res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, data.history));
+                                    data.spaces3 = true;
+                                    data.specialtyRangeYN = false;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
+                                } else {
+
+                                    var code = req.body.textContent.code;
+
+                                    //텍스트로 입력시 처리
+                                    if (code === undefined) {
+                                        if (!isNaN(text)) {
+                                            if (text === 1 || text === 5) {
+                                                code = text;
+                                            }
+                                        } else {
+
+                                            res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'specialtyRange'));
+                                            data.errorStatus = true;
+                                            data.spaces3 = false;
+                                            data.specialtyRangeYN = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+
+                                        }
+                                    }
+
+                                    var result = actionNtConcierge.getSpecialtyRange(code);
+
+                                    data.specialtyRange = result;
+
+                                    data.specialtyRangeYN = false;
+
+                                    if (data.specialtyRange[0] === 'interiorFull' || data.specialtyRange[0] === 'interiorDesign') {
+                                        data.spaceBrandingYN = true;
+                                        res.json(actionNtConcierge.getConciergeExpress("spaceBranding", req.body, ''));
+                                        req.cache.set(req.body.user,JSON.stringify(data));
+
+
+                                    } else {
+                                        data.spaceMeasure = true;
+                                        res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
+                                        req.cache.set(req.body.user,JSON.stringify(data));
+
+                                    }
+
+                                }
+
+                                //공간브랜딩 선택
+                            } else if (data.spaceBrandingYN === true) {
+                                if (text.indexOf("이전") != -1) {
+                                    res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
+                                    data.specialtyRangeYN = true;
+                                    data.spaceBrandingYN = false;
+
+                                    req.cache.set(req.body.user,JSON.stringify(data));
+                                } else {
+                                    if (text.indexOf("네") != -1) {
+                                        data.spaceBranding = true;
+
+                                    } else if(text.indexOf("아니오") != -1){
+                                        data.spaceBranding = false;
+
+                                    }else{
+                                        //네/아니오 가 아닌 텍스트 입력시
+                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceBranding'));
+                                        data.errorStatus = true;
+                                        data.specialtyRangeYN = false;
+                                        data.spaceBrandingYN = true;
+
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
 
                                     }
-                                }
 
-                                var result = actionNtConcierge.getSpecialtyRange(code);
-
-                                data.specialtyRange = result;
-
-                                data.specialtyRangeYN = false;
-
-                                if (data.specialtyRange[0] === 'interiorFull' || data.specialtyRange[0] === 'interiorDesign') {
-                                    data.spaceBrandingYN = true;
-                                    res.json(actionNtConcierge.getConciergeExpress("spaceBranding", req.body, ''));
-                                    req.cache.set(req.body.user,JSON.stringify(data));
-
-
-                                } else {
-                                    data.spaceMeasure = true;
                                     res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
-                                    req.cache.set(req.body.user,JSON.stringify(data));
 
-                                }
-
-                            }
-
-                            //공간브랜딩 선택
-                        } else if (data.spaceBrandingYN === true) {
-                            if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
-                                data.specialtyRangeYN = true;
-                                data.spaceBrandingYN = false;
-
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            } else {
-                                if (text.indexOf("네") != -1) {
-                                    data.spaceBranding = true;
-
-                                } else if(text.indexOf("아니오") != -1){
-                                    data.spaceBranding = false;
-
-                                }else{
-                                    //네/아니오 가 아닌 텍스트 입력시
-                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceBranding'));
-                                    data.errorStatus = true;
-                                    data.specialtyRangeYN = false;
-                                    data.spaceBrandingYN = true;
-
-                                    req.cache.set(req.body.user,JSON.stringify(data));
-                                    return false;
-
-                                }
-
-                                res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
-
-                                data.spaceBrandingYN = false;
-                                data.spaceMeasure = true;
-
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            }
-
-                            //면적 선택
-                        } else if (data.spaceMeasure === true) {
-                            if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
-                                data.specialtyRangeYN = true;
-                                data.spaceMeasure = false;
-
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            } else {
-                                var result = actionNtConcierge.getMeasure(text);
-
-
-                                data.py = result[0];
-                                data.meter = result[1];
-                                
-                                //숫자미입력시
-                                if(result[0] === 0 && result[1] ===0){
-                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceMeasure'));
-                                    data.errorStatus = true;
                                     data.spaceBrandingYN = false;
                                     data.spaceMeasure = true;
+
                                     req.cache.set(req.body.user,JSON.stringify(data));
-                                    return false;
                                 }
 
-                                res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
+                                //면적 선택
+                            } else if (data.spaceMeasure === true) {
+                                if (text.indexOf("이전") != -1) {
+                                    res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
+                                    data.specialtyRangeYN = true;
+                                    data.spaceMeasure = false;
 
-                                data.spaceMeasure = false;
-                                data.budget = true;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            }
-
-                            //예산선택
-                        } else if (data.budget === true) {
-                            if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
-                                data.spaceMeasure = true;
-                                data.budget = false;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            } else {
-                                var result = [];
-                                var msg = text;
-                                msg = msg.trim();
-                                var pattern = /\s/g; // 공백여부
-
-
-                                if (msg.indexOf("~") != -1) {
-                                    result = msg.split("~");
-                                    //숫자가 아니면 에러
-                                    if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
-                                        data.budgetMin = result[0];
-                                        data.budgetMax = result[1];
-                                    }else{
-                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
-                                        data.spaceMeasure = false;
-                                        data.budget = true;
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        return false;
-                                    }
-
-                                } else if (msg.indexOf(",") != -1) {
-                                    result = msg.split(",");
-
-                                    //숫자가 아니면 에러
-                                    if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
-                                        data.budgetMin = result[0];
-                                        data.budgetMax = result[1];
-                                    }else{
-                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
-                                        data.errorStatus = true;
-                                        data.spaceMeasure = false;
-                                        data.budget = true;
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        return false;
-                                    }
-
-                                } else if (msg.match(pattern)) {
-                                    result = msg.split(" ");
-
-                                    //숫자가 아니면 에러
-                                    if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
-                                        data.budgetMin = result[0];
-                                        data.budgetMax = result[1];
-                                    }else{
-                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
-                                        data.errorStatus = true;
-                                        data.spaceMeasure = false;
-                                        data.budget = true;
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        return false;
-                                    }
-
-                                } else if (msg.match(/[0-9]/)) {
-                                    data.budgetMin = msg;
-                                    data.budgetMax = msg;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
                                 } else {
-                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
-                                    data.errorStatus = true;
+                                    var result = actionNtConcierge.getMeasure(text);
+
+
+                                    data.py = result[0];
+                                    data.meter = result[1];
+
+                                    //숫자미입력시
+                                    if(result[0] === 0 && result[1] ===0){
+                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceMeasure'));
+                                        data.errorStatus = true;
+                                        data.spaceBrandingYN = false;
+                                        data.spaceMeasure = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
+                                        return false;
+                                    }
+
+                                    res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
+
                                     data.spaceMeasure = false;
                                     data.budget = true;
-                                    return false;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
                                 }
 
-                                res.json(actionNtConcierge.getConciergeExpress("styles", req.body, ''));
+                                //예산선택
+                            } else if (data.budget === true) {
+                                if (text.indexOf("이전") != -1) {
+                                    res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
+                                    data.spaceMeasure = true;
+                                    data.budget = false;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
+                                } else {
+                                    var result = [];
+                                    var msg = text;
+                                    msg = msg.trim();
+                                    var pattern = /\s/g; // 공백여부
 
-                                data.budget = false;
-                                data.stylesYN = true;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            }
 
-                            //스타일선택
-                        } else if (data.stylesYN === true) {
+                                    if (msg.indexOf("~") != -1) {
+                                        result = msg.split("~");
+                                        //숫자가 아니면 에러
+                                        if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
+                                            data.budgetMin = result[0];
+                                            data.budgetMax = result[1];
+                                        }else{
+                                            res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                            data.spaceMeasure = false;
+                                            data.budget = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+                                        }
 
+                                    } else if (msg.indexOf(",") != -1) {
+                                        result = msg.split(",");
 
-                            if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
-                                data.budget = true;
-                                data.stylesYN = false;
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                            } else {
+                                        //숫자가 아니면 에러
+                                        if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
+                                            data.budgetMin = result[0];
+                                            data.budgetMax = result[1];
+                                        }else{
+                                            res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                            data.errorStatus = true;
+                                            data.spaceMeasure = false;
+                                            data.budget = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+                                        }
 
-                                var result = actionNtConcierge.getStyles(text);
+                                    } else if (msg.match(pattern)) {
+                                        result = msg.split(" ");
 
-                                //스타일이 아닌걸 입력시
-                                if (result === "-1") {
-                                    res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'styles'));
-                                    data.errorStatus = true;
+                                        //숫자가 아니면 에러
+                                        if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
+                                            data.budgetMin = result[0];
+                                            data.budgetMax = result[1];
+                                        }else{
+                                            res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                            data.errorStatus = true;
+                                            data.spaceMeasure = false;
+                                            data.budget = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+                                        }
+
+                                    } else if (msg.match(/[0-9]/)) {
+                                        data.budgetMin = msg;
+                                        data.budgetMax = msg;
+                                    } else {
+                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                        data.errorStatus = true;
+                                        data.spaceMeasure = false;
+                                        data.budget = true;
+                                        return false;
+                                    }
+
+                                    res.json(actionNtConcierge.getConciergeExpress("styles", req.body, ''));
+
                                     data.budget = false;
                                     data.stylesYN = true;
                                     req.cache.set(req.body.user,JSON.stringify(data));
-                                    return false;
+                                }
+
+                                //스타일선택
+                            } else if (data.stylesYN === true) {
+
+
+                                if (text.indexOf("이전") != -1) {
+                                    res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
+                                    data.budget = true;
+                                    data.stylesYN = false;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
                                 } else {
 
-                                    data.styles = result;
+                                    var result = actionNtConcierge.getStyles(text);
 
-                                    var formData = {};
-                                    formData.specialty = {};
-                                    formData.specialty.main = "interior";
-                                    formData.specialty.sub = data.specialtyRange;
-                                    formData.spaces = {};
-                                    formData.spaces.category = data.spacesCategory;
-                                    formData.spaces.subcategory = data.spacesSubCategory;
-                                    formData.spaces.space = data.spacesSpace;
-                                    formData.spaceBranding = data.spaceBranding;
-                                    formData.measure = {};
-                                    formData.measure.meter = data.meter;
-                                    formData.measure.py = data.py;
-                                    formData.budget = {};
-                                    formData.budget.min = data.budgetMin;
-                                    formData.budget.max = data.budgetMax;
-                                    formData.style = data.styles;
-
-
-                                    if (!formData.specialty.main
-                                        || ( !(formData.specialty.main === 'interior') && !(formData.specialty.main === 'construction'))) {
-                                        res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
+                                    //스타일이 아닌걸 입력시
+                                    if (result === "-1") {
+                                        res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'styles'));
                                         data.errorStatus = true;
                                         data.budget = false;
                                         data.stylesYN = true;
                                         req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
-                                    }
-                                    if (!formData.spaces.category || !formData.spaces.space || !formData.spaces.subcategory) {
-                                        res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        data.errorStatus = true;
-                                        data.budget = false;
-                                        data.stylesYN = true;
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        return false;
-                                    }
-                                    if (!formData.specialty.sub.length) {
-                                        res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        data.errorStatus = true;
-                                        data.budget = false;
-                                        data.stylesYN = true;
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        return false;
-                                    }
-                                    if ((!formData.measure.meter) || (!formData.measure.py)
-                                        || !(formData.measure.meter > -1)) {
-                                        res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        data.errorStatus = true;
-                                        data.budget = false;
-                                        data.stylesYN = true;
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        return false;
-                                    }
-                                    if ((!formData.budget.min) || (!formData.budget.max)
-                                        || !(formData.budget.min > -1) || !(formData.budget.max > -1)
-                                        || (parseInt(formData.budget.min) > parseInt(formData.budget.max))) {
+                                    } else {
 
-                                        res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        data.errorStatus = true;
-                                        data.budget = false;
-                                        data.stylesYN = true;
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        return false;
-                                    }
-                                    if (!formData.style) {
-                                        res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        data.errorStatus = true;
-                                        data.budget = false;
-                                        data.stylesYN = true;
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        return false;
-                                    }
+                                        data.styles = result;
+
+                                        var formData = {};
+                                        formData.specialty = {};
+                                        formData.specialty.main = "interior";
+                                        formData.specialty.sub = data.specialtyRange;
+                                        formData.spaces = {};
+                                        formData.spaces.category = data.spacesCategory;
+                                        formData.spaces.subcategory = data.spacesSubCategory;
+                                        formData.spaces.space = data.spacesSpace;
+                                        formData.spaceBranding = data.spaceBranding;
+                                        formData.measure = {};
+                                        formData.measure.meter = data.meter;
+                                        formData.measure.py = data.py;
+                                        formData.budget = {};
+                                        formData.budget.min = data.budgetMin;
+                                        formData.budget.max = data.budgetMax;
+                                        formData.style = data.styles;
 
 
-                                    data.stylesYN = false;
-                                    data.concierge = false;
+                                        if (!formData.specialty.main
+                                            || ( !(formData.specialty.main === 'interior') && !(formData.specialty.main === 'construction'))) {
+                                            res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
+                                            data.errorStatus = true;
+                                            data.budget = false;
+                                            data.stylesYN = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+                                        }
+                                        if (!formData.spaces.category || !formData.spaces.space || !formData.spaces.subcategory) {
+                                            res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
+                                            data.errorStatus = true;
+                                            data.budget = false;
+                                            data.stylesYN = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+                                        }
+                                        if (!formData.specialty.sub.length) {
+                                            res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
+                                            data.errorStatus = true;
+                                            data.budget = false;
+                                            data.stylesYN = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+                                        }
+                                        if ((!formData.measure.meter) || (!formData.measure.py)
+                                            || !(formData.measure.meter > -1)) {
+                                            res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
+                                            data.errorStatus = true;
+                                            data.budget = false;
+                                            data.stylesYN = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+                                        }
+                                        if ((!formData.budget.min) || (!formData.budget.max)
+                                            || !(formData.budget.min > -1) || !(formData.budget.max > -1)
+                                            || (parseInt(formData.budget.min) > parseInt(formData.budget.max))) {
 
-                                    formData.status = "NAVER_TALK";
-                                    var experts = null;
-                                    var message = -1;
-                                    var options = {
-                                        url: 'https://interiorbrothers.com/api/doConcierge',
-                                        method: 'POST',
-                                        json: formData
-                                    };
-
-                                    requestSender(options, function (error, response, body) {
-                                        if (error) {
-
-                                            return console.error('experts failed:', error);
+                                            res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
+                                            data.errorStatus = true;
+                                            data.budget = false;
+                                            data.stylesYN = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
+                                        }
+                                        if (!formData.style) {
+                                            res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
+                                            data.errorStatus = true;
+                                            data.budget = false;
+                                            data.stylesYN = true;
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            return false;
                                         }
 
-                                        experts = body.experts;
-                                        message = body.experts.message || -1;
+
+                                        data.stylesYN = false;
+                                        data.concierge = false;
+
+                                        formData.status = "NAVER_TALK";
+                                        var experts = null;
+                                        var message = -1;
+                                        var options = {
+                                            url: 'https://interiorbrothers.com/api/doConcierge',
+                                            method: 'POST',
+                                            json: formData
+                                        };
+
+                                        requestSender(options, function (error, response, body) {
+                                            if (error) {
+
+                                                return console.error('experts failed:', error);
+                                            }
+
+                                            experts = body.experts;
+                                            message = body.experts.message || -1;
 
 
-                                    })
+                                        })
 
 
-                                    setTimeout(function () {
-                                        req.cache.set(req.body.user,JSON.stringify(data));
-                                        if(message !== -1){
-                                            res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
-                                        }else{
-                                            //컨시어지 결과
-                                            res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
-                                        }
-                                    }, 2000);
+                                        setTimeout(function () {
+                                            req.cache.set(req.body.user,JSON.stringify(data));
+                                            if(message !== -1){
+                                                res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
+                                            }else{
+                                                //컨시어지 결과
+                                                res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
+                                            }
+                                        }, 2000);
 
-                                    // 아웃바운드 API 결과 안내
-                                    var headers = {
-                                        'Content-type' : 'application/json',
-                                        'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
-                                        'X-Naver-Client-Secret': 'OD6sEB94LH',
-                                    };
+                                        // 아웃바운드 API 결과 안내
+                                        var headers = {
+                                            'Content-type' : 'application/json',
+                                            'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
+                                            'X-Naver-Client-Secret': 'OD6sEB94LH',
+                                        };
 
-                                    var options2 = {
-                                        url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
-                                        method: 'POST',
-                                        headers: headers,
-                                        json: actionNtConcierge.getOutBoundExpress("how", req.body, '')
-                                    };
+                                        var options2 = {
+                                            url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
+                                            method: 'POST',
+                                            headers: headers,
+                                            json: actionNtConcierge.getOutBoundExpress("how", req.body, '')
+                                        };
 
-                                    setTimeout(function () {
-                                        if(message == -1) {
-                                            requestSender(options2, function (error, response, body) {
-                                                if (error) {
-                                                    return console.error('resultMsg failed:', error);
-                                                }
+                                        setTimeout(function () {
+                                            if(message == -1) {
+                                                requestSender(options2, function (error, response, body) {
+                                                    if (error) {
+                                                        return console.error('resultMsg failed:', error);
+                                                    }
 
-                                            })
-                                        }
-                                    }, 2500);
+                                                })
+                                            }
+                                        }, 2500);
 
+                                    }
                                 }
+
+                            } else {
+                                res.json(actionNtConcierge.getConciergeExpress("what", req.body, ''));
+
                             }
 
                         } else {
                             res.json(actionNtConcierge.getConciergeExpress("what", req.body, ''));
 
                         }
-
-                    } else {
-                        res.json(actionNtConcierge.getConciergeExpress("what", req.body, ''));
+                    }//not err
 
                     }
-                }//not err
 
+                } else {
+                    res.json(defaultResponse);
                 }
+                break;
+            case 'open' :
+                switch(req.body.options.inflow) {
+                    case 'list' :
+                       /* textResponse.request.textContent.text = "안녕하세요. 브라더스 컨시어지를 시작하시려면 '컨시어지' 라고 입력해주세요!  ";
+                        res.json(textResponse);*/
+                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        break;
+                    case 'none' :
+                       // res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                      /*  textResponse.request.textContent.text = '화면을 갱신하셨네요.';
 
-            } else {
-                res.json(defaultResponse);
-            }
-            break;
-        case 'open' :
-            switch(req.body.options.inflow) {
-                case 'list' :
-                   /* textResponse.request.textContent.text = "안녕하세요. 브라더스 컨시어지를 시작하시려면 '컨시어지' 라고 입력해주세요!  ";
-                    res.json(textResponse);*/
-                    res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                    break;
-                case 'none' :
-                   // res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                  /*  textResponse.request.textContent.text = '화면을 갱신하셨네요.';
+                        res.json(textResponse);
 
+                        imgResponse.request.imageContent.imageUrl = "https://interiorbrothers.com/img/main/qualityPortfolios.png";
+                        imgResponse.request.imageContent.height = 300;
+                        imgResponse.request.imageContent.width = 300;
+                        res.json(imgResponse);
+                       */
+                       // res.json(defaultResponse);
+                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        break;
+                    default:
+                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+
+                        break;
+                        //res.json(defaultResponse);
+                }
+                break;
+            case 'friend' :
+                if(req.body.options.set == 'on') {
+                    textResponse.request.textContent.text = '인집사: 친구가되어주셔서 감사합니다.';
                     res.json(textResponse);
-
-                    imgResponse.request.imageContent.imageUrl = "https://interiorbrothers.com/img/main/qualityPortfolios.png";
-                    imgResponse.request.imageContent.height = 300;
-                    imgResponse.request.imageContent.width = 300;
-                    res.json(imgResponse);
-                   */
-                   // res.json(defaultResponse);
-                    res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                    break;
-                default:
-                    //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                    res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-
-                    break;
-                    //res.json(defaultResponse);
-            }
-            break;
-        case 'friend' :
-            if(req.body.options.set == 'on') {
-                textResponse.request.textContent.text = '인집사: 친구가되어주셔서 감사합니다.';
-                res.json(textResponse);
-            } else if(req.body.options.set == 'off') {
-                textResponse.request.textContent.text = '인집사: 다음번에 꼭 친구추가 부탁드려요.';
-                res.json(textResponse);
-            } else {
+                } else if(req.body.options.set == 'off') {
+                    textResponse.request.textContent.text = '인집사: 다음번에 꼭 친구추가 부탁드려요.';
+                    res.json(textResponse);
+                } else {
+                    res.json(defaultResponse);
+                }
+                break;
+            default:
                 res.json(defaultResponse);
-            }
-            break;
-        default:
-            res.json(defaultResponse);
-    }
+        }
+    });
 
 });
 
