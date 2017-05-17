@@ -336,6 +336,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     if (data.concierge === true) {
                         //공간선택
                         if (data.spaces1 === true) {
+                            console.log("here");
                             if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
 
