@@ -350,6 +350,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                         //에러발생시
                         if (data.errorStatus === true) {
+                            console.log("에러");
                             var code = req.body.textContent.code;
                             data.errorStatus = false;
 
@@ -362,7 +363,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             req.cache.set(req.body.user,JSON.stringify(data));
 
                             if (text.indexOf("이전") != -1) {
-                                console.log("이전!");
+
                                 res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
                             }else{
                                 res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
