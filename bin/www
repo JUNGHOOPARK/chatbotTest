@@ -152,15 +152,14 @@ var info =   {
     history : '',
     //사진보기 페이지
     photo_page : '1'
-
-
-}
+};
 
 app.post('/naverTalkTalk', function (req, res) {
     'use strict';
     var data;
 
     req.cache.get(req.body.user,function(err,result){
+        console.log("here?");
         data = JSON.parse(result);
         console.log(data);
     });
