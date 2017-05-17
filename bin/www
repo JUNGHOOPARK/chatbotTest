@@ -360,7 +360,13 @@ app.post('/naverTalkTalk', function (req, res) {
                                 opt = data.history;
                             }
                             req.cache.set(req.body.user,JSON.stringify(data));
-                            res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
+
+                            if (text.indexOf("이전") != -1) {
+                                res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
+                            }else{
+                                res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
+                            }
+
 
                         } else {
                         //컨시어지 시작
@@ -455,7 +461,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             } else if (data.spaces3 === true) {
                                 if (text.indexOf("이전") != -1) {
                                     res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, data.spacesCategory));
-                                    data.paces2 = true;
+                                    data.spaces2 = true;
                                     data.spaces3 = false;
                                     req.cache.set(req.body.user,JSON.stringify(data));
                                 } else {
