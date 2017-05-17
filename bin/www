@@ -27,6 +27,7 @@ var Redis = require('ioredis');
 
 
 var redisClient		= new Redis(6379, 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com');
+// var redisClient		= new Redis(6379, '127.0.0.1');
 
 
 
@@ -50,30 +51,6 @@ app.use(session({
     resave: true
 }));
 
-/*//redis 를 이용한 세션 사용
-app.use(session({
-    store: new RedisStore({
-        client:redisClient, //client redis
-
-        url:'redis://redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com:6379',
-        address: 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com',
-        port:6379, //redis port 번호
-        no_ready_check: true,
-        db: 0,
-        ttl: 604800	//connect-redis 로그인 유지 시간	1 week
-    }),
-    secret:'interiorbrothersChatBot',
-    resave:true,//요청때 세션이 수정된게 없으면 강제로 세션 저장
-    saveUninitialized:true,//저장된게 없으면 세션을 저장
-    cookie:{
-        path:'/',
-        httpOnly:true,
-        secure:false, //https 에서만 쿠키를 보냄
-        maxAge:1000 * 60 * 60 * 24 * 30 //쿠키 저장되는 만료기간
-    }
-}));*/
-
-
 
 var port = normalizePort(process.env.PORT || '3000');
 
@@ -94,10 +71,23 @@ server.on('listening', onListening);
 
 app.use(bodyParser.json());
 
+app.use(function(req,res,next) {
+    req.cache = redisClient;
+    next();
+})
+
 app.get('/', function(req, res, next) {
 
     var sess = req.session;
-
+    var test = {
+        'name': 'tom',
+        'address': 'Seoul, Korea',
+        'phone': '001-001-0001'
+        };
+    req.cache.set(test.name,JSON.stringify(test));
+    req.cache.get(test.name,function(err,data){
+        console.log(data);
+    });
     if (sess.views) {
 
         sess.views++
@@ -136,14 +126,15 @@ var ntSession;
 var ii = 0;
 app.post('/naverTalkTalk', function (req, res) {
 
-   /* req.session.user = req.body.user;*/
+
     ntSession = req.session;
 
-    ntSession.user = req.body.user;
-    console.log(req.session);
-    console.log("--------");
-    console.log(ntSession);
 
+    req.cache.get(req.body.user,function(err,data){
+        console.log(data);
+    });
+
+    req.cache.set(req.body.user,req.body.user);
     return false;
     var d = new Date();
     // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
