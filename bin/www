@@ -195,6 +195,7 @@ app.post('/naverTalkTalk', function (req, res) {
             //유저네임
             data.username = req.body.user;
             data.photo_page = 1;
+            data.estimate_Type = "interior";
             //레디스에 데이터 유저생성
             req.cache.set(req.body.user,JSON.stringify(data));
         }
@@ -297,17 +298,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                 }else if(text.indexOf("시작") != -1 || code === "welcome"){
 
-                    ntSession.concierge[ii] = false;
-                    ntSession.spaces1[ii] = false;
-                    ntSession.spaces2[ii] = false;
-                    ntSession.spaces3[ii] = false;
-                    ntSession.specialtyRangeYN[ii] = false;
-                    ntSession.spaceBrandingYN[ii] = false;
-                    ntSession.spaceMeasure[ii] = false;
-                    ntSession.budget[ii] = false;
-                    ntSession.stylesYN[ii] = false;
-                    ntSession.errorStatus[ii] = false;
-                    ntSession.photo_page[ii] = 1;
+                    req.cache.del(req.body.user);
 
                     res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
                     //console.log("시작화면 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
