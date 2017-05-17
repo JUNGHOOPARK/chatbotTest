@@ -354,7 +354,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     } else {
 
                                         var result = actionNtConcierge.getSpaces1(text);
-
+                                        console.log(result);
                                         //에러
                                         if (result == '-1') {
 
