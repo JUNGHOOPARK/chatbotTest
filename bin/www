@@ -26,8 +26,8 @@ var RedisStore = require('connect-redis')(session);
 var Redis = require('ioredis');
 
 
-var redisClient		= new Redis(6379, 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com');
-// var redisClient		= new Redis(6379, '127.0.0.1');
+//var redisClient		= new Redis(6379, 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com');
+ var redisClient		= new Redis(6379, '127.0.0.1');
 
 
 
@@ -86,7 +86,8 @@ app.get('/', function(req, res, next) {
         };
     req.cache.set(test.name,JSON.stringify(test));
     req.cache.get(test.name,function(err,data){
-        console.log(data);
+        console.log(typeof data);
+        console.log(typeof JSON.parse(data));
     });
     if (sess.views) {
 
@@ -159,8 +160,9 @@ app.post('/naverTalkTalk', function (req, res) {
     var data = new Object();
 
     req.cache.get(req.body.user,function(err,result){
-        console.log("here?");
-        console.log(typeof result);
+
+        console.log(result);
+
         data = JSON.parse(result) || null;
         console.log(data);
     });
