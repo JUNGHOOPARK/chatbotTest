@@ -188,7 +188,7 @@ app.post('/naverTalkTalk', function (req, res) {
     req.cache.get(req.body.user,function(err,result){
         console.log(result);
         if(result.lastIndexOf("}") != -1 && result){
-            console.log("here")?;
+            console.log("here");
             data = JSON.parse(result);
             console.log(data);
         }else{
