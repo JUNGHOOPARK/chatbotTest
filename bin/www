@@ -506,7 +506,13 @@ app.post('/naverTalkTalk', function (req, res) {
                                     //텍스트로 입력시 처리
                                     if (code === undefined) {
                                         if (!isNaN(text)) {
+                                            //인테리어 디자인+시공 or 인테리어 디자인+시공+스타일링 코드로 입력
                                             if (text === 1 || text === 5) {
+                                                code = text;
+                                            }
+                                        }else if (!isNaN(text)) {
+                                            //인테리어 디자인+시공 or 인테리어 디자인+시공+스타일링 테스트로 입력
+                                            if (text === '인테리어 디자인+시공' || text === '인테리어 디자인+시공+스타일링') {
                                                 code = text;
                                             }
                                         } else {
