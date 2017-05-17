@@ -189,7 +189,6 @@ app.post('/naverTalkTalk', function (req, res) {
         console.log(result);
         if(result){
             if(result.lastIndexOf("}") != -1 ){
-                console.log("here");
                 data = JSON.parse(result);
                 console.log(data);
             }else{
@@ -202,7 +201,7 @@ app.post('/naverTalkTalk', function (req, res) {
                 req.cache.set(req.body.user,JSON.stringify(data));
             }
         }else{
-            console.log("처음유입");
+            console.log("다시시작");
             //유저네임
             data.username = req.body.user;
             data.photo_page = 1;
@@ -231,7 +230,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     var params = querystring.stringify({
 
                         kind: 1,
-                        page:  data.photo_page++,
+                        page:  data.photo_page,
                         type: 'photoView',
                         sort: 'default'
                     });
@@ -259,6 +258,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
 
                     setTimeout(function () {
+                        data.photo_page = data.photo_page+1;
                         req.cache.set(req.body.user,JSON.stringify(data));
                         res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
 
