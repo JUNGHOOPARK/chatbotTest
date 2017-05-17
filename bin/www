@@ -192,12 +192,15 @@ app.post('/naverTalkTalk', function (req, res) {
             console.log(data);
         }else{
             console.log("처음유입");
+            //유저네임
+            data.username = req.body.user;
+            //레디스에 데이터 유저생성
+            req.cache.set(req.body.user,data);
         }
        
     });
 
-    //유저네임
-    data.username = req.body.user;
+
 
 
     var d = new Date();
