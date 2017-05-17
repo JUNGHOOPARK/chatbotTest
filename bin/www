@@ -23,10 +23,34 @@ var app = express();
 
 var session =require('express-session');
 var RedisStore = require('connect-redis')(session);
-var redis = require('ioredis');
-var redisClient = redis.createClient();
+var Redis = require('ioredis');
 
-//redis 를 이용한 세션 사용
+
+var redisClient		= new Redis(6379, 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com');
+
+
+
+
+
+redisClient.on('connect', function() {
+    'use strict';
+
+    console.log('redis connected');
+}).on('error', function(err) {
+    'use strict';
+
+    console.error(err);
+});
+
+// session
+app.use(session({
+    secret: 'interior-brothers-1243',
+    store: new RedisStore({client: redisClient}),
+    saveUninitialized: false,
+    resave: true
+}));
+
+/*//redis 를 이용한 세션 사용
 app.use(session({
     store: new RedisStore({
         client:redisClient, //client redis
@@ -47,7 +71,7 @@ app.use(session({
         secure:false, //https 에서만 쿠키를 보냄
         maxAge:1000 * 60 * 60 * 24 * 30 //쿠키 저장되는 만료기간
     }
-}));
+}));*/
 
 
 
