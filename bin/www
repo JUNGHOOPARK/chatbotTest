@@ -20,15 +20,29 @@ var app = express();
 
 
 
-var session = require('express-session');
+var redis = require('redis');
+var redisClient = redis.createClient();
+var session =require('express-session');
+var redisStore = require('connect-redis')(session);
 
 
+//redis 를 이용한 세션 사용
 app.use(session({
-    secret:'@#@$MYSIGN#@$#$',
-    resave:false,
-    saveUninitialized: true
+    store: new RedisStore({
+        client:redisClient, //client redis
+        host:'chatbot.bjbqbx.0001.usw2.cache.amazonaws.com',
+        port:6379 //redis port 번호
+    }),
+    secret:'interiorbrothersChatBot',
+    resave:true,//요청때 세션이 수정된게 없으면 강제로 세션 저장
+    saveUninitialized:true,//저장된게 없으면 세션을 저장
+    cookie:{
+        path:'/',
+        httpOnly:true,
+        secure:false, //https 에서만 쿠키를 보냄
+        maxAge:1000 * 60 * 60 * 24 * 30 //쿠키 저장되는 만료기간
+    }
 }));
-
 
 
 
@@ -92,11 +106,19 @@ var defaultResponse = {
 var ntSession;
 var ii = 0;
 app.post('/naverTalkTalk', function (req, res) {
+
+    req.session.user = req.body.user;
+    ntSession = req.session;
+
+    console.log(req.session);
+    console.log("--------");
+    console.log(ntSession);
+
     var d = new Date();
     // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
     if(ntSession === null || ntSession === '' || ntSession === undefined){
-        ntSession = req.session;
-       
+
+
         //기본정보
         ntSession.username = [];
         ntSession.username[ii] = req.body.user;
@@ -271,7 +293,6 @@ app.post('/naverTalkTalk', function (req, res) {
 
                     ntSession.concierge[ii] = true;
                     ntSession.spaces1[ii] = true;
-
                     ntSession.spaces2[ii] = false;
                     ntSession.spaces3[ii] = false;
                     ntSession.specialtyRangeYN[ii] = false;
