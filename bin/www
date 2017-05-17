@@ -197,6 +197,7 @@ app.post('/naverTalkTalk', function (req, res) {
                 data.username = req.body.user;
                 data.photo_page = 1;
                 data.estimate_Type = "interior";
+                data.errorStatus = false;
                 //레디스에 데이터 유저생성
                 req.cache.set(req.body.user,JSON.stringify(data));
             }
@@ -206,14 +207,13 @@ app.post('/naverTalkTalk', function (req, res) {
             data.username = req.body.user;
             data.photo_page = 1;
             data.estimate_Type = "interior";
+            data.errorStatus = false;
             //레디스에 데이터 유저생성
             req.cache.set(req.body.user,JSON.stringify(data));
         }
 
        
     });
-
-
 
 
     var d = new Date();
@@ -258,10 +258,10 @@ app.post('/naverTalkTalk', function (req, res) {
 
 
                     setTimeout(function () {
+
                         data.photo_page = data.photo_page+1;
                         req.cache.set(req.body.user,JSON.stringify(data));
                         res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
-
 
                     }, 2000);
 
@@ -294,17 +294,19 @@ app.post('/naverTalkTalk', function (req, res) {
 
                 }else if(text.indexOf("컨시어지") != -1 || code === "컨시어지"){
 
-                    ntSession.concierge[ii] = true;
-                    ntSession.spaces1[ii] = true;
-                    ntSession.spaces2[ii] = false;
-                    ntSession.spaces3[ii] = false;
-                    ntSession.specialtyRangeYN[ii] = false;
-                    ntSession.spaceBrandingYN[ii] = false;
-                    ntSession.spaceMeasure[ii] = false;
-                    ntSession.budget[ii] = false;
-                    ntSession.stylesYN[ii] = false;
-                    ntSession.errorStatus[ii] = false;
-                    ntSession.photo_page[ii] = 1;
+
+                    data.concierge = true;
+                    data.spaces1 = true;
+                    data.spaces2 = false;
+                    data.spaces3 = false;
+                    data.specialtyRangeYN = false;
+                    data.spaceBrandingYN = false;
+                    data.spaceMeasure = false;
+                    data.budget = false;
+                    data.stylesYN = false;
+                    data.errorStatus = false;
+
+                    req.cache.set(req.body.user,JSON.stringify(data));
 
                     res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
@@ -313,32 +315,33 @@ app.post('/naverTalkTalk', function (req, res) {
                     req.cache.del(req.body.user);
 
                     res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
-                    //console.log("시작화면 응답 분:초:밀리세컨드---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
+
                 } else{
                     //에러발생시
-                    if (ntSession.errorStatus[ii] === true) {
+                    if (data.errorStatus === true) {
                         var code = req.body.textContent.code;
-                        ntSession.errorStatus[ii] = false;
+                        data.errorStatus = false;
+
                         var opt = "";
-
                         if(code === 'spaces2'){
-                            opt = ntSession.spacesCategory[ii];
+                            opt = data.spacesCategory;
                         }else if(code === 'spaces3'){
-                            opt = ntSession.history[ii];
+                            opt = data.history;
                         }
-
+                        req.cache.set(req.body.user,JSON.stringify(data));
                         res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
 
                     } else {
                     //컨시어지 시작
-                    if (ntSession.concierge[ii] === true) {
+                    if (data.concierge === true) {
                         //공간선택
-                        if (ntSession.spaces1[ii] === true) {
+                        if (data.spaces1 === true) {
                             if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
 
-                                ntSession.spaces1[ii] = true;
-                                ntSession.spaces2[ii] = false;
+                                data.spaces1 = true;
+                                data.spaces2 = false;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             } else {
                                 var code = req.body.textContent.code;
 
@@ -356,10 +359,11 @@ app.post('/naverTalkTalk', function (req, res) {
                                         if (result == '-1') {
 
                                             res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces1'));
-                                            ntSession.errorStatus[ii] = true;
-                                            ntSession.spaces1[ii] = true;
-                                            ntSession.spaces2[ii] = false;
+                                            data.errorStatus = true;
+                                            data.spaces1 = true;
+                                            data.spaces2 = false;
 
+                                            req.cache.set(req.body.user,JSON.stringify(data));
                                             return false;
                                         } else {
                                             code = result;
@@ -368,84 +372,91 @@ app.post('/naverTalkTalk', function (req, res) {
                                     }
                                 }
 
-                                ntSession.spacesCategory[ii] = code;
+                                data.spacesCategory = code;
                                 res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, code));
 
-                                ntSession.spaces1[ii] = false;
-                                ntSession.spaces2[ii] = true;
+                                data.spaces1 = false;
+                                data.spaces2 = true;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             }
 
 
                             //업종선택
-                        } else if (ntSession.spaces2[ii] === true) {
+                        } else if (data.spaces2 === true) {
                             if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
-                                ntSession.spaces1[ii] = true;
-                                ntSession.spaces2[ii] = false;
+                                data.spaces1 = true;
+                                data.spaces2 = false;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             } else {
-                                var result = actionNtConcierge.getSpaces2(ntSession.spacesCategory[ii], text);
+                                var result = actionNtConcierge.getSpaces2(data.spacesCategory, text);
 
 
                                 //에러
                                 if (result === undefined) {
 
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces2'));
-                                    ntSession.errorStatus[ii] = true;
-                                    ntSession.spaces1[ii] = false;
-                                    ntSession.spaces2[ii] = true;
-
+                                    data.errorStatus = true;
+                                    data.spaces1 = false;
+                                    data.spaces2 = true;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
 
                                 } else {
-                                    ntSession.spacesSubCategory[ii] = result;
+                                    data.spacesSubCategory = result;
                                     var params = [];
-                                    params[0] = ntSession.spacesCategory[ii];
+                                    params[0] = data.spacesCategory;
                                     params[1] = result;
-                                    ntSession.history[ii] = params;
+                                    data.history = params;
 
                                     res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, params));
 
-                                    ntSession.spaces2[ii] = false;
-                                    ntSession.spaces3[ii] = true;
+                                    data.spaces2 = false;
+                                    data.spaces3 = true;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
                                 }
 
                             }
 
                             //상세 업종선택
-                        } else if (ntSession.spaces3[ii] === true) {
+                        } else if (data.spaces3 === true) {
                             if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, ntSession.spacesCategory[ii]));
-                                ntSession.spaces2[ii] = true;
-                                ntSession.spaces3[ii] = false;
+                                res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, data.spacesCategory));
+                                data.paces2 = true;
+                                data.spaces3 = false;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             } else {
 
-                                var result = actionNtConcierge.getSpaces3(ntSession.spacesCategory[ii], ntSession.spacesSubCategory[ii], text);
+                                var result = actionNtConcierge.getSpaces3(data.spacesCategory, data.spacesSubCategory, text);
 
                                 if (result === undefined) {
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces3'));
-                                    ntSession.errorStatus[ii] = true;
-                                    ntSession.spaces2[ii] = false;
-                                    ntSession.spaces3[ii] = true;
+                                    data.errorStatus = true;
+                                    data.spaces2 = false;
+                                    data.spaces3 = true;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
 
 
                                 } else {
-                                    ntSession.spacesSpace[ii] = result;
+                                    data.spacesSpace = result;
 
                                     res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
 
-                                    ntSession.spaces3[ii] = false;
-                                    ntSession.specialtyRangeYN[ii] = true;
+                                    data.spaces3 = false;
+                                    data.specialtyRangeYN = true;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
                                 }
 
 
                             }
 
                             //범위선택
-                        } else if (ntSession.specialtyRangeYN[ii] === true) {
+                        } else if (data.specialtyRangeYN === true) {
 
                             if (text.indexOf("이전") != -1) {
-                                res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, ntSession.history[ii]));
-                                ntSession.spaces3[ii] = true;
-                                ntSession.specialtyRangeYN[ii] = false;
+                                res.json(actionNtConcierge.getConciergeExpress("spaces3", req.body, data.history));
+                                data.spaces3 = true;
+                                data.specialtyRangeYN = false;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             } else {
 
                                 var code = req.body.textContent.code;
@@ -459,10 +470,10 @@ app.post('/naverTalkTalk', function (req, res) {
                                     } else {
 
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'specialtyRange'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.spaces3[ii] = false;
-                                        ntSession.specialtyRangeYN[ii] = true;
-
+                                        data.errorStatus = true;
+                                        data.spaces3 = false;
+                                        data.specialtyRangeYN = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
 
                                     }
@@ -470,87 +481,99 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                 var result = actionNtConcierge.getSpecialtyRange(code);
 
-                                ntSession.specialtyRange[ii] = result;
+                                data.specialtyRange = result;
 
-                                ntSession.specialtyRangeYN[ii] = false;
+                                data.specialtyRangeYN = false;
 
-                                if (ntSession.specialtyRange[ii][0] === 'interiorFull' || ntSession.specialtyRange[ii][0] === 'interiorDesign') {
-                                    ntSession.spaceBrandingYN[ii] = true;
+                                if (data.specialtyRange[0] === 'interiorFull' || data.specialtyRange[0] === 'interiorDesign') {
+                                    data.spaceBrandingYN = true;
                                     res.json(actionNtConcierge.getConciergeExpress("spaceBranding", req.body, ''));
+                                    req.cache.set(req.body.user,JSON.stringify(data));
 
 
                                 } else {
-                                    ntSession.spaceMeasure[ii] = true;
+                                    data.spaceMeasure = true;
                                     res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
+                                    req.cache.set(req.body.user,JSON.stringify(data));
 
                                 }
 
                             }
 
                             //공간브랜딩 선택
-                        } else if (ntSession.spaceBrandingYN[ii] === true) {
+                        } else if (data.spaceBrandingYN === true) {
                             if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
-                                ntSession.specialtyRangeYN[ii] = true;
-                                ntSession.spaceBrandingYN[ii] = false;
+                                data.specialtyRangeYN = true;
+                                data.spaceBrandingYN = false;
+
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             } else {
                                 if (text.indexOf("네") != -1) {
-                                    ntSession.spaceBranding[ii] = true;
+                                    data.spaceBranding = true;
+
                                 } else if(text.indexOf("아니오") != -1){
-                                    ntSession.spaceBranding[ii] = false;
+                                    data.spaceBranding = false;
+
                                 }else{
                                     //네/아니오 가 아닌 텍스트 입력시
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceBranding'));
-                                    ntSession.errorStatus[ii] = true;
-                                    ntSession.specialtyRangeYN[ii] = false;
-                                    ntSession.spaceBrandingYN[ii] = true;
+                                    data.errorStatus = true;
+                                    data.specialtyRangeYN = false;
+                                    data.spaceBrandingYN = true;
 
+                                    req.cache.set(req.body.user,JSON.stringify(data));
                                     return false;
 
                                 }
 
                                 res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
 
-                                ntSession.spaceBrandingYN[ii] = false;
-                                ntSession.spaceMeasure[ii] = true;
+                                data.spaceBrandingYN = false;
+                                data.spaceMeasure = true;
+
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             }
 
                             //면적 선택
-                        } else if (ntSession.spaceMeasure[ii] === true) {
+                        } else if (data.spaceMeasure === true) {
                             if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("specialtyRange", req.body, ''));
-                                ntSession.specialtyRangeYN[ii] = true;
-                                ntSession.spaceMeasure[ii] = false;
+                                data.specialtyRangeYN = true;
+                                data.spaceMeasure = false;
+
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             } else {
                                 var result = actionNtConcierge.getMeasure(text);
 
 
-                                ntSession.py[ii] = result[0];
-                                ntSession.meter[ii] = result[1];
+                                data.py = result[0];
+                                data.meter = result[1];
                                 
                                 //숫자미입력시
                                 if(result[0] === 0 && result[1] ===0){
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceMeasure'));
-                                    ntSession.errorStatus[ii] = true;
-                                    ntSession.spaceBrandingYN[ii] = false;
-                                    ntSession.spaceMeasure[ii] = true;
-
+                                    data.errorStatus = true;
+                                    data.spaceBrandingYN = false;
+                                    data.spaceMeasure = true;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
                                     return false;
                                 }
 
                                 res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
 
-                                ntSession.spaceMeasure[ii] = false;
-                                ntSession.budget[ii] = true;
-
+                                data.spaceMeasure = false;
+                                data.budget = true;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             }
 
                             //예산선택
-                        } else if (ntSession.budget[ii] === true) {
+                        } else if (data.budget === true) {
                             if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
-                                ntSession.spaceMeasure[ii] = true;
-                                ntSession.budget[ii] = false;
+                                data.spaceMeasure = true;
+                                data.budget = false;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             } else {
                                 var result = [];
                                 var msg = text;
@@ -562,12 +585,13 @@ app.post('/naverTalkTalk', function (req, res) {
                                     result = msg.split("~");
                                     //숫자가 아니면 에러
                                     if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
-                                        ntSession.budgetMin[ii] = result[0];
-                                        ntSession.budgetMax[ii] = result[1];
+                                        data.budgetMin = result[0];
+                                        data.budgetMax = result[1];
                                     }else{
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
-                                        ntSession.spaceMeasure[ii] = false;
-                                        ntSession.budget[ii] = true;
+                                        data.spaceMeasure = false;
+                                        data.budget = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
 
@@ -576,13 +600,14 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                     //숫자가 아니면 에러
                                     if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
-                                        ntSession.budgetMin[ii] = result[0];
-                                        ntSession.budgetMax[ii] = result[1];
+                                        data.budgetMin = result[0];
+                                        data.budgetMax = result[1];
                                     }else{
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.spaceMeasure[ii] = false;
-                                        ntSession.budget[ii] = true;
+                                        data.errorStatus = true;
+                                        data.spaceMeasure = false;
+                                        data.budget = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
 
@@ -591,41 +616,44 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                     //숫자가 아니면 에러
                                     if(result[0].match(/[0-9]/) && result[1].match(/[0-9]/)){
-                                        ntSession.budgetMin[ii] = result[0];
-                                        ntSession.budgetMax[ii] = result[1];
+                                        data.budgetMin = result[0];
+                                        data.budgetMax = result[1];
                                     }else{
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.spaceMeasure[ii] = false;
-                                        ntSession.budget[ii] = true;
+                                        data.errorStatus = true;
+                                        data.spaceMeasure = false;
+                                        data.budget = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
 
                                 } else if (msg.match(/[0-9]/)) {
-                                    ntSession.budgetMin[ii] = msg;
-                                    ntSession.budgetMax[ii] = msg;
+                                    data.budgetMin = msg;
+                                    data.budgetMax = msg;
                                 } else {
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
-                                    ntSession.errorStatus[ii] = true;
-                                    ntSession.spaceMeasure[ii] = false;
-                                    ntSession.budget[ii] = true;
+                                    data.errorStatus = true;
+                                    data.spaceMeasure = false;
+                                    data.budget = true;
                                     return false;
                                 }
 
                                 res.json(actionNtConcierge.getConciergeExpress("styles", req.body, ''));
 
-                                ntSession.budget[ii] = false;
-                                ntSession.stylesYN[ii] = true;
+                                data.budget = false;
+                                data.stylesYN = true;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             }
 
                             //스타일선택
-                        } else if (ntSession.stylesYN[ii] === true) {
+                        } else if (data.stylesYN === true) {
 
 
                             if (text.indexOf("이전") != -1) {
                                 res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
-                                ntSession.budget[ii] = true;
-                                ntSession.stylesYN[ii] = false;
+                                data.budget = true;
+                                data.stylesYN = false;
+                                req.cache.set(req.body.user,JSON.stringify(data));
                             } else {
 
                                 var result = actionNtConcierge.getStyles(text);
@@ -633,60 +661,65 @@ app.post('/naverTalkTalk', function (req, res) {
                                 //스타일이 아닌걸 입력시
                                 if (result === "-1") {
                                     res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'styles'));
-                                    ntSession.errorStatus[ii] = true;
-                                    ntSession.budget[ii] = false;
-                                    ntSession.stylesYN[ii] = true;
+                                    data.errorStatus = true;
+                                    data.budget = false;
+                                    data.stylesYN = true;
+                                    req.cache.set(req.body.user,JSON.stringify(data));
                                     return false;
                                 } else {
 
-                                    ntSession.styles[ii] = result;
+                                    data.styles = result;
 
                                     var formData = {};
                                     formData.specialty = {};
                                     formData.specialty.main = "interior";
-                                    formData.specialty.sub = ntSession.specialtyRange[ii];
+                                    formData.specialty.sub = data.specialtyRange;
                                     formData.spaces = {};
-                                    formData.spaces.category = ntSession.spacesCategory[ii];
-                                    formData.spaces.subcategory = ntSession.spacesSubCategory[ii];
-                                    formData.spaces.space = ntSession.spacesSpace[ii];
-                                    formData.spaceBranding = ntSession.spaceBranding[ii];
+                                    formData.spaces.category = data.spacesCategory;
+                                    formData.spaces.subcategory = data.spacesSubCategory;
+                                    formData.spaces.space = data.spacesSpace;
+                                    formData.spaceBranding = data.spaceBranding;
                                     formData.measure = {};
-                                    formData.measure.meter = ntSession.meter[ii];
-                                    formData.measure.py = ntSession.py[ii];
+                                    formData.measure.meter = data.meter;
+                                    formData.measure.py = data.py;
                                     formData.budget = {};
-                                    formData.budget.min = ntSession.budgetMin[ii];
-                                    formData.budget.max = ntSession.budgetMax[ii];
-                                    formData.style = ntSession.styles[ii];
+                                    formData.budget.min = data.budgetMin;
+                                    formData.budget.max = data.budgetMax;
+                                    formData.style = data.styles;
 
 
                                     if (!formData.specialty.main
                                         || ( !(formData.specialty.main === 'interior') && !(formData.specialty.main === 'construction'))) {
                                         res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.budget[ii] = false;
-                                        ntSession.stylesYN[ii] = true;
+                                        data.errorStatus = true;
+                                        data.budget = false;
+                                        data.stylesYN = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
                                     if (!formData.spaces.category || !formData.spaces.space || !formData.spaces.subcategory) {
                                         res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.budget[ii] = false;
-                                        ntSession.stylesYN[ii] = true;
+                                        data.errorStatus = true;
+                                        data.budget = false;
+                                        data.stylesYN = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
                                     if (!formData.specialty.sub.length) {
                                         res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.budget[ii] = false;
-                                        ntSession.stylesYN[ii] = true;
+                                        data.errorStatus = true;
+                                        data.budget = false;
+                                        data.stylesYN = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
                                     if ((!formData.measure.meter) || (!formData.measure.py)
                                         || !(formData.measure.meter > -1)) {
                                         res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.budget[ii] = false;
-                                        ntSession.stylesYN[ii] = true;
+                                        data.errorStatus = true;
+                                        data.budget = false;
+                                        data.stylesYN = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
                                     if ((!formData.budget.min) || (!formData.budget.max)
@@ -694,22 +727,24 @@ app.post('/naverTalkTalk', function (req, res) {
                                         || (parseInt(formData.budget.min) > parseInt(formData.budget.max))) {
 
                                         res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.budget[ii] = false;
-                                        ntSession.stylesYN[ii] = true;
+                                        data.errorStatus = true;
+                                        data.budget = false;
+                                        data.stylesYN = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
                                     if (!formData.style) {
                                         res.json(actionNtConcierge.getConciergeExpress("error", req.body, 'styles'));
-                                        ntSession.errorStatus[ii] = true;
-                                        ntSession.budget[ii] = false;
-                                        ntSession.stylesYN[ii] = true;
+                                        data.errorStatus = true;
+                                        data.budget = false;
+                                        data.stylesYN = true;
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         return false;
                                     }
 
 
-                                    ntSession.stylesYN[ii] = false;
-                                    ntSession.concierge[ii] = false;
+                                    data.stylesYN = false;
+                                    data.concierge = false;
 
                                     formData.status = "NAVER_TALK";
                                     var experts = null;
@@ -734,7 +769,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
 
                                     setTimeout(function () {
-
+                                        req.cache.set(req.body.user,JSON.stringify(data));
                                         if(message !== -1){
                                             res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
                                         }else{
