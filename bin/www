@@ -26,8 +26,8 @@ var RedisStore = require('connect-redis')(session);
 var Redis = require('ioredis');
 
 
-//var redisClient		= new Redis(6379, 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com');
- var redisClient		= new Redis(6379, '127.0.0.1');
+var redisClient		= new Redis(6379, 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com');
+//var redisClient		= new Redis(6379, '127.0.0.1');
 
 
 
