@@ -373,11 +373,13 @@ app.post('/naverTalkTalk', function (req, res) {
                                 }
 
                                 data.spacesCategory = code;
-                                res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, code));
-
                                 data.spaces1 = false;
                                 data.spaces2 = true;
                                 req.cache.set(req.body.user,JSON.stringify(data));
+
+                                res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, code));
+
+
                             }
 
 
