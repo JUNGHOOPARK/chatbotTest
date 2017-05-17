@@ -160,6 +160,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
     req.cache.get(req.body.user,function(err,result){
         console.log("here?");
+        console.log(typeof result);
         data = JSON.parse(result) || null;
         console.log(data);
     });
