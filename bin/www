@@ -156,11 +156,11 @@ var info =   {
 
 app.post('/naverTalkTalk', function (req, res) {
     'use strict';
-    var data;
+    var data = new Object();
 
     req.cache.get(req.body.user,function(err,result){
         console.log("here?");
-        data = JSON.parse(result);
+        data = JSON.parse(result) || null;
         console.log(data);
     });
 
