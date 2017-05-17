@@ -87,6 +87,8 @@ var defaultResponse = {
     resultCode: "00",
     resultMessage: "success"
 };
+
+
 var ntSession;
 var ii = 0;
 app.post('/naverTalkTalk', function (req, res) {
@@ -98,7 +100,8 @@ app.post('/naverTalkTalk', function (req, res) {
         //기본정보
         ntSession.username = [];
         ntSession.username[ii] = req.body.user;
-
+        console.log("세션리스트--->  "+ntSession.username);
+        console.log("세션이 없을경우 처음으로 세션정보생성--->  "+req.body.user);
         
         //단계 구간
         ntSession.concierge = [];
@@ -135,6 +138,8 @@ app.post('/naverTalkTalk', function (req, res) {
     }else{
         //세션새로 생성
         if(ntSession.username[ii] === null || ntSession.username[ii] === '' || ntSession.username[ii] === undefined){
+            console.log("세션리스트--->  "+ntSession.username);
+            console.log(ii+"번째 세션 유저 추가 생성--->  "+req.body.user);
             ntSession.username[ii] = req.body.user;
         }else{
 
@@ -142,11 +147,15 @@ app.post('/naverTalkTalk', function (req, res) {
                 for(var j = 0; j<ntSession.username.length; j++){
                     //세션 변경
                     if(ntSession.username[j] ===  req.body.user) {
+                        console.log("세션리스트--->  "+ntSession.username);
+                        console.log(j+"번째 세션 유저 유지--->  "+req.body.user);
                         //기존 세션
                         ii = j;
                         break;
                     }else{
                         //바뀌는 세션
+                        console.log("세션리스트--->  "+ntSession.username);
+                        console.log((ii+1)+"번째 세션으로 바뀌는 유저 --->  "+req.body.user);
                         ntSession.username[ii+1] = req.body.user;
                         ii++;
                         break;
@@ -158,8 +167,8 @@ app.post('/naverTalkTalk', function (req, res) {
 
         }
     }
-    console.log(req.body.user+"is session arr = "+ ii);
-    console.log(req.body);
+   /* console.log(req.body.user+"is session arr = "+ ii);
+    console.log(req.body);*/
 
     var textResponse = {
         success: true,
