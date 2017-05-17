@@ -194,7 +194,7 @@ app.post('/naverTalkTalk', function (req, res) {
             console.log("처음유입");
             //유저네임
             data.username = req.body.user;
-
+            data.photo_page = 1;
             //레디스에 데이터 유저생성
             req.cache.set(req.body.user,JSON.stringify(data));
         }
@@ -218,7 +218,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     var params = querystring.stringify({
 
                         kind: 1,
-                        page: ntSession.photo_page[ii]++,
+                        page:  data.photo_page++,
                         type: 'photoView',
                         sort: 'default'
                     });
@@ -246,7 +246,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
 
                     setTimeout(function () {
-
+                        req.cache.set(req.body.user,JSON.stringify(data));
                         res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
 
 
