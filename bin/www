@@ -121,7 +121,30 @@ var defaultResponse = {
     resultCode: "00",
     resultMessage: "success"
 };
-
+var textResponse = {
+    success: true,
+    resultCode: "00",
+    resultMessage: "success",
+    request: {
+        event: "send",
+        sender: "partner",
+        user : req.body.user,
+        partner: req.body.partner,
+        textContent :{}
+    }
+};
+var imgResponse = {
+    success: true,
+    resultCode: "00",
+    resultMessage: "success",
+    request: {
+        event: "send",
+        sender: "partner",
+        user : req.body.user,
+        partner: req.body.partner,
+        imageContent :{}
+    }
+};
 
 var info =   {
     //기본정보
@@ -161,50 +184,21 @@ app.post('/naverTalkTalk', function (req, res) {
 
     req.cache.get(req.body.user,function(err,result){
 
-        console.log(result);
-
-        data = JSON.parse(result) || null;
-        console.log(data);
+        if(text.lastIndexOf("}") != -1){
+            data = JSON.parse(result);
+            console.log(data);
+        }else{
+            console.log("처음유입");
+        }
+       
     });
 
-    req.cache.set(req.body.user,req.body.user);
-
-
-
-
-
-
-
+    //유저네임
+    data.username = req.body.user;
 
 
     var d = new Date();
     // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
-
-
-    var textResponse = {
-        success: true,
-        resultCode: "00",
-        resultMessage: "success",
-        request: {
-            event: "send",
-            sender: "partner",
-            user : req.body.user,
-            partner: req.body.partner,
-            textContent :{}
-        }
-    };
-    var imgResponse = {
-        success: true,
-        resultCode: "00",
-        resultMessage: "success",
-        request: {
-            event: "send",
-            sender: "partner",
-            user : req.body.user,
-            partner: req.body.partner,
-            imageContent :{}
-        }
-    };
 
     switch(req.body.event) {
         case 'send' :
