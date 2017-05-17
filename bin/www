@@ -350,22 +350,24 @@ app.post('/naverTalkTalk', function (req, res) {
 
                         //에러발생시
                         if (data.errorStatus === true) {
-                            console.log("에러");
-                            var code = req.body.textContent.code;
-                            data.errorStatus = false;
-
-                            var opt = "";
-                            if(code === 'spaces2'){
-                                opt = data.spacesCategory;
-                            }else if(code === 'spaces3'){
-                                opt = data.history;
-                            }
-                            req.cache.set(req.body.user,JSON.stringify(data));
-
                             if (text.indexOf("이전") != -1) {
+                                var code = req.body.textContent.code;
+                                data.errorStatus = false;
 
+                                var opt = "";
+                                if(code === 'spaces2'){
+                                    opt = data.spacesCategory;
+                                }else if(code === 'spaces3'){
+                                    opt = data.history;
+                                }
+                                req.cache.set(req.body.user,JSON.stringify(data));
                                 res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
                             }else{
+                                var code = req.body.textContent.code;
+                                data.errorStatus = false;
+
+                                var opt = "";
+                                req.cache.set(req.body.user,JSON.stringify(data));
                                 res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
                             }
 
