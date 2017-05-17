@@ -30,8 +30,14 @@ var redisClient = redis.createClient();
 app.use(session({
     store: new RedisStore({
         client:redisClient, //client redis
-        host:'chatbotredis.bjbqbx.ng.0001.usw2.cache.amazonaws.com',
-        port:6379 //redis port 번호
+        // host:'chatbotredis.bjbqbx.ng.0001.usw2.cache.amazonaws.com',
+        // url: 'redis://localhost:6379',
+        url:'chatbotredis.bjbqbx.ng.0001.usw2.cache.amazonaws.com:6379',
+        address: 'chatbotredis.bjbqbx.ng.0001.usw2.cache.amazonaws.com',
+        port:6379, //redis port 번호
+        no_ready_check: true,
+        db: 0,
+        ttl: 604800	//connect-redis 로그인 유지 시간	1 week
     }),
     secret:'interiorbrothersChatBot',
     resave:true,//요청때 세션이 수정된게 없으면 강제로 세션 저장
@@ -110,10 +116,12 @@ app.post('/naverTalkTalk', function (req, res) {
    /* req.session.user = req.body.user;*/
     ntSession = req.session;
 
+    ntSession.user = req.body.user;
     console.log(req.session);
     console.log("--------");
     console.log(ntSession);
 
+    return false;
     var d = new Date();
     // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
     if(ntSession === null || ntSession === '' || ntSession === undefined){
