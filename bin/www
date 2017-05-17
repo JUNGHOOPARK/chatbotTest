@@ -30,10 +30,9 @@ var redisClient = redis.createClient();
 app.use(session({
     store: new RedisStore({
         client:redisClient, //client redis
-         host:'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com',
-        // url: 'redis://localhost:6379',
-      /*  url:'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com:6379',
-        address: 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com',*/
+
+        url:'redis://redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com:6379',
+        address: 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com',
         port:6379, //redis port 번호
         no_ready_check: true,
         db: 0,
