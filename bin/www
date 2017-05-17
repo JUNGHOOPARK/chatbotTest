@@ -343,6 +343,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         data.styles = '';
                         data.history = '';
 
+                        req.cache.set(req.body.user,JSON.stringify(data));
                         res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
 
                     } else{
