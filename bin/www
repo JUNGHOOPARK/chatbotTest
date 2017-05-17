@@ -32,8 +32,8 @@ app.use(session({
         client:redisClient, //client redis
         // host:'chatbotredis.bjbqbx.ng.0001.usw2.cache.amazonaws.com',
         // url: 'redis://localhost:6379',
-        url:'chatbotredis.bjbqbx.ng.0001.usw2.cache.amazonaws.com:6379',
-        address: 'chatbotredis.bjbqbx.ng.0001.usw2.cache.amazonaws.com',
+        url:'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com:6379',
+        address: 'redischatbot.zfdunq.ng.0001.apn2.cache.amazonaws.com',
         port:6379, //redis port 번호
         no_ready_check: true,
         db: 0,
