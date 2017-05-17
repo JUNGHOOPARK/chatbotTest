@@ -301,19 +301,52 @@ app.post('/naverTalkTalk', function (req, res) {
                         data.budget = false;
                         data.stylesYN = false;
                         data.errorStatus = false;
+                        //컨시어지 파라미터
+                        data.spacesCategory = '';
+                        data.spacesSubCategory = '';
+                        data.spacesSpace = '';
+                        data.specialtyRange = '';
+                        data.spaceBranding = '';
+                        data.py = '';
+                        data.meter = '';
+                        data.budgetMin = '';
+                        data.budgetMax = '';
+                        data.styles = '';
+                        data.history = '';
 
                         req.cache.set(req.body.user,JSON.stringify(data));
 
                         res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
                     }else if(text.indexOf("시작") != -1 || code === "welcome"){
-
-                        req.cache.del(req.body.user);
+                        data.photo_page = 1;
+                        data.concierge = false;
+                        data.spaces1 = false;
+                        data.spaces2 = false;
+                        data.spaces3 = false;
+                        data.specialtyRangeYN = false;
+                        data.spaceBrandingYN = false;
+                        data.spaceMeasure = false;
+                        data.budget = false;
+                        data.stylesYN = false;
+                        data.errorStatus = false;
+                        //컨시어지 파라미터
+                        data.spacesCategory = '';
+                        data.spacesSubCategory = '';
+                        data.spacesSpace = '';
+                        data.specialtyRange = '';
+                        data.spaceBranding = '';
+                        data.py = '';
+                        data.meter = '';
+                        data.budgetMin = '';
+                        data.budgetMax = '';
+                        data.styles = '';
+                        data.history = '';
 
                         res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
 
                     } else{
-                        console.log("??");
+
                         //에러발생시
                         if (data.errorStatus === true) {
                             var code = req.body.textContent.code;
@@ -333,7 +366,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         if (data.concierge === true) {
                             //공간선택
                             if (data.spaces1 === true) {
-                                console.log("here");
+
                                 if (text.indexOf("이전") != -1) {
                                     res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
 
@@ -352,7 +385,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         } else {
 
                                             var result = actionNtConcierge.getSpaces1(text);
-                                            console.log(result);
+
                                             //에러
                                             if (result == '-1') {
 
