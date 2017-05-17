@@ -186,7 +186,7 @@ app.post('/naverTalkTalk', function (req, res) {
     var data = {};
 
     req.cache.get(req.body.user,function(err,result){
-
+        alert("1");
         if(result){
             if(result.lastIndexOf("}") != -1 ){
                 data = JSON.parse(result);
@@ -226,7 +226,7 @@ app.post('/naverTalkTalk', function (req, res) {
                 code = req.body.textContent.code;
 
                 if(text.indexOf("사진") != -1 || code === "사진보기"){
-                     console.log(data.photo_page);
+                    alert("2");
                     var params = querystring.stringify({
 
                         kind: 1,
