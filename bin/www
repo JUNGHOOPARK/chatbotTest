@@ -129,13 +129,18 @@ app.post('/naverTalkTalk', function (req, res) {
 
     ntSession = req.session;
 
+    req.cache.set(req.body.user,req.body.user);
+
 
     req.cache.get(req.body.user,function(err,data){
         console.log(data);
     });
 
-    req.cache.set(req.body.user,req.body.user);
-    return false;
+
+
+
+
+
     var d = new Date();
     // console.log("요청---"+d.getMinutes()+":"+d.getSeconds()+":"+d.getMilliseconds());
     if(ntSession === null || ntSession === '' || ntSession === undefined){
