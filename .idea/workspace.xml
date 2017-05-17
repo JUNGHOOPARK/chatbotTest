@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/ntConcierge.js" afterPath="$PROJECT_DIR$/action/ntConcierge.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,11 +20,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="www" pinned="false" current-in-tab="true">
+      <file leaf-file-name="www" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="322" column="45" lean-forward="true" selection-start-line="322" selection-start-column="45" selection-end-line="322" selection-end-column="45" />
+            <state relative-caret-position="2800">
+              <caret line="329" column="44" lean-forward="true" selection-start-line="329" selection-start-column="44" selection-end-line="329" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -40,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+            <state relative-caret-position="225">
+              <caret line="680" column="53" lean-forward="false" selection-start-line="680" selection-start-column="49" selection-end-line="680" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -61,12 +61,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>처음부터</find>
-      <find>원하는 공간</find>
       <find>var options = {</find>
       <find>requestSender(options, func</find>
       <find>requestSender(options</find>
-      <find>사진보기</find>
       <find>expe</find>
       <find>photoview</find>
       <find>조건에</find>
@@ -75,7 +72,6 @@
       <find>조금만 기다려 주세요</find>
       <find>상세</find>
       <find>how</find>
-      <find>사진</find>
       <find>requestSender</find>
       <find>photoHow</find>
       <find>ntSession.concierge[ii] = false;</find>
@@ -91,9 +87,12 @@
       <find>user : req.body.user</find>
       <find>ntsession</find>
       <find>[ii]</find>
+      <find>브라더스 컨시어지</find>
+      <find>사진</find>
+      <find>사진 더보기</find>
+      <find>사진보기</find>
     </findStrings>
     <replaceStrings>
-      <replace>module.exports.</replace>
       <replace>.title</replace>
       <replace>ntSession</replace>
       <replace>i</replace>
@@ -123,6 +122,7 @@
       <replace>,</replace>
       <replace>data</replace>
       <replace>=</replace>
+      <replace>컨시어지</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -143,9 +143,9 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/cron.js" />
         <option value="$PROJECT_DIR$/reply.js" />
-        <option value="$PROJECT_DIR$/action/ntConcierge.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/bin/www" />
+        <option value="$PROJECT_DIR$/action/ntConcierge.js" />
       </list>
     </option>
   </component>
@@ -400,12 +400,12 @@
       <workItem from="1494552687557" duration="15248000" />
       <workItem from="1494811148464" duration="10431000" />
       <workItem from="1494904470212" duration="20268000" />
-      <workItem from="1494993839768" duration="18626000" />
+      <workItem from="1494993839768" duration="19355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232558000" />
+    <option name="totallyTimeSpent" value="233287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -754,18 +754,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
+    <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        <state relative-caret-position="2800">
+          <caret line="329" column="44" lean-forward="true" selection-start-line="329" selection-start-column="44" selection-end-line="329" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
+    <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="322" column="45" lean-forward="true" selection-start-line="322" selection-start-column="45" selection-end-line="322" selection-end-column="45" />
+        <state relative-caret-position="225">
+          <caret line="680" column="53" lean-forward="false" selection-start-line="680" selection-start-column="49" selection-end-line="680" selection-end-column="53" />
           <folding />
         </state>
       </provider>

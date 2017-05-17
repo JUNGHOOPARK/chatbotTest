@@ -573,7 +573,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기 [브라더스 컨시어지]",
+                                        "text": "전문가 찾기 [컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
@@ -623,7 +623,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기 [브라더스 컨시어지]",
+                                        "text": "전문가 찾기 [컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
@@ -658,7 +658,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList":[
                             {
                                 "title": "인테리어브라더스의 챗봇서비스 입니다.\n원하는 서비스를 선택 해주세요.",
-                                "description": "1. 『브라더스 컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
+                                "description": "1. 『컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
                                 "\n2. 인테리어 사진보기 : \n국내 최정상급 인테리어 사진을 보여드립니다." +
                                 "\n3. 전문가 리스트 : \n믿을 수 있는 전문가들이 모여 있습니다." +
                                 "\n4. 컨텐츠 : \n인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
@@ -673,12 +673,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기 [브라더스 컨시어지]",
+                                        "text": "전문가 찾기 [컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기 ",
+                                        "text": "사진보기 [사진]",
                                         "code": '사진보기'
                                     },
                                     {
@@ -738,12 +738,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기[브라더스 컨시어지]",
+                                        "text": "전문가 찾기[컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기",
+                                        "text": "사진보기 [사진]",
                                         "code": '사진보기'
                                     },
                                     {
@@ -788,7 +788,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList":[
                             {
                                 "title": "인테리어브라더스의 챗봇서비스 입니다.\n원하는 서비스를 선택 해주세요.",
-                                "description": "1. 『브라더스 컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
+                                "description": "1. 『컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
                                 "\n2. 인테리어 사진보기 : \n국내 최정상급 인테리어 사진을 보여드립니다." +
                                 "\n3. 전문가 리스트 : \n믿을 수 있는 전문가들이 모여 있습니다." +
                                 "\n4. 컨텐츠 : \n인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
@@ -803,12 +803,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기 [브라더스 컨시어지]",
+                                        "text": "전문가 찾기 [컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기 ",
+                                        "text": "사진보기 [사진]",
                                         "code": '사진보기'
                                     },
                                     {
@@ -853,7 +853,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList":[
                             {
                                 "title": "사진보기는 아직 준비중 입니다! 조금만 기다려주세요.",
-                                "description": "1. 『브라더스 컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
+                                "description": "1. 『컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
                                 "\n2. 인테리어 사진보기 : \n국내 최정상급 인테리어 사진을 보여드립니다." +
                                 "\n3. 전문가 리스트 : \n믿을 수 있는 전문가들이 모여 있습니다." +
                                 "\n4. 컨텐츠 : \n인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
@@ -868,12 +868,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "전문가 찾기 [브라더스 컨시어지]",
+                                        "text": "전문가 찾기 [컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기 ",
+                                        "text": "사진보기 [사진]",
                                         "code": '사진보기'
                                     },
                                     {
@@ -998,7 +998,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
-                                        "text": "다시 시작 [브라더스 컨시어지]",
+                                        "text": "다시 시작 [컨시어지]",
                                         "code": '컨시어지'
                                     },
                                     {
@@ -1038,7 +1038,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                             "buttonList":[
                                 {
                                     "type": "TEXT",
-                                    "text": "사진 더보기",
+                                    "text": "사진 더보기 [사진]",
                                     "code": '사진 더보기'
                                 },
                                 {
