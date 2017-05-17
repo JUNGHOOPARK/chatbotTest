@@ -123,7 +123,7 @@ var defaultResponse = {
 };
 
 
-var info =   {
+/*var info =   {
     //기본정보
     username : '',
     //컨시어지 단계 구간
@@ -153,7 +153,7 @@ var info =   {
     history : '',
     //사진보기 페이지
     photo_page : '1'
-};
+};*/
 
 app.post('/naverTalkTalk', function (req, res) {
     'use strict';
@@ -313,7 +313,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         data.budgetMax = '';
                         data.styles = '';
                         data.history = '';
-
+                        data.errCode = "";
                         req.cache.set(req.body.user,JSON.stringify(data));
 
                         res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
@@ -342,7 +342,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         data.budgetMax = '';
                         data.styles = '';
                         data.history = '';
-
+                        data.errCode = "";
                         req.cache.set(req.body.user,JSON.stringify(data));
                         res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
 
@@ -350,27 +350,23 @@ app.post('/naverTalkTalk', function (req, res) {
 
                         //에러발생시
                         if (data.errorStatus === true) {
+
+                            var code = req.body.textContent.code;
+                            data.errorStatus = false;
+
+                            var opt = "";
+                            if(code === 'spaces2' || data.errCode === 'spaces2'){
+                                opt = data.spacesCategory;
+                            }else if(code === 'spaces3' || data.errCode === 'spaces2'){
+                                opt = data.history;
+                            }
+                            req.cache.set(req.body.user,JSON.stringify(data));
+
                             if (text.indexOf("이전") != -1) {
-                                var code = req.body.textContent.code;
-                                data.errorStatus = false;
-
-                                var opt = "";
-                                if(code === 'spaces2'){
-                                    opt = data.spacesCategory;
-                                }else if(code === 'spaces3'){
-                                    opt = data.history;
-                                }
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                                res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
-                            }else{
-                                var code = req.body.textContent.code;
-                                data.errorStatus = false;
-
-                                var opt = "";
-                                req.cache.set(req.body.user,JSON.stringify(data));
-                                res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
+                               code = data.errCode;
                             }
 
+                            res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
 
                         } else {
                         //컨시어지 시작
@@ -404,7 +400,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                                 data.errorStatus = true;
                                                 data.spaces1 = true;
                                                 data.spaces2 = false;
-
+                                                data.errCode = "spaces1";
                                                 req.cache.set(req.body.user,JSON.stringify(data));
                                                 return false;
                                             } else {
@@ -440,6 +436,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     if (result === undefined) {
 
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces2'));
+                                        data.errCode = "spaces2";
                                         data.errorStatus = true;
                                         data.spaces1 = false;
                                         data.spaces2 = true;
@@ -474,6 +471,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                     if (result === undefined) {
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaces3'));
+                                        data.errCode = "spaces3";
                                         data.errorStatus = true;
                                         data.spaces2 = false;
                                         data.spaces3 = true;
@@ -514,6 +512,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         } else {
 
                                             res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'specialtyRange'));
+                                            data.errCode = "specialtyRange";
                                             data.errorStatus = true;
                                             data.spaces3 = false;
                                             data.specialtyRangeYN = true;
@@ -562,6 +561,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     }else{
                                         //네/아니오 가 아닌 텍스트 입력시
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceBranding'));
+                                        data.errCode = "spaceBranding";
                                         data.errorStatus = true;
                                         data.specialtyRangeYN = false;
                                         data.spaceBrandingYN = true;
@@ -597,6 +597,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     //숫자미입력시
                                     if(result[0] === 0 && result[1] ===0){
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'spaceMeasure'));
+                                        data.errCode = "spaceMeasure";
                                         data.errorStatus = true;
                                         data.spaceBrandingYN = false;
                                         data.spaceMeasure = true;
@@ -633,6 +634,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budgetMax = result[1];
                                         }else{
                                             res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                            data.errCode = "budget";
                                             data.spaceMeasure = false;
                                             data.budget = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
@@ -648,6 +650,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budgetMax = result[1];
                                         }else{
                                             res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                            data.errCode = "budget";
                                             data.errorStatus = true;
                                             data.spaceMeasure = false;
                                             data.budget = true;
@@ -664,6 +667,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budgetMax = result[1];
                                         }else{
                                             res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                            data.errCode = "budget";
                                             data.errorStatus = true;
                                             data.spaceMeasure = false;
                                             data.budget = true;
@@ -676,6 +680,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.budgetMax = msg;
                                     } else {
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'budget'));
+                                        data.errCode = "budget";
                                         data.errorStatus = true;
                                         data.spaceMeasure = false;
                                         data.budget = true;
@@ -705,6 +710,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     //스타일이 아닌걸 입력시
                                     if (result === "-1") {
                                         res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'styles'));
+                                        data.errCode = "styles";
                                         data.errorStatus = true;
                                         data.budget = false;
                                         data.stylesYN = true;
