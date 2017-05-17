@@ -121,30 +121,7 @@ var defaultResponse = {
     resultCode: "00",
     resultMessage: "success"
 };
-var textResponse = {
-    success: true,
-    resultCode: "00",
-    resultMessage: "success",
-    request: {
-        event: "send",
-        sender: "partner",
-        user : req.body.user,
-        partner: req.body.partner,
-        textContent :{}
-    }
-};
-var imgResponse = {
-    success: true,
-    resultCode: "00",
-    resultMessage: "success",
-    request: {
-        event: "send",
-        sender: "partner",
-        user : req.body.user,
-        partner: req.body.partner,
-        imageContent :{}
-    }
-};
+
 
 var info =   {
     //기본정보
@@ -180,6 +157,32 @@ var info =   {
 
 app.post('/naverTalkTalk', function (req, res) {
     'use strict';
+
+    var textResponse = {
+        success: true,
+        resultCode: "00",
+        resultMessage: "success",
+        request: {
+            event: "send",
+            sender: "partner",
+            user : req.body.user,
+            partner: req.body.partner,
+            textContent :{}
+        }
+    };
+    var imgResponse = {
+        success: true,
+        resultCode: "00",
+        resultMessage: "success",
+        request: {
+            event: "send",
+            sender: "partner",
+            user : req.body.user,
+            partner: req.body.partner,
+            imageContent :{}
+        }
+    };
+
     var data = new Object();
 
     req.cache.get(req.body.user,function(err,result){
