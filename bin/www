@@ -513,7 +513,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             //인테리어 디자인+시공 or 인테리어 디자인+시공+스타일링 테스트로 입력
                                         }else if (text === '인테리어 디자인+시공' || text === '인테리어 디자인+시공+스타일링') {
                                                 code = text;
-                                            }
+
                                         } else {
 
                                             res.json(actionNtConcierge.getConciergeExpress("back", req.body, 'specialtyRange'));
