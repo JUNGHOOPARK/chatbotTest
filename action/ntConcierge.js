@@ -23,7 +23,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)", /* gray스타일의 title아래 텍스트 (최대 1,000자) */
                                 /* imageContent와 상동 */
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
                                     "width": 530, /* 이미지의 높이 (픽셀단위) */
                                     "height": 290 /* 이미지의 폭 (픽셀단위) */
                                 },
@@ -112,7 +112,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a3.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
                                     "width": 289,
                                     "height": 150
                                 },
@@ -174,7 +174,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a3.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
                                     "width": 289,
                                     "height": 150
                                 },
@@ -209,7 +209,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a4.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
                                     "width": 289,
                                     "height": 150
                                 },
@@ -265,7 +265,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a4.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
                                     "width": 289,
                                     "height": 150
                                 },
@@ -323,7 +323,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a5.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
                                     "width": 289,
                                     "height": 150
                                 },
@@ -371,7 +371,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a5.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
                                     "width": 289,
                                     "height": 150
                                 },
@@ -412,7 +412,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/a6.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a6.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -565,7 +565,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/status_oops.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -615,7 +615,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n'시작'을 입력해 첫 화면으로 갈 수 있습니다.",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/status_oops_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops_w.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -665,7 +665,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/welcome_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/welcome_w.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -730,7 +730,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n“시작”을 입력해 첫 화면으로 갈 수 있습니다.",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/cs_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/cs_w.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -795,7 +795,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/status_oops_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops_w.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -860,7 +860,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
 
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/cs_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/cs_w.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -990,7 +990,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                                 "\n해당 포트폴리오의 더 많은 사진과" +
                                 "\n자세한 정보를 볼 수 있습니다." ,
                                 "image": {
-                                    "imageUrl": "http://easternsky.synology.me/images/chatbot/cs.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png",
                                     "width": 530,
                                     "height": 290
                                 },
@@ -1030,7 +1030,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                             "\n해당 포트폴리오의 더 많은 사진과" +
                             "\n자세한 정보를 볼 수 있습니다." ,
                             "image": {
-                                "imageUrl": "http://easternsky.synology.me/images/chatbot/cs.png",
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png",
                                 "width": 530,
                                 "height": 290
                             },
