@@ -24,8 +24,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 /* imageContent와 상동 */
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
-                                    "width": 530, /* 이미지의 높이 (픽셀단위) */
-                                    "height": 290 /* 이미지의 폭 (픽셀단위) */
+                                    "width": 290, /* 이미지의 높이 (픽셀단위) */
+                                    "height": 150 /* 이미지의 폭 (픽셀단위) */
                                 },
                                 /* composite 메시지 하단 버튼 정의 (최대 10개가능) */
                                 "buttonList": [
@@ -113,7 +113,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
-                                    "width": 289,
+                                    "width": 290,
                                     "height": 150
                                 },
 
@@ -175,7 +175,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
-                                    "width": 289,
+                                    "width": 290,
                                     "height": 150
                                 },
 
@@ -210,7 +210,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
-                                    "width": 289,
+                                    "width": 290,
                                     "height": 150
                                 },
 
@@ -266,7 +266,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
-                                    "width": 289,
+                                    "width": 290,
                                     "height": 150
                                 },
 
@@ -324,7 +324,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
-                                    "width": 289,
+                                    "width": 290,
                                     "height": 150
                                 },
 
@@ -372,7 +372,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
-                                    "width": 289,
+                                    "width": 290,
                                     "height": 150
                                 },
 
@@ -413,8 +413,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a6.png",
-                                    "width": 530,
-                                    "height": 290
+                                    "width": 290,
+                                    "height": 150
                                 },
 
                                 "buttonList":[
@@ -505,7 +505,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             // obj.title = opt[i].businessName+"-"+opt[i].title;
             obj.image = {
                 "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
-                "width": 289,
+                "width": 290,
                 "height": 150
             };
 
@@ -566,8 +566,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops.png",
-                                    "width": 530,
-                                    "height": 290
+                                    "width": 290,
+                                    "height": 150
                                 },
 
                                 "buttonList":[
@@ -616,8 +616,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops_w.png",
-                                    "width": 530,
-                                    "height": 290
+                                    "width": 290,
+                                    "height": 150
                                 },
 
                                 "buttonList":[
@@ -666,8 +666,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/welcome_w.png",
-                                    "width": 530,
-                                    "height": 290
+                                    "width": 290,
+                                    "height": 150
                                 },
 
                                 "buttonList":[
@@ -731,8 +731,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/cs_w.png",
-                                    "width": 530,
-                                    "height": 290
+                                    "width": 290,
+                                    "height": 150
                                 },
 
                                 "buttonList":[
@@ -796,8 +796,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops_w.png",
-                                    "width": 530,
-                                    "height": 290
+                                    "width": 290,
+                                    "height": 150
                                 },
 
                                 "buttonList":[
@@ -861,8 +861,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/cs_w.png",
-                                    "width": 530,
-                                    "height": 290
+                                    "width": 290,
+                                    "height": 150
                                 },
 
                                 "buttonList":[
@@ -925,7 +925,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
             obj.image = {
                 "imageUrl": "https://interiorbrothers.com/"+opt[i].src,
-                "width": 289,
+                "width": 290,
                 "height": 150
             };
 
@@ -991,8 +991,8 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                                 "\n자세한 정보를 볼 수 있습니다." ,
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png",
-                                    "width": 530,
-                                    "height": 290
+                                    "width": 290,
+                                    "height": 150
                                 },
 
                                 "buttonList":[
@@ -1031,8 +1031,8 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                             "\n자세한 정보를 볼 수 있습니다." ,
                             "image": {
                                 "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png",
-                                "width": 530,
-                                "height": 290
+                                "width": 290,
+                                "height": 150
                             },
 
                             "buttonList":[
