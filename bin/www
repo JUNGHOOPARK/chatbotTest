@@ -190,7 +190,7 @@ app.post('/naverTalkTalk', function (req, res) {
         if(result){
             if(result.lastIndexOf("}") != -1 ){
                 data = JSON.parse(result);
-                console.log(data);
+                // console.log(data);
             }else{
                 console.log("처음유입");
                 //유저네임
@@ -391,7 +391,12 @@ app.post('/naverTalkTalk', function (req, res) {
                                code = data.errCode;
                             }
 
-                            console.log("에러시 코드: "+code);
+                            if(code === undefined || code === "undefined"){
+                                console.log(data.errCode);
+                                console.log(text);
+                                console.log(opt);
+                            }
+
 
                             res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
 
