@@ -388,14 +388,11 @@ app.post('/naverTalkTalk', function (req, res) {
                             }
                             req.cache.set(req.body.user,JSON.stringify(data));
 
-                            if (text.indexOf("이전") != -1) {
+                            if ((code === undefined || code === "undefined") && text.indexOf("이전") != -1) {
                                code = data.errCode;
-                            }
-
-                            if(code === undefined || code === "undefined"){
+                            }else if((code === undefined || code === "undefined") && text.indexOf("이전") === -1){
                                 code = "back";
                                 opt = data.errCode;
-
                             }
 
 
