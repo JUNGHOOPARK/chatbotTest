@@ -391,6 +391,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                code = data.errCode;
                             }
 
+                            console.log("에러시 코드: "+code);
+
                             res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
 
                         } else {
