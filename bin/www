@@ -377,6 +377,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         if (data.errorStatus === true) {
 
                             var code = req.body.textContent.code;
+                            console.log("code==",code);
                             data.errorStatus = false;
 
                             var opt = "";
@@ -392,9 +393,11 @@ app.post('/naverTalkTalk', function (req, res) {
                             }
 
                             if(code === undefined || code === "undefined"){
-                                console.log(data.errCode);
-                                console.log(text);
-                                console.log(opt);
+                                console.log("data.errCode==",data.errCode);
+                                console.log("text==",text);
+                                console.log("opt==",opt);
+
+
                             }
 
 
