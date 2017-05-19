@@ -394,6 +394,9 @@ app.post('/naverTalkTalk', function (req, res) {
                                 code = "back";
                                 opt = data.errCode;
                             }
+                            console.log("code--> ",code);
+                            console.log("data.errCode--> ",data.errCode);
+                            console.log("opt--> ",opt);
 
 
                             res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
