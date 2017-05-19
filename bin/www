@@ -223,6 +223,31 @@ app.post('/naverTalkTalk', function (req, res) {
 
                     if(text.indexOf("사진") != -1 || code === "사진보기"){
 
+                        data.concierge = false;
+                        data.spaces1 = false;
+                        data.spaces2 = false;
+                        data.spaces3 = false;
+                        data.specialtyRangeYN = false;
+                        data.spaceBrandingYN = false;
+                        data.spaceMeasure = false;
+                        data.budget = false;
+                        data.stylesYN = false;
+                        data.errorStatus = false;
+                        //컨시어지 파라미터
+                        data.spacesCategory = '';
+                        data.spacesSubCategory = '';
+                        data.spacesSpace = '';
+                        data.specialtyRange = '';
+                        data.spaceBranding = '';
+                        data.py = '';
+                        data.meter = '';
+                        data.budgetMin = '';
+                        data.budgetMax = '';
+                        data.styles = '';
+                        data.history = '';
+                        data.errCode = "";
+
+
                         var params = querystring.stringify({
 
                             kind: 1,

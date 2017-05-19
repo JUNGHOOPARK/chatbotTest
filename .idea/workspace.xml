@@ -4,6 +4,7 @@
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/ntConcierge.js" afterPath="$PROJECT_DIR$/action/ntConcierge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,11 +22,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="www" pinned="false" current-in-tab="false">
+      <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="528" column="0" lean-forward="false" selection-start-line="528" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
+            <state relative-caret-position="408">
+              <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -41,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="511" column="32" lean-forward="true" selection-start-line="511" selection-start-column="32" selection-end-line="511" selection-end-column="32" />
+            <state relative-caret-position="1023">
+              <caret line="803" column="37" lean-forward="true" selection-start-line="803" selection-start-column="37" selection-end-line="803" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -62,8 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>상세</find>
-      <find>how</find>
       <find>requestSender</find>
       <find>photoHow</find>
       <find>ntSession.concierge[ii] = false;</find>
@@ -92,6 +91,8 @@
       <find>&quot;width&quot;:</find>
       <find>&quot;width&quot;: 530,</find>
       <find>width</find>
+      <find>status_oops_w</find>
+      <find>사진보</find>
     </findStrings>
     <replaceStrings>
       <replace>i</replace>
@@ -145,8 +146,8 @@
         <option value="$PROJECT_DIR$/cron.js" />
         <option value="$PROJECT_DIR$/reply.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/action/ntConcierge.js" />
+        <option value="$PROJECT_DIR$/bin/www" />
       </list>
     </option>
   </component>
@@ -403,12 +404,12 @@
       <workItem from="1494904470212" duration="20268000" />
       <workItem from="1494993839768" duration="21832000" />
       <workItem from="1495087797510" duration="1927000" />
-      <workItem from="1495157273485" duration="1461000" />
+      <workItem from="1495157273485" duration="2828000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239152000" />
+    <option name="totallyTimeSpent" value="240519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -747,14 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="528" column="0" lean-forward="false" selection-start-line="528" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -765,8 +758,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="511" column="32" lean-forward="true" selection-start-line="511" selection-start-column="32" selection-end-line="511" selection-end-column="32" />
+        <state relative-caret-position="1023">
+          <caret line="803" column="37" lean-forward="true" selection-start-line="803" selection-start-column="37" selection-end-line="803" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
           <folding />
         </state>
       </provider>

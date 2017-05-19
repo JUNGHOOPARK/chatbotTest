@@ -87,7 +87,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             }
         }
         obj.type = "TEXT";
-        obj.text = "<-이전 단계로 돌아가기";
+        obj.text = "← 이전 단계로 돌아가기";
         obj.code = "-1";
         actions.push(obj);
         obj = new Object();
@@ -787,7 +787,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "인테리어브라더스의 챗봇서비스 입니다.\n원하는 서비스를 선택 해주세요.",
+                                "title": "무슨 뜻인지 잘 모르겠습니다.",
                                 "description": "1. 『컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
                                 "\n2. 인테리어 사진보기 : \n국내 최정상급 인테리어 사진을 보여드립니다." +
                                 "\n3. 전문가 리스트 : \n믿을 수 있는 전문가들이 모여 있습니다." +
