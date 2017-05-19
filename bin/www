@@ -386,20 +386,16 @@ app.post('/naverTalkTalk', function (req, res) {
                             }else if(code === 'spaces3' || data.errCode === 'spaces3'){
                                 opt = data.history;
                             }
-                            req.cache.set(req.body.user,JSON.stringify(data));
+
 
                             if ((code === undefined || code === "undefined") && text.indexOf("이전") != -1) {
                                code = data.errCode;
                             }else if((code === undefined || code === "undefined") && text.indexOf("이전") === -1){
                                 code = "back";
                                 opt = data.errCode;
+                                data.errorStatus = true;
                             }
-                            console.log("code--> ",code);
-                            console.log("data.errCode--> ",data.errCode);
-                            console.log("opt--> ",opt);
-                            console.log("data.spaces1--> ",data.spaces1);
-
-
+                            req.cache.set(req.body.user,JSON.stringify(data));
                             res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
 
                         } else {
