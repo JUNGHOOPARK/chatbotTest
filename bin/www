@@ -862,9 +862,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             if(message !== -1){
                                                 res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
                                             }else{
-                                                //컨시어지 결과
-                                                // 이미지만 보고 사이즈를 알수 있으려면 컨텐츠타입이 image 여야 동작한다고..
-                                               // res.set({'Content-Type': 'image/*'});
+
                                                 res.json(actionNtConcierge.getConciergeExpress("experts", req.body, experts));
                                             }
                                         }, 2000);
@@ -892,7 +890,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                                 })
                                             }
-                                        }, 2500);
+                                        }, 3500);
 
                                     }
                                 }
