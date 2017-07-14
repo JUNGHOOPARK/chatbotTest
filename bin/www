@@ -103,6 +103,20 @@ app.get('/', function(req, res, next) {
     }
 });
 
+app.get('/test', function(req, res, next) {
+
+    var options = {
+        url: 'http://210.109.108.132:8087/link/reg_svr_url.do',
+        method: 'POST'
+
+    };
+
+    requestSender(options, function (error, response, body) {
+        console.log('response', response);
+        console.log('body', body);
+
+    })
+});
 
 
 
