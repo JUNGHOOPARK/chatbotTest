@@ -909,7 +909,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         var obj = new Object();
         var obj2 = new Object();
 
-        for(var i = 0 ; i < opt.length; i++){
+        for(var i = 0 ; i < 12; i++){
             var match =  opt[i].photo.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
 

@@ -105,17 +105,7 @@ app.get('/', function(req, res, next) {
 
 app.get('/test', function(req, res, next) {
 
-    var options = {
-        url: 'http://210.109.108.132:8087/link/reg_svr_url.do',
-        method: 'POST'
 
-    };
-
-    requestSender(options, function (error, response, body) {
-        console.log('response', response);
-        console.log('body', body);
-
-    })
 });
 
 
@@ -298,8 +288,6 @@ app.post('/naverTalkTalk', function (req, res) {
                             data.photo_page = data.photo_page+1;
                             req.cache.set(req.body.user,JSON.stringify(data));
 
-                            // 이미지만 보고 사이즈를 알수 있으려면 컨텐츠타입이 image 여야 동작한다고..
-                            //res.set({'Content-Type': 'image/*'});
                             res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
 
                         }, 2000);
