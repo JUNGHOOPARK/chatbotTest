@@ -84,11 +84,11 @@ app.get('/', function(req, res, next) {
         'address': 'Seoul, Korea',
         'phone': '001-001-0001'
         };
-    req.cache.set(test.name,JSON.stringify(test));
+  /*  req.cache.set(test.name,JSON.stringify(test));
     req.cache.get(test.name,function(err,data){
         console.log(typeof data);
         console.log(typeof JSON.parse(data));
-    });
+    });*/
     if (sess.views) {
 
         sess.views++
@@ -204,6 +204,7 @@ app.post('/naverTalkTalk', function (req, res) {
                 data.errorStatus = false;
                 //레디스에 데이터 유저생성
                 req.cache.set(req.body.user,JSON.stringify(data));
+                req.cache.expire(req.body.user, 600);
             }
         }else{
             console.log("다시시작");
@@ -214,6 +215,7 @@ app.post('/naverTalkTalk', function (req, res) {
             data.errorStatus = false;
             //레디스에 데이터 유저생성
             req.cache.set(req.body.user,JSON.stringify(data));
+            req.cache.expire(req.body.user, 600);
         }
 
         var d = new Date();
@@ -287,7 +289,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                             data.photo_page = data.photo_page+1;
                             req.cache.set(req.body.user,JSON.stringify(data));
-
+                            req.cache.expire(req.body.user, 600);
                             res.json(actionNtConcierge.getConciergeExpress("photoview", req.body, photoview));
 
                         }, 2000);
@@ -346,7 +348,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         data.history = '';
                         data.errCode = "";
                         req.cache.set(req.body.user,JSON.stringify(data));
-
+                        req.cache.expire(req.body.user, 600);
                         res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
                     }else if(text.indexOf("시작") != -1 || code === "welcome"){
@@ -375,6 +377,7 @@ app.post('/naverTalkTalk', function (req, res) {
                         data.history = '';
                         data.errCode = "";
                         req.cache.set(req.body.user,JSON.stringify(data));
+                        req.cache.expire(req.body.user, 600);
                         res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
 
                     } else{
@@ -402,6 +405,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                 data.errorStatus = true;
                             }
                             req.cache.set(req.body.user,JSON.stringify(data));
+                            req.cache.expire(req.body.user, 600);
                             res.json(actionNtConcierge.getConciergeExpress(code, req.body, opt));
 
                         } else {
@@ -416,6 +420,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaces1 = true;
                                     data.spaces2 = false;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 } else {
                                     var code = req.body.textContent.code;
 
@@ -438,6 +443,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                                 data.spaces2 = false;
                                                 data.errCode = "spaces1";
                                                 req.cache.set(req.body.user,JSON.stringify(data));
+                                                req.cache.expire(req.body.user, 600);
                                                 return false;
                                             } else {
                                                 code = result;
@@ -450,6 +456,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaces1 = false;
                                     data.spaces2 = true;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
 
                                     res.json(actionNtConcierge.getConciergeExpress("spaces2", req.body, code));
 
@@ -464,6 +471,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaces1 = true;
                                     data.spaces2 = false;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 } else {
                                     var result = actionNtConcierge.getSpaces2(data.spacesCategory, text);
 
@@ -477,6 +485,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.spaces1 = false;
                                         data.spaces2 = true;
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                        req.cache.expire(req.body.user, 600);
 
                                     } else {
                                         data.spacesSubCategory = result;
@@ -490,6 +499,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.spaces2 = false;
                                         data.spaces3 = true;
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                        req.cache.expire(req.body.user, 600);
                                     }
 
                                 }
@@ -501,6 +511,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaces2 = true;
                                     data.spaces3 = false;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 } else {
 
                                     var result = actionNtConcierge.getSpaces3(data.spacesCategory, data.spacesSubCategory, text);
@@ -512,6 +523,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.spaces2 = false;
                                         data.spaces3 = true;
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                        req.cache.expire(req.body.user, 600);
 
 
                                     } else {
@@ -522,6 +534,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.spaces3 = false;
                                         data.specialtyRangeYN = true;
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                        req.cache.expire(req.body.user, 600);
                                     }
 
 
@@ -535,6 +548,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaces3 = true;
                                     data.specialtyRangeYN = false;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 } else {
 
                                     var code = req.body.textContent.code;
@@ -558,6 +572,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.spaces3 = false;
                                             data.specialtyRangeYN = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
 
                                         }
@@ -573,13 +588,14 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.spaceBrandingYN = true;
                                         res.json(actionNtConcierge.getConciergeExpress("spaceBranding", req.body, ''));
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                        req.cache.expire(req.body.user, 600);
 
 
                                     } else {
                                         data.spaceMeasure = true;
                                         res.json(actionNtConcierge.getConciergeExpress("spaceMeasure", req.body, ''));
                                         req.cache.set(req.body.user,JSON.stringify(data));
-
+                                        req.cache.expire(req.body.user, 600);
                                     }
 
                                 }
@@ -592,6 +608,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaceBrandingYN = false;
 
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 } else {
                                     if (text.indexOf("네") != -1) {
                                         data.spaceBranding = true;
@@ -608,6 +625,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.spaceBrandingYN = true;
 
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                        req.cache.expire(req.body.user, 600);
                                         return false;
 
                                     }
@@ -618,6 +636,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaceMeasure = true;
 
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 }
 
                                 //면적 선택
@@ -628,6 +647,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaceMeasure = false;
 
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 } else {
                                     var result = actionNtConcierge.getMeasure(text);
 
@@ -643,6 +663,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.spaceBrandingYN = false;
                                         data.spaceMeasure = true;
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                        req.cache.expire(req.body.user, 600);
                                         return false;
                                     }
 
@@ -651,6 +672,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaceMeasure = false;
                                     data.budget = true;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 }
 
                                 //예산선택
@@ -660,6 +682,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.spaceMeasure = true;
                                     data.budget = false;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 } else {
                                     var result = [];
                                     var msg = text;
@@ -679,6 +702,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.spaceMeasure = false;
                                             data.budget = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
 
@@ -696,6 +720,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.spaceMeasure = false;
                                             data.budget = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
 
@@ -713,6 +738,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.spaceMeasure = false;
                                             data.budget = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
 
@@ -733,6 +759,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.budget = false;
                                     data.stylesYN = true;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 }
 
                                 //스타일선택
@@ -744,6 +771,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                     data.budget = true;
                                     data.stylesYN = false;
                                     req.cache.set(req.body.user,JSON.stringify(data));
+                                    req.cache.expire(req.body.user, 600);
                                 } else {
 
                                     var result = actionNtConcierge.getStyles(text);
@@ -756,6 +784,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         data.budget = false;
                                         data.stylesYN = true;
                                         req.cache.set(req.body.user,JSON.stringify(data));
+                                        req.cache.expire(req.body.user, 600);
                                         return false;
                                     } else {
 
@@ -786,6 +815,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budget = false;
                                             data.stylesYN = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
                                         if (!formData.spaces.category || !formData.spaces.space || !formData.spaces.subcategory) {
@@ -794,6 +824,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budget = false;
                                             data.stylesYN = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
                                         if (!formData.specialty.sub.length) {
@@ -802,6 +833,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budget = false;
                                             data.stylesYN = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
                                         if ((!formData.measure.meter) || (!formData.measure.py)
@@ -811,6 +843,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budget = false;
                                             data.stylesYN = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
                                         if ((!formData.budget.min) || (!formData.budget.max)
@@ -822,6 +855,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budget = false;
                                             data.stylesYN = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
                                         if (!formData.style) {
@@ -830,6 +864,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             data.budget = false;
                                             data.stylesYN = true;
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             return false;
                                         }
 
@@ -861,6 +896,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                         setTimeout(function () {
                                             req.cache.set(req.body.user,JSON.stringify(data));
+                                            req.cache.expire(req.body.user, 600);
                                             if(message !== -1){
                                                 res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
                                             }else{
