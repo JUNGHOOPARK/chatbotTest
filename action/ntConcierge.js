@@ -614,7 +614,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n'시작'을 입력해 첫 화면으로 갈 수 있습니다.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png",
                                     "width": 290,
                                     "height": 150
                                 },
@@ -664,7 +664,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/welcome_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/welcome.png",
                                     "width": 290,
                                     "height": 150
                                 },
@@ -729,7 +729,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n“시작”을 입력해 첫 화면으로 갈 수 있습니다.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/cs_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge_fail.png",
                                     "width": 290,
                                     "height": 150
                                 },
@@ -794,7 +794,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png",
                                     "width": 290,
                                     "height": 150
                                 },
@@ -859,7 +859,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/cs_w.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png",
                                     "width": 290,
                                     "height": 150
                                 },
@@ -988,7 +988,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                                 "\n해당 포트폴리오의 더 많은 사진과" +
                                 "\n자세한 정보를 볼 수 있습니다." ,
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge_success.png",
                                     "width": 290,
                                     "height": 150
                                 },
