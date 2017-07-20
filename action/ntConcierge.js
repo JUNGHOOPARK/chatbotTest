@@ -19,8 +19,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList":[
                             {
                                 "title": "어떤 공간을 인테리어 하시나요?", /* bold스타일의 텍스트 (최대 200자) */
-                                "description": "인테리어 하려는 공간에 해당하는 카테고리를 선택해 주세요." +
-                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)", /* gray스타일의 title아래 텍스트 (최대 1,000자) */
+                                "description": "인테리어 하려는 공간에 해당하는 카테고리를 선택해 주세요.",
                                 /* imageContent와 상동 */
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
@@ -108,8 +107,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "title": "어떤 공간을 인테리어 하시나요?",
                                 "description": "인테리어 하려는 공간의 상세 분류를 선택해 주세요." +
                                 "\n\n원하는 공간 분류가 없는 경우 " +
-                                "\n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요." +
-                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
+                                "\n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
@@ -170,8 +168,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             {
                                 "title": "어떤 공간을 인테리어 하시나요?",
                                 "description": "인테리어 하려는 공간을 선택해 주세요." +
-                                "\n\n원하는 공간이 없는 경우 \n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요." +
-                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
+                                "\n\n원하는 공간이 없는 경우 \n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
+
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
@@ -205,8 +203,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "title": "전문가의 도움이 필요한 범위를 선택해 주세요",
                                 "description": "일반적으로는" +
                                 "\n'인테리어 디자인' + '시공'" +
-                                "\n을 선택하시면 됩니다." +
-                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
+                                "\n을 선택하시면 됩니다.",
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
@@ -261,8 +258,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n공간과 해당 브랜드의 아이덴티티를 일치시켜" +
                                 "\n해당 공간에 대한 차별화된 가치를 높여주는 것을 말합니다." +
                                 "\n\n많은 경우에 브랜드 로고 디자인 작업, 패키지, " +
-                                "\n내부/외부 간판, 메뉴 판넬 등의 작업이 같이 진행됩니다." +
-                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
+                                "\n내부/외부 간판, 메뉴 판넬 등의 작업이 같이 진행됩니다.",
+
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
@@ -319,8 +316,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n\n공간의 면적이 확실하지 않더라도 " +
                                 "\n대략적인 면적을 입력해 주세요." +
                                 "\n저희가 해당 조건에 맞는 사례를 보여드립니다." +
-                                "\n\n예) 30 -> 30평, 119m -> 119㎡ (약 39평)" +
-                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
+                                "\n\n예) 30 -> 30평, 119m -> 119㎡ (약 39평)",
+
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
@@ -366,8 +363,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n대략적인 금액범위를 입력해 주세요." +
                                 "\n저희가 해당 조건에 맞는 사례를 보여드립니다." +
                                 "\n\n예) 800 950 -> 800만원~950만원 범위" +
-                                "\n1000~1500 -> 1,000만원~1,500만원 범위" +
-                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
+                                "\n1000~1500 -> 1,000만원~1,500만원 범위",
+
 
 
                                 "image": {
@@ -408,8 +405,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "title": "원하는 인테리어 스타일을 선택해 주세요",
                                 "description": "원하는 스타일을 선택해 주세요." +
                                 "\n저희가 가장 유사한 사례를 보여드립니다." +
-                                "\n(이제 다 왔습니다. ^^)" +
-                                "\n\n(챗봇의 반응이 조금 느릴 수 있습니다. \n조금만 기다려 주세요)",
+                                "\n(이제 다 왔습니다. ^^)",
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/a6.png",
