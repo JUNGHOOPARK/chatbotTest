@@ -1024,12 +1024,15 @@ app.post('/naverTalkTalk', function (req, res) {
                         res.json(imgResponse);
                        */
                        // res.json(defaultResponse);
+                        console.log("1");
                         res.json(testResponse);
                         //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
                         //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        console.log("2");
+                        res.json(testResponse);
+                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
 
                         break;
                         //res.json(defaultResponse);
