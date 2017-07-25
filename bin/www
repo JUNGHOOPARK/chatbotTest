@@ -470,9 +470,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             if (data.spaces1 === true) {
 
                                 if (text.indexOf("이전") != -1) {
-                                    //res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
-                                    console.log(testResponse);
-                                    res.json(testResponse);
+                                    res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
                                     data.spaces1 = true;
                                     data.spaces2 = false;
                                     req.cache.set(req.body.user,JSON.stringify(data));
@@ -1011,7 +1009,8 @@ app.post('/naverTalkTalk', function (req, res) {
                     case 'list' :
                        /* textResponse.request.textContent.text = "안녕하세요. 브라더스 컨시어지를 시작하시려면 '컨시어지' 라고 입력해주세요!  ";
                         res.json(textResponse);*/
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        res.json(testResponse);
+                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     case 'none' :
                        // res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
