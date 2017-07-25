@@ -23,8 +23,8 @@
       <file leaf-file-name="www" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="474" column="57" lean-forward="true" selection-start-line="474" selection-start-column="57" selection-end-line="474" selection-end-column="57" />
+            <state relative-caret-position="218">
+              <caret line="1012" column="24" lean-forward="false" selection-start-line="1012" selection-start-column="24" selection-end-line="1012" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -423,7 +423,7 @@
       <workItem from="1500340581053" duration="5903000" />
       <workItem from="1500431710073" duration="4917000" />
       <workItem from="1500516980823" duration="2079000" />
-      <workItem from="1500977199445" duration="3383000" />
+      <workItem from="1500977199445" duration="3481000" />
     </task>
     <task id="LOCAL-00001" summary="문구수정">
       <created>1500517164324</created>
@@ -443,7 +443,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298418000" />
+    <option name="totallyTimeSpent" value="298516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -803,8 +803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="474" column="57" lean-forward="true" selection-start-line="474" selection-start-column="57" selection-end-line="474" selection-end-column="57" />
+        <state relative-caret-position="218">
+          <caret line="1012" column="24" lean-forward="false" selection-start-line="1012" selection-start-column="24" selection-end-line="1012" selection-end-column="24" />
           <folding />
         </state>
       </provider>
