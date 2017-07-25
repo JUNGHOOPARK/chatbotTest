@@ -188,64 +188,64 @@ app.post('/naverTalkTalk', function (req, res) {
     };
 
     var testResponse = {
-        event: "send",
-        user: req.body.user, /* 유저 식별값 */
+        "event": "send",
+        "user": req.body.user, /* 유저 식별값 */
 
-        compositeContent: {
-            compositeList:[
+        "compositeContent": {
+            "compositeList":[
                 {
-                    title: "TEST",
-                    description: "TEST설명",
-                    image: {
-                        imageUrl: "https://interiorbrothers.com/images/chatbot/cs.png"
+                    "title": "TEST",
+                    "description": "TEST설명",
+                    "image": {
+                        "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png"
                     },
-                    elementList: {
-                        type: "LIST",
-                        data: [
+                    "elementList": {
+                        "type": "LIST",
+                        "data": [
                             {
-                                title : "test",
-                                description : "1111",
-                                subDescription : "2222",
-                                image : {
-                                    imageUrl: "https://interiorbrothers.com/images/chatbot/status_unexpected.png"
+                                "title" : "test",
+                                "description" : "1111",
+                                "subDescription" : "2222",
+                                "image" : {
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png"
                                 }
                             }
                         ]
                     },
-                    buttonList: [
+                    "buttonList": [
                         {
-                            type: "TEXT", /* 텍스트형 버튼 - 유저가 클릭하면 해당 버튼의 텍스트가 전송된다*/
-                            data : {
-                                title: "텍스트형 버튼", /* 버튼에 노출하는 버튼명 (최대 18자)*/
-                                code: "code" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 1,000자)*/
+                            "type": "TEXT", /* 텍스트형 버튼 - 유저가 클릭하면 해당 버튼의 텍스트가 전송된다*/
+                            "data" : {
+                                "title": "텍스트형 버튼", /* 버튼에 노출하는 버튼명 (최대 18자)*/
+                                "code": "code" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 1,000자)*/
                             }
                         },
                         {
-                            type: "LINK", /* 링크형 버튼 - 유저가 클릭하면 해당 페이지를 연다 */
-                            data: {
-                                title: "링크형 버튼", /* 버튼에 노출하는 버튼명 (최대 18자)*/
-                                url: "https://dominos-bot.talk.naver.com/view/menu/1", /* 톡톡 PC버전 채팅창에서 링크 URL */
-                                mobileUrl: "https://dominos-bot.talk.naver.com/view/menu/1#nafullscreen" /* 톡톡 모바일버전 채팅창에서 링크 URL */
+                            "type": "LINK", /* 링크형 버튼 - 유저가 클릭하면 해당 페이지를 연다 */
+                            "data": {
+                                "title": "링크형 버튼", /* 버튼에 노출하는 버튼명 (최대 18자)*/
+                                "url": "https://dominos-bot.talk.naver.com/view/menu/1", /* 톡톡 PC버전 채팅창에서 링크 URL */
+                                "mobileUrl": "https://dominos-bot.talk.naver.com/view/menu/1#nafullscreen" /* 톡톡 모바일버전 채팅창에서 링크 URL */
                             }
                         },
                         {
-                            type: "OPTION", /* 옵션형 버튼 - 2depth로 이루어진 버튼. 유저가 클릭하면 채팅창 하단에 버튼 목록이 노출된다. */
-                            data: {
-                                title : "옵션형 버튼",
-                                buttonList :[
+                            "type": "OPTION", /* 옵션형 버튼 - 2depth로 이루어진 버튼. 유저가 클릭하면 채팅창 하단에 버튼 목록이 노출된다. */
+                            "data": {
+                                "title" : "옵션형 버튼",
+                                "buttonList" :[
                                     {
-                                        type: "TEXT", /* 옵션형 버튼은 TEXT, LINK, PAY 타입만 허용된다 */
-                                        data : {
-                                            title: "옵션-텍스트버튼", /* 옵션형 버튼에 노출하는 버튼명 (최대 10자) */
-                                            code : "code"
+                                        "type": "TEXT", /* 옵션형 버튼은 TEXT, LINK, PAY 타입만 허용된다 */
+                                        "data" : {
+                                            "title": "옵션-텍스트버튼", /* 옵션형 버튼에 노출하는 버튼명 (최대 10자) */
+                                            "code" : "code"
                                         }
                                     },
                                     {
-                                        type: "LINK",
-                                        data : {
-                                            title: "옵션-링크버튼",
-                                            url: "https://dominos-bot.talk.naver.com/view/menu/1",
-                                            mobileUrl: "https://dominos-bot.talk.naver.com/view/menu/1#nafullscreen"
+                                        "type": "LINK",
+                                        "data" : {
+                                            "title": "옵션-링크버튼",
+                                            "url": "https://dominos-bot.talk.naver.com/view/menu/1",
+                                            "mobileUrl": "https://dominos-bot.talk.naver.com/view/menu/1#nafullscreen"
                                         }
                                     }
                                 ]
@@ -325,7 +325,6 @@ app.post('/naverTalkTalk', function (req, res) {
 
 
                         var params = querystring.stringify({
-
                             kind: 1,
                             page:  data.photo_page,
                             type: 'photoView',
@@ -486,6 +485,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                 if (text.indexOf("이전") != -1) {
                                     //res.json(actionNtConcierge.getConciergeExpress("spaces1", req.body, ''));
+                                    console.log(testResponse);
                                     res.json(testResponse);
                                     data.spaces1 = true;
                                     data.spaces2 = false;
