@@ -232,58 +232,58 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
         var result =
             {
-                "success": true,
-                "resultCode": "00",
-                "resultMessage": "success",
-                "request": {
-                    "event": "send",
-                    "sender": "partner",
-                    "user": body.user,
-                    "partner": body.partner,
-                    "compositeContent":{
-                        "compositeList":[
-                            {
-                                "title": "공간브랜딩이 필요하신가요?",
-                                "description": "공간브랜딩은 주로 상업공간에서, " +
-                                "\n공간과 해당 브랜드의 아이덴티티를 일치시켜" +
-                                "\n해당 공간에 대한 차별화된 가치를 높여주는 것을 말합니다." +
-                                "\n\n많은 경우에 브랜드 로고 디자인 작업, 패키지, " +
-                                "\n내부/외부 간판, 메뉴 판넬 등의 작업이 같이 진행됩니다.",
+                "event": "send",
+                "sender": "partner",
+                "user": body.user,
+                "partner": body.partner,
+                "compositeContent":{
+                    "compositeList":[
+                        {
+                            "title": "공간브랜딩이 필요하신가요?",
+                            "description": "공간브랜딩은 주로 상업공간에서, " +
+                            "\n공간과 해당 브랜드의 아이덴티티를 일치시켜" +
+                            "\n해당 공간에 대한 차별화된 가치를 높여주는 것을 말합니다." +
+                            "\n\n많은 경우에 브랜드 로고 디자인 작업, 패키지, " +
+                            "\n내부/외부 간판, 메뉴 판넬 등의 작업이 같이 진행됩니다.",
 
 
-                                "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
-                                    "width": 290,
-                                    "height": 150
-                                },
+                            "image": {
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
+                            },
 
-                                "buttonList":[
-                                    {
-                                        "type": "TEXT",
+                            "buttonList":[
+                                {
+                                    "type": "TEXT",
+                                    "data": {
                                         "text": "네"
+                                    }
 
-                                    },
-                                    {
-                                        "type": "TEXT",
+
+                                },
+                                {
+                                    "type": "TEXT",
+                                    "data": {
                                         "text": "아니오"
-
-                                    },
-                                    {
-                                        "type": "TEXT",
+                                    }
+                                },
+                                {
+                                    "type": "TEXT",
+                                    "data": {
                                         "text": "← 이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
-                                ]
-                            }
-                        ]
-                    }
+
+                                }
+                            ]
+                        }
+                    ]
                 }
+
             };
 
 
 
     }else if(type === 'spaceMeasure'){
-
 
 
         var result =
@@ -301,7 +301,6 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n대략적인 면적을 입력해 주세요." +
                             "\n저희가 해당 조건에 맞는 사례를 보여드립니다." +
                             "\n\n예) 30 -> 30평, 119m -> 119㎡ (약 39평)",
-
 
                             "image": {
                                 "imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
@@ -344,7 +343,6 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n저희가 해당 조건에 맞는 사례를 보여드립니다." +
                             "\n\n예) 800 950 -> 800만원~950만원 범위" +
                             "\n1000~1500 -> 1,000만원~1,500만원 범위",
-
 
 
                             "image": {
@@ -940,7 +938,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                                     {
                                         "type": "TEXT",
                                         "data":{
-                                            "text": "다시 시작 [컨시어지]",
+                                            "title": "다시 시작 [컨시어지]",
                                             "code": '컨시어지'
                                         }
 
@@ -948,7 +946,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                                     {
                                         "type": "TEXT",
                                         "data":{
-                                            "text": "시작페이지로 이동 [시작]",
+                                            "title": "시작페이지로 이동 [시작]",
                                             "code": 'welcome'
                                         }
 
@@ -981,7 +979,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                                 {
                                     "type": "TEXT",
                                     "data":{
-                                        "text": "사진 더보기 [사진]",
+                                        "title": "사진 더보기 [사진]",
                                         "code": '사진 더보기'
                                     }
 
@@ -989,7 +987,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                                 {
                                     "type": "TEXT",
                                     "data":{
-                                        "text": "시작페이지로 이동 [시작]",
+                                        "title": "시작페이지로 이동 [시작]",
                                         "code": 'welcome'
                                     }
 
