@@ -352,12 +352,11 @@ app.post('/naverTalkTalk', function (req, res) {
                         // 아웃바운드 API 결과 안내
                         var headers = {
                             'Content-type' : 'application/json',
-                            'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
-                            'X-Naver-Client-Secret': 'OD6sEB94LH',
+                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
                         };
 
                         var options2 = {
-                            url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
+                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
                             method: 'POST',
                             headers: headers,
                             json: actionNtConcierge.getOutBoundExpress("photoHow", req.body, '')
@@ -1007,10 +1006,8 @@ app.post('/naverTalkTalk', function (req, res) {
             case 'open' :
                 switch(req.body.options.inflow) {
                     case 'list' :
-                        console.log("list");
-                        res.json(testResponse);
-                        console.log(JSON.stringify(testResponse));
-                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+
+                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     case 'none' :
                         console.log("none");
@@ -1019,10 +1016,8 @@ app.post('/naverTalkTalk', function (req, res) {
                         //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
-                        console.log("default");
-                        res.json(testResponse);
-                        console.log(JSON.stringify(testResponse));
-                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+
+                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
 
                         break;
 
@@ -1033,7 +1028,7 @@ app.post('/naverTalkTalk', function (req, res) {
                     textResponse.request.textContent.text = '인집사: 친구가되어주셔서 감사합니다.';
                     res.json(textResponse);
                 } else if(req.body.options.set == 'off') {
-                    textResponse.request.textContent.text = '인집사: 다음번에 꼭 친구추가 부탁드려요.';
+                    textResponse.request.textContent.text = '인집사: 다음번에 다시 꼭 친구추가 부탁드려요.';
                     res.json(textResponse);
                 } else {
                     res.json(defaultResponse);
