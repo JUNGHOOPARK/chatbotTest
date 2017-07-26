@@ -208,8 +208,8 @@ app.post('/naverTalkTalk', function (req, res) {
                  "data": [
                      {
                          "title" : "test",
-                         "description" : "사업자유형:개인사업자 / 경력:15년" +
-                         "\n활동지역:서울 / 주요분야:상업공간" ,
+                         "description" : "경력 : 15년" +
+                         "\n주요분야 : 상업공간" ,
                          "subDescription" : "",
                          "image" : {
                          "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png"
