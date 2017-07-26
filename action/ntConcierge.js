@@ -70,6 +70,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         var actions = [];
         var obj = {};
         obj.data = {};
+        obj.data.title = {};
         for (prop in temp) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
@@ -87,10 +88,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             }
         }
         obj.type = "TEXT";
-        obj.data.text = "← 이전 단계로 돌아가기";
+        obj.data.title = "← 이전 단계로 돌아가기";
         obj.data.code = "-1";
         actions.push(obj);
-        obj.data = {};
         obj = {};
 
         var result =
