@@ -49,8 +49,8 @@
           <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="524">
-                  <caret line="500" column="82" lean-forward="false" selection-start-line="500" selection-start-column="82" selection-end-line="500" selection-end-column="82" />
+                <state relative-caret-position="593">
+                  <caret line="503" column="66" lean-forward="false" selection-start-line="503" selection-start-column="66" selection-end-line="503" selection-end-column="66" />
                   <folding />
                 </state>
               </provider>
@@ -442,7 +442,7 @@
       <workItem from="1500431710073" duration="4917000" />
       <workItem from="1500516980823" duration="2079000" />
       <workItem from="1500977199445" duration="3878000" />
-      <workItem from="1501034362037" duration="14716000" />
+      <workItem from="1501034362037" duration="14813000" />
     </task>
     <task id="LOCAL-00001" summary="문구수정">
       <created>1500517164324</created>
@@ -462,7 +462,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313629000" />
+    <option name="totallyTimeSpent" value="313726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -823,8 +823,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="500" column="82" lean-forward="false" selection-start-line="500" selection-start-column="82" selection-end-line="500" selection-end-column="82" />
+        <state relative-caret-position="593">
+          <caret line="503" column="66" lean-forward="false" selection-start-line="503" selection-start-column="66" selection-end-line="503" selection-end-column="66" />
           <folding />
         </state>
       </provider>
