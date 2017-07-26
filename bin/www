@@ -196,22 +196,22 @@ app.post('/naverTalkTalk', function (req, res) {
                 {
                     "title": "TEST",
                     "description": "TEST설명",
-                    /*"image": {
+                    "image": {
                         "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png"
-                    },*/
-                    /*"elementList": {
+                    },
+                    "elementList": {
                  "type": "LIST",
                  "data": [
-                 {
-                 "title" : "test",
-                 "description" : "1111",
-                 "subDescription" : "2222",
-                 "image" : {
-                 "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png"
-                 }
-                 }
+                     {
+                         "title" : "test",
+                         "description" : "1111",
+                         "subDescription" : "2222",
+                         "image" : {
+                         "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png"
+                        }
+                     }
                  ]
-                 },*/
+                 },
                     "buttonList": [
                         {
                             "type": "TEXT", /* 텍스트형 버튼 - 유저가 클릭하면 해당 버튼의 텍스트가 전송된다*/

@@ -466,11 +466,14 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
     }else if(type === 'experts'){
 
-        var compositeList =[],
-             buttonList =[],
+        var compositeList = [],
+             buttonList = [],
+            elementList = {},
+            elementList_data = [],
              obj = {},
-             obj2 = {};
-            console.log(opt);
+             obj2 = {},
+             obj3 = {};
+
         for(var i = 0 ; i < opt.length; i++){
             var match =  opt[i].src.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
@@ -490,15 +493,16 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 opt[i].title = opt[i].title.substring(0,20);
                 opt[i].title += "&middot;&middot;&middot;";
             }
-            obj.title = opt[i].businessName+"\n\n"+opt[i].title;
+            elementList.type = "LIST";
+            obj3.title = opt[i].businessName+"\n\n"+opt[i].title;
+            //obj.title = opt[i].businessName+"\n\n"+opt[i].title;
 
-            // var stringByteLength = obj.title.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g,"$&$1$2").length;
-            // console.log(stringByteLength + " Bytes");
-            // console.log(obj.title.length + " length");
+            obj3.description = "구분 : "+ opt[i].spaceName +"\n시기 : "+ opt[i].deadLine +"\n면적 : "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)\n예산 : "+util.budget[opt[i].budget];
+            //obj.description = "구분 : "+ opt[i].spaceName +"\n시기 : "+ opt[i].deadLine +"\n면적 : "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)\n예산 : "+util.budget[opt[i].budget];
+            obj3.image = {
+                "imageUrl": "https://interiorbrothers.com/"+opt[i].profileImage
+            };
 
-
-            obj.description = "구분 : "+ opt[i].spaceName +"\n시기 : "+ opt[i].deadLine +"\n면적 : "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)\n예산 : "+util.budget[opt[i].budget];
-            // obj.title = opt[i].businessName+"-"+opt[i].title;
             obj.image = {
                 "imageUrl": "https://interiorbrothers.com/"+opt[i].src
             };
@@ -510,13 +514,21 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "mobileUrl": "https://www.interiorbrothers.com/mobile/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId,
             };
 
+            elementList_data.push(obj3);
+            elementList.data = elementList_data;
+            obj.elementList = elementList;
             buttonList.push(obj2);
             obj.buttonList = buttonList;
             compositeList.push(obj);
 
+            obj3 = {};
+            elementList = {};
+            elementList_data = [];
             obj2 = {};
             obj = {};
             buttonList = [];
+
+            console.log(JSON.stringify(compositeList));
         }
 
         var result =
