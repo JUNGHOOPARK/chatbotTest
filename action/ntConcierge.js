@@ -498,7 +498,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             // obj.title = opt[i].businessName+"\n\n"+opt[i].title;
             obj.title = opt[i].title;
 
-            obj3.description = "구분 : "+ opt[i].spaceName +"  시기 : "+ opt[i].deadLine +"\n면적 : "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)  예산 : "+util.budget[opt[i].budget];
+            obj3.description = "경력 : "+ opt[i].career +"\n전문분야 : "+util.mainSpecialty[opt[i].mainSpecialty];
             obj.description = "구분 : "+ opt[i].spaceName +"\n시기 : "+ opt[i].deadLine +"\n면적 : "+(opt[i].size).toFixed(2)+"m²("+(opt[i].size / 3.3).toFixed(2) +" 평)\n예산 : "+util.budget[opt[i].budget];
             obj3.image = {
                 "imageUrl": "https://interiorbrothers.com"+opt[i].profileImage
