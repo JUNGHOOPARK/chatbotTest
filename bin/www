@@ -1019,8 +1019,8 @@ app.post('/naverTalkTalk', function (req, res) {
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     case 'none' :
-                        //res.json(testResponse);
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        res.json(testResponse);
+                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
 
