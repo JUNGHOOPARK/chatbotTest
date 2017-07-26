@@ -113,7 +113,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     ]
                 }
             };
-
+        console.log(JSON.stringify(result));
     }else if(type === 'spaces3'){
         var temp, prop,
             cnt = 0;
