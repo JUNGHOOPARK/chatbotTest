@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/ntConcierge.js" afterPath="$PROJECT_DIR$/action/ntConcierge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,24 +20,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.44188863">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="www" pinned="false" current-in-tab="false">
+          <file leaf-file-name="www" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/bin/www">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="586">
-                  <caret line="330" column="54" lean-forward="true" selection-start-line="330" selection-start-column="54" selection-end-line="330" selection-end-column="54" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="747">
-                  <caret line="612" column="38" lean-forward="false" selection-start-line="612" selection-start-column="38" selection-end-line="612" selection-end-column="38" />
+                <state relative-caret-position="656">
+                  <caret line="216" column="45" lean-forward="false" selection-start-line="216" selection-start-column="45" selection-end-line="216" selection-end-column="45" />
                   <folding />
                 </state>
               </provider>
@@ -50,8 +40,8 @@
           <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="690">
-                  <caret line="95" column="24" lean-forward="false" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+                <state relative-caret-position="-2214">
+                  <caret line="992" column="57" lean-forward="false" selection-start-line="992" selection-start-column="57" selection-end-line="992" selection-end-column="57" />
                   <folding />
                 </state>
               </provider>
@@ -70,7 +60,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;width&quot;: 530,</find>
       <find>width</find>
       <find>status_oops_w</find>
       <find>사진보</find>
@@ -98,11 +87,11 @@
       <find>spaces1</find>
       <find>res.json(testResponse);</find>
       <find>res.sen</find>
-      <find>welcome</find>
       <find>req.body.textContent.</find>
+      <find>welcome</find>
+      <find>text</find>
     </findStrings>
     <replaceStrings>
-      <replace>i</replace>
       <replace>ntSession.</replace>
       <replace>[1]</replace>
       <replace>[2]</replace>
@@ -132,6 +121,7 @@
       <replace>컨시어지</replace>
       <replace>https://interiorbrothers.com</replace>
       <replace>&quot;width&quot;: 290,</replace>
+      <replace>title</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -443,7 +433,7 @@
       <workItem from="1500431710073" duration="4917000" />
       <workItem from="1500516980823" duration="2079000" />
       <workItem from="1500977199445" duration="3878000" />
-      <workItem from="1501034362037" duration="7351000" />
+      <workItem from="1501034362037" duration="9955000" />
     </task>
     <task id="LOCAL-00001" summary="문구수정">
       <created>1500517164324</created>
@@ -463,7 +453,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="306264000" />
+    <option name="totallyTimeSpent" value="308868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -815,16 +805,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="330" column="54" lean-forward="true" selection-start-line="330" selection-start-column="54" selection-end-line="330" selection-end-column="54" />
+        <state relative-caret-position="656">
+          <caret line="216" column="45" lean-forward="false" selection-start-line="216" selection-start-column="45" selection-end-line="216" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="95" column="24" lean-forward="false" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+        <state relative-caret-position="-2214">
+          <caret line="992" column="57" lean-forward="false" selection-start-line="992" selection-start-column="57" selection-end-line="992" selection-end-column="57" />
           <folding />
         </state>
       </provider>
