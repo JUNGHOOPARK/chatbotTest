@@ -1007,31 +1007,24 @@ app.post('/naverTalkTalk', function (req, res) {
             case 'open' :
                 switch(req.body.options.inflow) {
                     case 'list' :
-                       /* textResponse.request.textContent.text = "안녕하세요. 브라더스 컨시어지를 시작하시려면 '컨시어지' 라고 입력해주세요!  ";
-                        res.json(textResponse);*/
 
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     case 'none' :
-                       // res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                      /*  textResponse.request.textContent.text = '화면을 갱신하셨네요.';
 
-                        res.json(textResponse);
-
-                        imgResponse.request.imageContent.imageUrl = "https://interiorbrothers.com/img/main/qualityPortfolios.png";
-                        imgResponse.request.imageContent.height = 300;
-                        imgResponse.request.imageContent.width = 300;
-                        res.json(imgResponse);
-                       */
-                       // res.json(defaultResponse);
-                        console.log("1");
-                        res.json(testResponse);
-                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
-                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                        console.log("2");
-                        res.json(testResponse);
+                        var response = {
+                            event: 'send', /* send message */
+                            textContent: {
+                                text: '~~~'
+                            }
+                        };
+                        res.json(response);
+
+
+                        //res.json(testResponse);
                         //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
 
                         break;
@@ -1050,7 +1043,7 @@ app.post('/naverTalkTalk', function (req, res) {
                 }
                 break;
             default:
-                res.json(defaultResponse);
+                res.sendStatus(200);
         }
     });
 
