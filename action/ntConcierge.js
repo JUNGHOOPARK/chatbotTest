@@ -67,9 +67,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         var temp, prop,
             cnt = 0;
         temp = util.portfolioDivision[opt];
-        var actions = new Array();
-        var obj = new Object();
-
+        var actions = [];
+        var obj = {};
+        obj.data = {};
         for (prop in temp) {
 
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
@@ -90,7 +90,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         obj.data.text = "← 이전 단계로 돌아가기";
         obj.data.code = "-1";
         actions.push(obj);
-        obj = new Object();
+        obj.data = {};
+        obj = {};
 
         var result =
             {
@@ -120,7 +121,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         temp = util.portfolioDivision[opt[0]][opt[1]];
         var actions = new Array();
         var obj = new Object();
-
+        obj.data = {};
         var html = "";
         for (prop in temp) {
             if (temp.hasOwnProperty(prop) && prop !== 'name') {
@@ -143,6 +144,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         obj.data.title = "← 이전 단계로 돌아가기";
         obj.data.code = "-1";
         actions.push(obj);
+
         obj = new Object();
 
         var result =
