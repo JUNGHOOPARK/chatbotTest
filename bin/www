@@ -196,9 +196,9 @@ app.post('/naverTalkTalk', function (req, res) {
                 {
                     "title": "TEST",
                     "description": "TEST설명",
-                    "image": {
+                    /*"image": {
                         "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png"
-                    },
+                    },*/
                     "elementList": {
                         "type": "LIST",
                         "data": [
