@@ -77,13 +77,13 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 if(cnt < 10){
                     ++cnt;
                     obj.type = "TEXT";
-                    console.log(temp[prop].name);
                     obj2.title = temp[prop].name;
                     obj2.code = cnt;
                     obj.data = obj2;
                     actions.push(obj);
-                    console.log(obj);
-                    obj = new Object();
+
+                    obj = {};
+                    obj2 = {};
                 }else{
                     break;
                 }
@@ -95,7 +95,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         obj.data.code = "-1";
         actions.push(obj);
         obj = {};
-
+        obj2 = {};
         var result =
             {
                 "event": "send",
