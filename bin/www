@@ -208,16 +208,8 @@ app.post('/naverTalkTalk', function (req, res) {
                  "data": [
                      {
                          "title" : "test",
-                         "description" : "" +
-                             "구분 : 패션" +
-                             "  시기 : 2015-03-01" +
-                             "\n면적 : 132.00m²(40.00 평)" +
-                             "  예산 : 9,000 ~ 1억원 사이",
-                         "subDescription" : "" +
-                              "구분 : 패션" +
-                             "\n시기 : 2015-03-01" +
-                             "\n면적 : 132.00m²(40.00 평)" +
-                             "\n예산 : 9,000 ~ 1억원 사이",
+                         "description" : "" ,
+                         "subDescription" : "",
                          "image" : {
                          "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png"
                         }
