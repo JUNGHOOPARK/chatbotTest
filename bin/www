@@ -1021,10 +1021,11 @@ app.post('/naverTalkTalk', function (req, res) {
                                 text: '~~~'
                             }
                         };
-                        res.json(response);
+                        //res.json(response);
 
 
-                        //res.json(testResponse);
+                        res.json(testResponse);
+                        console.log(JSON.stringify(testResponse));
                         //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
 
                         break;
