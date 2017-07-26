@@ -6,59 +6,61 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
     if(type === 'spaces1'){
         var result =
-            {
-                "success": true,
-                "resultCode": "00",
-                "resultMessage": "success",
-                "request": {
-                    "event": "send",
-                    "sender": "partner",
-                    "user": body.user,
-                    "partner": body.partner,
-                    "compositeContent":{
-                        "compositeList":[
-                            {
-                                "title": "어떤 공간을 인테리어 하시나요?", /* bold스타일의 텍스트 (최대 200자) */
-                                "description": "인테리어 하려는 공간에 해당하는 카테고리를 선택해 주세요.",
-                                /* imageContent와 상동 */
-                                "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
-                                    "width": 290, /* 이미지의 높이 (픽셀단위) */
-                                    "height": 150 /* 이미지의 폭 (픽셀단위) */
-                                },
-                                /* composite 메시지 하단 버튼 정의 (최대 10개가능) */
-                                "buttonList": [
-                                    /* TEXT 버튼은 유저가 textContent 를 보내는 것처럼 동작 */
-                                    {
-                                        "type": "TEXT",
-                                        "text": "상업공간", /* 버튼에 노출하는 버튼명 (최대 20자)*/
-                                        "code": "1" /* code를 정의하는경우 유저가 보내는 send이벤트 textContent에 code가 삽입되어 전송됨 (최대 40자)*/
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "업무공간", 
-                                        "code": "2"
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "주거공간",
-                                        "code": "3"
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "문화/종교공간",
-                                        "code": "4" 
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "기타공간", 
-                                        "code": "5" 
-                                    }
+             {
+                "event": "send",
 
-                                ]
-                            }
-                        ]
-                    }
+                "user": body.user,
+                "compositeContent":{
+                    "compositeList":[
+                        {
+                            "title": "어떤 공간을 인테리어 하시나요?", /* bold스타일의 텍스트 (최대 200자) */
+                            "description": "인테리어 하려는 공간에 해당하는 카테고리를 선택해 주세요.",
+                            /* imageContent와 상동 */
+                            "image": {
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
+                            },
+                            /* composite 메시지 하단 버튼 정의 (최대 10개가능) */
+                            "buttonList": [
+                                /* TEXT 버튼은 유저가 textContent 를 보내는 것처럼 동작 */
+                                {
+                                    "type": "TEXT",
+                                    "data" : {
+                                        "title": "상업공간",
+                                        "code": '1'
+                                    }
+                                },
+                                {
+                                    "type": "TEXT",
+                                    "data" : {
+                                        "title": "업무공간",
+                                        "code": "2"
+                                    }
+                                },
+                                {
+                                    "type": "TEXT",
+                                    "data" : {
+                                        "title": "주거공간",
+                                        "code": "3"
+                                    }
+                                },
+                                {
+                                    "type": "TEXT",
+                                    "data" : {
+                                        "title": "문화/종교공간",
+                                        "code": "4"
+                                    }
+                                },
+                                {
+                                    "type": "TEXT",
+                                    "data" : {
+                                        "title": "기타공간",
+                                        "code": "5"
+                                    }
+                                }
+
+                            ]
+                        }
+                    ]
                 }
             };
 
@@ -75,8 +77,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 if(cnt < 10){
                     ++cnt;
                     obj.type = "TEXT";
-                    obj.text = temp[prop].name;
-                    obj.code = cnt;
+                    obj.data.title = temp[prop].name;
+                    obj.data.code = cnt;
                     actions.push(obj);
                     obj = new Object();
                 }else{
@@ -86,39 +88,30 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             }
         }
         obj.type = "TEXT";
-        obj.text = "← 이전 단계로 돌아가기";
-        obj.code = "-1";
+        obj.data.text = "← 이전 단계로 돌아가기";
+        obj.data.code = "-1";
         actions.push(obj);
         obj = new Object();
 
         var result =
             {
-                "success": true,
-                "resultCode": "00",
-                "resultMessage": "success",
-                "request": {
-                    "event": "send",
-                    "sender": "partner",
-                    "user": body.user,
-                    "partner": body.partner,
-                    "compositeContent":{
-                        "compositeList":[
-                            {
-                                "title": "어떤 공간을 인테리어 하시나요?",
-                                "description": "인테리어 하려는 공간의 상세 분류를 선택해 주세요." +
-                                "\n\n원하는 공간 분류가 없는 경우 " +
-                                "\n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
+                "event": "send",
+                "user": body.user,
+                "compositeContent":{
+                    "compositeList":[
+                        {
+                            "title": "어떤 공간을 인테리어 하시나요?",
+                            "description": "인테리어 하려는 공간의 상세 분류를 선택해 주세요." +
+                            "\n\n원하는 공간 분류가 없는 경우 " +
+                            "\n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
 
-                                "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
-                                    "width": 290,
-                                    "height": 150
-                                },
+                            "image": {
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
+                            },
 
-                                "buttonList": actions
-                            }
-                        ]
-                    }
+                            "buttonList": actions
+                        }
+                    ]
                 }
             };
 
@@ -135,8 +128,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 if(cnt < 10){
                     ++cnt;
                     obj.type = "TEXT";
-                    obj.text = temp[prop];
-                    obj.code = cnt;
+                    obj.data.title = temp[prop];
+                    obj.data.code = cnt;
                     actions.push(obj);
 
                     obj = new Object();
@@ -148,39 +141,30 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         }
 
         obj.type = "TEXT";
-        obj.text = "← 이전 단계로 돌아가기";
-        obj.code = "-1";
+        obj.data.title = "← 이전 단계로 돌아가기";
+        obj.data.code = "-1";
         actions.push(obj);
         obj = new Object();
 
         var result =
             {
-                "success": true,
-                "resultCode": "00",
-                "resultMessage": "success",
-                "request": {
-                    "event": "send",
-                    "sender": "partner",
-                    "user": body.user,
-                    "partner": body.partner,
-                    "compositeContent":{
-                        "compositeList":[
-                            {
-                                "title": "어떤 공간을 인테리어 하시나요?",
-                                "description": "인테리어 하려는 공간을 선택해 주세요." +
-                                "\n\n원하는 공간이 없는 경우 \n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
+                "event": "send",
+                "user": body.user,
+                "compositeContent":{
+                    "compositeList":[
+                        {
+                            "title": "어떤 공간을 인테리어 하시나요?",
+                            "description": "인테리어 하려는 공간을 선택해 주세요." +
+                            "\n\n원하는 공간이 없는 경우 \n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
 
 
-                                "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
-                                    "width": 290,
-                                    "height": 150
-                                },
+                            "image": {
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
+                            },
 
-                                "buttonList": actions
-                            }
-                        ]
-                    }
+                            "buttonList": actions
+                        }
+                    ]
                 }
             };
 
@@ -189,49 +173,46 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
         var result =
             {
-                "success": true,
-                "resultCode": "00",
-                "resultMessage": "success",
-                "request": {
-                    "event": "send",
-                    "sender": "partner",
-                    "user": body.user,
-                    "partner": body.partner,
-                    "compositeContent":{
-                        "compositeList":[
-                            {
-                                "title": "전문가의 도움이 필요한 범위를 선택해 주세요",
-                                "description": "일반적으로는" +
-                                "\n'인테리어 디자인' + '시공'" +
-                                "\n을 선택하시면 됩니다.",
+                "event": "send",
+                "user": body.user,
+                "compositeContent":{
+                    "compositeList":[
+                        {
+                            "title": "전문가의 도움이 필요한 범위를 선택해 주세요",
+                            "description": "일반적으로는" +
+                            "\n'인테리어 디자인' + '시공'" +
+                            "\n을 선택하시면 됩니다.",
 
-                                "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
-                                    "width": 290,
-                                    "height": 150
-                                },
+                            "image": {
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
+                            },
 
-                                "buttonList":[
-                                    {
-                                        "type": "TEXT",
-                                        "text": "인테리어 디자인+시공",
+                            "buttonList":[
+                                {
+                                    "type": "TEXT",
+                                    "data":{
+                                        "title": "인테리어 디자인+시공",
                                         "code": "1"
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "인테리어 디자인+시공+스타일링",
+                                    }
+                                },
+                                {
+                                    "type": "TEXT",
+                                    "data": {
+                                        "title": "인테리어 디자인+시공+스타일링",
                                         "code": "5"
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "text": "← 이전 단계로 돌아가기",
+                                    }
+                                },
+                                {
+                                    "type": "TEXT",
+                                    "data": {
+                                        "title": "← 이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
+                                }
 
-                                ]
-                            }
-                        ]
-                    }
+                            ]
+                        }
+                    ]
                 }
             };
 
@@ -660,7 +641,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     {
                                         "type" : "TEXT",
                                         "data" : {
-                                            "text": "전문가 찾기 [컨시어지]",
+                                            "title": "전문가 찾기 [컨시어지]",
                                             "code": '컨시어지'
                                         }
 
@@ -668,7 +649,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     {
                                         "type": "TEXT",
                                         "data" : {
-                                            "text": "사진보기 [사진]",
+                                            "title": "사진보기 [사진]",
                                             "code": '사진보기'
                                         }
 
