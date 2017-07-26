@@ -1007,29 +1007,25 @@ app.post('/naverTalkTalk', function (req, res) {
             case 'open' :
                 switch(req.body.options.inflow) {
                     case 'list' :
-
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        console.log("list");
+                        res.json(testResponse);
+                        console.log(JSON.stringify(testResponse));
+                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     case 'none' :
-
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        console.log("none");
+                        res.json(testResponse);
+                        console.log(JSON.stringify(testResponse));
+                        //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
-                        var response = {
-                            event: 'send', /* send message */
-                            textContent: {
-                                text: '~~~'
-                            }
-                        };
-                        //res.json(response);
-
-
+                        console.log("default");
                         res.json(testResponse);
                         console.log(JSON.stringify(testResponse));
                         //res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
 
                         break;
-                        //res.json(defaultResponse);
+
                 }
                 break;
             case 'friend' :
