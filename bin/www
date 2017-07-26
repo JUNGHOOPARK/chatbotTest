@@ -225,6 +225,7 @@ app.post('/naverTalkTalk', function (req, res) {
         switch(req.body.event) {
             case 'send' :
                 if(req.body.sender == 'user' && req.body.textContent) {
+                    console.log(req.body);
                 var text = req.body.textContent.title,
                     code = req.body.textContent.code;
 
