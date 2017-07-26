@@ -444,7 +444,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                         //에러발생시
                         if (data.errorStatus === true) {
-                            console.log(req.body.user);
+
                             var code = req.body.textContent.code;
 
                             data.errorStatus = false;
@@ -967,12 +967,11 @@ app.post('/naverTalkTalk', function (req, res) {
                                         // 아웃바운드 API 결과 안내
                                         var headers = {
                                             'Content-type' : 'application/json',
-                                            'X-Naver-Client-Id': 'kxknP0SrJqrMohAQsT4V',
-                                            'X-Naver-Client-Secret': 'OD6sEB94LH',
+                                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
                                         };
 
                                         var options2 = {
-                                            url: 'https://dev.apis.naver.com/talk-partner/talk-bot/event',
+                                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
                                             method: 'POST',
                                             headers: headers,
                                             json: actionNtConcierge.getOutBoundExpress("how", req.body, '')

@@ -120,7 +120,6 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     ]
                 }
             };
-        console.log(JSON.stringify(result));
 
     }else if(type === 'spaces3'){
         var temp, prop,
@@ -920,7 +919,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 };
 
 module.exports.getOutBoundExpress = function (type,body,opt) {
-    console.log(type);
+
     if(type === 'how'){
         var result =
             {
