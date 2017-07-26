@@ -259,7 +259,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 {
                                     "type": "TEXT",
                                     "data": {
-                                        "text": "네"
+                                        "title": "네"
                                     }
 
 
@@ -267,13 +267,13 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 {
                                     "type": "TEXT",
                                     "data": {
-                                        "text": "아니오"
+                                        "title": "아니오"
                                     }
                                 },
                                 {
                                     "type": "TEXT",
                                     "data": {
-                                        "text": "← 이전 단계로 돌아가기",
+                                        "title": "← 이전 단계로 돌아가기",
                                         "code": "-1"
                                     }
 
@@ -923,7 +923,6 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
     if(type === 'how'){
         var result =
             {
-
                     "event": "send",
                     "user": body.user,
                     "compositeContent":{
@@ -962,7 +961,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
 
             };
 
-    }    if(type === 'photoHow'){
+    }else if(type === 'photoHow'){
         var result =
             {
                 "event": "send",
