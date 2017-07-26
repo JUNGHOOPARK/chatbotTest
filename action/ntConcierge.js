@@ -639,15 +639,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             };
     }else if(type === 'welcome'){
         var result =
-            {
-                "success": true,
-                "resultCode": "00",
-                "resultMessage": "success",
-                "request": {
-                    "event": "send",
-                    "sender": "partner",
-                    "user": body.user,
-                    "partner": body.partner,
+                {
+                "event": "send",
+                "user": body.user,
                     "compositeContent":{
                         "compositeList":[
                             {
@@ -660,39 +654,39 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                                 "image": {
                                     "imageUrl": "https://interiorbrothers.com/images/chatbot/welcome.png",
-                                    "width": 290,
-                                    "height": 150
                                 },
 
                                 "buttonList":[
                                     {
-                                        "type": "TEXT",
-                                        "text": "전문가 찾기 [컨시어지]",
-                                        "code": '컨시어지'
+                                        "type" : "TEXT",
+                                        "data" : {
+                                            "text": "전문가 찾기 [컨시어지]",
+                                            "code": '컨시어지'
+                                        }
+
                                     },
                                     {
                                         "type": "TEXT",
-                                        "text": "사진보기 [사진]",
-                                        "code": '사진보기'
+                                        "data" : {
+                                            "text": "사진보기 [사진]",
+                                            "code": '사진보기'
+                                        }
+
                                     },
                                     {
                                         "type": "LINK",
-                                        "link": {
+                                        "data": {
                                             "title": "전문가 리스트 (웹사이트로 이동)",
                                             "url": "https://www.interiorbrothers.com/findexpert",
                                             "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
-                                            "targetSelf": true,
-                                            "pcTargetSelf": false
                                         }
                                     },
                                     {
                                         "type": "LINK",
-                                        "link": {
+                                        "data": {
                                             "title": "컨텐츠 (웹사이트로 이동)",
                                             "url": "https://www.interiorbrothers.com/webros",
                                             "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
-                                            "targetSelf": true,
-                                            "pcTargetSelf": false
                                         }
                                     }
 
@@ -700,8 +694,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             }
                         ]
                     }
-                }
-            };
+                };
+
     }else if(type === 'none_expert'){
         var result =
             {
