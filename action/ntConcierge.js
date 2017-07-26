@@ -470,7 +470,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
              buttonList =[],
              obj = {},
              obj2 = {};
-
+            console.log(opt);
         for(var i = 0 ; i < opt.length; i++){
             var match =  opt[i].src.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
