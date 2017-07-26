@@ -36,7 +36,7 @@
             <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="678">
-                  <caret line="607" column="55" lean-forward="false" selection-start-line="607" selection-start-column="55" selection-end-line="607" selection-end-column="55" />
+                  <caret line="608" column="55" lean-forward="false" selection-start-line="608" selection-start-column="55" selection-end-line="608" selection-end-column="55" />
                   <folding />
                 </state>
               </provider>
@@ -49,8 +49,8 @@
           <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="667">
-                  <caret line="83" column="38" lean-forward="true" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+                <state relative-caret-position="690">
+                  <caret line="84" column="37" lean-forward="false" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
@@ -442,7 +442,7 @@
       <workItem from="1500431710073" duration="4917000" />
       <workItem from="1500516980823" duration="2079000" />
       <workItem from="1500977199445" duration="3878000" />
-      <workItem from="1501034362037" duration="4609000" />
+      <workItem from="1501034362037" duration="4738000" />
     </task>
     <task id="LOCAL-00001" summary="문구수정">
       <created>1500517164324</created>
@@ -462,7 +462,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303522000" />
+    <option name="totallyTimeSpent" value="303651000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -822,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="83" column="38" lean-forward="true" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+        <state relative-caret-position="690">
+          <caret line="84" column="37" lean-forward="false" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
           <folding />
         </state>
       </provider>

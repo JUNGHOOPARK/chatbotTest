@@ -82,6 +82,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     obj2.code = cnt;
                     obj.data = obj2;
                     actions.push(obj);
+                    console.log(obj);
                     obj = new Object();
                 }else{
                     break;
