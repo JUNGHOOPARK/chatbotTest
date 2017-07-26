@@ -8,7 +8,6 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         var result =
              {
                 "event": "send",
-
                 "user": body.user,
                 "compositeContent":{
                     "compositeList":[
