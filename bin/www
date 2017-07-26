@@ -225,7 +225,7 @@ app.post('/naverTalkTalk', function (req, res) {
         switch(req.body.event) {
             case 'send' :
 
-                if(req.body.sender == 'user' && req.body.textContent) {
+                if(req.body.textContent) {
 
                 var text = req.body.textContent.text,
                     code = req.body.textContent.code;
@@ -321,9 +321,8 @@ app.post('/naverTalkTalk', function (req, res) {
                         }, 3500);
 
 
-
                     }else if(text.indexOf("컨시어지") != -1 || code === "컨시어지"){
-                    console.log("here");
+
 
                         data.concierge = true;
                         data.spaces1 = true;
