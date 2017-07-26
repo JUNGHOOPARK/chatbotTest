@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/ntConcierge.js" afterPath="$PROJECT_DIR$/action/ntConcierge.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,36 +19,18 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.42857143">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="www" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/bin/www">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="356">
-                  <caret line="968" column="38" lean-forward="false" selection-start-line="968" selection-start-column="38" selection-end-line="968" selection-end-column="38" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="356">
-                  <caret line="963" column="34" lean-forward="true" selection-start-line="963" selection-start-column="34" selection-end-line="963" selection-end-column="34" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="www" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bin/www">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="538">
+              <caret line="234" column="38" lean-forward="true" selection-start-line="234" selection-start-column="38" selection-end-line="234" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,7 +41,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>doC</find>
       <find>res</find>
       <find>image/</find>
       <find>doConcier</find>
@@ -88,8 +68,9 @@
       <find>welcome</find>
       <find>text</find>
       <find>공간브랜딩이 필요</find>
-      <find>console.log(</find>
       <find>photoH</find>
+      <find>console.log(</find>
+      <find>아웃바운드</find>
     </findStrings>
     <replaceStrings>
       <replace>ntSession.</replace>
@@ -433,7 +414,7 @@
       <workItem from="1500431710073" duration="4917000" />
       <workItem from="1500516980823" duration="2079000" />
       <workItem from="1500977199445" duration="3878000" />
-      <workItem from="1501034362037" duration="10736000" />
+      <workItem from="1501034362037" duration="10885000" />
     </task>
     <task id="LOCAL-00001" summary="문구수정">
       <created>1500517164324</created>
@@ -453,7 +434,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309649000" />
+    <option name="totallyTimeSpent" value="309798000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -803,18 +784,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="968" column="38" lean-forward="false" selection-start-line="968" selection-start-column="38" selection-end-line="968" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="963" column="34" lean-forward="true" selection-start-line="963" selection-start-column="34" selection-end-line="963" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="234" column="38" lean-forward="true" selection-start-line="234" selection-start-column="38" selection-end-line="234" selection-end-column="38" />
           <folding />
         </state>
       </provider>
