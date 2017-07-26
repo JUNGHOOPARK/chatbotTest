@@ -69,7 +69,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         temp = util.portfolioDivision[opt];
         var actions = [];
         var obj = {};
-        var data = {};
+        var obj2 = {};
 
         for (prop in temp) {
 
@@ -77,9 +77,10 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 if(cnt < 10){
                     ++cnt;
                     obj.type = "TEXT";
-                    data.title = temp[prop].name;
-                    data.code = cnt;
-                    obj.data = data;
+                    console.log(temp[prop].name);
+                    obj2.title = temp[prop].name;
+                    obj2.code = cnt;
+                    obj.data = obj2;
                     actions.push(obj);
                     obj = new Object();
                 }else{
