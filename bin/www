@@ -204,7 +204,11 @@ app.post('/naverTalkTalk', function (req, res) {
                  "data": [
                      {
                          "title" : "test",
-                         "description" : "1111",
+                         "description" : "" +
+                         "구분 : 패션" +
+                         "\n시기 : 2015-03-01" +
+                         "\n면적 : 132.00m²(40.00 평)" +
+                         "\n예산 : 9,000 ~ 1억원 사이",
                         /* "subDescription" : "2222",*/
                          "image" : {
                          "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png"
@@ -1015,8 +1019,8 @@ app.post('/naverTalkTalk', function (req, res) {
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     case 'none' :
-                        res.json(testResponse);
-                       // res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        //res.json(testResponse);
+                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
 
