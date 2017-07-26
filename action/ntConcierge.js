@@ -95,8 +95,10 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         obj2.code = "-1";
         obj.data = obj2;
         actions.push(obj);
+
         obj = {};
         obj2 = {};
+
         var result =
             {
                 "event": "send",
@@ -119,6 +121,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 }
             };
         console.log(JSON.stringify(result));
+
     }else if(type === 'spaces3'){
         var temp, prop,
             cnt = 0;
@@ -148,8 +151,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
         }
 
         obj.type = "TEXT";
-        obj.data.title = "← 이전 단계로 돌아가기";
-        obj.data.code = "-1";
+        obj2.title = "← 이전 단계로 돌아가기";
+        obj2.code = "-1";
+        obj.data = obj2;
         actions.push(obj);
 
         obj = {};
