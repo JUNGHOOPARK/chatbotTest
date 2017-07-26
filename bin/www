@@ -194,8 +194,12 @@ app.post('/naverTalkTalk', function (req, res) {
         "compositeContent": {
             "compositeList":[
                 {
-                   /* "title": "TEST",
-                    "description": "TEST설명",*/
+                    "title": "TEST",
+                    "description": ""+
+                        "구분 : 패션" +
+                        "\n시기 : 2015-03-01" +
+                        "\n면적 : 132.00m²(40.00 평)" +
+                        "\n예산 : 9,000 ~ 1억원 사이",
                     "image": {
                         "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png"
                     },
