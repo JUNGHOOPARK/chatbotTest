@@ -920,6 +920,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 };
 
 module.exports.getOutBoundExpress = function (type,body,opt) {
+    console.log(type);
     if(type === 'how'){
         var result =
             {
