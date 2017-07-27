@@ -1050,8 +1050,10 @@ app.post('/naverTalkTalk', function (req, res) {
                                 })
                             }
                         }, 1000);
+                        setTimeout(function () {
+                            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        }, 2000);
 
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
 
