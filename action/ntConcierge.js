@@ -13,7 +13,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeList":[
                         {
                             "title": "어떤 공간을 인테리어 하시나요?", /* bold스타일의 텍스트 (최대 200자) */
-                            "description": "인테리어 하려는 공간에 해당하는 카테고리를 선택해 주세요.",
+                            "description": "인테리어 하려는 공간에 해당하는\n 카테고리를 선택해 주세요.",
                             /* imageContent와 상동 */
                             "image": {
                                 //"imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
@@ -310,7 +310,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n\n영문자 m을 붙이면 ‘제곱미터(㎡)’단위로" +
                             "\n숫자만 입력시 ‘평’ 단위로 인식합니다." +
                             "\n\n예) 30 -> 30평," +
-                            "\n   119m -> 119㎡ (약 39평)",
+                            "\n      119m -> 119㎡ (약 39평)",
 
                             "image": {
                                 //"imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
@@ -351,7 +351,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n\n숫자 사이에 공백이나 ~기호를 넣어주세요." +
                             "\n만원단위로 범위를 입력해 주세요." +
                             "\n\n예) 800 950 -> 800만원~950만원 범위" +
-                            "\n   1000~1500 -> 1,000만원~1,500만원 범위",
+                            "\n \t 1000~1500 -> 1,000만원~1,500만원 범위",
 
 
                             "image": {
