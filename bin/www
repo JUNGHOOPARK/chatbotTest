@@ -425,7 +425,38 @@ app.post('/naverTalkTalk', function (req, res) {
                         data.errCode = "";
                         req.cache.set(req.body.user,JSON.stringify(data));
                         req.cache.expire(req.body.user, 600);
-                        res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
+
+
+                        // 아웃바운드 API 결과 안내
+                        var headers = {
+                            'Content-type' : 'application/json',
+                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                        };
+
+                        var options2 = {
+                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
+                            method: 'POST',
+                            headers: headers,
+                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                        };
+                        setTimeout(function () {
+                            if (message == -1) {
+                                requestSender(options2, function (error, response, body) {
+                                    if (error) {
+                                        return console.error('resultMsg failed:', error);
+                                    }
+
+                                })
+                            }
+                        }, 0);
+                        setTimeout(function () {
+
+                            res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
+
+                        }, 1000);
+
+
+
 
                     } else{
 
@@ -999,88 +1030,16 @@ app.post('/naverTalkTalk', function (req, res) {
                 switch(req.body.options.inflow) {
                     case 'list' :
 
-                        // 아웃바운드 API 결과 안내
-                        var headers = {
-                            'Content-type' : 'application/json',
-                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
-                        };
-
-                        var options2 = {
-                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
-                            method: 'POST',
-                            headers: headers,
-                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
-                        };
-                        setTimeout(function () {
-                            if (message == -1) {
-                                requestSender(options2, function (error, response, body) {
-                                    if (error) {
-                                        return console.error('resultMsg failed:', error);
-                                    }
-
-                                })
-                            }
-                        }, 0);
-
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     case 'none' :
-                        //res.json(testResponse);
 
-                        // 아웃바운드 API 결과 안내
-                        var headers = {
-                            'Content-type' : 'application/json',
-                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
-                        };
-
-                        var options2 = {
-                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
-                            method: 'POST',
-                            headers: headers,
-                            json: actionNtConcierge.getOutBoundExpress("photoHow", req.body, '')
-                        };
-
-                        setTimeout(function () {
-                            if (message == -1) {
-                                requestSender(options2, function (error, response, body) {
-                                    if (error) {
-                                        return console.error('resultMsg failed:', error);
-                                    }
-
-                                })
-                            }
-                        }, 1000);
-                        setTimeout(function () {
-                            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-                        }, 2000);
-
+                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
 
-                        // 아웃바운드 API 결과 안내
-                        var headers = {
-                            'Content-type' : 'application/json',
-                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
-                        };
-
-                        var options2 = {
-                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
-                            method: 'POST',
-                            headers: headers,
-                            json: actionNtConcierge.getOutBoundExpress("how", req.body, '')
-                        };
-
-                        if(message == -1) {
-                            requestSender(options2, function (error, response, body) {
-                                if (error) {
-                                    return console.error('resultMsg failed:', error);
-                                }
-
-                            })
-                        }
 
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-
                         break;
 
                 }
