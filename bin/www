@@ -1412,7 +1412,6 @@ app.post('/hook', function (request, response) {
                     sess.stylesYN[i] = false;
                     sess.concierge[i] = false;
 
-
                     if ( !formData.specialty.main
                         || ( !(formData.specialty.main === 'interior') && !(formData.specialty.main === 'construction')) ) {
                         reply.send(config.CHANNEL_ACCESS_TOKEN, eventObj.replyToken, actionConcierge.getConciergeExpress("error",''));

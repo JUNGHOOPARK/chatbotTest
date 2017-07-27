@@ -108,9 +108,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeList":[
                         {
                             "title": "어떤 공간을 인테리어 하시나요?",
-                            "description": "인테리어 하려는 공간의 상세 분류를 선택해 주세요." +
+                            "description": "인테리어 하려는 공간의 \n상세 분류를 선택해 주세요." +
                             "\n\n원하는 공간 분류가 없는 경우 " +
-                            "\n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
+                            "\n'← 이전 단계로 돌아가기' 를 눌러 \n다른 공간 카테고리를 선택해 주세요.",
 
                             "image": {
                                // "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
@@ -169,7 +169,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         {
                             "title": "어떤 공간을 인테리어 하시나요?",
                             "description": "인테리어 하려는 공간을 선택해 주세요." +
-                            "\n\n원하는 공간이 없는 경우 \n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
+                            "\n\n원하는 공간이 없는 경우 \n'← 이전 단계로 돌아가기' 를 눌러 \n다른 공간 분류를 선택해 주세요.",
 
                             "image": {
                                // "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
@@ -192,7 +192,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "전문가의 도움이 필요한 범위를 선택해 주세요",
+                            "title": "전문가의 도움이 필요한 범위를\n 선택해 주세요",
                             "description": "일반적으로는" +
                             "\n'인테리어 디자인' + '시공'" +
                             "\n을 선택하시면 됩니다.",
@@ -247,10 +247,13 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         {
                             "title": "공간브랜딩이 필요하신가요?",
                             "description": "공간브랜딩은 주로 상업공간에서, " +
-                            "\n공간과 해당 브랜드의 아이덴티티를 일치시켜" +
-                            "\n해당 공간에 대한 차별화된 가치를 높여주는 것을 말합니다." +
-                            "\n\n많은 경우에 브랜드 로고 디자인 작업, 패키지, " +
-                            "\n내부/외부 간판, 메뉴 판넬 등의 작업이 같이 진행됩니다.",
+                            "\n공해당 브랜드의 아이덴티티 개발과" +
+                            "\n공간 아이덴티티의 개발을 통해" +
+                            "\n해당 브랜드 및 공간에 대한" +
+                            "\n차별화된 가치를 높여줍니다." +
+                            "\n\n브랜드 로고 디자인 작업, 패키지," +
+                            "\n내부/외부 간판, 메뉴 판넬 등의 작업이" +
+                            "\n진행됩니다. (범위는 전문가별 상이)",
 
 
                             "image": {
@@ -300,14 +303,14 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "인테리어 하는 공간의 면적을 알려주세요",
-                            "description": "숫자만 입력하시면 ‘평’ 단위로 인식합니다." +
-                            "\n제곱미터(㎡)단위로 입력하시려면 숫자 뒤에 " +
-                            "\n영문자 m을 붙여주세요." +
-                            "\n\n공간의 면적이 확실하지 않더라도 " +
+                            "title": "인테리어 하는 공간의 \n면적을 알려주세요",
+                            "description": "공간의 면적이 확실하지 않더라도" +
                             "\n대략적인 면적을 입력해 주세요." +
-                            "\n저희가 해당 조건에 맞는 사례를 보여드립니다." +
-                            "\n\n예) 30 -> 30평, 119m -> 119㎡ (약 39평)",
+                            "\n해당 조건에 맞는 사례를 보여드립니다." +
+                            "\n\n영문자 m을 붙이면 ‘제곱미터(㎡)’단위로" +
+                            "\n숫자만 입력시 ‘평’ 단위로 인식합니다." +
+                            "\n\n예) 30 -> 30평," +
+                            "\n   119m -> 119㎡ (약 39평)",
 
                             "image": {
                                 //"imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
@@ -342,13 +345,13 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeList":[
                         {
                             "title": "인테리어 예산을 알려주세요",
-                            "description": "만원단위로 범위를 입력해 주세요." +
-                            "\n숫자 사이에 공백이나 ~기호를 넣어주세요." +
-                            "\n\n예산이 확정 되어있지 않더라도, " +
+                            "description": "예산이 확정 되어있지 않더라도," +
                             "\n대략적인 금액범위를 입력해 주세요." +
-                            "\n저희가 해당 조건에 맞는 사례를 보여드립니다." +
+                            "\n해당 조건에 맞는 사례를 보여드립니다. " +
+                            "\n\n숫자 사이에 공백이나 ~기호를 넣어주세요." +
+                            "\n만원단위로 범위를 입력해 주세요." +
                             "\n\n예) 800 950 -> 800만원~950만원 범위" +
-                            "\n1000~1500 -> 1,000만원~1,500만원 범위",
+                            "\n   1000~1500 -> 1,000만원~1,500만원 범위",
 
 
                             "image": {
@@ -382,8 +385,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         {
                             "title": "원하는 인테리어 스타일을 선택해 주세요",
                             "description": "원하는 스타일을 선택해 주세요." +
-                            "\n저희가 가장 유사한 사례를 보여드립니다." +
-                            "\n(이제 다 왔습니다. ^^)",
+                            "\n가장 유사한 사례를 보여드립니다." +
+                            "\n\n이제 다 왔습니다. ^^",
 
                             "image": {
                                // "imageUrl": "https://interiorbrothers.com/images/chatbot/a6.png",
@@ -603,10 +606,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         {
                             "title": "입력하신 내용을 이해하지 못했습니다.",
                             "description": "선택지 중에서 선택해 주세요." +
-                            "\n진행하고 있던 컨시어지를 계속하시려면 " +
-                            "\n'이전 단계로 돌아가기'를 누르거나," +
-                            "\n'컨시어지' 를 입력해 처음부터 다시 시작하거나" +
-                            "\n'시작' 을 입력해 첫 화면으로 갈 수 있습니다.",
+                            "\n\n진행하고 있던 컨시어지를 계속하시려면 " +
+                            "\n'이전 단계로 돌아가기'를 누르세요." ,
 
                             "buttonList":[
                                 {
@@ -649,7 +650,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             {
                                 "title": "내 조건과 가장 유사한, 실제 사례를" +
                                 "\n가지고 있는 전문가를 추천해 드립니다.",
-                                "description": "할 수 있다’는 전문가와 ‘해본적 있다’는 전문가" +
+                                "description": "할 수 있다' 전문가와 '해본적 있다’전문가" +
                                 "\n누굴 선택하시겠습니까? " +
                                 "\n\n이제 실제 사례를 가지고 있는 전문가와" +
                                 "\n실속있는 상담을 나눠보세요.",
@@ -671,9 +672,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 ]
                             },
                             {
-                                "title": "높은 퀄리티의 다양한 사진을 통해" +
-                                "\n내 공간에 필요한 아이디어를 얻어보세요.",
-                                "description": "매일매일 새로운 인테리어 사진을 만나보세요." +
+                                "title": "높은 퀄리티의 실 사례 사진으로" +
+                                "\n내 공간에 필요한 아이디어를 손쉽게",
+                                "description": "매일매일 새로운 인테리어 사진으로" +
                                 "\n새로운 아이디어를 얻을 수 있습니다." +
                                 "\n\n엄선한 국내 최정상급 인테리어 사진들을" +
                                 "\n랜덤으로 보여드립니다.",
@@ -698,10 +699,10 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             },
                             {
                                 "title": "실명인증 및 사업자 인증을 거친" +
-                                "\n믿을 수 있는 전문가를 한자리에",
+                                "\n믿을 수 있는 전문가를 한자리에서",
                                 "description": "내 공간을 맡길 인테리어 전문가," +
                                 "\n전문성과 신뢰성이 가장 중요합니다." +
-                                "\n\n인테리어브라더스에서 전문가에 대한 전문성과" +
+                                "\n\n인테리어브라더스에서 전문가의 전문성 및" +
                                 "\n다양한 정보들을 확인해 보세요.",
 
                                 "image": {
@@ -764,7 +765,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "title": "조건에 맞는 사례를 발견하지 못했습니다.",
                             "description": "최선을 다했지만, 요청하신 조건에 맞는" +
                             "\n 최적의 사례를 발견하지 못했습니다." +
-                            "\n조건을 변경해서 다시 시도해 보시거나" +
+                            "\n조건을 변경해서 다시 시도해 주세요." +
                             "\n" +
                             "\n“컨시어지”를 입력해 처음부터 다시 시작하거나" +
                             "\n“시작”을 입력해 첫 화면으로 갈 수 있습니다.",
@@ -928,7 +929,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "요청하신 조건에 적합한 \n 전문가를 추천해 드렸습니다.",
+                                "title": "요청하신 조건에 가장 적합한 \n 전문가를 추천해 드렸습니다.",
                                 "description": "" +
                                 "“상세 정보 보기”를 누르면" +
                                 "\n해당 포트폴리오의 더 많은 사진과" +
@@ -1040,7 +1041,6 @@ module.exports.getSpaces1 = function (msg) {
             break;
         default:
             result.push('-1');
-
 
     }
 
