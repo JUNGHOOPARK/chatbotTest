@@ -20,8 +20,7 @@ var app = express();
 
 
 
-
-var session =require('express-session');
+var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var Redis = require('ioredis');
 
@@ -163,29 +162,12 @@ app.post('/naverTalkTalk', function (req, res) {
     'use strict';
 
     var textResponse = {
-        success: true,
-        resultCode: "00",
-        resultMessage: "success",
-        request: {
-            event: "send",
-            sender: "partner",
-            user : req.body.user,
-            partner: req.body.partner,
-            textContent :{}
+        event: "send",
+        user : req.body.user,
+        textContent :{
+            text: "",
         }
-    };
-    var imgResponse = {
-        success: true,
-        resultCode: "00",
-        resultMessage: "success",
-        request: {
-            event: "send",
-            sender: "partner",
-            user : req.body.user,
-            partner: req.body.partner,
-            imageContent :{}
         }
-    };
 
     var testResponse = {
         "event": "send",
@@ -991,7 +973,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                                 })
                                             }
-                                        }, 1500);
+                                        }, 1000);
 
                                     }
                                 }
@@ -1017,13 +999,81 @@ app.post('/naverTalkTalk', function (req, res) {
                 switch(req.body.options.inflow) {
                     case 'list' :
 
+                        // 아웃바운드 API 결과 안내
+                        var headers = {
+                            'Content-type' : 'application/json',
+                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                        };
+
+                        var options2 = {
+                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
+                            method: 'POST',
+                            headers: headers,
+                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                        };
+
+                        if(message == -1) {
+                            requestSender(options2, function (error, response, body) {
+                                if (error) {
+                                    return console.error('resultMsg failed:', error);
+                                }
+
+                            })
+                        }
+
+
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     case 'none' :
                         //res.json(testResponse);
+
+                        // 아웃바운드 API 결과 안내
+                        var headers = {
+                            'Content-type' : 'application/json',
+                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                        };
+
+                        var options2 = {
+                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
+                            method: 'POST',
+                            headers: headers,
+                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                        };
+
+                        if(message == -1) {
+                            requestSender(options2, function (error, response, body) {
+                                if (error) {
+                                    return console.error('resultMsg failed:', error);
+                                }
+
+                            })
+                        }
+
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
                     default:
+
+                        // 아웃바운드 API 결과 안내
+                        var headers = {
+                            'Content-type' : 'application/json',
+                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                        };
+
+                        var options2 = {
+                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
+                            method: 'POST',
+                            headers: headers,
+                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                        };
+
+                        if(message == -1) {
+                            requestSender(options2, function (error, response, body) {
+                                if (error) {
+                                    return console.error('resultMsg failed:', error);
+                                }
+
+                            })
+                        }
 
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
 

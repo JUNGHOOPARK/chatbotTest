@@ -996,6 +996,24 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
 
             };
 
+    }else if(type === 'hello'){
+        var result =
+            {
+                "event": "send",
+                "user": body.user,
+                "compositeContent":{
+                    "compositeList":[
+                        {
+                            "title": "인테리어브라더스 챗봇서비스 입니다." +
+                            "\n원하는 서비스를 선택 해주세요.",
+                            "description": "" +
+                            "※언제든지 '시작' 을 입력하면" +
+                            "\n이 화면으로 돌아올 수 있습니다."
+                        }
+                    ]
+                }
+
+            };
     }
 
     return result;
