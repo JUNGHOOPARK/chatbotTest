@@ -1040,14 +1040,16 @@ app.post('/naverTalkTalk', function (req, res) {
                             json: actionNtConcierge.getOutBoundExpress("photoHow", req.body, '')
                         };
 
-                        if(message == -1) {
-                            requestSender(options2, function (error, response, body) {
-                                if (error) {
-                                    return console.error('resultMsg failed:', error);
-                                }
+                        setTimeout(function () {
+                            if (message == -1) {
+                                requestSender(options2, function (error, response, body) {
+                                    if (error) {
+                                        return console.error('resultMsg failed:', error);
+                                    }
 
-                            })
-                        }
+                                })
+                            }
+                        }, 1000);
 
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
