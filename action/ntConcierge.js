@@ -303,14 +303,14 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "인테리어 하는 공간의 \n면적을 알려주세요",
+                            "title": "   인테리어 하는 공간의 \n면적을 알려주세요",
                             "description": "공간의 면적이 확실하지 않더라도" +
                             "\n대략적인 면적을 입력해 주세요." +
                             "\n해당 조건에 맞는 사례를 보여드립니다." +
                             "\n\n영문자 m을 붙이면 ‘제곱미터(㎡)’단위로" +
                             "\n숫자만 입력시 ‘평’ 단위로 인식합니다." +
                             "\n\n예) 30 -> 30평," +
-                            "\n                                                        119m -> 119㎡ (약 39평)",
+                            "\n119m -> 119㎡ (약 39평)",
 
                             "image": {
                                 //"imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
@@ -351,7 +351,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n\n숫자 사이에 공백이나 ~기호를 넣어주세요." +
                             "\n만원단위로 범위를 입력해 주세요." +
                             "\n\n예) 800 950 -> 800만원~950만원 범위" +
-                            "\n \t 1000~1500 -> 1,000만원~1,500만원 범위",
+                            "\n1000~1500 -> 1,000만원~1,500만원 범위",
 
 
                             "image": {
