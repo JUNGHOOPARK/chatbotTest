@@ -1028,16 +1028,91 @@ app.post('/naverTalkTalk', function (req, res) {
                 switch(req.body.options.inflow) {
                     case 'list' :
 
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        // 아웃바운드 API 결과 안내
+                        var headers = {
+                            'Content-type' : 'application/json',
+                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                        };
+
+                        var options2 = {
+                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
+                            method: 'POST',
+                            headers: headers,
+                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                        };
+                        setTimeout(function () {
+                            requestSender(options2, function (error, response, body) {
+                                if (error) {
+                                    return console.error('resultMsg failed:', error);
+                                }
+
+                            })
+                        }, 500);
+                        setTimeout(function () {
+
+                            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+
+                        }, 1000);
+
                         break;
                     case 'none' :
 
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        // 아웃바운드 API 결과 안내
+                        var headers = {
+                            'Content-type' : 'application/json',
+                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                        };
+
+                        var options2 = {
+                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
+                            method: 'POST',
+                            headers: headers,
+                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                        };
+                        setTimeout(function () {
+                            requestSender(options2, function (error, response, body) {
+                                if (error) {
+                                    return console.error('resultMsg failed:', error);
+                                }
+
+                            })
+                        }, 500);
+                        setTimeout(function () {
+
+                            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+
+                        }, 1000);
+
                         break;
                     default:
 
+                        // 아웃바운드 API 결과 안내
+                        var headers = {
+                            'Content-type' : 'application/json',
+                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                        };
 
-                        res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+                        var options2 = {
+                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
+                            method: 'POST',
+                            headers: headers,
+                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                        };
+                        setTimeout(function () {
+                            requestSender(options2, function (error, response, body) {
+                                if (error) {
+                                    return console.error('resultMsg failed:', error);
+                                }
+
+                            })
+                        }, 500);
+                        setTimeout(function () {
+
+                            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+
+                        }, 1000);
+
+
                         break;
 
                 }
