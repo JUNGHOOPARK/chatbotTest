@@ -310,7 +310,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n\n영문자 m을 붙이면 ‘제곱미터(㎡)’단위로" +
                             "\n숫자만 입력시 ‘평’ 단위로 인식합니다." +
                             "\n\n예) 30 -> 30평," +
-                            "\n      119m -> 119㎡ (약 39평)",
+                            "\n                                                        119m -> 119㎡ (약 39평)",
 
                             "image": {
                                 //"imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
