@@ -803,9 +803,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeList":[
                         {
                             "title": "입력하신 내용을 이해하지 못했습니다.",
-                            "description": "선택지 중에서 선택해 주세요." +
-                            "\n\n진행하고 있던 컨시어지를 계속하시려면 " +
-                            "\n'←이전 단계로 돌아가기'를 누르세요." ,
+                            "description": "선택지 중에서 선택해 주세요.",
 
                             "buttonList":[
                                 {
