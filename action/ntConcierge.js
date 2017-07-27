@@ -647,7 +647,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n실속있는 상담을 나눠보세요.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge.png",
+                                   // "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge.png",
+                                    "imageUrl": "http://easternsky.synology.me//images/chatbot/concierge.png",
                                 },
 
                                 "buttonList":[
@@ -658,32 +659,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                             "code": '컨시어지'
                                         }
 
-                                    },
-                                    {
-                                        "type": "TEXT",
-                                        "data" : {
-                                            "title": "사진보기 [사진]",
-                                            "code": '사진보기'
-                                        }
-
-                                    },
-                                    {
-                                        "type": "LINK",
-                                        "data": {
-                                            "title": "전문가 리스트 (웹사이트로 이동)",
-                                            "url": "https://www.interiorbrothers.com/findexpert",
-                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
-                                        }
-                                    },
-                                    {
-                                        "type": "LINK",
-                                        "data": {
-                                            "title": "컨텐츠 (웹사이트로 이동)",
-                                            "url": "https://www.interiorbrothers.com/webros",
-                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
-                                        }
                                     }
-
                                 ]
                             },
                             {
@@ -695,7 +671,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n랜덤으로 보여드립니다.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/photoView.png",
+                                    //"imageUrl": "https://interiorbrothers.com/images/chatbot/photoView.png",
+                                    "imageUrl": "http://easternsky.synology.me//images/chatbot/photoView.png",
                                 },
 
                                 "buttonList":[
@@ -720,7 +697,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n다양한 정보들을 확인해 보세요.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/experts.png",
+                                   // "imageUrl": "https://interiorbrothers.com/images/chatbot/experts.png",
+                                    "imageUrl": "http://easternsky.synology.me//images/chatbot/experts.png",
                                 },
 
                                 "buttonList":[
@@ -746,7 +724,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n컨텐츠를 통해 그 이야기를 들어보세요.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/webros.png",
+                                    //"imageUrl": "https://interiorbrothers.com/images/chatbot/webros.png",
+                                    "imageUrl": "http://easternsky.synology.me//images/chatbot/webros.png",
                                 },
 
                                 "buttonList":[

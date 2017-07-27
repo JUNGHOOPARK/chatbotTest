@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/ntConcierge.js" afterPath="$PROJECT_DIR$/action/ntConcierge.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -37,7 +36,7 @@
             <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="460">
-                  <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+                  <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
                   <folding />
                 </state>
               </provider>
@@ -50,8 +49,8 @@
           <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="645">
-                  <caret line="1114" column="2" lean-forward="true" selection-start-line="1114" selection-start-column="2" selection-end-line="1114" selection-end-column="2" />
+                <state relative-caret-position="978">
+                  <caret line="678" column="0" lean-forward="true" selection-start-line="678" selection-start-column="0" selection-end-line="678" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -91,7 +90,6 @@
       <find>res.json(testResponse);</find>
       <find>res.sen</find>
       <find>req.body.textContent.</find>
-      <find>welcome</find>
       <find>text</find>
       <find>공간브랜딩이 필요</find>
       <find>photoH</find>
@@ -100,6 +98,7 @@
       <find>아웃바운드</find>
       <find>testRes</find>
       <find>testResponse</find>
+      <find>welcome</find>
     </findStrings>
     <replaceStrings>
       <replace>ntSession.</replace>
@@ -444,7 +443,7 @@
       <workItem from="1500516980823" duration="2079000" />
       <workItem from="1500977199445" duration="3878000" />
       <workItem from="1501034362037" duration="17590000" />
-      <workItem from="1501119271821" duration="634000" />
+      <workItem from="1501119271821" duration="924000" />
     </task>
     <task id="LOCAL-00001" summary="문구수정">
       <created>1500517164324</created>
@@ -464,10 +463,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317137000" />
+    <option name="totallyTimeSpent" value="317427000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12961012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -824,8 +823,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="1114" column="2" lean-forward="true" selection-start-line="1114" selection-start-column="2" selection-end-line="1114" selection-end-column="2" />
+        <state relative-caret-position="978">
+          <caret line="678" column="0" lean-forward="true" selection-start-line="678" selection-start-column="0" selection-end-line="678" selection-end-column="0" />
           <folding />
         </state>
       </provider>
