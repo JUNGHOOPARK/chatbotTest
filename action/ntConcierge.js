@@ -246,7 +246,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeList":[
                         {
                             "title": "공간브랜딩이 필요하신가요?",
-                            "description": "공간브랜딩은 주로 상업공간에서, " +
+                            "description": "공간브랜딩은" +
+                            "\n주로 상업공간에서 " +
                             "\n해당 브랜드의 아이덴티티 개발과" +
                             "\n공간 아이덴티티의 개발을 통해" +
                             "\n\n해당 브랜드 및 공간에 대한" +
@@ -613,7 +614,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 {
                                     "type": "TEXT",
                                     "data":{
-                                        "title": "전문가 찾기 [컨시어지]",
+                                        "title": "전문가 찾기 다시 시작[컨시어지]",
                                         "code": '컨시어지'
                                     }
 
@@ -762,46 +763,28 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "조건에 맞는 사례를 발견하지 못했습니다.",
-                            "description": "최선을 다했지만, 요청하신 조건에 맞는" +
-                            "\n 최적의 사례를 발견하지 못했습니다." +
-                            "\n조건을 변경해서 다시 시도해 주세요." +
-                            "\n" +
-                            "\n“컨시어지”를 입력해 처음부터 다시 시작하거나" +
-                            "\n“시작”을 입력해 첫 화면으로 갈 수 있습니다.",
+                            "title": "요청하신 조건에 가장 적합한" +
+                            "\n사례를 발견하지 못했습니다.",
+                            "description": "요청하신 조건에 맞는 최적의 사례를" +
+                            "\n 발견하지 못했습니다." +
+                            "\n\n조건을 변경해서 다시 시도해 주세요.",
 
                             "buttonList":[
                                 {
                                     "type" : "TEXT",
                                     "data" : {
-                                        "title": "전문가 찾기 [컨시어지]",
+                                        "title": "전문가 찾기 다시 시작 [컨시어지]",
                                         "code": '컨시어지'
                                     }
 
                                 },
                                 {
                                     "type": "TEXT",
-                                    "data" : {
-                                        "title": "사진보기 [사진]",
-                                        "code": '사진보기'
+                                    "data":{
+                                        "title": "처음부터 다시 시작하기 [시작]",
+                                        "code": 'welcome'
                                     }
 
-                                },
-                                {
-                                    "type": "LINK",
-                                    "data": {
-                                        "title": "전문가 리스트 (웹사이트로 이동)",
-                                        "url": "https://www.interiorbrothers.com/findexpert",
-                                        "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
-                                    }
-                                },
-                                {
-                                    "type": "LINK",
-                                    "data": {
-                                        "title": "컨텐츠 (웹사이트로 이동)",
-                                        "url": "https://www.interiorbrothers.com/webros",
-                                        "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
-                                    }
                                 }
 
                             ]
@@ -826,36 +809,28 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
                             "buttonList":[
                                 {
-                                    "type" : "TEXT",
-                                    "data" : {
-                                        "title": "전문가 찾기 [컨시어지]",
+                                    "type": "TEXT",
+                                    "data":{
+                                        "title": "전문가 찾기 다시 시작[컨시어지]",
                                         "code": '컨시어지'
                                     }
 
                                 },
                                 {
                                     "type": "TEXT",
-                                    "data" : {
-                                        "title": "사진보기 [사진]",
+                                    "data":{
+                                        "title": "사진보기 다시 시작하기 [사진]",
                                         "code": '사진보기'
                                     }
 
                                 },
                                 {
-                                    "type": "LINK",
-                                    "data": {
-                                        "title": "전문가 리스트 (웹사이트로 이동)",
-                                        "url": "https://www.interiorbrothers.com/findexpert",
-                                        "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
+                                    "type": "TEXT",
+                                    "data":{
+                                        "title": "처음부터 다시 시작하기 [시작]",
+                                        "code": 'welcome'
                                     }
-                                },
-                                {
-                                    "type": "LINK",
-                                    "data": {
-                                        "title": "컨텐츠 (웹사이트로 이동)",
-                                        "url": "https://www.interiorbrothers.com/webros",
-                                        "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
-                                    }
+
                                 }
 
                             ]

@@ -399,32 +399,8 @@ app.post('/naverTalkTalk', function (req, res) {
                         res.json(actionNtConcierge.getConciergeExpress("spaces1",req.body,''));
 
                     }else if(text.indexOf("시작") != -1 || code === "welcome"){
-                        data.photo_page = 1;
-                        data.concierge = false;
-                        data.spaces1 = false;
-                        data.spaces2 = false;
-                        data.spaces3 = false;
-                        data.specialtyRangeYN = false;
-                        data.spaceBrandingYN = false;
-                        data.spaceMeasure = false;
-                        data.budget = false;
-                        data.stylesYN = false;
-                        data.errorStatus = false;
-                        //컨시어지 파라미터
-                        data.spacesCategory = '';
-                        data.spacesSubCategory = '';
-                        data.spacesSpace = '';
-                        data.specialtyRange = '';
-                        data.spaceBranding = '';
-                        data.py = '';
-                        data.meter = '';
-                        data.budgetMin = '';
-                        data.budgetMax = '';
-                        data.styles = '';
-                        data.history = '';
-                        data.errCode = "";
-                        req.cache.set(req.body.user,JSON.stringify(data));
-                        req.cache.expire(req.body.user, 600);
+                        clearData();
+
 
 
                         // 아웃바운드 API 결과 안내
@@ -1028,90 +1004,16 @@ app.post('/naverTalkTalk', function (req, res) {
                 switch(req.body.options.inflow) {
                     case 'list' :
 
-                        // 아웃바운드 API 결과 안내
-                        var headers = {
-                            'Content-type' : 'application/json',
-                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
-                        };
-
-                        var options2 = {
-                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
-                            method: 'POST',
-                            headers: headers,
-                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
-                        };
-                        setTimeout(function () {
-                            requestSender(options2, function (error, response, body) {
-                                if (error) {
-                                    return console.error('resultMsg failed:', error);
-                                }
-
-                            })
-                        }, 500);
-                        setTimeout(function () {
-
-                            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-
-                        }, 1000);
+                        welcome();
 
                         break;
                     case 'none' :
 
-                        // 아웃바운드 API 결과 안내
-                        var headers = {
-                            'Content-type' : 'application/json',
-                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
-                        };
-
-                        var options2 = {
-                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
-                            method: 'POST',
-                            headers: headers,
-                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
-                        };
-                        setTimeout(function () {
-                            requestSender(options2, function (error, response, body) {
-                                if (error) {
-                                    return console.error('resultMsg failed:', error);
-                                }
-
-                            })
-                        }, 500);
-                        setTimeout(function () {
-
-                            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-
-                        }, 1000);
+                        welcome();
 
                         break;
                     default:
-
-                        // 아웃바운드 API 결과 안내
-                        var headers = {
-                            'Content-type' : 'application/json',
-                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
-                        };
-
-                        var options2 = {
-                            url: 'https://gw.talk.naver.com/chatbot/v1/event',
-                            method: 'POST',
-                            headers: headers,
-                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
-                        };
-                        setTimeout(function () {
-                            requestSender(options2, function (error, response, body) {
-                                if (error) {
-                                    return console.error('resultMsg failed:', error);
-                                }
-
-                            })
-                        }, 500);
-                        setTimeout(function () {
-
-                            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
-
-                        }, 1000);
-
+                        welcome();
 
                         break;
 
@@ -1132,6 +1034,68 @@ app.post('/naverTalkTalk', function (req, res) {
                 res.sendStatus(200);
         }
     });
+
+
+    function clearData(){
+
+        data.photo_page = 1;
+        data.concierge = false;
+        data.spaces1 = false;
+        data.spaces2 = false;
+        data.spaces3 = false;
+        data.specialtyRangeYN = false;
+        data.spaceBrandingYN = false;
+        data.spaceMeasure = false;
+        data.budget = false;
+        data.stylesYN = false;
+        data.errorStatus = false;
+        //컨시어지 파라미터
+        data.spacesCategory = '';
+        data.spacesSubCategory = '';
+        data.spacesSpace = '';
+        data.specialtyRange = '';
+        data.spaceBranding = '';
+        data.py = '';
+        data.meter = '';
+        data.budgetMin = '';
+        data.budgetMax = '';
+        data.styles = '';
+        data.history = '';
+        data.errCode = "";
+        req.cache.set(req.body.user,JSON.stringify(data));
+        req.cache.expire(req.body.user, 600);
+
+    }
+
+    function welcome(){
+        clearData();
+        // 아웃바운드 API 결과 안내
+        var headers = {
+            'Content-type' : 'application/json',
+            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+        };
+
+        var options2 = {
+            url: 'https://gw.talk.naver.com/chatbot/v1/event',
+            method: 'POST',
+            headers: headers,
+            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+        };
+        setTimeout(function () {
+            requestSender(options2, function (error, response, body) {
+                if (error) {
+                    return console.error('resultMsg failed:', error);
+                }
+
+            })
+        }, 500);
+        setTimeout(function () {
+
+            res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
+
+        }, 1000);
+
+    }
 
 });
 
