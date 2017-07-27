@@ -440,15 +440,13 @@ app.post('/naverTalkTalk', function (req, res) {
                             json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
                         };
                         setTimeout(function () {
-                            if (message == -1) {
                                 requestSender(options2, function (error, response, body) {
                                     if (error) {
                                         return console.error('resultMsg failed:', error);
                                     }
 
                                 })
-                            }
-                        }, 0);
+                        }, 500);
                         setTimeout(function () {
 
                             res.json(actionNtConcierge.getConciergeExpress("welcome",req.body,''));
