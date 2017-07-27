@@ -169,7 +169,6 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "description": "인테리어 하려는 공간을 선택해 주세요." +
                             "\n\n원하는 공간이 없는 경우 \n'← 이전 단계로 돌아가기' 를 눌러 다른 공간 카테고리를 선택해 주세요.",
 
-
                             "image": {
                                 "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
                             },
@@ -323,8 +322,6 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     ]
                 }
             };
-
-
 
 
     }else if(type === 'budget'){
@@ -549,12 +546,13 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "오류가 발생한 것 같습니다.",
-                            "description": "아래 버튼을 누르거나 “시작”, “컨시어지”를 입력해 처음부터 다시 시작해주세요.",
+                            "title": "서비스 장애가 발생했습니다.",
+                            "description": "예상치 못한 서비스 장애가 발생했습니다." +
+                            "\n\n일시적인 장애인 경우 바로 복구됩니다." +
+                            "\n\n서비스 장애가 반복적으로 발생시에는" +
+                            "\n잠시 후에 다시 시도하시거나," +
+                            "\n070-7775-5568로 문의해 주세요.",
 
-                            "image": {
-                                "imageUrl": "https://interiorbrothers.com/images/chatbot/status_oops.png",
-                            },
 
                             "buttonList":[
                                 {
@@ -595,16 +593,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "무슨 뜻인지 잘 모르겠습니다.",
+                            "title": "입력하신 내용을 이해하지 못했습니다.",
                             "description": "선택지 중에서 선택해 주세요." +
                             "\n진행하고 있던 컨시어지를 계속하시려면 " +
-                            "\n'이전 단계로 돌아가기' 를 하시거나" +
-                            "\n'컨시어지'를 입력해 처음부터 다시 시작하거나" +
-                            "\n'시작'을 입력해 첫 화면으로 갈 수 있습니다.",
-
-                            "image": {
-                                "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png",
-                            },
+                            "\n'이전 단계로 돌아가기'를 누르거나," +
+                            "\n'컨시어지' 를 입력해 처음부터 다시 시작하거나" +
+                            "\n'시작' 을 입력해 첫 화면으로 갈 수 있습니다.",
 
                             "buttonList":[
                                 {
@@ -645,15 +639,15 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "인테리어브라더스의 챗봇서비스 입니다.\n원하는 서비스를 선택 해주세요.",
-                                "description": "1. 『컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
-                                "\n2. 인테리어 사진보기 : \n국내 최정상급 인테리어 사진을 보여드립니다." +
-                                "\n3. 전문가 리스트 : \n믿을 수 있는 전문가들이 모여 있습니다." +
-                                "\n4. 컨텐츠 : \n인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
-                                "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
+                                "title": "내 조건과 가장 유사한, 실제 사례를" +
+                                "\n가지고 있는 전문가를 추천해 드립니다.",
+                                "description": "할 수 있다’는 전문가와 ‘해본적 있다’는 전문가" +
+                                "\n누굴 선택하시겠습니까? " +
+                                "\n\n이제 실제 사례를 가지고 있는 전문가와" +
+                                "\n실속있는 상담을 나눠보세요.",
 
                                 "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/welcome.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge.png",
                                 },
 
                                 "buttonList":[
@@ -691,6 +685,82 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                     }
 
                                 ]
+                            },
+                            {
+                                "title": "높은 퀄리티의 다양한 사진을 통해" +
+                                "\n내 공간에 필요한 아이디어를 얻어보세요.",
+                                "description": "매일매일 새로운 인테리어 사진을 만나보세요." +
+                                "\n새로운 아이디어를 얻을 수 있습니다." +
+                                "\n\n엄선한 국내 최정상급 인테리어 사진들을" +
+                                "\n랜덤으로 보여드립니다.",
+
+                                "image": {
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/photoView.png",
+                                },
+
+                                "buttonList":[
+
+                                    {
+                                        "type": "TEXT",
+                                        "data" : {
+                                            "title": "사진보기 [사진]",
+                                            "code": '사진보기'
+                                        }
+
+                                    }
+
+                                ]
+                            },
+                            {
+                                "title": "실명인증 및 사업자 인증을 거친" +
+                                "\n믿을 수 있는 전문가를 한자리에",
+                                "description": "내 공간을 맡길 인테리어 전문가," +
+                                "\n전문성과 신뢰성이 가장 중요합니다." +
+                                "\n\n인테리어브라더스에서 전문가에 대한 전문성과" +
+                                "\n다양한 정보들을 확인해 보세요.",
+
+                                "image": {
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/experts.png",
+                                },
+
+                                "buttonList":[
+
+                                    {
+                                        "type": "LINK",
+                                        "data": {
+                                            "title": "전문가 리스트 (웹사이트로 이동)",
+                                            "url": "https://www.interiorbrothers.com/findexpert",
+                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
+                                        }
+                                    }
+
+
+                                ]
+                            },
+                            {
+                                "title": "공간과 사람과 문화에 관한 이야기" +
+                                "\n인테리어브라더스가 준비한 컨텐츠",
+                                "description": "공간에 대한 비하인드 스토리, 전문가의" +
+                                "\n진솔한 이야기, 공간에 대한 새로운 접근" +
+                                "\n\n인테리어브라더스가 제공하는 다양한" +
+                                "\n컨텐츠를 통해 그 이야기를 들어보세요.",
+
+                                "image": {
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/webros.png",
+                                },
+
+                                "buttonList":[
+
+                                    {
+                                        "type": "LINK",
+                                        "data": {
+                                            "title": "컨텐츠 (웹사이트로 이동)",
+                                            "url": "https://www.interiorbrothers.com/webros",
+                                            "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
+                                        }
+                                    }
+
+                                ]
                             }
                         ]
                     }
@@ -705,15 +775,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeList":[
                         {
                             "title": "조건에 맞는 사례를 발견하지 못했습니다.",
-                            "description": "최선을 다했지만, 조건에 맞는 최적의 추천 사례를 발견하지 못했습니다." +
+                            "description": "최선을 다했지만, 요청하신 조건에 맞는" +
+                            "\n 최적의 사례를 발견하지 못했습니다." +
                             "\n조건을 변경해서 다시 시도해 보시거나" +
                             "\n" +
                             "\n“컨시어지”를 입력해 처음부터 다시 시작하거나" +
                             "\n“시작”을 입력해 첫 화면으로 갈 수 있습니다.",
-
-                            "image": {
-                                "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge_fail.png",
-                            },
 
                             "buttonList":[
                                 {
@@ -764,78 +831,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "무슨 뜻인지 잘 모르겠습니다.",
-                            "description": "1. 『컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
-                            "\n2. 인테리어 사진보기 : \n국내 최정상급 인테리어 사진을 보여드립니다." +
-                            "\n3. 전문가 리스트 : \n믿을 수 있는 전문가들이 모여 있습니다." +
-                            "\n4. 컨텐츠 : \n인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
-                            "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
-
-                            "image": {
-                                "imageUrl": "https://interiorbrothers.com/images/chatbot/status_unexpected.png",
-                                "width": 290,
-                                "height": 150
-                            },
-
-                            "buttonList":[
-                                {
-                                    "type" : "TEXT",
-                                    "data" : {
-                                        "title": "전문가 찾기 [컨시어지]",
-                                        "code": '컨시어지'
-                                    }
-
-                                },
-                                {
-                                    "type": "TEXT",
-                                    "data" : {
-                                        "title": "사진보기 [사진]",
-                                        "code": '사진보기'
-                                    }
-
-                                },
-                                {
-                                    "type": "LINK",
-                                    "data": {
-                                        "title": "전문가 리스트 (웹사이트로 이동)",
-                                        "url": "https://www.interiorbrothers.com/findexpert",
-                                        "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
-                                    }
-                                },
-                                {
-                                    "type": "LINK",
-                                    "data": {
-                                        "title": "컨텐츠 (웹사이트로 이동)",
-                                        "url": "https://www.interiorbrothers.com/webros",
-                                        "mobileUrl": "https://www.interiorbrothers.com/mobile/webros",
-                                    }
-                                }
-
-                            ]
-                        }
-                    ]
-                }
-            };
-    }else if(type === 'ready'){
-        var result =
-            {
-                "event": "send",
-                "user": body.user,
-                "compositeContent":{
-                    "compositeList":[
-                        {
-                            "title": "사진보기는 아직 준비중 입니다! 조금만 기다려주세요.",
-                            "description": "1. 『컨시어지』 : \n나의 조건에 맞는 전문가를 무료로 찾아줍니다." +
-                            "\n2. 인테리어 사진보기 : \n국내 최정상급 인테리어 사진을 보여드립니다." +
-                            "\n3. 전문가 리스트 : \n믿을 수 있는 전문가들이 모여 있습니다." +
-                            "\n4. 컨텐츠 : \n인테리어 관련된 컨텐츠를 볼 수 있습니다. " +
-                            "\n\n ※“시작”을 입력하면 이 화면으로 돌아옵니다.",
-
-                            "image": {
-                                "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png",
-                                "width": 290,
-                                "height": 150
-                            },
+                            "title": "입력하신 내용을 이해하지 못했습니다.",
+                            "description": "선택지 중에서 선택해 주세요." +
+                            "\n진행하고 있던 컨시어지를 계속하시려면 " +
+                            "\n'이전 단계로 돌아가기'를 누르거나," +
+                            "\n'컨시어지' 를 입력해 처음부터 다시 시작하거나" +
+                            "\n'시작' 을 입력해 첫 화면으로 갈 수 있습니다.",
 
                             "buttonList":[
                                 {
@@ -940,14 +941,11 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "조건에 적합한 전문가를 추천해 드렸습니다.",
+                                "title": "요청하신 조건에 적합한 \n 전문가를 추천해 드렸습니다.",
                                 "description": "" +
                                 "“상세 정보 보기”를 누르면" +
                                 "\n해당 포트폴리오의 더 많은 사진과" +
                                 "\n자세한 정보를 볼 수 있습니다." ,
-                                "image": {
-                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge_success.png",
-                                },
 
                                 "buttonList":[
                                     {
@@ -986,9 +984,6 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                             "“상세 정보 보기”를 누르면" +
                             "\n해당 포트폴리오의 더 많은 사진과" +
                             "\n자세한 정보를 볼 수 있습니다." ,
-                            "image": {
-                                "imageUrl": "https://interiorbrothers.com/images/chatbot/cs.png",
-                            },
 
                             "buttonList":[
                                 {
