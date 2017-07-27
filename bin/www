@@ -659,7 +659,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                     data.specialtyRangeYN = false;
 
-                                    if (data.specialtyRange[0] === 'interiorFull' || data.specialtyRange[0] === 'interiorDesign') {
+                                    if ((data.specialtyRange[0] === 'interiorFull' || data.specialtyRange[0] === 'interiorDesign') && data.spacesCategory != '3' ) {
                                         data.spaceBrandingYN = true;
                                         res.json(actionNtConcierge.getConciergeExpress("spaceBranding", req.body, ''));
                                         req.cache.set(req.body.user,JSON.stringify(data));

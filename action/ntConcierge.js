@@ -383,7 +383,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "원하는 인테리어 스타일을 선택해 주세요",
+                            "title": "원하는 인테리어 스타일을\n 선택해 주세요",
                             "description": "원하는 스타일을 선택해 주세요." +
                             "\n가장 유사한 사례를 보여드립니다." +
                             "\n\n이제 다 왔습니다. ^^",
