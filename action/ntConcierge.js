@@ -247,9 +247,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         {
                             "title": "공간브랜딩이 필요하신가요?",
                             "description": "공간브랜딩은 주로 상업공간에서, " +
-                            "\n공해당 브랜드의 아이덴티티 개발과" +
+                            "\n해당 브랜드의 아이덴티티 개발과" +
                             "\n공간 아이덴티티의 개발을 통해" +
-                            "\n해당 브랜드 및 공간에 대한" +
+                            "\n\n해당 브랜드 및 공간에 대한" +
                             "\n차별화된 가치를 높여줍니다." +
                             "\n\n브랜드 로고 디자인 작업, 패키지," +
                             "\n내부/외부 간판, 메뉴 판넬 등의 작업이" +
@@ -303,7 +303,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "   인테리어 하는 공간의 \n면적을 알려주세요",
+                            "title": "인테리어 하는 공간의 \n면적을 알려주세요",
                             "description": "공간의 면적이 확실하지 않더라도" +
                             "\n대략적인 면적을 입력해 주세요." +
                             "\n해당 조건에 맞는 사례를 보여드립니다." +
@@ -350,8 +350,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n해당 조건에 맞는 사례를 보여드립니다. " +
                             "\n\n숫자 사이에 공백이나 ~기호를 넣어주세요." +
                             "\n만원단위로 범위를 입력해 주세요." +
-                            "\n\n예) 800 950 -> 800만원~950만원 범위" +
-                            "\n1000~1500 -> 1,000만원~1,500만원 범위",
+                            "\n\n예) 800 950 -> 800~950만원 범위" +
+                            "\n1000~1500 -> 1,000~1,500만원 범위",
 
 
                             "image": {
@@ -607,7 +607,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "title": "입력하신 내용을 이해하지 못했습니다.",
                             "description": "선택지 중에서 선택해 주세요." +
                             "\n\n진행하고 있던 컨시어지를 계속하시려면 " +
-                            "\n'이전 단계로 돌아가기'를 누르세요." ,
+                            "\n'←이전 단계로 돌아가기'를 누르세요." ,
 
                             "buttonList":[
                                 {
@@ -649,8 +649,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         "compositeList":[
                             {
                                 "title": "내 조건과 가장 유사한, 실제 사례를" +
-                                "\n가지고 있는 전문가를 추천해 드립니다.",
-                                "description": "할 수 있다' 전문가와 '해본적 있다’전문가" +
+                                "\n가지고 있는 전문가를 추천",
+                                "description": "'할 수 있다' 전문가와 '해본적 있다’전문가" +
                                 "\n누굴 선택하시겠습니까? " +
                                 "\n\n이제 실제 사례를 가지고 있는 전문가와" +
                                 "\n실속있는 상담을 나눠보세요.",
@@ -821,10 +821,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                         {
                             "title": "입력하신 내용을 이해하지 못했습니다.",
                             "description": "선택지 중에서 선택해 주세요." +
-                            "\n진행하고 있던 컨시어지를 계속하시려면 " +
-                            "\n'이전 단계로 돌아가기'를 누르거나," +
-                            "\n'컨시어지' 를 입력해 처음부터 다시 시작하거나" +
-                            "\n'시작' 을 입력해 첫 화면으로 갈 수 있습니다.",
+                            "\n\n진행하고 있던 컨시어지를 계속하시려면 " +
+                            "\n'←이전 단계로 돌아가기'를 누르세요." ,
 
                             "buttonList":[
                                 {
