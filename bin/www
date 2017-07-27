@@ -1011,16 +1011,16 @@ app.post('/naverTalkTalk', function (req, res) {
                             headers: headers,
                             json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
                         };
+                        setTimeout(function () {
+                            if (message == -1) {
+                                requestSender(options2, function (error, response, body) {
+                                    if (error) {
+                                        return console.error('resultMsg failed:', error);
+                                    }
 
-                        if(message == -1) {
-                            requestSender(options2, function (error, response, body) {
-                                if (error) {
-                                    return console.error('resultMsg failed:', error);
-                                }
-
-                            })
-                        }
-
+                                })
+                            }
+                        }, 0);
 
                         res.json(actionNtConcierge.getConciergeExpress("welcome", req.body, ''));
                         break;
@@ -1037,7 +1037,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             url: 'https://gw.talk.naver.com/chatbot/v1/event',
                             method: 'POST',
                             headers: headers,
-                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                            json: actionNtConcierge.getOutBoundExpress("photoHow", req.body, '')
                         };
 
                         if(message == -1) {
@@ -1063,7 +1063,7 @@ app.post('/naverTalkTalk', function (req, res) {
                             url: 'https://gw.talk.naver.com/chatbot/v1/event',
                             method: 'POST',
                             headers: headers,
-                            json: actionNtConcierge.getOutBoundExpress("hello", req.body, '')
+                            json: actionNtConcierge.getOutBoundExpress("how", req.body, '')
                         };
 
                         if(message == -1) {
