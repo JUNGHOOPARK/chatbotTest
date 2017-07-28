@@ -157,7 +157,7 @@ var defaultResponse = {
     //사진보기 페이지
     photo_page : '1'
 };*/
-var welcome_cnt = 0;
+
 app.post('/naverTalkTalk', function (req, res) {
     'use strict';
 
@@ -1003,32 +1003,15 @@ app.post('/naverTalkTalk', function (req, res) {
             case 'open' :
                 switch(req.body.options.inflow) {
                     case 'list' :
-                        console.log('list-->'+  welcome_cnt);
-                        if(welcome_cnt !== 0){
-                            welcome_cnt = 0;
-                        }
+
                         welcome();
-                        welcome_cnt++;
-
-
 
                         break;
                     case 'none' :
-                        console.log('none-->'+  welcome_cnt);
-                        if(welcome_cnt === 0){
-                            console.log('none');
-                            welcome();
-                        }else{
-                            welcome_cnt = 0;
-                        }
-
 
                         break;
                     default:
-                        if(welcome_cnt !== 0){
-                            welcome_cnt = 0;
-                        }
-                        console.log('default');
+
                         welcome();
 
                         break;
@@ -1085,7 +1068,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
     function welcome(){
         clearData();
-        console.log('welcome');
+
         // 아웃바운드 API 결과 안내
         var headers = {
             'Content-type' : 'application/json',
