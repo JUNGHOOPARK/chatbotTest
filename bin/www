@@ -1004,11 +1004,9 @@ app.post('/naverTalkTalk', function (req, res) {
                 switch(req.body.options.inflow) {
                     case 'list' :
 
-                        welcome();
-
                         break;
                     case 'none' :
-
+                        welcome();
                         break;
                     default:
 
