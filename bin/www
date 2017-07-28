@@ -1003,7 +1003,7 @@ app.post('/naverTalkTalk', function (req, res) {
             case 'open' :
                 switch(req.body.options.inflow) {
                     case 'list' :
-                        console.log('list');
+                        console.log('list-->'+  welcome_cnt);
                         if(welcome_cnt !== 0){
                             welcome_cnt = 0;
                         }
@@ -1014,7 +1014,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
                         break;
                     case 'none' :
-
+                        console.log('none-->'+  welcome_cnt);
                         if(welcome_cnt === 0){
                             console.log('none');
                             welcome();
