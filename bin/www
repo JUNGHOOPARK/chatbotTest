@@ -160,7 +160,7 @@ var defaultResponse = {
 
 app.post('/naverTalkTalk', function (req, res) {
     'use strict';
-
+    console.log("here");
     var textResponse = {
         event: "send",
         user : req.body.user,
