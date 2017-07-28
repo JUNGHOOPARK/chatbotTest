@@ -1001,7 +1001,24 @@ app.post('/naverTalkTalk', function (req, res) {
                 }
                 break;
             case 'open' :
-                welcome();
+                switch(req.body.options.inflow) {
+                    case 'list' :
+                        console.log('list');
+                        welcome();
+
+                        break;
+                    case 'none' :
+                        console.log('none');
+                        welcome();
+
+                        break;
+                    default:
+                        console.log('default');
+                        welcome();
+
+                        break;
+
+                }
                 break;
             case 'friend' :
                 if(req.body.options.set == 'on') {
@@ -1053,6 +1070,7 @@ app.post('/naverTalkTalk', function (req, res) {
 
     function welcome(){
         clearData();
+        console.log('welcome');
         // 아웃바운드 API 결과 안내
         var headers = {
             'Content-type' : 'application/json',
