@@ -157,10 +157,10 @@ var defaultResponse = {
     //사진보기 페이지
     photo_page : '1'
 };*/
-
+var welcome_cnt = 0;
 app.post('/naverTalkTalk', function (req, res) {
     'use strict';
-    console.log("here");
+
     var textResponse = {
         event: "send",
         user : req.body.user,
@@ -1004,15 +1004,30 @@ app.post('/naverTalkTalk', function (req, res) {
                 switch(req.body.options.inflow) {
                     case 'list' :
                         console.log('list');
+                        if(welcome_cnt !== 0){
+                            welcome_cnt = 0;
+                        }
                         welcome();
+                        welcome_cnt++;
+
+
 
                         break;
                     case 'none' :
-                        console.log('none');
-                        welcome();
+
+                        if(welcome_cnt === 0){
+                            console.log('none');
+                            welcome();
+                        }else{
+                            welcome_cnt = 0;
+                        }
+
 
                         break;
                     default:
+                        if(welcome_cnt !== 0){
+                            welcome_cnt = 0;
+                        }
                         console.log('default');
                         welcome();
 

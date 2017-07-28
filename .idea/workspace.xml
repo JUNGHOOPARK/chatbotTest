@@ -25,8 +25,8 @@
           <file leaf-file-name="www" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/bin/www">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="248">
-                  <caret line="162" column="24" lean-forward="false" selection-start-line="162" selection-start-column="24" selection-end-line="162" selection-end-column="24" />
+                <state relative-caret-position="458">
+                  <caret line="1029" column="25" lean-forward="false" selection-start-line="1029" selection-start-column="25" selection-end-line="1029" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -90,7 +90,6 @@
       <find>요청하신</find>
       <find>예)</find>
       <find>이전 단계로 돌아가기'</find>
-      <find>이전 단계로 돌아가기'</find>
       <find>이전</find>
       <find>입력하신 내용</find>
       <find>입력하신 내용을</find>
@@ -99,6 +98,7 @@
       <find>공간브랜딩</find>
       <find>what</find>
       <find>사진보기</find>
+      <find>clea</find>
     </findStrings>
     <replaceStrings>
       <replace>ntSession.</replace>
@@ -444,7 +444,7 @@
       <workItem from="1500977199445" duration="3878000" />
       <workItem from="1501034362037" duration="17590000" />
       <workItem from="1501119271821" duration="12682000" />
-      <workItem from="1501209573277" duration="708000" />
+      <workItem from="1501209573277" duration="985000" />
     </task>
     <task id="LOCAL-00001" summary="문구수정">
       <created>1500517164324</created>
@@ -464,7 +464,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329893000" />
+    <option name="totallyTimeSpent" value="330170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -824,8 +824,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="162" column="24" lean-forward="false" selection-start-line="162" selection-start-column="24" selection-end-line="162" selection-end-column="24" />
+        <state relative-caret-position="458">
+          <caret line="1029" column="25" lean-forward="false" selection-start-line="1029" selection-start-column="25" selection-end-line="1029" selection-end-column="25" />
           <folding />
         </state>
       </provider>
