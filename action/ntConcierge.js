@@ -248,7 +248,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "title": "공간브랜딩이 필요하신가요?",
                             "description": "공간브랜딩은" +
                             "\n주로 상업공간에서 " +
-                            "\n해당 브랜드의 아이덴티티 개발과" +
+                            "\n브랜드 아이덴티티의 개발과" +
                             "\n공간 아이덴티티의 개발을 통해" +
                             "\n\n해당 브랜드 및 공간에 대한" +
                             "\n차별화된 가치를 높여줍니다." +
@@ -649,9 +649,9 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "내 조건과 가장 유사한, 실제 사례를" +
+                                "title": "내 조건과 가장 비슷한 실제 사례를" +
                                 "\n가지고 있는 전문가를 추천",
-                                "description": "'할 수 있다' 전문가와 '해본적 있다’전문가" +
+                                "description": "'할 수 있다' 전문가와 '해본 적 있다' 전문가" +
                                 "\n누굴 선택하시겠습니까? " +
                                 "\n\n이제 실제 사례를 가지고 있는 전문가와" +
                                 "\n실속있는 상담을 나눠보세요.",
@@ -900,17 +900,15 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                     "compositeContent":{
                         "compositeList":[
                             {
-                                "title": "요청하신 조건에 가장 적합한 \n 전문가를 추천해 드렸습니다.",
                                 "description": "" +
                                 "“상세 정보 보기”를 누르면" +
-                                "\n해당 포트폴리오의 더 많은 사진과" +
-                                "\n자세한 정보를 볼 수 있습니다." ,
+                                "\n더 많은 사진과 정보를 볼 수 있습니다.",
 
                                 "buttonList":[
                                     {
                                         "type": "TEXT",
                                         "data":{
-                                            "title": "다시 시작 [컨시어지]",
+                                            "title": "전문가 찾기 다시 시작 [컨시어지]",
                                             "code": '컨시어지'
                                         }
 
@@ -938,11 +936,9 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                 "compositeContent":{
                     "compositeList":[
                         {
-                            // "title": "공간 사진을 통해 아이디어를 얻으세요.",
                             "description": "" +
                             "“상세 정보 보기”를 누르면" +
-                            "\n해당 포트폴리오의 더 많은 사진과" +
-                            "\n자세한 정보를 볼 수 있습니다." ,
+                            "\n더 많은 사진과 정보를 볼 수 있습니다.",
 
                             "buttonList":[
                                 {

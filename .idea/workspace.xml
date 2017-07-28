@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e022749-aec5-4a0e-8b65-24bbe32fa945" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/ntConcierge.js" afterPath="$PROJECT_DIR$/action/ntConcierge.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,7 +20,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5115012">
+    <splitter split-orientation="horizontal" split-proportion="0.40435836">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="www" pinned="false" current-in-tab="true">
@@ -49,8 +50,8 @@
           <file leaf-file-name="ntConcierge.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="149">
-                  <caret line="940" column="64" lean-forward="false" selection-start-line="940" selection-start-column="27" selection-end-line="940" selection-end-column="64" />
+                <state relative-caret-position="432">
+                  <caret line="256" column="53" lean-forward="true" selection-start-line="256" selection-start-column="53" selection-end-line="256" selection-end-column="53" />
                   <folding />
                 </state>
               </provider>
@@ -69,8 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>welcome.png</find>
-      <find>spaces1</find>
       <find>res.json(testResponse);</find>
       <find>res.sen</find>
       <find>req.body.textContent.</find>
@@ -99,6 +98,8 @@
       <find>사진보기</find>
       <find>clea</find>
       <find>none</find>
+      <find>내 조건</find>
+      <find>공간브랜</find>
     </findStrings>
     <replaceStrings>
       <replace>ntSession.</replace>
@@ -444,7 +445,7 @@
       <workItem from="1500977199445" duration="3878000" />
       <workItem from="1501034362037" duration="17590000" />
       <workItem from="1501119271821" duration="12682000" />
-      <workItem from="1501209573277" duration="2668000" />
+      <workItem from="1501209573277" duration="3080000" />
     </task>
     <task id="LOCAL-00001" summary="문구수정">
       <created>1500517164324</created>
@@ -464,7 +465,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331853000" />
+    <option name="totallyTimeSpent" value="332265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -824,8 +825,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/action/ntConcierge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="940" column="64" lean-forward="false" selection-start-line="940" selection-start-column="27" selection-end-line="940" selection-end-column="64" />
+        <state relative-caret-position="432">
+          <caret line="256" column="53" lean-forward="true" selection-start-line="256" selection-start-column="53" selection-end-line="256" selection-end-column="53" />
           <folding />
         </state>
       </provider>
