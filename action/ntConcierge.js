@@ -938,7 +938,7 @@ module.exports.getOutBoundExpress = function (type,body,opt) {
                 "compositeContent":{
                     "compositeList":[
                         {
-                            "title": "공간 사진을 통해 아이디어를 얻으세요.",
+                            // "title": "공간 사진을 통해 아이디어를 얻으세요.",
                             "description": "" +
                             "“상세 정보 보기”를 누르면" +
                             "\n해당 포트폴리오의 더 많은 사진과" +
