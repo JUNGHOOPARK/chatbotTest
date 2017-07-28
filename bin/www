@@ -1001,24 +1001,7 @@ app.post('/naverTalkTalk', function (req, res) {
                 }
                 break;
             case 'open' :
-                switch(req.body.options.inflow) {
-                    case 'list' :
-                        console.log('list');
-                        welcome();
-
-                        break;
-                    case 'none' :
-                        console.log('none');
-                        welcome();
-
-                        break;
-                    default:
-                        console.log('default');
-                        welcome();
-
-                        break;
-
-                }
+                welcome();
                 break;
             case 'friend' :
                 if(req.body.options.set == 'on') {
