@@ -239,6 +239,12 @@ app.post('/naverTalkTalk', function (req, res) {
 
     var data = {};
 
+    /*
+      아웃바운드 인증코드
+     운영서버 -  ct_wc460f_j04kHXPwSs+vV2lRekjt
+     테스트서버 - ct_wc44b1_nxS6bLj5SlCPGbftkVmm
+    */
+    var auth_code = 'ct_wc460f_j04kHXPwSs+vV2lRekjt';
     req.cache.get(req.body.user,function(err,result){
 
         if(result){
@@ -343,10 +349,11 @@ app.post('/naverTalkTalk', function (req, res) {
 
                         }, 2000);
 
+
                         // 아웃바운드 API 결과 안내
                         var headers = {
                             'Content-type' : 'application/json',
-                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                            'Authorization': auth_code
                         };
 
                         var options2 = {
@@ -402,11 +409,10 @@ app.post('/naverTalkTalk', function (req, res) {
                         clearData();
 
 
-
                         // 아웃바운드 API 결과 안내
                         var headers = {
                             'Content-type' : 'application/json',
-                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                            'Authorization': auth_code
                         };
 
                         var options2 = {
@@ -959,7 +965,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         // 아웃바운드 API 결과 안내
                                         var headers = {
                                             'Content-type' : 'application/json',
-                                            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+                                            'Authorization': auth_code
                                         };
 
                                         var options2 = {
@@ -1070,7 +1076,7 @@ app.post('/naverTalkTalk', function (req, res) {
         // 아웃바운드 API 결과 안내
         var headers = {
             'Content-type' : 'application/json',
-            'Authorization': 'ct_wc44b1_nxS6bLj5SlCPGbftkVmm'
+            'Authorization': auth_code
         };
 
         var options2 = {
