@@ -16,8 +16,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "description": "인테리어 하려는 공간에 해당하는\n 카테고리를 선택해 주세요.",
                             /* imageContent와 상동 */
                             "image": {
-                                //"imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
-                                "imageUrl": "http://easternsky.synology.me//images/chatbot/a3.png",
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png", /* 전송하고자하는 이미지 URL */
+                                //"imageUrl": "http://easternsky.synology.me//images/chatbot/a3.png",
                             },
                             /* composite 메시지 하단 버튼 정의 (최대 10개가능) */
                             "buttonList": [
@@ -113,8 +113,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n'← 이전 단계로 돌아가기' 를 눌러 \n다른 공간 카테고리를 선택해 주세요.",
 
                             "image": {
-                               // "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
-                                "imageUrl": "http://easternsky.synology.me//images/chatbot/a3.png",
+                               "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
+                                //"imageUrl": "http://easternsky.synology.me//images/chatbot/a3.png",
                             },
 
                             "buttonList": actions
@@ -172,8 +172,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n\n원하는 공간이 없는 경우 \n'← 이전 단계로 돌아가기' 를 눌러 \n다른 공간 분류를 선택해 주세요.",
 
                             "image": {
-                               // "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
-                                "imageUrl": "http://easternsky.synology.me//images/chatbot/a3.png",
+                               "imageUrl": "https://interiorbrothers.com/images/chatbot/a3.png",
+                                //"imageUrl": "http://easternsky.synology.me//images/chatbot/a3.png",
                             },
 
                             "buttonList": actions
@@ -198,8 +198,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n을 선택하시면 됩니다.",
 
                             "image": {
-                               // "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
-                                "imageUrl": "http://easternsky.synology.me//images/chatbot/a4.png",
+                               "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
+                                //"imageUrl": "http://easternsky.synology.me//images/chatbot/a4.png",
                             },
 
                             "buttonList":[
@@ -258,8 +258,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
 
                             "image": {
-                                //"imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
-                                "imageUrl": "http://easternsky.synology.me//images/chatbot/a4.png",
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a4.png",
+                                //"imageUrl": "http://easternsky.synology.me//images/chatbot/a4.png",
                             },
 
                             "buttonList":[
@@ -314,8 +314,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n119m -> 119㎡ (약 39평)",
 
                             "image": {
-                                //"imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
-                                "imageUrl": "http://easternsky.synology.me//images/chatbot/a5.png",
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
+                                //"imageUrl": "http://easternsky.synology.me//images/chatbot/a5.png",
                             },
 
                             "buttonList":[
@@ -356,8 +356,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
 
 
                             "image": {
-                                //"imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
-                                "imageUrl": "http://easternsky.synology.me//images/chatbot/a5.png",
+                                "imageUrl": "https://interiorbrothers.com/images/chatbot/a5.png",
+                                //"imageUrl": "http://easternsky.synology.me//images/chatbot/a5.png",
                             },
 
                             "buttonList":[
@@ -390,8 +390,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                             "\n\n이제 다 왔습니다. ^^",
 
                             "image": {
-                               // "imageUrl": "https://interiorbrothers.com/images/chatbot/a6.png",
-                                "imageUrl": "http://easternsky.synology.me//images/chatbot/a6.png",
+                               "imageUrl": "https://interiorbrothers.com/images/chatbot/a6.png",
+                                //"imageUrl": "http://easternsky.synology.me//images/chatbot/a6.png",
                             },
 
                             "buttonList":[
@@ -657,8 +657,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n실속있는 상담을 나눠보세요.",
 
                                 "image": {
-                                   // "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge.png",
-                                    "imageUrl": "http://easternsky.synology.me//images/chatbot/concierge.png",
+                                   "imageUrl": "https://interiorbrothers.com/images/chatbot/concierge.png",
+                                    //"imageUrl": "http://easternsky.synology.me//images/chatbot/concierge.png",
                                 },
 
                                 "buttonList":[
@@ -681,8 +681,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n랜덤으로 보여드립니다.",
 
                                 "image": {
-                                    //"imageUrl": "https://interiorbrothers.com/images/chatbot/photoView.png",
-                                    "imageUrl": "http://easternsky.synology.me//images/chatbot/photoView.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/photoView.png",
+                                    //"imageUrl": "http://easternsky.synology.me//images/chatbot/photoView.png",
                                 },
 
                                 "buttonList":[
@@ -707,8 +707,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n다양한 정보들을 확인해 보세요.",
 
                                 "image": {
-                                   // "imageUrl": "https://interiorbrothers.com/images/chatbot/experts.png",
-                                    "imageUrl": "http://easternsky.synology.me//images/chatbot/experts.png",
+                                   "imageUrl": "https://interiorbrothers.com/images/chatbot/experts.png",
+                                    //"imageUrl": "http://easternsky.synology.me//images/chatbot/experts.png",
                                 },
 
                                 "buttonList":[
@@ -734,8 +734,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                 "\n컨텐츠를 통해 그 이야기를 들어보세요.",
 
                                 "image": {
-                                    //"imageUrl": "https://interiorbrothers.com/images/chatbot/webros.png",
-                                    "imageUrl": "http://easternsky.synology.me//images/chatbot/webros.png",
+                                    "imageUrl": "https://interiorbrothers.com/images/chatbot/webros.png",
+                                    //"imageUrl": "http://easternsky.synology.me//images/chatbot/webros.png",
                                 },
 
                                 "buttonList":[
