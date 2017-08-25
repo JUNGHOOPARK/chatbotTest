@@ -933,9 +933,10 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                                 return console.error('experts failed:', error);
                                             }
-
+                                            console.log(response);
+                                            console.log(body);
                                             experts = body.experts;
-                                            console.log(body.experts);
+
 
                                             //message = body.experts.message || -1;
 
