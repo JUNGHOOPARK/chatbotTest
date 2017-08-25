@@ -656,6 +656,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 }
             };
     }else if(type === 'welcome'){
+
         var result =
                 {
                 "event": "send",
