@@ -923,7 +923,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                         var experts = null;
                                         var message = -1;
                                         var options = {
-                                            url: 'https://interiorbrothers.com/api/doConcierge',
+                                            url: 'https://www.interiorbrothers.com/api/doConcierge',
                                             method: 'POST',
                                             json: formData
                                         };
@@ -933,12 +933,10 @@ app.post('/naverTalkTalk', function (req, res) {
 
                                                 return console.error('experts failed:', error);
                                             }
-                                            console.log(response);
-                                            console.log(body);
+
+
                                             experts = body.experts;
-
-
-                                            //message = body.experts.message || -1;
+                                            message = body.experts.message || -1;
 
 
                                         })
@@ -947,8 +945,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                         setTimeout(function () {
                                             req.cache.set(req.body.user,JSON.stringify(data));
                                             req.cache.expire(req.body.user, 600);
-                                            //if(message !== -1){
-                                            if(count <= 0){
+                                            
+                                            if(message !== -1){
                                                 res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
                                             }else{
 
