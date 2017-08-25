@@ -935,7 +935,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             }
 
                                             experts = body.experts;
-                                            console.log(typeof experts);
+                                            console.log(body.experts);
 
                                             //message = body.experts.message || -1;
 
