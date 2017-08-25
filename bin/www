@@ -108,12 +108,6 @@ app.get('/test', function(req, res, next) {
 });
 
 
-
-
-
-
-
-
 /*
  ////////////////////////////////////////////////////
  START 네이버 톡톡
@@ -227,7 +221,7 @@ app.post('/naverTalkTalk', function (req, res) {
                                             "url": "https://www.interiorbrothers.com/findexpert",
                                             "mobileUrl": "https://www.interiorbrothers.com/mobile/findexpert",
                                         }
-                                    },
+                                    }
                                 ]
                             }
                         }
@@ -708,7 +702,6 @@ app.post('/naverTalkTalk', function (req, res) {
                                 } else {
                                     var result = actionNtConcierge.getMeasure(text);
 
-
                                     data.py = result[0];
                                     data.meter = result[1];
 
@@ -745,7 +738,6 @@ app.post('/naverTalkTalk', function (req, res) {
                                     var msg = text;
                                     msg = msg.trim();
                                     var pattern = /\s/g; // 공백여부
-
 
                                     if (msg.indexOf("~") != -1) {
                                         result = msg.split("~");
@@ -822,7 +814,6 @@ app.post('/naverTalkTalk', function (req, res) {
                                 //스타일선택
                             } else if (data.stylesYN === true) {
 
-
                                 if (text.indexOf("이전") != -1) {
                                     res.json(actionNtConcierge.getConciergeExpress("budget", req.body, ''));
                                     data.budget = true;
@@ -863,7 +854,6 @@ app.post('/naverTalkTalk', function (req, res) {
                                         formData.budget.min = data.budgetMin;
                                         formData.budget.max = data.budgetMax;
                                         formData.style = data.styles;
-
 
                                         if (!formData.specialty.main
                                             || ( !(formData.specialty.main === 'interior') && !(formData.specialty.main === 'construction'))) {
@@ -1009,13 +999,11 @@ app.post('/naverTalkTalk', function (req, res) {
             case 'open' :
                 switch(req.body.options.inflow) {
                     case 'list' :
-
                         break;
                     case 'none' :
                         welcome();
                         break;
                     default:
-
                         welcome();
 
                         break;

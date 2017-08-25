@@ -482,10 +482,12 @@ module.exports.getConciergeExpress = function (type,body,opt) {
              obj = {},
              obj2 = {},
              obj3 = {};
+             obj4 = {};
 
         for(var i = 0 ; i < opt.length; i++){
             var match =  opt[i].src.split('/file/download/');
             opt[i].src = '/file/download/small-' + match[1];
+
 
             if(opt[i].deadLine.substring(0,4) > 1000){
                 opt[i].deadLine = opt[i].deadLine.substring(0,10);
@@ -504,6 +506,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             }
             elementList.type = "LIST";
             obj3.title = opt[i].businessName;
+
             // obj.title = opt[i].businessName+"\n\n"+opt[i].title;
             obj.title = opt[i].title;
 
@@ -521,16 +524,27 @@ module.exports.getConciergeExpress = function (type,body,opt) {
             obj2.data =  {
                 "title": "상세 정보 보기",
                 "url": "https://www.interiorbrothers.com/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId,
-                "mobileUrl": "https://www.interiorbrothers.com/mobile/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId,
+                "mobileUrl": "https://www.interiorbrothers.com/mobile/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId
             };
+            
+            obj4.type =  "LINK";
+            obj4.data =  {
+                "title": "전화 걸기",
+                "url": "tel:"+opt[i].vn,
+                "mobileUrl": "tel:"+opt[i].vn
+            };
+
+
 
             elementList_data.push(obj3);
             elementList.data = elementList_data;
             obj.elementList = elementList;
             buttonList.push(obj2);
+            buttonList.push(obj4);
             obj.buttonList = buttonList;
             compositeList.push(obj);
 
+            obj4 = {};
             obj3 = {};
             elementList = {};
             elementList_data = [];
