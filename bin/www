@@ -935,7 +935,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                             }
 
                                             experts = body.experts;
-                                            var count = Object.keys(experts).length;
+                                            console.log(typeof experts);
+                                         
                                             //message = body.experts.message || -1;
 
 
