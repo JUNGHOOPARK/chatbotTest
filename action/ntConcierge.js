@@ -682,17 +682,8 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                             "title": "전문가 찾기 [컨시어지]",
                                             "code": '컨시어지'
                                         }
+                                    }
 
-                                    },
-                                    {
-                                        "type" : "LINK",
-                                        "data" : {
-                                            "title": "전화 걸기",
-                                            "url": "tel:010-9245-5948",
-                                            "mobileUrl": "tel:010-9245-5948"
-                                        }
-
-                                    },
                                 ]
                             },
                             {
