@@ -935,7 +935,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                             }
 
                                             experts = body.experts;
-                                            message = body.experts.message || -1;
+
+                                            //message = body.experts.message || -1;
 
 
                                         })
@@ -944,7 +945,8 @@ app.post('/naverTalkTalk', function (req, res) {
                                         setTimeout(function () {
                                             req.cache.set(req.body.user,JSON.stringify(data));
                                             req.cache.expire(req.body.user, 600);
-                                            if(message !== -1){
+                                            //if(message !== -1){
+                                            if(experts.length <= 0){
                                                 res.json(actionNtConcierge.getConciergeExpress("none_expert", req.body,''));
                                             }else{
 

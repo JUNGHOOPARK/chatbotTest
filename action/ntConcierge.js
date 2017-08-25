@@ -526,7 +526,7 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                 "url": "https://www.interiorbrothers.com/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId,
                 "mobileUrl": "https://www.interiorbrothers.com/mobile/experts/"+opt[i].userId+"/portfolio?portfolioId="+opt[i].portfolioId
             };
-            console.log(opt[i].vn);
+
             obj4.type =  "LINK";
             obj4.data =  {
                 "title": "전화 걸기",
@@ -683,7 +683,16 @@ module.exports.getConciergeExpress = function (type,body,opt) {
                                             "code": '컨시어지'
                                         }
 
-                                    }
+                                    },
+                                    {
+                                        "type" : "LINK",
+                                        "data" : {
+                                            "title": "전화 걸기",
+                                            "url": "tel:010-9245-5948",
+                                            "mobileUrl": "tel:010-9245-5948"
+                                        }
+
+                                    },
                                 ]
                             },
                             {
